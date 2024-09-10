@@ -1,0 +1,119 @@
+/* Aplica este estilo solo al contenedor principal de Index */
+.index-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url(../assets/img/colbun2.jpg); /* Imagen de fondo */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  flex-direction: column;
+}
+
+/* Estilos para el navbar */
+.navbar {
+  width: 100%; /* Asegura que el navbar ocupe el 100% del ancho de la pantalla */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #004d40;
+  padding: 15px 30px;
+  position: fixed; /* Fija el navbar en la parte superior */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Asegura que el navbar quede por encima de otros elementos */
+}
+
+/* Ajuste para distribuir los enlaces equitativamente */
+.navbar-links {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-evenly; /* Distribuye los enlaces equitativamente */
+  margin: 0px 0px 0px 100px; /* Acerca "¿A dónde ir?" a la izquierda */
+}
+
+.navbar-links button {
+  color: #ffffff;
+  background-color: transparent;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0px 90px 0px 0px;
+}
+
+/* Ajuste para "ES/EN" para que se distribuya equitativamente */
+.navbar-auth {
+  display: flex;
+  justify-content: center; /* Se alinea a la izquierda pero dentro del espacio */
+  flex-grow: 1;
+}
+
+.navbar-auth button{
+  color: #ffffff;
+  background-color: transparent;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.navbar-auth a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px; /* Pequeño margen para separación */
+}
+
+/* Ajuste para el botón de búsqueda */
+.navbar-search {
+  margin-right: 30px; /* Ajusta este valor para separar el botón del borde derecho */
+}
+
+.navbar-search button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar-search i {
+  font-size: 24px; /* Tamaño del icono */
+  color: #ffffff;  /* Color del icono para que sea visible */
+}
+
+dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  display: block;
+}
+
+.dropdown-menu li {
+  padding: 10px 20px;
+}
+
+.dropdown-menu li a {
+  color: black;
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+}
+/* Estilo para el contenedor de video */
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; /* Añade espacio debajo del video antes del texto */
+}
+
+.video-container iframe {
+  border: 5px solid #004d40; /* Un marco verde oscuro alrededor del video */
+  border-radius: 10px; /* Bordes redondeados para el marco */
+}
