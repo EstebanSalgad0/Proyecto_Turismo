@@ -52,7 +52,7 @@ const Index = () => {
       </header>
 
       <div className="hero">
-        {/* Video enmarcado sobre el texto */}
+        {/* Video enmarcado         sobre el texto */}
         <div className="video-container">
           <iframe 
             width="560" 
