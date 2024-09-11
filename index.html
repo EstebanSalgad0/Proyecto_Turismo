@@ -1,13 +1,54 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React</title>
+    <style>
+      /* Ocultar el selector predeterminado de Google Translate */
+      #google_translate_element {
+        display: none;
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"></div> <!-- Aquí se carga React -->
+
+    <!-- Google Translate Widget -->
+    <div id="google_translate_element"></div>
+
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: 'es',
+            includedLanguages: 'es,en', // Solo español e inglés
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          },
+          'google_translate_element'
+        );
+      }
+
+      // Función para cambiar el idioma usando Google Translate
+      function changeLanguage(lang) {
+        var select = document.querySelector('select.goog-te-combo');
+        if (select) {
+          select.value = lang;
+          select.dispatchEvent(new Event('change'));
+        }
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Script principal de React -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'es,en'}, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
