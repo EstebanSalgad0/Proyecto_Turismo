@@ -11,6 +11,7 @@ const resources = {
       "rari": "Rari",
       "bellotos_reserve": "Bellotos National Reserve",
       "welcome_message": "TURN COLBÚN INTO YOUR NEXT ADVENTURE.",
+      "welcome_message2": "NEXT ADVENTURE.",
       "subtitle_message": "WE WELCOME YOU TO COLBÚN",
       "watch_now": "Watch now",
       "language_switch": "ES"
@@ -24,8 +25,9 @@ const resources = {
       "lake_colbun": "Lago Colbún",
       "rari": "Rari",
       "bellotos_reserve": "Reserva Nacional De Bellotos",
-      "welcome_message": "CONVIERTE A COLBÚN EN TU PRÓXIMA AVENTURA.",
-      "subtitle_message": "TE DAMOS LA BIENVENIDA A COLBÚN",
+      "welcome_message": "¡CONVIERTE A COLBÚN EN TU",
+      "welcome_message2": "¡ PRÓXIMA AVENTURA!",
+      "subtitle_message": "TE DAMOS LA BIENVENIDA A LA COMUNA",
       "watch_now": "Ver ahora",
       "language_switch": "EN"
     }
