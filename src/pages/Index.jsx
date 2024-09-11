@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import { Link } from 'react-router-dom';
 import '../styles/Index.css';
 
 const Index = () => {
@@ -40,9 +41,17 @@ const Index = () => {
             </button>
             {dropdownOpen && (
               <ul className="dropdown-menu">
-                <li><a href="#">Lago Colbún</a></li>
-                <li><a href="#">Rari</a></li>
-                <li><a href="#">Reserva Nacional De Bellotos</a></li>
+                <li><Link to="/ElMelado">El Melado</Link></li>
+                <li><Link to="/Paso-pehuenche">Paso Pehuenche</Link></li>
+                <li><Link to="/Colbun-alto">Colbún Alto</Link></li>
+                <li><Link to="/La-Guardia">La Guardia</Link></li>
+                <li><Link to="/Los-Boldos">Los Boldos</Link></li>
+                <li><Link to="/Panimavida">Panimávida</Link></li>
+                <li><Link to="/Rari">Rari</Link></li>
+                <li><Link to="/Quinamavida">Quinamávida</Link></li>
+                <li><Link to="/Rabones">Rabones</Link></li>
+                <li><Link to="/Los-Bellotos">Los Bellotos</Link></li>
+                <li><Link to="/Balneario-Machicura">Balneario Machicura</Link></li>
               </ul>
             )}
           </div>
