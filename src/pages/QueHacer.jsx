@@ -2,7 +2,13 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-import '../styles/Index.css';
+import '../styles/QueHacer.css';
+
+// Importación de imágenes locales
+import culturaImage from '../assets/img/Cultural.png';
+import senderismoImage from '../assets/img/Senderismo.png';
+import parquesImage from '../assets/img/Parque.png';
+import vidaSalvajeImage from '../assets/img/Rutas.png';
 
 const Index = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -136,62 +142,34 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <div className="hero">
-        <div className="hero-content">
-          <h1>CONVIERTE A COLBÚN EN TU PRÓXIMA AVENTURA</h1>
-          <h2>TE DAMOS LA BIENVENIDA A LA COMUNA</h2>
-          <button className="btn-green">Ver ahora</button>
-        </div>
-      </div>
-
       {/* Carousel Section */}
       <section className="carousel-section">
         <div className="carousel-header">
-          <h5>Admira</h5>
+            <br></br><br></br>
+          <h5>¿Qué hacer?</h5>
           <div className="carousel-subheader">
             <h2>Belleza Natural</h2>
-            <a href="#">Ve más <span>&#8594;</span></a>
           </div>
         </div>
 
         {/* Carrusel de imágenes */}
         <div className="carousel-container">
           <div className="carousel-card">
-            <div className="carousel-image"></div>
-            <p>Mirador Las Vizcachas</p>
+            <div className="carousel-image" style={{ backgroundImage: `url(${culturaImage})` }}></div>
+            <p>Cultura y sitios históricos</p>
           </div>
           <div className="carousel-card">
-            <div className="carousel-image"></div>
-            <p>Parque Nacional Guaquivilo</p>
+            <div className="carousel-image" style={{ backgroundImage: `url(${senderismoImage})` }}></div>
+            <p>Senderismo</p>
           </div>
           <div className="carousel-card">
-            <div className="carousel-image"></div>
-            <p>Cavernas Los Bellotos</p>
+            <div className="carousel-image" style={{ backgroundImage: `url(${parquesImage})` }}></div>
+            <p>Parques</p>
           </div>
           <div className="carousel-card">
-            <div className="carousel-image"></div>
-            <p>Embalse Machicura</p>
+            <div className="carousel-image" style={{ backgroundImage: `url(${vidaSalvajeImage})` }}></div>
+            <p>Vida Salvaje</p>
           </div>
-        </div>
-      </section>
-
-      <section className="community-section">
-        <div className="community-content">
-          <h1>Acércate más a <br />nuestra comuna</h1>
-          <p>
-          Servicio País Colbún y la Municipalidad de Colbún comparten sus experiencias transformadoras en las diversas localidades de la comuna. Sumérgete en sus historias, desde la revitalización de espacios públicos hasta proyectos de inclusión social que han mejorado la calidad de vida de los vecinos. Desde talleres educativos en zonas rurales hasta el impulso de emprendimientos locales, descubre cómo el trabajo conjunto ha marcado la diferencia en el corazón de Colbún.
-          </p>
-          <button className="btn-blue">Descubre cómo la colaboración puede transformar comunidades</button>
-        </div>
-      </section>
-
-      <section className="info-section">
-        <div className="info-content">
-          <h5>Lugares inolvidables</h5>
-          <h1>Algo para no olvidar</h1>
-          <p>Descubre la belleza cautivadora de Colbún, donde los tranquilos paisajes rurales se entrelazan con los lagos cristalinos y montañas imponentes que ofrecen una combinación única de naturaleza, aventura al aire libre y un profundo sentido de comunidad. Puedes navegar en las aguas del embalse Machicura, disfrutar de las termas naturales de Panimávida o explorar los senderos que atraviesan los cerros verdes de la región. Colbún te invita a vivir experiencias inolvidables, inmersas en la serenidad y el encanto del corazón de la zona central de Chile.</p>
-          <button className="btn-blue">Descubre tu próximo destino</button>
         </div>
       </section>
 

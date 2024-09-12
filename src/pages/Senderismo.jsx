@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-import '../styles/Index.css';
+import '../styles/Senderismo.css' // Estilos específicos para el componente
 
-const Index = () => {
+const Elmelado = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [activitiesDropdownOpen, setActivitiesDropdownOpen] = useState(false);
   const [activeSubMenu, setActiveSubMenu] = useState(null);
@@ -66,10 +66,9 @@ const Index = () => {
                 <li><Link to="/Rabones">Rabones</Link></li>
                 <li><Link to="/Los-Bellotos">Los Bellotos</Link></li>
                 <li><Link to="/Balneario-Machicura">Balneario Machicura</Link></li>
-              </ul>
+              </ul> 
             )}
           </div>
-
           <div className="dropdown">
             <button className="Hacer" onClick={toggleActivitiesDropdown}>
               ¿Qué hacer?
@@ -121,7 +120,6 @@ const Index = () => {
               </ul>
             )}
           </div>
-
           <button className="Zona">Zona ZOIT</button>
         </div>
         <div className="navbar-auth">
@@ -139,12 +137,39 @@ const Index = () => {
       {/* Hero Section */}
       <div className="hero">
         <div className="hero-content">
-          <h1>CONVIERTE A COLBÚN EN TU PRÓXIMA AVENTURA</h1>
-          <h2>TE DAMOS LA BIENVENIDA A LA COMUNA</h2>
-          <button className="btn-green">Ver ahora</button>
+          <h5>Senderismo</h5>
+          <h1 id='volcan'>Volcán San Pedro y San Pablo</h1>
+          <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos ab ipsa magni asperiores magnam adipisci earum nemo nisi iure voluptate culpa nihil dolores, possimus animi sapiente natus doloribus! Iste, aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, libero reiciendis. Eos consequatur voluptas consectetur repellat blanditiis velit obcaecati id quaerat dolore quod, numquam voluptate, molestias ipsum? Accusamus, odio similique?</h4>
         </div>
       </div>
 
+      <section className="info-section">
+        <div className="info-content">
+          <h5>Lugares inolvidables</h5>
+          <h1>Algo para no olvidar</h1>
+          <p>Descubre la belleza cautivadora de Colbún, donde los tranquilos paisajes rurales se entrelazan con los lagos cristalinos y montañas imponentes que ofrecen una combinación única de naturaleza, aventura al aire libre y un profundo sentido de comunidad. Puedes navegar en las aguas del embalse Machicura, disfrutar de las termas naturales de Panimávida o explorar los senderos que atraviesan los cerros verdes de la región. Colbún te invita a vivir experiencias inolvidables, inmersas en la serenidad y el encanto del corazón de la zona central de Chile.</p>
+          <button className="btn-blue">Descubre tu próximo destino</button>
+        </div>
+      </section>
+
+      {/* Hero Section */}
+      <div className="hero">
+        <div className="hero-content">
+          <h5>Senderismo</h5>
+          <h1 id='mirador'>Mirador las vizcachas</h1>
+          <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos ab ipsa magni asperiores magnam adipisci earum nemo nisi iure voluptate culpa nihil dolores, possimus animi sapiente natus doloribus! Iste, aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, libero reiciendis. Eos consequatur voluptas consectetur repellat blanditiis velit obcaecati id quaerat dolore quod, numquam voluptate, molestias ipsum? Accusamus, odio similique?</h4>
+        </div>
+      </div>
+
+      <section className="info-section">
+        <div className="info-content">
+          <h5>Lugares inolvidables</h5>
+          <h1>Algo para no olvidar</h1>
+          <p>Descubre la belleza cautivadora de Colbún, donde los tranquilos paisajes rurales se entrelazan con los lagos cristalinos y montañas imponentes que ofrecen una combinación única de naturaleza, aventura al aire libre y un profundo sentido de comunidad. Puedes navegar en las aguas del embalse Machicura, disfrutar de las termas naturales de Panimávida o explorar los senderos que atraviesan los cerros verdes de la región. Colbún te invita a vivir experiencias inolvidables, inmersas en la serenidad y el encanto del corazón de la zona central de Chile.</p>
+          <button className="btn-blue">Descubre tu próximo destino</button>
+        </div>
+      </section>
+            
       {/* Carousel Section */}
       <section className="carousel-section">
         <div className="carousel-header">
@@ -176,25 +201,6 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="community-section">
-        <div className="community-content">
-          <h1>Acércate más a <br />nuestra comuna</h1>
-          <p>
-          Servicio País Colbún y la Municipalidad de Colbún comparten sus experiencias transformadoras en las diversas localidades de la comuna. Sumérgete en sus historias, desde la revitalización de espacios públicos hasta proyectos de inclusión social que han mejorado la calidad de vida de los vecinos. Desde talleres educativos en zonas rurales hasta el impulso de emprendimientos locales, descubre cómo el trabajo conjunto ha marcado la diferencia en el corazón de Colbún.
-          </p>
-          <button className="btn-blue">Descubre cómo la colaboración puede transformar comunidades</button>
-        </div>
-      </section>
-
-      <section className="info-section">
-        <div className="info-content">
-          <h5>Lugares inolvidables</h5>
-          <h1>Algo para no olvidar</h1>
-          <p>Descubre la belleza cautivadora de Colbún, donde los tranquilos paisajes rurales se entrelazan con los lagos cristalinos y montañas imponentes que ofrecen una combinación única de naturaleza, aventura al aire libre y un profundo sentido de comunidad. Puedes navegar en las aguas del embalse Machicura, disfrutar de las termas naturales de Panimávida o explorar los senderos que atraviesan los cerros verdes de la región. Colbún te invita a vivir experiencias inolvidables, inmersas en la serenidad y el encanto del corazón de la zona central de Chile.</p>
-          <button className="btn-blue">Descubre tu próximo destino</button>
-        </div>
-      </section>
-
       <section className="social-section">
         <div className="social-content">
           <h2>¿Cuál será tu próximo destino?</h2>
@@ -204,26 +210,6 @@ const Index = () => {
             <i className="bi bi-facebook"></i>
             <i className="bi bi-instagram"></i>
             <i className="bi bi-youtube"></i>
-          </div>
-        </div>
-
-        <hr className="divider" />
-
-        <div className="help-section">
-          <h2>¿Tienes dudas? Nosotros <strong>te ayudamos</strong></h2>
-          <div className="help-options">
-            <div className="help-item">
-              <div className="help-image help-image-1"></div>
-              <p><strong>Turismo atiende</strong><br />Agenda tu hora y resuelve dudas</p>
-            </div>
-            <div className="help-item">
-              <div className="help-image help-image-2"></div> 
-              <p><strong>Oficinas información turística</strong></p>
-            </div>
-            <div className="help-item">
-              <div className="help-image help-image-3"></div>
-              <p><strong>Folletería y mapas</strong></p>
-            </div>
           </div>
         </div>
       </section>
@@ -265,8 +251,11 @@ const Index = () => {
           </div>
         </div>
       </footer>
+      
+
+
     </div>
   );
 };
 
-export default Index;
+export default Elmelado;
