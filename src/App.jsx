@@ -23,7 +23,8 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<InicioSesion />} />
+        <Route path="/" element={<Titulo />} />
+        <Route path="/login" element={<InicioSesion />} /> {/* Nueva ruta para InicioSesion */}
         <Route path="/Index" element={<Titulo />} />
         <Route path="/ElMelado" element={<ElMelado />} /> {/* Nueva ruta para ElMelado */}
         <Route path="/Paso-pehuenche" element={<Pasopehuenche/>} />

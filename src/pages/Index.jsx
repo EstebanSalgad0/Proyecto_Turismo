@@ -142,7 +142,9 @@ const Index = () => {
         <div className="hero-content2">
           <h1>CONVIERTE A COLBÚN EN TU PRÓXIMA AVENTURA</h1>
           <h2>TE DAMOS LA BIENVENIDA A LA COMUNA</h2>
-          <button className="btn-green">Ver ahora</button>
+          <a href="https://www.youtube.com/watch?v=NOi1JxhP8Y4" target="colbun" rel="municipalidad_Colbun">
+          <button className="btn-blue">Ver ahora</button>
+          </a>
         </div>
       </div>
 
