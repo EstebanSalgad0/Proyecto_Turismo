@@ -183,7 +183,9 @@ const Index = () => {
           <p>
           Servicio País Colbún y la Municipalidad de Colbún comparten sus experiencias transformadoras en las diversas localidades de la comuna. Sumérgete en sus historias, desde la revitalización de espacios públicos hasta proyectos de inclusión social que han mejorado la calidad de vida de los vecinos. Desde talleres educativos en zonas rurales hasta el impulso de emprendimientos locales, descubre cómo el trabajo conjunto ha marcado la diferencia en el corazón de Colbún.
           </p>
+          <a href="https://www.youtube.com/watch?v=NOi1JxhP8Y4" target="colbun" rel="municipalidad_Colbun">
           <button className="btn-blue">Descubre cómo la colaboración puede transformar comunidades</button>
+          </a>
         </div>
       </section>
 
