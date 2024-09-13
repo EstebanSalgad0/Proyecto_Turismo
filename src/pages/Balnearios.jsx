@@ -135,8 +135,8 @@ const Balnearios = () => {
       </header>
 
       {/* Hero Section */}
-      <div className="hero">
-        <div className="hero-content">
+      <div className="hero3">
+        <div className="hero-content3">
           <h5>¿A donde ir?</h5>
           <h1>Balnearios Machicura</h1>
           <h4>El Balneario Machicura, ubicado en Colbún, Chile, es un destacado destino para quienes buscan disfrutar de la belleza natural y la tranquilidad en el corazón de la región del Maule. Este encantador balneario, situado a orillas del embalse Machicura, ofrece un entorno sereno rodeado de colinas verdes y paisajes pintorescos. Aquí, los visitantes pueden disfrutar de una variedad de actividades al aire libre, como nadar en las aguas cristalinas del embalse, practicar deportes acuáticos o simplemente relajarse junto a la playa. Con su ambiente acogedor y su entorno natural impresionante, el Balneario Machicura es el lugar ideal para escapar del bullicio urbano y sumergirse en una experiencia revitalizante en la naturaleza.</h4>

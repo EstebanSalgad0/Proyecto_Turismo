@@ -135,8 +135,8 @@ const Colbunalto = () => {
       </header>
 
       {/* Hero Section */}
-      <div className="hero">
-        <div className="hero-content">
+      <div className="hero4">
+        <div className="hero-content4">
           <h5>¿A donde ir?</h5>
           <h1>Colbun Alto</h1>
           <h4>Colbún Alto es una encantadora localidad en la comuna de Colbún, situada en la región del Maule, Chile. Este pintoresco rincón se destaca por sus vistas panorámicas de los majestuosos paisajes cordilleranos y su cercanía al embalse Colbún, una impresionante obra de ingeniería que no solo embellece el entorno, sino que también juega un papel crucial en la generación de energía hidroeléctrica. En Colbún Alto, la tranquilidad de la vida rural se combina con la majestuosidad de la naturaleza, ofreciendo a los visitantes la oportunidad de disfrutar de actividades al aire libre como el senderismo, la pesca y el avistamiento de aves. El área es ideal para quienes buscan escapar del bullicio urbano y sumergirse en un entorno sereno y natural, donde la comunidad local mantiene vivas las tradiciones y el espíritu acogedor del campo chileno.</h4>

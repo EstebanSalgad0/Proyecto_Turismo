@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-import '../styles/Index.css';
+import '../styles/Index.css?v=1.5';
+
 
 const Index = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -137,8 +138,8 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <div className="hero">
-        <div className="hero-content">
+      <div className="hero2">
+        <div className="hero-content2">
           <h1>CONVIERTE A COLBÚN EN TU PRÓXIMA AVENTURA</h1>
           <h2>TE DAMOS LA BIENVENIDA A LA COMUNA</h2>
           <button className="btn-green">Ver ahora</button>

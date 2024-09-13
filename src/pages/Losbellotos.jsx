@@ -135,8 +135,8 @@ const Losbellotos = () => {
       </header>
 
       {/* Hero Section */}
-      <div className="hero">
-        <div className="hero-content">
+      <div className="hero7">
+        <div className="hero-content7">
           <h5>¿A donde ir?</h5>
           <h1>Los Bellotos</h1>
           <h4>Los Bellotos es una pintoresca localidad en la comuna de Colbún, en la región del Maule, Chile, conocida por su ambiente sereno y su entorno natural impresionante. Situada en un área de colinas verdes y rica vegetación, Los Bellotos ofrece una experiencia auténtica de la vida rural chilena. El área se destaca por sus tranquilos paisajes y su cercanía al embalse Colbún, que brinda oportunidades para disfrutar de actividades recreativas al aire libre como la pesca y la navegación. La comunidad local, acogedora y cálida, contribuye al encanto del lugar, ofreciendo una inmersión en la vida campestre y la belleza natural del corazón del Maule. Los Bellotos es el destino ideal para quienes buscan escapar del bullicio urbano y sumergirse en la serenidad y el esplendor de la naturaleza chilena.</h4>

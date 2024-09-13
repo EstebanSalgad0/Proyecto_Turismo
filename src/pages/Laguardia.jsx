@@ -135,8 +135,8 @@ const Laguardia = () => {
       </header>
 
       {/* Hero Section */}
-      <div className="hero">
-        <div className="hero-content">
+      <div className="hero6">
+        <div className="hero-content6">
           <h5>¿A donde ir?</h5>
           <h1>La Guardia</h1>
           <h4>La Guardia es una encantadora localidad en la comuna de Colbún, ubicada en la región del Maule, Chile. Este pintoresco rincón ofrece una experiencia auténtica de la vida rural chilena, rodeado de una naturaleza exuberante que incluye verdes colinas y ríos cristalinos. La Guardia destaca por su proximidad al embalse Colbún, donde se pueden disfrutar de actividades recreativas como la navegación y la pesca. El área es ideal para los amantes de la tranquilidad y el contacto directo con la naturaleza, ofreciendo senderos para explorar y paisajes que invitan a la reflexión y el descanso. Con su atmósfera serena y su comunidad acogedora, La Guardia representa un refugio perfecto para quienes buscan escapar del bullicio urbano y disfrutar de la belleza natural del corazón de la zona central de Chile.</h4>

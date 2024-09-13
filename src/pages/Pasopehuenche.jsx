@@ -135,8 +135,8 @@ const Pasopehuenche = () => {
       </header>
 
       {/* Hero Section */}
-      <div className="hero">
-        <div className="hero-content">
+      <div className="hero12">
+        <div className="hero-content12">
           <h5>¿A donde ir?</h5>
           <h1>Paso Pehuenche</h1>
           <h4>Paso Pehuenche, ubicado en la Región del Maule, Chile, es un paso montañoso que conecta el país con Argentina, ofreciendo una ruta impresionante a través de la Cordillera de los Andes. Este paso es conocido por sus paisajes espectaculares, que varían desde vastas planicies hasta formaciones rocosas imponentes y cumbres nevadas. Durante el viaje, los visitantes pueden disfrutar de vistas panorámicas que destacan la majestuosidad de los Andes y la diversidad de la flora y fauna local. En invierno, el paso puede verse cubierto por una capa de nieve, lo que agrega un toque mágico al entorno. Su relevancia no solo radica en su belleza natural, sino también en su importancia como una vía clave para el intercambio comercial y cultural entre Chile y Argentina.</h4>

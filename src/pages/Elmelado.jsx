@@ -135,8 +135,8 @@ const Elmelado = () => {
       </header>
 
       {/* Hero Section */}
-      <div className="hero">
-        <div className="hero-content">
+      <div className="hero0">
+        <div className="hero-content0">
           <h5>¿A donde ir?</h5>
           <h1>El Melado</h1>
           <h4>El Melado es una pintoresca localidad ubicada en la comuna de Colbún, en la región del Maule, Chile. Este lugar se destaca por su entorno natural, rodeado de montañas, ríos y exuberante vegetación, que lo convierten en un destino ideal para los amantes de la naturaleza y el ecoturismo. El Melado es conocido por el embalse del mismo nombre, una impresionante obra de ingeniería que abastece de agua a la zona y se utiliza para la generación de energía hidroeléctrica. Además, sus paisajes son perfectos para actividades como el senderismo, la pesca y el avistamiento de flora y fauna autóctona, ofreciendo una experiencia única en contacto con la tranquilidad de la cordillera.</h4>
