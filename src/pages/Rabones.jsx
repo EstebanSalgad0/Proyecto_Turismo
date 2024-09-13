@@ -135,8 +135,8 @@ const Rabones = () => {
       </header>
 
       {/* Hero Section */}
-      <div className="hero">
-        <div className="hero-content">
+      <div className="hero14">
+        <div className="hero-content14">
           <h5>¿A donde ir?</h5>
           <h1>Rabones</h1>
           <h4>Rabones es una pintoresca localidad en la comuna de Colbún, en la región del Maule, Chile, que destaca por su tranquilo entorno rural y su impresionante paisaje natural. Rodeada de colinas verdes y bañada por el río Colbún, esta área ofrece una atmósfera serena y un contacto cercano con la naturaleza. En Rabones, los visitantes pueden disfrutar de actividades al aire libre como caminatas y paseos en bicicleta, explorando la belleza escénica de la región. La comunidad local, conocida por su calidez y hospitalidad, contribuye a crear un ambiente acogedor y auténtico. Rabones es el lugar ideal para aquellos que buscan una escapada tranquila en el corazón del Maule, inmersa en la serenidad y el encanto de los paisajes rurales chilenos.</h4>

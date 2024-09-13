@@ -135,8 +135,8 @@ const Quinamavida = () => {
       </header>
 
       {/* Hero Section */}
-      <div className="hero">
-        <div className="hero-content">
+      <div className="hero13">
+        <div className="hero-content13">
           <h5>¿A donde ir?</h5>
           <h1>Quinamávida</h1>
           <h4>Quinamávida es una encantadora localidad en la comuna de Colbún, en la región del Maule, Chile, conocida por su rica tradición artesanal. Aquí, las artesanas locales preservan y transmiten técnicas ancestrales en la creación de textiles y productos hechos a mano, que reflejan la riqueza cultural y el ingenio de la región. Cada pieza elaborada en Quinamávida es un testimonio del talento y la dedicación de sus creadoras, quienes utilizan materiales tradicionales y métodos tradicionales para ofrecer productos únicos y de alta calidad. Al visitar Quinamávida, puedes explorar los talleres de las artesanas, conocer el proceso detrás de cada creación y adquirir recuerdos auténticos que capturan el espíritu de la región. La experiencia en Quinamávida ofrece una inmersión en el arte y la tradición local, combinando la belleza de sus paisajes con la riqueza de su patrimonio cultural.</h4>

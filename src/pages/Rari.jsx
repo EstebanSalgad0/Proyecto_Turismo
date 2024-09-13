@@ -135,8 +135,8 @@ const Rari = () => {
       </header>
 
       {/* Hero Section */}
-      <div className="hero">
-        <div className="hero-content">
+      <div className="hero15">
+        <div className="hero-content15">
           <h5>¿A donde ir?</h5>
           <h1>Rari</h1>
           <h4>Rari es una encantadora localidad en la comuna de Colbún, en la región del Maule, Chile, conocida por su rica tradición artesanal. Este pintoresco lugar se destaca por sus artesanas que preservan y transmiten técnicas ancestrales en la elaboración de textiles, cestería y cerámica, creando piezas únicas que reflejan la esencia de la cultura local. Los productos artesanales de Rari son apreciados por su calidad y el cuidado en cada detalle, combinando materiales tradicionales con diseños innovadores. Al visitar Rari, puedes conocer de cerca el proceso de creación de estas obras de arte, interactuar con las talentosas artesanas y adquirir recuerdos auténticos que capturan el espíritu y la tradición de la región. La experiencia en Rari ofrece una inmersión en la herencia cultural de Colbún, donde la habilidad y la pasión de sus artesanas transforman la tradición en arte vivo.</h4>
