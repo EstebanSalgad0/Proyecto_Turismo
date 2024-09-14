@@ -158,7 +158,7 @@ a {
 }
 
 .hero2 {
-  background-image: url('../assets/img/image.png') !important; /* Aquí va la ruta de tu imagen */
+  position: relative;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat;
@@ -173,9 +173,33 @@ a {
   box-sizing: border-box;
   flex-direction: column; /* Coloca los elementos en columna */
   margin-top: 74px;
+  overflow: hidden; /* Asegura que el iframe no sobresalga */
+}
+
+.hero2 iframe {
+  position: absolute;
+  top: 0;
+  margin-top: -50px;
+  left: 0;
+  width: 100%;
+  height: 122%;
+  border: none;
+  z-index: -2; /* Coloca el iframe detrás del contenido */
+}
+
+.hero2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25); /* Capa negra semitransparente */
+  z-index: -1; /* Capa negra detrás del contenido pero sobre el video */
 }
 
 .hero-content2 {
+  position: relative; /* Mantén el contenido por encima del iframe y la capa negra */
   margin-top: 100px;
   margin-right: 600px;
   align-items: start;
@@ -610,5 +634,131 @@ a {
   .logo {
     width: 100px; /* Ajusta el tamaño de los logos en pantallas pequeñas */
     height: auto;
+  }
+}
+
+/* --- Adaptación a móviles pequeños (hasta 480px) --- */
+@media only screen and (max-width: 480px) {
+  .header {
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+
+  .header-logo {
+    font-size: 1.2rem;
+  }
+
+  .navbar {
+    display: none; /* Ocultamos la barra de navegación para móviles pequeños */
+  }
+
+  .hamburger-menu {
+    display: flex; /* Mostramos el menú hamburguesa */
+  }
+
+  .navbar-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #333;
+    padding: 15px;
+    gap: 10px;
+    width: 100%;
+    display: none; /* Mantener oculto hasta que se active con el menú hamburguesa */
+  }
+
+  .navbar-links li a {
+    font-size: 1.2rem;
+    padding: 10px;
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+
+  .navbar-links.show {
+    display: flex; /* Mostramos la barra de navegación cuando se hace clic en el menú hamburguesa */
+  }
+
+  /* Estilos de hero en móviles */
+  .hero2 {
+    margin-top: 200px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .hero-content2 {
+    margin-top: 40px;
+    margin-right: 0;
+  }
+
+  .hero2 h1 {
+    font-size: 2rem;
+  }
+
+  .hero2 h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero2 button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+}
+
+/* --- Adaptación a móviles grandes (480px a 768px) --- */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .header {
+    padding: 15px 30px;
+  }
+
+  .header-logo {
+    font-size: 1.5rem;
+  }
+
+  .navbar {
+    display: none; /* Ocultamos la barra de navegación para dispositivos móviles grandes */
+  }
+
+  .hamburger-menu {
+    display: flex;
+  }
+
+  .navbar-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: #333;
+    padding: 20px;
+    gap: 15px;
+    width: 100%;
+    display: none; /* Oculto hasta que se active */
+  }
+
+  .navbar-links.show {
+    display: flex;
+  }
+
+  .navbar-links li a {
+    font-size: 1.3rem;
+    padding: 10px;
+    text-align: center;
+    display: block;
+  }
+
+  .hero2 h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero2 h2 {
+    font-size: 1.75rem;
+  }
+
+  .hero2 button {
+    padding: 12px 25px;
+    font-size: 1rem;
   }
 }

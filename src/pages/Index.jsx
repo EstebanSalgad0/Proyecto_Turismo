@@ -138,15 +138,25 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <div className="hero2">
-        <div className="hero-content2">
-          <h1>CONVIERTE A COLBÚN EN TU PRÓXIMA AVENTURA</h1>
-          <h2>TE DAMOS LA BIENVENIDA A LA COMUNA</h2>
-          <a href="https://www.youtube.com/watch?v=NOi1JxhP8Y4" target="colbun" rel="municipalidad_Colbun">
-          <button className="btn-blue">Ver ahora</button>
-          </a>
-        </div>
-      </div>
+<div className="hero2">
+  <iframe 
+    width="560" 
+    height="315" 
+    src="https://www.youtube.com/embed/QCvh0Lwfmww?autoplay=1&mute=1&loop=1&playlist=QCvh0Lwfmww&vq=hd720" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" 
+    allowfullscreen>
+  </iframe>
+  <div className="hero-content2">
+    <h1>CONVIERTE A COLBÚN EN TU PRÓXIMA AVENTURA</h1>
+    <h2>TE DAMOS LA BIENVENIDA A LA COMUNA</h2>
+    <a href="https://www.youtube.com/watch?v=QCvh0Lwfmww" target="colbun" rel="municipalidad_Colbun">
+      <button className="btn-blue">Ver ahora</button>
+    </a>
+  </div>
+</div>
 
       {/* Carousel Section */}
       <section className="carousel-section">
