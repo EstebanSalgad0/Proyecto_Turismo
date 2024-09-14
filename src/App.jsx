@@ -18,6 +18,7 @@ import Cultura from './pages/Cultura';
 import Senderismo from './pages/Senderismo';
 import Parque from './pages/Parque';
 import Termas from './pages/Termas';
+import ZOIT from './pages/Zoit';
 
 const App = () => {
   return (
@@ -42,6 +43,7 @@ const App = () => {
         <Route path="/Senderismo" element={<Senderismo/>} />
         <Route path="/Parque" element={<Parque/>} />
         <Route path="/Termas" element={<Termas/>} />
+        <Route path="/Zoit" element={<ZOIT/>} />
       </Routes>
     </Router>
   );

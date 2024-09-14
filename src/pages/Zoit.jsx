@@ -2,10 +2,15 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-import '../styles/Index.css?v=1.7';
+import '../styles/Zoit.css';
 
+// Importación de imágenes locales
+import culturaImage from '../assets/img/Cultural.png';
+import senderismoImage from '../assets/img/Senderismo.png';
+import parquesImage from '../assets/img/Parque.png';
+import vidaSalvajeImage from '../assets/img/Rutas.png';
 
-const Index = () => {
+const Zoit = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [activitiesDropdownOpen, setActivitiesDropdownOpen] = useState(false);
   const [activeSubMenu, setActiveSubMenu] = useState(null);
@@ -123,10 +128,7 @@ const Index = () => {
             )}
           </div>
 
-          <Link to="/Zoit">
-        <button className="Zona">Zona ZOIT</button>
-        </Link>
-          
+          <button className="Zona">Zona ZOIT</button>
         </div>
         <div className="navbar-auth">
           {/* Botones para cambiar entre español e inglés */}
@@ -140,77 +142,42 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Hero Section */}
-<div className="hero2">
-  <iframe 
-    width="560" 
-    height="315" 
-    src="https://www.youtube.com/embed/QCvh0Lwfmww?autoplay=1&mute=1&loop=1&playlist=QCvh0Lwfmww&vq=hd720" 
-    title="YouTube video player" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    referrerpolicy="strict-origin-when-cross-origin" 
-    allowfullscreen>
-  </iframe>
-  <div className="hero-content2">
-    <h1>CONVIERTE A COLBÚN EN TU PRÓXIMA AVENTURA</h1>
-    <h2>TE DAMOS LA BIENVENIDA A LA COMUNA</h2>
-    <a href="https://www.youtube.com/watch?v=QCvh0Lwfmww" target="colbun" rel="municipalidad_Colbun">
-      <button className="btn-blue">Ver ahora</button>
-    </a>
-  </div>
-</div>
-
       {/* Carousel Section */}
       <section className="carousel-section">
         <div className="carousel-header">
-          <h5>Admira</h5>
+            <br></br><br></br><br></br>
+          <h5>Colbún ZOIT</h5>
           <div className="carousel-subheader">
-            <h2>Belleza Natural</h2>
-            <a href="#">Ve más <span>&#8594;</span></a>
+            <h2>Zona ZOIT</h2>
           </div>
         </div>
+        <br></br>
+        <h5>La ZOIT Lago Colbún – Rari está conformada por parte de las comunas de San Clemente 
+            y Colbún que comparten en sus administraciones las riberas norte y sur del Lago Colbún 
+            en la región del Maule. Después de 4 años de gestión ZOIT el destino para su prórroga
+             mantendrá la visión de: “Posicionarse como un destino para el turismo de naturaleza,
+              aventura, deporte y tradición cultural, basado en el desarrollo turístico
+               precordillerano, centrando al Lago Colbún como atractivo principal y 
+               eje de su desarrollo, en conjunto con la localidad de Rari; con un reconocimiento nacional
+                e internacional”.</h5>
+                <br></br>
+        <h5>En tanto su misión será: “Impulsar el ordenamiento de la actividad turística, permitiendo
+             ir hacia la superación de brechas y un desarrollo sustentable, rescatando las tradiciones
+              y la identidad para promover un destino de naturaleza, campo, patrimonio y actividades
+               náuticas con una oferta turística atractiva para visitantes nacionales”. </h5>
+               <br></br>
+        <h5>Sumado a lo anterior, debemos señalar lo siguiente, un número enorme de actividades, 
+            ferias y festivales culturales se desarrollan en nuestra comuna anualmente, 
+            siempre asociados a nuestra identidad y aquello que más hace distinguir a cada
+             comunidad local, pasando por el Crin, el Telar, las carretas, las Esquilas, Fiestas
+              Religiosas entre otras, y que son de renombre nacional. Muestra Nacional de Artesanía
+               y Folclore Panimávida, la Fiesta de la Esquila, La noche de San Juan (única fiesta
+                de invierno en la región), Chancho al Humo, Fiesta del Crin, San Sebastián 
+                (reconocida actividad nacional), entre muchas otras, donde se tiene un público 
+                que dobla normalmente al total de la Población Comunal.</h5>
 
-        {/* Carrusel de imágenes */}
-        <div className="carousel-container">
-          <div className="carousel-card">
-            <div className="carousel-image"></div>
-            <p>Mirador Las Vizcachas</p>
-          </div>
-          <div className="carousel-card">
-            <div className="carousel-image"></div>
-            <p>Parque Nacional Guaquivilo</p>
-          </div>
-          <div className="carousel-card">
-            <div className="carousel-image"></div>
-            <p>Cavernas Los Bellotos</p>
-          </div>
-          <div className="carousel-card">
-            <div className="carousel-image"></div>
-            <p>Embalse Machicura</p>
-          </div>
-        </div>
-      </section>
 
-      <section className="community-section">
-        <div className="community-content">
-          <h1>Acércate más a <br />nuestra comuna</h1>
-          <p>
-          Servicio País Colbún y la Municipalidad de Colbún comparten sus experiencias transformadoras en las diversas localidades de la comuna. Sumérgete en sus historias, desde la revitalización de espacios públicos hasta proyectos de inclusión social que han mejorado la calidad de vida de los vecinos. Desde talleres educativos en zonas rurales hasta el impulso de emprendimientos locales, descubre cómo el trabajo conjunto ha marcado la diferencia en el corazón de Colbún.
-          </p>
-          <a href="https://www.youtube.com/watch?v=NOi1JxhP8Y4" target="colbun" rel="municipalidad_Colbun">
-          <button className="btn-blue">Descubre cómo la colaboración puede transformar comunidades</button>
-          </a>
-        </div>
-      </section>
-
-      <section className="info-section">
-        <div className="info-content">
-          <h5>Lugares inolvidables</h5>
-          <h1>Algo para no olvidar</h1>
-          <p>Descubre la belleza cautivadora de Colbún, donde los tranquilos paisajes rurales se entrelazan con los lagos cristalinos y montañas imponentes que ofrecen una combinación única de naturaleza, aventura al aire libre y un profundo sentido de comunidad. Puedes navegar en las aguas del embalse Machicura, disfrutar de las termas naturales de Panimávida o explorar los senderos que atraviesan los cerros verdes de la región. Colbún te invita a vivir experiencias inolvidables, inmersas en la serenidad y el encanto del corazón de la zona central de Chile.</p>
-          <button className="btn-blue">Descubre tu próximo destino</button>
-        </div>
+        
       </section>
 
       <section className="social-section">
@@ -287,4 +254,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Zoit;
