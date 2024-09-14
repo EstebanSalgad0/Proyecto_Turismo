@@ -4,12 +4,6 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
 import '../styles/Zoit.css';
 
-// Importación de imágenes locales
-import culturaImage from '../assets/img/Cultural.png';
-import senderismoImage from '../assets/img/Senderismo.png';
-import parquesImage from '../assets/img/Parque.png';
-import vidaSalvajeImage from '../assets/img/Rutas.png';
-
 const Zoit = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [activitiesDropdownOpen, setActivitiesDropdownOpen] = useState(false);
