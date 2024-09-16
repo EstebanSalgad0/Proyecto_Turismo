@@ -8,6 +8,8 @@ const Index = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
+  const totalSlides = 4; // Número total de slides
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -29,6 +31,24 @@ const Index = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [lastScrollY]);
+
+  // Función para manejar las flechas
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlides); // Si llega al final, vuelve al inicio
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides); // Si está en la primera, va a la última
+  };
+
+  // Desliza automáticamente cada 10 segundos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 10000);
+
+    return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
+  }, []);
 
   return (
     <div className="index-container">
@@ -91,24 +111,42 @@ const Index = () => {
 
         {/* Carrusel de imágenes */}
         <div className="carousel-container">
-          <div className="carousel-card">
+          {/* Cards del carrusel */}
+          <div className="carousel-card" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image"></div>
             <p>Mirador Las Vizcachas</p>
           </div>
-          <div className="carousel-card">
+          <div className="carousel-card" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image"></div>
             <p>Parque Nacional Guaquivilo</p>
           </div>
-          <div className="carousel-card">
+          <div className="carousel-card" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image"></div>
             <p>Cavernas Los Bellotos</p>
           </div>
-          <div className="carousel-card">
+          <div className="carousel-card" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image"></div>
             <p>Embalse Machicura</p>
           </div>
+          <div className="carousel-card" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+            <div className="carousel-image"></div>
+            <p>Prueba scroll</p>
+          </div>
+          <div className="carousel-card" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+            <div className="carousel-image"></div>
+            <p>Prueba 2</p>
+          </div>
+          <div className="carousel-card" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+            <div className="carousel-image"></div>
+            <p>Prueba 3</p>
+          </div>
         </div>
+
+        {/* Flechas de control */}
+        <button className="carousel-control prev" onClick={prevSlide}>&#10094;</button>
+        <button className="carousel-control next" onClick={nextSlide}>&#10095;</button>
       </section>
+
 
       <section className="community-section">
         <div className="community-content">
