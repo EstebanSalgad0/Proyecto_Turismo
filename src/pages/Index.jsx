@@ -12,10 +12,6 @@ const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
   const totalSlides = 4; // Número total de slides
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
-  };
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > lastScrollY) {
@@ -56,8 +52,8 @@ const Index = () => {
       {/* Navbar */}
       <header className={`navbar ${showHeader ? 'show' : 'hide'}`}>
         <div className="navbar-links">
-          <div className="dropdown">
-            <button className="Ir" onClick={toggleDropdown}>
+          <div className="dropdown"  onMouseEnter={() => setDropdownOpen(true)} onMouseLeave={() => setDropdownOpen(false)}>
+            <button className="Ir">
               ¿A dónde ir?
             </button>
             {dropdownOpen && (
