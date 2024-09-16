@@ -4,6 +4,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
 import '../styles/Pasopehuenche.css'; // Estilos específicos para el componente
 import Footer from './Footer';
+import RedesSociales from './RedesSociales';
 
 const Pasopehuenche = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -120,7 +121,8 @@ const Pasopehuenche = () => {
         </div>
       </section>
 
-      <section className="social-section">
+      <RedesSociales />
+      {/* <section className="social-section">
         <div className="social-content">
           <h2>¿Cuál será tu próximo destino?</h2>
           <p><strong>Visita Colbún y su gente.</strong> Etiquétanos con <strong>#VisitaColbun</strong>.</p>
@@ -131,7 +133,7 @@ const Pasopehuenche = () => {
             <i className="bi bi-youtube"></i>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
       {/* <footer className="footer-section">
