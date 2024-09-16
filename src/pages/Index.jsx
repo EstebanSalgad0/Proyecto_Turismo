@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
@@ -11,6 +11,8 @@ const Index = () => {
   const [activeSubMenu, setActiveSubMenu] = useState(null);
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true); // Estado para pausar/reproducir
+  const videoRef = useRef(null); // Referencia al iframe del video
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -26,6 +28,16 @@ const Index = () => {
 
   const hideSubMenu = () => {
     setActiveSubMenu(null);
+  };
+
+  const toggleVideoPlay = () => {
+    // Cambia el estado de reproducción
+    if (isPlaying) {
+      videoRef.current.src = videoRef.current.src.replace("autoplay=1", "autoplay=0");
+    } else {
+      videoRef.current.src = videoRef.current.src.replace("autoplay=0", "autoplay=1");
+    }
+    setIsPlaying(!isPlaying);
   };
 
   useEffect(() => {
@@ -143,6 +155,7 @@ const Index = () => {
       {/* Hero Section */}
 <div className="hero2">
   <iframe 
+    ref={videoRef}
     width="560" 
     height="315" 
     src="https://www.youtube.com/embed/QCvh0Lwfmww?autoplay=1&mute=1&loop=1&playlist=QCvh0Lwfmww&vq=hd720" 
@@ -158,6 +171,9 @@ const Index = () => {
     <a href="https://www.youtube.com/watch?v=QCvh0Lwfmww" target="colbun" rel="municipalidad_Colbun">
       <button className="btn-blue">Ver ahora</button>
     </a>
+    <button className="btn-blue" onClick={toggleVideoPlay}>
+            {isPlaying ? <i className="bi bi-pause"></i> : <i className="bi bi-play"></i>}
+    </button>
   </div>
 </div>
 

@@ -352,6 +352,7 @@ a {
 
 .btn-blue {
   background-color: #4B67AE;
+  margin-right: 1rem;
   color: white;
   padding: 15px 30px;
   border: none;
@@ -364,6 +365,11 @@ a {
 
 .btn-blue:hover {
   background-color: #3f51b5;
+}
+
+.bi-play,
+.bi-pause {
+  font-size: 1.0rem;
 }
 
 /* Sección de Lugares inolvidables */
