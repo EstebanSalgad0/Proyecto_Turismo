@@ -13,6 +13,11 @@ import Quinamavida from './pages/Quinamavida';
 import Rabones from './pages/Rabones';
 import Losbellotos from './pages/Losbellotos';
 import Balnearios from './pages/Balnearios';
+import QueHacer from './pages/QueHacer';
+import Cultura from './pages/Cultura';
+import Senderismo from './pages/Senderismo';
+import Parque from './pages/Parque';
+import Termas from './pages/Termas';
 
 const App = () => {
   return (
@@ -31,6 +36,11 @@ const App = () => {
         <Route path="/Rabones" element={<Rabones/>} />
         <Route path="/Los-Bellotos" element={<Losbellotos/>} />
         <Route path="/Balneario-Machicura" element={<Balnearios/>} />
+        <Route path="/QueHacer" element={<QueHacer/>} />
+        <Route path="/Cultura" element={<Cultura/>} />
+        <Route path="/Senderismo" element={<Senderismo/>} />
+        <Route path="/Parque" element={<Parque/>} />
+        <Route path="/Termas" element={<Termas/>} />
       </Routes>
     </Router>
   );

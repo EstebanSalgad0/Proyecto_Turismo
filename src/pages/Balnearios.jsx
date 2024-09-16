@@ -5,30 +5,44 @@ import { Link } from 'react-router-dom';
 import '../styles/Balnearios.css'; // Estilos específicos para el componente
 
 const Balnearios = () => {
-    const [dropdownOpen, setDropdownOpen] = useState(false);
-    const [showHeader, setShowHeader] = useState(true);
-    const [lastScrollY, setLastScrollY] = useState(0);
-  
-    const toggleDropdown = () => {
-      setDropdownOpen(!dropdownOpen);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [activitiesDropdownOpen, setActivitiesDropdownOpen] = useState(false);
+  const [activeSubMenu, setActiveSubMenu] = useState(null);
+  const [showHeader, setShowHeader] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
+  const toggleActivitiesDropdown = () => {
+    setActivitiesDropdownOpen(!activitiesDropdownOpen);
+  };
+
+  const showSubMenu = (menu) => {
+    setActiveSubMenu(menu);
+  };
+
+  const hideSubMenu = () => {
+    setActiveSubMenu(null);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        setShowHeader(false);
+      } else {
+        setShowHeader(true);
+      }
+      setLastScrollY(window.scrollY);
     };
-  
-    useEffect(() => {
-      const handleScroll = () => {
-        if (window.scrollY > lastScrollY) {
-          setShowHeader(false);
-        } else {
-          setShowHeader(true);
-        }
-        setLastScrollY(window.scrollY);
-      };
-  
-      window.addEventListener('scroll', handleScroll);
-  
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    }, [lastScrollY]);
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY]);
 
   return (
     <div className="index-container">
@@ -55,7 +69,57 @@ const Balnearios = () => {
               </ul>
             )}
           </div>
-          <button className="Hacer">¿Qué hacer?</button>
+          <div className="dropdown">
+            <button className="Hacer" onClick={toggleActivitiesDropdown}>
+              ¿Qué hacer?
+            </button>
+            {activitiesDropdownOpen && (
+              <ul className="dropdown-menu">
+                <li onMouseEnter={() => showSubMenu('cultura')} onMouseLeave={hideSubMenu}>
+                <li>Cultura y sitios históricos</li>
+                  {activeSubMenu === 'cultura' && (
+                    <ul className="dropdown-submenu">
+                      <li><Link to="/Cultura">Petroglifos, El Melado</Link></li>
+                    </ul>
+                  )}
+                </li>
+                <li onMouseEnter={() => showSubMenu('senderismo')} onMouseLeave={hideSubMenu}>
+                <li>Senderismo</li>
+                  {activeSubMenu === 'senderismo' && (
+                    <ul className="dropdown-submenu">
+                      <li><Link to="/Senderismo#volcan">Volcán San Pedro y San Pablo</Link></li>
+                      <li><Link to="/Senderismo#mirador">Mirador las vizcachas</Link></li>
+                    </ul>
+                  )}
+                </li>
+                <li onMouseEnter={() => showSubMenu('parques')} onMouseLeave={hideSubMenu}>
+                <li>Parques y vida salvaje</li>
+                  {activeSubMenu === 'parques' && (
+                    <ul className="dropdown-submenu">
+                      <li><Link to="/Parque">Parque nacional Guaiquivilo</Link></li>
+                      <li><Link to="/Parque">Cavernas Los Bellotos</Link></li>
+                    </ul>
+                  )}
+                </li>
+                <li onMouseEnter={() => showSubMenu('vida-salvaje')} onMouseLeave={hideSubMenu}>
+                <li>Rutas</li>
+                  {activeSubMenu === 'vida-salvaje' && (
+                    <ul className="dropdown-submenu">
+                      <li><Link to="/Termas">Termas</Link></li>
+                      <li><Link to="/Termas">Embalse Machicura</Link></li>
+                    </ul>
+                  )}
+                </li>
+                <li onMouseEnter={() => showSubMenu('vida-salvaje')} onMouseLeave={hideSubMenu}>
+                <li><Link to="/QueHacer">Ver Todo</Link></li>
+                  {activeSubMenu === 'vida-salvaje' && (
+                    <ul className="dropdown-submenu">
+                    </ul>
+                  )}
+                </li>
+              </ul>
+            )}
+          </div>
           <button className="Zona">Zona ZOIT</button>
         </div>
         <div className="navbar-auth">
@@ -71,8 +135,8 @@ const Balnearios = () => {
       </header>
 
       {/* Hero Section */}
-      <div className="hero">
-        <div className="hero-content">
+      <div className="hero3">
+        <div className="hero-content3">
           <h5>¿A donde ir?</h5>
           <h1>Balnearios Machicura</h1>
           <h4>El Balneario Machicura, ubicado en Colbún, Chile, es un destacado destino para quienes buscan disfrutar de la belleza natural y la tranquilidad en el corazón de la región del Maule. Este encantador balneario, situado a orillas del embalse Machicura, ofrece un entorno sereno rodeado de colinas verdes y paisajes pintorescos. Aquí, los visitantes pueden disfrutar de una variedad de actividades al aire libre, como nadar en las aguas cristalinas del embalse, practicar deportes acuáticos o simplemente relajarse junto a la playa. Con su ambiente acogedor y su entorno natural impresionante, el Balneario Machicura es el lugar ideal para escapar del bullicio urbano y sumergirse en una experiencia revitalizante en la naturaleza.</h4>

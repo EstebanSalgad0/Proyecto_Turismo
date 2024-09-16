@@ -111,8 +111,8 @@
     font-size: 16px;
     display: block;
   }
-  .hero0 {
-    background-image: url("../assets/img/Elmelado.png") !important;  /* Aquí va la ruta de tu imagen */
+  .hero16 {
+    background-image: url("../assets/img/Losbellotos.png") !important;  /* Aquí va la ruta de tu imagen */
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat;
@@ -129,26 +129,25 @@
     margin-top: 74px;
   }
   
-  .hero-content0 {
+  .hero-content16 {
     margin-top: 100px;
     margin-left: 50px;
     align-items: start;
   }
   
-  .hero0 h5 {
+  .hero16 h5 {
     font-size: 1rem; /* Ajusta el tamaño del texto principal */
     margin-bottom: 5px; /* Espaciado entre las líneas de texto */
   }
   
-  .hero0 h1 {
+  .hero16 h1 {
     font-size: 3rem;
     margin-bottom: 40px; /* Espaciado entre el subtítulo y el botón */
   }
-  .hero0 h4 {
+  .hero16 h4 {
     margin-top: 150px;
     width: 690px;
     height: 297px;
     font-size: 1rem;
     margin-bottom: 5px; /* Espaciado entre el subtítulo y el botón */
   }
-  

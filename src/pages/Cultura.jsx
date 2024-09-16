@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-import '../styles/Colbunalto.css'; // Estilos específicos para el componente
+import '../styles/Cultura.css' // Estilos específicos para el componente
 
-const Colbunalto = () => {
+const Elmelado = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [activitiesDropdownOpen, setActivitiesDropdownOpen] = useState(false);
   const [activeSubMenu, setActiveSubMenu] = useState(null);
@@ -66,7 +66,7 @@ const Colbunalto = () => {
                 <li><Link to="/Rabones">Rabones</Link></li>
                 <li><Link to="/Los-Bellotos">Los Bellotos</Link></li>
                 <li><Link to="/Balneario-Machicura">Balneario Machicura</Link></li>
-              </ul>
+              </ul> 
             )}
           </div>
           <div className="dropdown">
@@ -135,11 +135,11 @@ const Colbunalto = () => {
       </header>
 
       {/* Hero Section */}
-      <div className="hero4">
-        <div className="hero-content4">
-          <h5>¿A donde ir?</h5>
-          <h1>Colbun Alto</h1>
-          <h4>Colbún Alto es una encantadora localidad en la comuna de Colbún, situada en la región del Maule, Chile. Este pintoresco rincón se destaca por sus vistas panorámicas de los majestuosos paisajes cordilleranos y su cercanía al embalse Colbún, una impresionante obra de ingeniería que no solo embellece el entorno, sino que también juega un papel crucial en la generación de energía hidroeléctrica. En Colbún Alto, la tranquilidad de la vida rural se combina con la majestuosidad de la naturaleza, ofreciendo a los visitantes la oportunidad de disfrutar de actividades al aire libre como el senderismo, la pesca y el avistamiento de aves. El área es ideal para quienes buscan escapar del bullicio urbano y sumergirse en un entorno sereno y natural, donde la comunidad local mantiene vivas las tradiciones y el espíritu acogedor del campo chileno.</h4>
+      <div className="hero5">
+        <div className="hero-content5">
+          <h5>Cultura y sitios históricos</h5>
+          <h1>Petroglifos, El Melado</h1>
+          <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos ab ipsa magni asperiores magnam adipisci earum nemo nisi iure voluptate culpa nihil dolores, possimus animi sapiente natus doloribus! Iste, aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, libero reiciendis. Eos consequatur voluptas consectetur repellat blanditiis velit obcaecati id quaerat dolore quod, numquam voluptate, molestias ipsum? Accusamus, odio similique?</h4>
         </div>
       </div>
 
@@ -240,4 +240,4 @@ const Colbunalto = () => {
   );
 };
 
-export default Colbunalto;
+export default Elmelado;

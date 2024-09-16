@@ -5,30 +5,44 @@ import { Link } from 'react-router-dom';
 import '../styles/Rari.css'; // Estilos específicos para el componente
 
 const Rari = () => {
-    const [dropdownOpen, setDropdownOpen] = useState(false);
-    const [showHeader, setShowHeader] = useState(true);
-    const [lastScrollY, setLastScrollY] = useState(0);
-  
-    const toggleDropdown = () => {
-      setDropdownOpen(!dropdownOpen);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [activitiesDropdownOpen, setActivitiesDropdownOpen] = useState(false);
+  const [activeSubMenu, setActiveSubMenu] = useState(null);
+  const [showHeader, setShowHeader] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
+  const toggleActivitiesDropdown = () => {
+    setActivitiesDropdownOpen(!activitiesDropdownOpen);
+  };
+
+  const showSubMenu = (menu) => {
+    setActiveSubMenu(menu);
+  };
+
+  const hideSubMenu = () => {
+    setActiveSubMenu(null);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        setShowHeader(false);
+      } else {
+        setShowHeader(true);
+      }
+      setLastScrollY(window.scrollY);
     };
-  
-    useEffect(() => {
-      const handleScroll = () => {
-        if (window.scrollY > lastScrollY) {
-          setShowHeader(false);
-        } else {
-          setShowHeader(true);
-        }
-        setLastScrollY(window.scrollY);
-      };
-  
-      window.addEventListener('scroll', handleScroll);
-  
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    }, [lastScrollY]);
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY]);
 
   return (
     <div className="index-container">
@@ -55,7 +69,57 @@ const Rari = () => {
               </ul>
             )}
           </div>
-          <button className="Hacer">¿Qué hacer?</button>
+          <div className="dropdown">
+            <button className="Hacer" onClick={toggleActivitiesDropdown}>
+              ¿Qué hacer?
+            </button>
+            {activitiesDropdownOpen && (
+              <ul className="dropdown-menu">
+                <li onMouseEnter={() => showSubMenu('cultura')} onMouseLeave={hideSubMenu}>
+                <li>Cultura y sitios históricos</li>
+                  {activeSubMenu === 'cultura' && (
+                    <ul className="dropdown-submenu">
+                      <li><Link to="/Cultura">Petroglifos, El Melado</Link></li>
+                    </ul>
+                  )}
+                </li>
+                <li onMouseEnter={() => showSubMenu('senderismo')} onMouseLeave={hideSubMenu}>
+                <li>Senderismo</li>
+                  {activeSubMenu === 'senderismo' && (
+                    <ul className="dropdown-submenu">
+                      <li><Link to="/Senderismo#volcan">Volcán San Pedro y San Pablo</Link></li>
+                      <li><Link to="/Senderismo#mirador">Mirador las vizcachas</Link></li>
+                    </ul>
+                  )}
+                </li>
+                <li onMouseEnter={() => showSubMenu('parques')} onMouseLeave={hideSubMenu}>
+                <li>Parques y vida salvaje</li>
+                  {activeSubMenu === 'parques' && (
+                    <ul className="dropdown-submenu">
+                      <li><Link to="/Parque">Parque nacional Guaiquivilo</Link></li>
+                      <li><Link to="/Parque">Cavernas Los Bellotos</Link></li>
+                    </ul>
+                  )}
+                </li>
+                <li onMouseEnter={() => showSubMenu('vida-salvaje')} onMouseLeave={hideSubMenu}>
+                <li>Rutas</li>
+                  {activeSubMenu === 'vida-salvaje' && (
+                    <ul className="dropdown-submenu">
+                      <li><Link to="/Termas">Termas</Link></li>
+                      <li><Link to="/Termas">Embalse Machicura</Link></li>
+                    </ul>
+                  )}
+                </li>
+                <li onMouseEnter={() => showSubMenu('vida-salvaje')} onMouseLeave={hideSubMenu}>
+                <li><Link to="/QueHacer">Ver Todo</Link></li>
+                  {activeSubMenu === 'vida-salvaje' && (
+                    <ul className="dropdown-submenu">
+                    </ul>
+                  )}
+                </li>
+              </ul>
+            )}
+          </div>
           <button className="Zona">Zona ZOIT</button>
         </div>
         <div className="navbar-auth">
@@ -71,8 +135,8 @@ const Rari = () => {
       </header>
 
       {/* Hero Section */}
-      <div className="hero">
-        <div className="hero-content">
+      <div className="hero15">
+        <div className="hero-content15">
           <h5>¿A donde ir?</h5>
           <h1>Rari</h1>
           <h4>Rari es una encantadora localidad en la comuna de Colbún, en la región del Maule, Chile, conocida por su rica tradición artesanal. Este pintoresco lugar se destaca por sus artesanas que preservan y transmiten técnicas ancestrales en la elaboración de textiles, cestería y cerámica, creando piezas únicas que reflejan la esencia de la cultura local. Los productos artesanales de Rari son apreciados por su calidad y el cuidado en cada detalle, combinando materiales tradicionales con diseños innovadores. Al visitar Rari, puedes conocer de cerca el proceso de creación de estas obras de arte, interactuar con las talentosas artesanas y adquirir recuerdos auténticos que capturan el espíritu y la tradición de la región. La experiencia en Rari ofrece una inmersión en la herencia cultural de Colbún, donde la habilidad y la pasión de sus artesanas transforman la tradición en arte vivo.</h4>

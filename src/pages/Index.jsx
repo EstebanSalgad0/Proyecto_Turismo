@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-import '../styles/Index.css';
+import '../styles/Index.css?v=1.5';
+
 
 const Index = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [activitiesDropdownOpen, setActivitiesDropdownOpen] = useState(false);
+  const [activeSubMenu, setActiveSubMenu] = useState(null);
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
@@ -13,6 +16,18 @@ const Index = () => {
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
+  };
+
+  const toggleActivitiesDropdown = () => {
+    setActivitiesDropdownOpen(!activitiesDropdownOpen);
+  };
+
+  const showSubMenu = (menu) => {
+    setActiveSubMenu(menu);
+  };
+
+  const hideSubMenu = () => {
+    setActiveSubMenu(null);
   };
 
   useEffect(() => {
@@ -75,7 +90,59 @@ const Index = () => {
               </ul>
             )}
           </div>
-          <button className="Hacer">¿Qué hacer?</button>
+
+          <div className="dropdown">
+            <button className="Hacer" onClick={toggleActivitiesDropdown}>
+              ¿Qué hacer?
+            </button>
+            {activitiesDropdownOpen && (
+              <ul className="dropdown-menu">
+                <li onMouseEnter={() => showSubMenu('cultura')} onMouseLeave={hideSubMenu}>
+                <li>Cultura y sitios históricos</li>
+                  {activeSubMenu === 'cultura' && (
+                    <ul className="dropdown-submenu">
+                      <li><Link to="/Cultura">Petroglifos, El Melado</Link></li>
+                    </ul>
+                  )}
+                </li>
+                <li onMouseEnter={() => showSubMenu('senderismo')} onMouseLeave={hideSubMenu}>
+                <li>Senderismo</li>
+                  {activeSubMenu === 'senderismo' && (
+                    <ul className="dropdown-submenu">
+                      <li><Link to="/Senderismo#volcan">Volcán San Pedro y San Pablo</Link></li>
+                      <li><Link to="/Senderismo#mirador">Mirador las vizcachas</Link></li>
+                    </ul>
+                  )}
+                </li>
+                <li onMouseEnter={() => showSubMenu('parques')} onMouseLeave={hideSubMenu}>
+                <li>Parques y vida salvaje</li>
+                  {activeSubMenu === 'parques' && (
+                    <ul className="dropdown-submenu">
+                      <li><Link to="/Parque">Parque nacional Guaiquivilo</Link></li>
+                      <li><Link to="/Parque">Cavernas Los Bellotos</Link></li>
+                    </ul>
+                  )}
+                </li>
+                <li onMouseEnter={() => showSubMenu('vida-salvaje')} onMouseLeave={hideSubMenu}>
+                <li>Rutas</li>
+                  {activeSubMenu === 'vida-salvaje' && (
+                    <ul className="dropdown-submenu">
+                      <li><Link to="/Termas">Termas</Link></li>
+                      <li><Link to="/Termas">Embalse Machicura</Link></li>
+                    </ul>
+                  )}
+                </li>
+                <li onMouseEnter={() => showSubMenu('vida-salvaje')} onMouseLeave={hideSubMenu}>
+                <li><Link to="/QueHacer">Ver Todo</Link></li>
+                  {activeSubMenu === 'vida-salvaje' && (
+                    <ul className="dropdown-submenu">
+                    </ul>
+                  )}
+                </li>
+              </ul>
+            )}
+          </div>
+
           <button className="Zona">Zona ZOIT</button>
         </div>
         <div className="navbar-auth">
@@ -91,8 +158,8 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <div className="hero">
-        <div className="hero-content">
+      <div className="hero2">
+        <div className="hero-content2">
           <h1>CONVIERTE A COLBÚN EN TU PRÓXIMA AVENTURA</h1>
           <h2>TE DAMOS LA BIENVENIDA A LA COMUNA</h2>
           <button className="btn-green">Ver ahora</button>
@@ -152,7 +219,7 @@ const Index = () => {
         <div className="community-content">
           <h1>Acércate más a <br />nuestra comuna</h1>
           <p>
-          Servicio País Colbún y la Municipalidad de Colbún comparten sus experiencias transformadoras en las diversas localidades de la comuna. Sumérgete en sus historias, desde la revitalización de espacios públicos hasta proyectos de inclusión social que han mejorado la calidad de vida de los vecinos. Desde talleres educativos en zonas rurales gasta el impulso de emprendimientos locales, descubre cómo el trabajo conjunto ha marcado la diferencia en el corazón de colbún..
+          Servicio País Colbún y la Municipalidad de Colbún comparten sus experiencias transformadoras en las diversas localidades de la comuna. Sumérgete en sus historias, desde la revitalización de espacios públicos hasta proyectos de inclusión social que han mejorado la calidad de vida de los vecinos. Desde talleres educativos en zonas rurales hasta el impulso de emprendimientos locales, descubre cómo el trabajo conjunto ha marcado la diferencia en el corazón de Colbún.
           </p>
           <button className="btn-blue">Descubre cómo la colaboración puede transformar comunidades</button>
         </div>

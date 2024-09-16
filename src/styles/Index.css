@@ -7,6 +7,51 @@
   flex-direction: column;
 }
 
+/* Estilos para el menú desplegable y submenú */
+.dropdown-menu {
+  position: relative;
+  display: block;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu > li {
+  padding: 10px;
+  cursor: pointer;
+  position: relative; /* Añadido para que el submenú sea relativo a su padre */
+}
+
+.dropdown-submenu {
+  position: absolute;
+  top: 0;
+  left: 100%; /* Mueve el submenú a la derecha */
+  display: none; /* El submenú está oculto por defecto */
+  list-style-type: none;
+  padding: 0;
+  background-color: white;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1; /* Asegura que el submenú aparezca encima de otros elementos */
+}
+
+.dropdown-submenu li {
+  padding: 10px;
+}
+
+.dropdown-menu > li:hover .dropdown-submenu {
+  display: block; /* Muestra el submenú al pasar el mouse */
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* Estilos adicionales */
+.dropdown-menu > li:hover {
+  background-color: #f0f0f0; /* Cambia el color de fondo al pasar el mouse */
+}
+
 /* Estilos para el navbar */
 .navbar {
   width: 100%;
@@ -112,10 +157,10 @@
   display: block;
 }
 
-.hero {
-  background-image: url("../assets/img/image.png") !important; /* Aquí va la ruta de tu imagen */
-  background-size: cover;
-  background-position: center;
+.hero2 {
+  background-image: url('../assets/img/image.png') !important; /* Aquí va la ruta de tu imagen */
+  background-size: cover !important;
+  background-position: center !important;
   background-repeat: no-repeat;
   width: 100vw;
   min-height: 100vh;
@@ -130,24 +175,24 @@
   margin-top: 74px;
 }
 
-.hero-content {
+.hero-content2 {
   margin-top: 100px;
   margin-right: 600px;
   align-items: start;
 }
 
-.hero h1 {
+.hero2 h1 {
   font-size: 3rem; /* Ajusta el tamaño del texto principal */
   font-weight: bold;
   margin-bottom: 10px; /* Espaciado entre las líneas de texto */
 }
 
-.hero h2 {
+.hero2 h2 {
   font-size: 2rem;
   margin-bottom: 40px; /* Espaciado entre el subtítulo y el botón */
 }
 
-.hero button {
+.hero2 button {
   background-color: #3f51b5; /* Color de fondo del botón */
   color: white;
   border: none;
@@ -159,7 +204,7 @@
   align-self: flex-start; /* Alinea el botón a la izquierda */
 }
 
-.hero button:hover {
+.hero2 button:hover {
   background-color: #2c387e; /* Cambia el color cuando se pasa el mouse */
 }
 

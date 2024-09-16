@@ -5,30 +5,44 @@ import { Link } from 'react-router-dom';
 import '../styles/Elmelado.css' // Estilos específicos para el componente
 
 const Elmelado = () => {
-    const [dropdownOpen, setDropdownOpen] = useState(false);
-    const [showHeader, setShowHeader] = useState(true);
-    const [lastScrollY, setLastScrollY] = useState(0);
-  
-    const toggleDropdown = () => {
-      setDropdownOpen(!dropdownOpen);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [activitiesDropdownOpen, setActivitiesDropdownOpen] = useState(false);
+  const [activeSubMenu, setActiveSubMenu] = useState(null);
+  const [showHeader, setShowHeader] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
+  const toggleActivitiesDropdown = () => {
+    setActivitiesDropdownOpen(!activitiesDropdownOpen);
+  };
+
+  const showSubMenu = (menu) => {
+    setActiveSubMenu(menu);
+  };
+
+  const hideSubMenu = () => {
+    setActiveSubMenu(null);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        setShowHeader(false);
+      } else {
+        setShowHeader(true);
+      }
+      setLastScrollY(window.scrollY);
     };
-  
-    useEffect(() => {
-      const handleScroll = () => {
-        if (window.scrollY > lastScrollY) {
-          setShowHeader(false);
-        } else {
-          setShowHeader(true);
-        }
-        setLastScrollY(window.scrollY);
-      };
-  
-      window.addEventListener('scroll', handleScroll);
-  
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    }, [lastScrollY]);
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY]);
 
   return (
     <div className="index-container">
@@ -55,7 +69,57 @@ const Elmelado = () => {
               </ul> 
             )}
           </div>
-          <button className="Hacer">¿Qué hacer?</button>
+          <div className="dropdown">
+            <button className="Hacer" onClick={toggleActivitiesDropdown}>
+              ¿Qué hacer?
+            </button>
+            {activitiesDropdownOpen && (
+              <ul className="dropdown-menu">
+                <li onMouseEnter={() => showSubMenu('cultura')} onMouseLeave={hideSubMenu}>
+                <li>Cultura y sitios históricos</li>
+                  {activeSubMenu === 'cultura' && (
+                    <ul className="dropdown-submenu">
+                      <li><Link to="/Cultura">Petroglifos, El Melado</Link></li>
+                    </ul>
+                  )}
+                </li>
+                <li onMouseEnter={() => showSubMenu('senderismo')} onMouseLeave={hideSubMenu}>
+                <li>Senderismo</li>
+                  {activeSubMenu === 'senderismo' && (
+                    <ul className="dropdown-submenu">
+                      <li><Link to="/Senderismo#volcan">Volcán San Pedro y San Pablo</Link></li>
+                      <li><Link to="/Senderismo#mirador">Mirador las vizcachas</Link></li>
+                    </ul>
+                  )}
+                </li>
+                <li onMouseEnter={() => showSubMenu('parques')} onMouseLeave={hideSubMenu}>
+                <li>Parques y vida salvaje</li>
+                  {activeSubMenu === 'parques' && (
+                    <ul className="dropdown-submenu">
+                      <li><Link to="/Parque">Parque nacional Guaiquivilo</Link></li>
+                      <li><Link to="/Parque">Cavernas Los Bellotos</Link></li>
+                    </ul>
+                  )}
+                </li>
+                <li onMouseEnter={() => showSubMenu('vida-salvaje')} onMouseLeave={hideSubMenu}>
+                <li>Rutas</li>
+                  {activeSubMenu === 'vida-salvaje' && (
+                    <ul className="dropdown-submenu">
+                      <li><Link to="/Termas">Termas</Link></li>
+                      <li><Link to="/Termas">Embalse Machicura</Link></li>
+                    </ul>
+                  )}
+                </li>
+                <li onMouseEnter={() => showSubMenu('vida-salvaje')} onMouseLeave={hideSubMenu}>
+                <li><Link to="/QueHacer">Ver Todo</Link></li>
+                  {activeSubMenu === 'vida-salvaje' && (
+                    <ul className="dropdown-submenu">
+                    </ul>
+                  )}
+                </li>
+              </ul>
+            )}
+          </div>
           <button className="Zona">Zona ZOIT</button>
         </div>
         <div className="navbar-auth">
@@ -71,8 +135,8 @@ const Elmelado = () => {
       </header>
 
       {/* Hero Section */}
-      <div className="hero">
-        <div className="hero-content">
+      <div className="hero0">
+        <div className="hero-content0">
           <h5>¿A donde ir?</h5>
           <h1>El Melado</h1>
           <h4>El Melado es una pintoresca localidad ubicada en la comuna de Colbún, en la región del Maule, Chile. Este lugar se destaca por su entorno natural, rodeado de montañas, ríos y exuberante vegetación, que lo convierten en un destino ideal para los amantes de la naturaleza y el ecoturismo. El Melado es conocido por el embalse del mismo nombre, una impresionante obra de ingeniería que abastece de agua a la zona y se utiliza para la generación de energía hidroeléctrica. Además, sus paisajes son perfectos para actividades como el senderismo, la pesca y el avistamiento de flora y fauna autóctona, ofreciendo una experiencia única en contacto con la tranquilidad de la cordillera.</h4>

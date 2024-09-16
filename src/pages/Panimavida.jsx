@@ -5,30 +5,44 @@ import { Link } from 'react-router-dom';
 import '../styles/Panimavida.css'; // Estilos específicos para el componente
 
 const Panimavida = () => {
-    const [dropdownOpen, setDropdownOpen] = useState(false);
-    const [showHeader, setShowHeader] = useState(true);
-    const [lastScrollY, setLastScrollY] = useState(0);
-  
-    const toggleDropdown = () => {
-      setDropdownOpen(!dropdownOpen);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [activitiesDropdownOpen, setActivitiesDropdownOpen] = useState(false);
+  const [activeSubMenu, setActiveSubMenu] = useState(null);
+  const [showHeader, setShowHeader] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
+  const toggleActivitiesDropdown = () => {
+    setActivitiesDropdownOpen(!activitiesDropdownOpen);
+  };
+
+  const showSubMenu = (menu) => {
+    setActiveSubMenu(menu);
+  };
+
+  const hideSubMenu = () => {
+    setActiveSubMenu(null);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        setShowHeader(false);
+      } else {
+        setShowHeader(true);
+      }
+      setLastScrollY(window.scrollY);
     };
-  
-    useEffect(() => {
-      const handleScroll = () => {
-        if (window.scrollY > lastScrollY) {
-          setShowHeader(false);
-        } else {
-          setShowHeader(true);
-        }
-        setLastScrollY(window.scrollY);
-      };
-  
-      window.addEventListener('scroll', handleScroll);
-  
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    }, [lastScrollY]);
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY]);
 
   return (
     <div className="index-container">
@@ -55,7 +69,57 @@ const Panimavida = () => {
               </ul>
             )}
           </div>
-          <button className="Hacer">¿Qué hacer?</button>
+          <div className="dropdown">
+            <button className="Hacer" onClick={toggleActivitiesDropdown}>
+              ¿Qué hacer?
+            </button>
+            {activitiesDropdownOpen && (
+              <ul className="dropdown-menu">
+                <li onMouseEnter={() => showSubMenu('cultura')} onMouseLeave={hideSubMenu}>
+                <li>Cultura y sitios históricos</li>
+                  {activeSubMenu === 'cultura' && (
+                    <ul className="dropdown-submenu">
+                      <li><Link to="/Cultura">Petroglifos, El Melado</Link></li>
+                    </ul>
+                  )}
+                </li>
+                <li onMouseEnter={() => showSubMenu('senderismo')} onMouseLeave={hideSubMenu}>
+                <li>Senderismo</li>
+                  {activeSubMenu === 'senderismo' && (
+                    <ul className="dropdown-submenu">
+                      <li><Link to="/Senderismo#volcan">Volcán San Pedro y San Pablo</Link></li>
+                      <li><Link to="/Senderismo#mirador">Mirador las vizcachas</Link></li>
+                    </ul>
+                  )}
+                </li>
+                <li onMouseEnter={() => showSubMenu('parques')} onMouseLeave={hideSubMenu}>
+                <li>Parques y vida salvaje</li>
+                  {activeSubMenu === 'parques' && (
+                    <ul className="dropdown-submenu">
+                      <li><Link to="/Parque">Parque nacional Guaiquivilo</Link></li>
+                      <li><Link to="/Parque">Cavernas Los Bellotos</Link></li>
+                    </ul>
+                  )}
+                </li>
+                <li onMouseEnter={() => showSubMenu('vida-salvaje')} onMouseLeave={hideSubMenu}>
+                <li>Rutas</li>
+                  {activeSubMenu === 'vida-salvaje' && (
+                    <ul className="dropdown-submenu">
+                      <li><Link to="/Termas">Termas</Link></li>
+                      <li><Link to="/Termas">Embalse Machicura</Link></li>
+                    </ul>
+                  )}
+                </li>
+                <li onMouseEnter={() => showSubMenu('vida-salvaje')} onMouseLeave={hideSubMenu}>
+                <li><Link to="/QueHacer">Ver Todo</Link></li>
+                  {activeSubMenu === 'vida-salvaje' && (
+                    <ul className="dropdown-submenu">
+                    </ul>
+                  )}
+                </li>
+              </ul>
+            )}
+          </div>
           <button className="Zona">Zona ZOIT</button>
         </div>
         <div className="navbar-auth">
@@ -71,8 +135,8 @@ const Panimavida = () => {
       </header>
 
       {/* Hero Section */}
-      <div className="hero">
-        <div className="hero-content">
+      <div className="hero9">
+        <div className="hero-content9">
           <h5>¿A donde ir?</h5>
           <h1>Panimávida</h1>
           <h4>Panimávida es una pintoresca localidad en la comuna de Colbún, ubicada en la región del Maule, Chile. Famosa por sus termas naturales, Panimávida ofrece un refugio de relajación y bienestar en medio de un entorno natural impresionante. Las aguas termales de Panimávida, ricas en minerales, proporcionan una experiencia rejuvenecedora mientras te rodeas de paisajes de colinas verdes y la serenidad de la región. Además, el área es ideal para quienes buscan explorar la naturaleza a través de senderos y disfrutar de actividades al aire libre en el cercano embalse Colbún. Con su combinación de belleza natural y propiedades curativas, Panimávida invita a los visitantes a sumergirse en una experiencia única de descanso y conexión con la naturaleza en el corazón del Maule.</h4>
