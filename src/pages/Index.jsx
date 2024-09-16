@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
 import '../styles/Index.css';
+import Footer from './Footer';
 
 const Index = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -162,7 +163,8 @@ const Index = () => {
         </div>
       </section>
 
-      <footer className="footer-section">
+      <Footer />
+      {/* <footer className="footer-section">
         <div className="footer-container">
           <div className="footer-logo">
             <div className="logo logo-1"></div>
@@ -198,7 +200,7 @@ const Index = () => {
             </ul>
           </div>
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 };

@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-import '../styles/Elmelado.css' // Estilos específicos para el componente
+import '../styles/Elmelado.css'; // Estilos específicos para el componente
+import Footer from './Footer';
 
 const Elmelado = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -132,7 +133,8 @@ const Elmelado = () => {
         </div>
       </section>
 
-      <footer className="footer-section">
+      <Footer />
+      {/* <footer className="footer-section">
         <div className="footer-container">
           <div className="footer-logo">
             <div className="logo logo-1"></div>
@@ -168,7 +170,7 @@ const Elmelado = () => {
             </ul>
           </div>
         </div>
-      </footer>
+      </footer> */}
       
 
 

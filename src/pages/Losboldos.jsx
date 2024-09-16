@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
 import '../styles/Losboldos.css'; // Estilos específicos para el componente
+import Footer from './Footer';
 
 const Losboldos = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -132,7 +133,8 @@ const Losboldos = () => {
         </div>
       </section>
 
-      <footer className="footer-section">
+      <Footer />
+      {/* <footer className="footer-section">
         <div className="footer-container">
           <div className="footer-logo">
             <div className="logo logo-1"></div>
@@ -168,7 +170,7 @@ const Losboldos = () => {
             </ul>
           </div>
         </div>
-      </footer>
+      </footer> */}
       
 
 
