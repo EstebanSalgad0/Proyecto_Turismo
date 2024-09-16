@@ -10,10 +10,6 @@ const Index = () => {
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
-  };
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > lastScrollY) {
@@ -36,8 +32,8 @@ const Index = () => {
       {/* Navbar */}
       <header className={`navbar ${showHeader ? 'show' : 'hide'}`}>
         <div className="navbar-links">
-          <div className="dropdown">
-            <button className="Ir" onClick={toggleDropdown}>
+          <div className="dropdown"  onMouseEnter={() => setDropdownOpen(true)} onMouseLeave={() => setDropdownOpen(false)}>
+            <button className="Ir">
               ¿A dónde ir?
             </button>
             {dropdownOpen && (
