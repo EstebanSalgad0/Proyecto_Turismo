@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
 import '../styles/Rari.css'; // Estilos específicos para el componente
+import Footer from './Footer';
+import RedesSociales from './RedesSociales';
 
 const Rari = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -119,7 +121,8 @@ const Rari = () => {
         </div>
       </section>
 
-      <section className="social-section">
+      <RedesSociales />
+      {/* <section className="social-section">
         <div className="social-content">
           <h2>¿Cuál será tu próximo destino?</h2>
           <p><strong>Visita Colbún y su gente.</strong> Etiquétanos con <strong>#VisitaColbun</strong>.</p>
@@ -130,9 +133,10 @@ const Rari = () => {
             <i className="bi bi-youtube"></i>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <footer className="footer-section">
+      <Footer />
+      {/* <footer className="footer-section">
         <div className="footer-container">
           <div className="footer-logo">
             <div className="logo logo-1"></div>
@@ -168,7 +172,7 @@ const Rari = () => {
             </ul>
           </div>
         </div>
-      </footer>
+      </footer> */}
       
 
 
