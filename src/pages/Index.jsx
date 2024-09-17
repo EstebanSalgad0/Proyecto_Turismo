@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-import '../styles/Index.css?v=1.7';
+import '../styles/Index.css?v=1.9';
 
 
 const Index = () => {
@@ -171,11 +171,12 @@ const Index = () => {
     <a href="https://www.youtube.com/watch?v=QCvh0Lwfmww" target="colbun" rel="municipalidad_Colbun">
       <button className="btn-blue">Ver ahora</button>
     </a>
-    <button className="btn-blue" onClick={toggleVideoPlay}>
+  </div>
+  <button className="play-button" onClick={toggleVideoPlay}>
             {isPlaying ? <i className="bi bi-pause"></i> : <i className="bi bi-play"></i>}
     </button>
-  </div>
 </div>
+
 
       {/* Carousel Section */}
       <section className="carousel-section">

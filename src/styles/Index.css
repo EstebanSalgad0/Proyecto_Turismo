@@ -369,7 +369,13 @@ a {
 
 .bi-play,
 .bi-pause {
-  font-size: 1.0rem;
+  font-size: 1.6rem;
+}
+
+.play-button {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
 }
 
 /* Sección de Lugares inolvidables */
