@@ -53,7 +53,7 @@ a {
 }
 
 /* Estilos para el navbar */
-.navbar {
+.navbar1 {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -65,6 +65,7 @@ a {
   left: 0;
   z-index: 1000;
   transition: transform 0.3s ease-in-out; /* Transición suave */
+  flex-wrap: nowrap; /* Evita que los elementos salten a una nueva línea */
 }
 
 .show {
@@ -80,15 +81,15 @@ a {
   top: -100px; /* Desplaza el navbar hacia arriba, fuera de la pantalla */
 }
 
-.navbar-links {
+.navbar-links1 {
   display: flex;
   flex-grow: 1;
-  justify-content: space-evenly; /* Distribuye los botones equitativamente */
+  justify-content: space-between; /* Distribuye los botones equitativamente */
   margin-left: 100px; /* Acerca "¿A dónde ir?" a la izquierda */
 }
 
 /* Estilos para los botones que se ven como enlaces (invisibles pero funcionales) */
-.navbar-links button {
+.navbar-links1 button {
   color: #ffffff;
   background-color: transparent; /* Fondo transparente */
   border: none; /* Sin bordes */
@@ -316,7 +317,7 @@ a {
 }
 
 /* Sección de Comunidad */
-.community-section {
+.community-section1 {
   background-image: url('../assets/img/image2.png'); /* Ruta de la imagen de fondo */
   background-size: cover;
   background-position: center;
@@ -333,19 +334,19 @@ a {
   position: relative;
 }
 
-.community-content {
+.community-content1 {
   max-width: 1000px;
   padding: 20px;
   border-radius: 10px;
 }
 
-.community-content h1 {
+.community-content1 h1 {
   font-size: 4rem; /* Aumenta el tamaño del texto del título */
   margin-bottom: 20px;
   font-weight: bold;
 }
 
-.community-content p {
+.community-content1 p {
   font-size: 1.2rem;
   margin-bottom: 30px;
 }
@@ -379,7 +380,7 @@ a {
 }
 
 /* Sección de Lugares inolvidables */
-.info-section {
+.info-section1 {
   background-color: #e0e0e0; /* Color gris claro temporal para el mapa */
   width: 100vw;
   height: 691px; /* Ajusta esta altura según el contenido */
@@ -390,7 +391,7 @@ a {
   box-sizing: border-box;
 }
 
-.info-content {
+.info-content1 {
   background-color: white;
   max-width: 400px; /* Tamaño del cuadro blanco */
   padding: 30px;
@@ -435,13 +436,13 @@ a {
 }
 
 /* Sección de redes sociales */
-.social-section {
+.social-section1 {
   width: 100vw;
   padding: 40px;
   background-color: #f8f9fa; /* Color claro de fondo */
 }
 
-.social-content {
+.social-content1 {
   text-align: left; /* Alinea todo el texto a la izquierda */
   margin-bottom: 30px;
   max-width: 1200px; /* Ajusta el ancho máximo del contenido */
@@ -449,25 +450,25 @@ a {
   color: #4B67AE; /* Aplica el azul usado previamente a todo el texto */
 }
 
-.social-content h2 {
+.social-content1 h2 {
   font-size: 1.5rem; /* Tamaño de la pregunta más pequeño */
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-.social-content p {
+.social-content1 p {
   font-size: 2rem; /* Aumenta el tamaño del texto de "Visita Colbún..." */
   font-weight: bold; /* Asegura que el texto sea más destacado */
   margin-bottom: 20px;
 }
 
-.social-content h3 {
+.social-content1 h3 {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-.social-icons {
+.social-icons1 {
   font-size: 2rem;
   color: #4B67AE; /* Color de los iconos en azul */
   display: flex;
@@ -627,6 +628,83 @@ a {
   text-decoration: underline; /* Subraya los enlaces al pasar el mouse */
 }
 
+/* Estilos para pantallas medianas */
+@media (max-width: 1048px) {
+  .navbar1 {
+    padding: 10px 20px; /* Reducción de padding en pantallas medianas */
+  }
+
+  .navbar-links1 {
+    margin-left: 50px; /* Reduce el margen izquierdo en pantallas medianas */
+  }
+
+  .navbar-links1 button {
+    font-size: 14px; /* Disminuye el tamaño de la fuente */
+    padding: 8px; /* Menos padding */
+  }
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  .navbar1 {
+    padding: 8px 10px; /* Reducción adicional de padding en pantallas pequeñas */
+  }
+
+  .navbar-links1 {
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en una nueva línea si es necesario */
+    justify-content: space-around; /* Distribuye equitativamente los botones */
+    margin-left: 40px; /* Elimina el margen en pantallas pequeñas */
+  }
+
+  .navbar-links1 button {
+    font-size: 12px; /* Ajusta el tamaño de la fuente */
+    margin: 0 5px; /* Reduce el margen entre botones */
+    padding: 5px 8px; /* Menos padding */
+  }
+}
+
+/* Ajustes adicionales para móviles muy pequeños */
+@media (max-width: 480px) {
+  .navbar1 {
+    padding: 5px 5px;
+  }
+
+  .navbar-links1 button {
+    font-size: 10px; /* Aún más pequeño en pantallas muy pequeñas */
+    margin: 2px; /* Casi sin espacio entre botones */
+    padding: 4px 5px;
+  }
+
+  /* Sección de Lugares inolvidables */
+.info-section1 {
+  background-color: #e0e0e0; /* Color gris claro temporal para el mapa */
+  width: 100vw;
+  height: 691px; /* Ajusta esta altura según el contenido */
+  display: flex;
+  justify-content: flex-end; /* Alinea el contenido a la derecha */
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.info-content1 {
+  background-color: white;
+  max-width: 400px; /* Tamaño del cuadro blanco */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.social-icons1 {
+  font-size: 2rem;
+  color: #4B67AE; /* Color de los iconos en azul */
+  display: flex;
+  justify-content: center; /* Alinea los iconos a la izquierda */
+  gap: 20px;
+}
+}
+
 /* Responsividad: Ajusta las columnas para pantallas más pequeñas */
 @media (max-width: 768px) {
   .footer-container {
@@ -643,66 +721,26 @@ a {
     justify-content: flex-start; /* Alinea los logos a la izquierda */
   }
 
-  .logo {
-    width: 100px; /* Ajusta el tamaño de los logos en pantallas pequeñas */
-    height: auto;
-  }
 }
 
-/* --- Adaptación a móviles pequeños (hasta 480px) --- */
-@media only screen and (max-width: 480px) {
-  .header {
-    justify-content: space-between;
-    padding: 10px 20px;
-  }
+/* Flexbox ajustes */
+.carousel-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-  .header-logo {
-    font-size: 1.2rem;
-  }
+/* Imagenes responsivas */
+img, iframe {
+  max-width: 100%;
+  height: auto;
+}
 
-  .navbar {
-    display: none; /* Ocultamos la barra de navegación para móviles pequeños */
-  }
-
-  .hamburger-menu {
-    display: flex; /* Mostramos el menú hamburguesa */
-  }
-
-  .navbar-links {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background-color: #333;
-    padding: 15px;
-    gap: 10px;
-    width: 100%;
-    display: none; /* Mantener oculto hasta que se active con el menú hamburguesa */
-  }
-
-  .navbar-links li a {
-    font-size: 1.2rem;
-    padding: 10px;
-    width: 100%;
-    display: block;
-    text-align: center;
-  }
-
-  .navbar-links.show {
-    display: flex; /* Mostramos la barra de navegación cuando se hace clic en el menú hamburguesa */
-  }
-
-  /* Estilos de hero en móviles */
+/* Hero section ajustes para móviles */
+@media (max-width: 480px) {
   .hero2 {
-    margin-top: 200px;
     padding: 20px;
-    text-align: center;
-  }
-
-  .hero-content2 {
-    margin-top: 40px;
-    margin-right: 0;
+    padding-top: 120px;
   }
 
   .hero2 h1 {
@@ -713,64 +751,94 @@ a {
     font-size: 1.5rem;
   }
 
-  .hero2 button {
-    padding: 10px 20px;
-    font-size: 1rem;
+  .community-content h1 {
+    font-size: 1rem; /* Aumenta el tamaño del texto del título */
+    margin-bottom: 0px;
+    font-weight: bold;
+  }
+  
+  .community-content p {
+    font-size: 1.0rem;
+    margin-bottom: 30px;
+  }
+  /* Sección de redes sociales */
+.social-section1 {
+  width: 100vw;
+  padding: 40px;
+  background-color: #f8f9fa; /* Color claro de fondo */
+}
+
+.social-content1 {
+  text-align: center; /* Alinea todo el texto a la izquierda */
+  margin-bottom: 30px;
+  max-width: 1200px; /* Ajusta el ancho máximo del contenido */
+  margin-left: 0px; /* Agrega margen a la izquierda */
+  color: #4B67AE; /* Aplica el azul usado previamente a todo el texto */
+}
+}
+
+@media (max-width: 768px) {
+
+  .help-options {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .help-item {
+    margin-bottom: 20px;
   }
 }
 
-/* --- Adaptación a móviles grandes (480px a 768px) --- */
-@media only screen and (min-width: 481px) and (max-width: 768px) {
-  .header {
-    padding: 15px 30px;
+@media (max-width: 1048px) {
+  .hero-content2 {
+    margin-right: 0;
+    text-align: center; /* Center the text */
+    align-items: center; /* Center the button */
+    justify-content: center;
   }
 
-  .header-logo {
-    font-size: 1.5rem;
-  }
-
-  .navbar {
-    display: none; /* Ocultamos la barra de navegación para dispositivos móviles grandes */
-  }
-
-  .hamburger-menu {
-    display: flex;
-  }
-
-  .navbar-links {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 70px;
-    right: 0;
-    background-color: #333;
-    padding: 20px;
-    gap: 15px;
-    width: 100%;
-    display: none; /* Oculto hasta que se active */
-  }
-
-  .navbar-links.show {
-    display: flex;
-  }
-
-  .navbar-links li a {
-    font-size: 1.3rem;
-    padding: 10px;
-    text-align: center;
-    display: block;
-  }
-
-  .hero2 h1 {
-    font-size: 2.5rem;
-  }
-
-  .hero2 h2 {
-    font-size: 1.75rem;
+  .hero2 h1, .hero2 h2 {
+    text-align: center; /* Center the headings */
   }
 
   .hero2 button {
-    padding: 12px 25px;
-    font-size: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block; /* Center the button */
   }
+
+  /* Sección de Comunidad */
+.community-section1 {
+  background-image: url('../assets/img/image2.png'); /* Ruta de la imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 700px; /* Ajusta según sea necesario */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  color: white;
+  position: relative;
+}
+
+.community-content1 {
+  max-width: 1000px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.community-content1 h1 {
+  font-size: 2.4rem; /* Aumenta el tamaño del texto del título */
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.community-content1 p {
+  font-size: 1.0rem;
+  margin-bottom: 30px;
+}
 }

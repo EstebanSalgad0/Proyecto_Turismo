@@ -60,8 +60,8 @@ const Index = () => {
   return (
     <div className="index-container">
       {/* Navbar */}
-      <header className={`navbar ${showHeader ? 'show' : 'hide'}`}>
-        <div className="navbar-links">
+      <header className={`navbar1 ${showHeader ? 'show' : 'hide'}`}>
+        <div className="navbar-links1">
           <div className="dropdown">
             <button className="Ir" onClick={toggleDropdown}>
               ¿A dónde ir?
@@ -142,7 +142,7 @@ const Index = () => {
         </div>
         <div className="navbar-auth">
           {/* Botones para cambiar entre español e inglés */}
-          <button onClick={() => window.changeLanguage('es')}>ES</button> 
+          <button onClick={() => window.changeLanguage('es')}>ES/</button> 
           <button onClick={() => window.changeLanguage('en')}>EN</button>
         </div>
         <div className="navbar-search">
@@ -209,8 +209,8 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="community-section">
-        <div className="community-content">
+      <section className="community-section1">
+        <div className="community-content1">
           <h1>Acércate más a <br />nuestra comuna</h1>
           <p>
           Servicio País Colbún y la Municipalidad de Colbún comparten sus experiencias transformadoras en las diversas localidades de la comuna. Sumérgete en sus historias, desde la revitalización de espacios públicos hasta proyectos de inclusión social que han mejorado la calidad de vida de los vecinos. Desde talleres educativos en zonas rurales hasta el impulso de emprendimientos locales, descubre cómo el trabajo conjunto ha marcado la diferencia en el corazón de Colbún.
@@ -221,8 +221,8 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="info-section">
-        <div className="info-content">
+      <section className="info-section1">
+        <div className="info-content1">
           <h5>Lugares inolvidables</h5>
           <h1>Algo para no olvidar</h1>
           <p>Descubre la belleza cautivadora de Colbún, donde los tranquilos paisajes rurales se entrelazan con los lagos cristalinos y montañas imponentes que ofrecen una combinación única de naturaleza, aventura al aire libre y un profundo sentido de comunidad. Puedes navegar en las aguas del embalse Machicura, disfrutar de las termas naturales de Panimávida o explorar los senderos que atraviesan los cerros verdes de la región. Colbún te invita a vivir experiencias inolvidables, inmersas en la serenidad y el encanto del corazón de la zona central de Chile.</p>
@@ -230,12 +230,12 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="social-section">
-        <div className="social-content">
+      <section className="social-section1">
+        <div className="social-content1">
           <h2>¿Cuál será tu próximo destino?</h2>
           <p><strong>Visita Colbún y su gente.</strong> Etiquétanos con <strong>#VisitaColbun</strong>.</p>
           <h3>ENCUÉNTRANOS TAMBIÉN EN</h3>
-          <div className="social-icons">
+          <div className="social-icons1">
             <i className="bi bi-facebook"></i>
             <i className="bi bi-instagram"></i>
             <i className="bi bi-youtube"></i>
