@@ -184,6 +184,10 @@ a {
   left: 0;
   width: 100%;
   height: 122%;
+  object-fit: cover;
+  transform-origin: center center;
+  transform: scale(1.5); /* Hace zoom del 150% en el iframe */
+  height: 100%; /* Opción adicional para extender el alto del iframe */
   border: none;
   z-index: -2; /* Coloca el iframe detrás del contenido */
 }
@@ -631,16 +635,66 @@ a {
 /* Estilos para pantallas medianas */
 @media (max-width: 1048px) {
   .navbar1 {
-    padding: 10px 20px; /* Reducción de padding en pantallas medianas */
+    padding: 10px 10px; /* Reducción de padding en pantallas medianas */
   }
 
   .navbar-links1 {
-    margin-left: 50px; /* Reduce el margen izquierdo en pantallas medianas */
+    margin-left: 0px; /* Reduce el margen izquierdo en pantallas medianas */
   }
 
   .navbar-links1 button {
     font-size: 14px; /* Disminuye el tamaño de la fuente */
-    padding: 8px; /* Menos padding */
+    padding: 10px; /* Menos padding */
+  }
+
+  .hero2 iframe {
+    position: absolute;
+    top: 0;
+    margin-top: -20px;
+    left: 0;
+    width: 100%;
+    height: 122%;
+    object-fit: cover;
+    transform-origin: center center;
+    transform: scale(1.8); /* Hace zoom del 150% en el iframe */
+    height: 100%; /* Opción adicional para extender el alto del iframe */
+    border: none;
+    z-index: -2; /* Coloca el iframe detrás del contenido */
+  }
+
+  .hero2 {
+    position: relative;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start; /* Alinea los elementos a la izquierda */
+    align-items: center; /* Centra verticalmente */
+    text-align: left; /* Alinea el texto a la izquierda */
+    color: white;
+    padding: 40px 60px; /* Ajusta el padding para que no quede pegado a los bordes */
+    box-sizing: border-box;
+    flex-direction: column; /* Coloca los elementos en columna */
+    margin-top: 60px;
+    overflow: hidden; /* Asegura que el iframe no sobresalga */
+  }
+}
+
+@media (max-width: 840px) {
+  .navbar1 {
+    padding: 10px 10px; /* Reducción de padding en pantallas medianas */
+  }
+
+  .navbar-links1 {
+    margin-left: 0px; /* Reduce el margen izquierdo en pantallas medianas */
+  }
+
+  .navbar-links1 button {
+    font-size: 14px; /* Disminuye el tamaño de la fuente */
+    padding: 10px; /* Menos padding */
+    margin: 0 5px; /* Reduce el margen entre botones */
   }
 }
 
@@ -661,6 +715,40 @@ a {
     margin: 0 5px; /* Reduce el margen entre botones */
     padding: 5px 8px; /* Menos padding */
   }
+
+  .hero2 iframe {
+    position: absolute;
+    top: 0;
+    margin-top: -20px;
+    left: 0;
+    width: 100%;
+    height: 122%;
+    object-fit: cover;
+    transform-origin: center center;
+    transform: scale(2.7); /* Hace zoom del 150% en el iframe */
+    height: 100%; /* Opción adicional para extender el alto del iframe */
+    border: none;
+    z-index: -2; /* Coloca el iframe detrás del contenido */
+  }
+
+  .hero2 {
+    position: relative;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start; /* Alinea los elementos a la izquierda */
+    align-items: center; /* Centra verticalmente */
+    text-align: left; /* Alinea el texto a la izquierda */
+    color: white;
+    padding: 40px 60px; /* Ajusta el padding para que no quede pegado a los bordes */
+    box-sizing: border-box;
+    flex-direction: column; /* Coloca los elementos en columna */
+    margin-top: 50px;
+    overflow: hidden; /* Asegura que el iframe no sobresalga */
+  }
 }
 
 /* Ajustes adicionales para móviles muy pequeños */
@@ -674,6 +762,27 @@ a {
     margin: 2px; /* Casi sin espacio entre botones */
     padding: 4px 5px;
   }
+
+  .hero2 {
+    margin-top: 20px;
+  }
+
+  .hero2 iframe {
+    position: absolute;
+    top: 0;
+    margin-top: -200px;
+    left: 0;
+    width: 100%;
+    height: 122%;
+    object-fit: cover;
+    transform-origin: center center;
+    transform: scale(4); /* Hace zoom del 150% en el iframe */
+    height: 150%; /* Opción adicional para extender el alto del iframe */
+    border: none;
+    z-index: -2; /* Coloca el iframe detrás del contenido */
+  }
+
+  
 
   /* Sección de Lugares inolvidables */
 .info-section1 {
