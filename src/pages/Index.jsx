@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-import '../styles/Index.css?v=2.6';
+import '../styles/Index.css?v=2.9';
 
 
 const Index = () => {
@@ -13,6 +13,8 @@ const Index = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true); // Estado para pausar/reproducir
   const videoRef = useRef(null); // Referencia al iframe del video
+  const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
+  const totalSlides = 4; // Número total de slides
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -56,6 +58,24 @@ const Index = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [lastScrollY]);
+
+  // Función para manejar las flechas
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlides); // Si llega al final, vuelve al inicio
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides); // Si está en la primera, va a la última
+  };
+
+  // Desliza automáticamente cada 10 segundos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 10000);
+
+    return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
+  }, []);
 
   return (
     <div className="index-container">
@@ -179,34 +199,51 @@ const Index = () => {
 
 
       {/* Carousel Section */}
-      <section className="carousel-section">
-        <div className="carousel-header">
+      <section className="carousel-section1">
+        <div className="carousel-header1">
           <h5>Admira</h5>
-          <div className="carousel-subheader">
+          <div className="carousel-subheader1">
             <h2>Belleza Natural</h2>
             <a href="#">Ve más <span>&#8594;</span></a>
           </div>
         </div>
 
         {/* Carrusel de imágenes */}
-        <div className="carousel-container">
-          <div className="carousel-card">
-            <div className="carousel-image"></div>
+        <div className="carousel-container1">
+          {/* Cards del carrusel */}
+          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+            <div className="carousel-image1"></div>
             <p>Mirador Las Vizcachas</p>
           </div>
-          <div className="carousel-card">
-            <div className="carousel-image"></div>
+          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+            <div className="carousel-image1"></div>
             <p>Parque Nacional Guaquivilo</p>
           </div>
-          <div className="carousel-card">
-            <div className="carousel-image"></div>
+          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+            <div className="carousel-image1"></div>
             <p>Cavernas Los Bellotos</p>
           </div>
-          <div className="carousel-card">
-            <div className="carousel-image"></div>
+          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+            <div className="carousel-image1"></div>
             <p>Embalse Machicura</p>
           </div>
+          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+            <div className="carousel-image1"></div>
+            <p>Prueba scroll</p>
+          </div>
+          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+            <div className="carousel-image1"></div>
+            <p>Prueba 2</p>
+          </div>
+          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+            <div className="carousel-image1"></div>
+            <p>Prueba 3</p>
+          </div>
         </div>
+
+        {/* Flechas de control */}
+        <button className="carousel-control1 prev" onClick={prevSlide}>&#10094;</button>
+        <button className="carousel-control1 next" onClick={nextSlide}>&#10095;</button>
       </section>
 
       <section className="community-section1">
