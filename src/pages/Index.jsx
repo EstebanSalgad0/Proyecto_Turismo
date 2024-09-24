@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-import '../styles/Index.css?v=2.9';
+import '../styles/Index.css?v=3.1';
 
 
 const Index = () => {

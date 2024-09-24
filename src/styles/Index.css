@@ -297,7 +297,7 @@ a {
 .carousel-card1 {
   flex: 1;
   min-width: 250px; /* Tamaño mínimo de las tarjetas */
-  height: 400px; /* Altura de las tarjetas */
+  height: 380px; /* Altura de las tarjetas */
   background-color: #e0e0e0; /* Color gris para las imágenes de ejemplo */
   border-radius: 10px;
   text-align: center;
