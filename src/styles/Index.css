@@ -1,0 +1,1000 @@
+/* Aplica este estilo solo al contenedor principal de Index */
+.index-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/* Estilos para el menú desplegable y submenú */
+.dropdown-menu {
+  position: relative;
+  display: block;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu > li {
+  padding: 10px;
+  cursor: pointer;
+  position: relative; /* Añadido para que el submenú sea relativo a su padre */
+}
+
+.dropdown-submenu {
+  position: absolute;
+  top: 0;
+  left: 100%; /* Mueve el submenú a la derecha */
+  display: none; /* El submenú está oculto por defecto */
+  list-style-type: none;
+  padding: 0;
+  background-color: white;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1; /* Asegura que el submenú aparezca encima de otros elementos */
+}
+
+.dropdown-submenu li {
+  padding: 10px;
+}
+
+.dropdown-menu > li:hover .dropdown-submenu {
+  display: block; /* Muestra el submenú al pasar el mouse */
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* Estilos adicionales */
+.dropdown-menu > li:hover {
+  background-color: #f0f0f0; /* Cambia el color de fondo al pasar el mouse */
+}
+
+/* Estilos para el navbar */
+.navbar1 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4B67AE; /* Color de fondo del navbar */
+  padding: 15px 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out; /* Transición suave */
+  flex-wrap: nowrap; /* Evita que los elementos salten a una nueva línea */
+}
+
+.show {
+  transform: translateY(0); /* Header visible */
+}
+
+.hide {
+  transform: translateY(-100%); /* Header oculto al hacer scroll hacia abajo */
+}
+
+/* Clase para ocultar el navbar cuando se hace scroll hacia abajo */
+.navbar-hidden {
+  top: -100px; /* Desplaza el navbar hacia arriba, fuera de la pantalla */
+}
+
+.navbar-links1 {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between; /* Distribuye los botones equitativamente */
+  margin-left: 100px; /* Acerca "¿A dónde ir?" a la izquierda */
+}
+
+/* Estilos para los botones que se ven como enlaces (invisibles pero funcionales) */
+.navbar-links1 button {
+  color: #ffffff;
+  background-color: transparent; /* Fondo transparente */
+  border: none; /* Sin bordes */
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0px 0px 0px 150px;
+  cursor: pointer; /* Muestra el cursor de enlace al pasar por el botón */
+  padding: 10px 0; /* Añade un poco de padding para que sea clicable */
+}
+
+/* Ajuste para "ES/EN" para que se distribuya equitativamente */
+.navbar-auth {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.navbar-auth button {
+  color: #ffffff;
+  background-color: transparent; /* Fondo transparente */
+  border: none; /* Sin bordes */
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0px 0; /* Añade padding para aumentar el área clicable */
+}
+
+.navbar-search {
+  margin-right: 30px;
+}
+
+.navbar-search button {
+  background-color: transparent; /* Fondo transparente */
+  border: none; /* Sin bordes */
+  cursor: pointer;
+}
+
+.navbar-search i {
+  font-size: 24px; /* Tamaño del icono */
+  color: #ffffff;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  display: block;
+}
+
+.dropdown-menu li {
+  padding: 10px 20px;
+}
+
+.dropdown-menu li a {
+  color: black;
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+}
+
+.hero2 {
+  position: relative;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: flex-start; /* Alinea los elementos a la izquierda */
+  align-items: center; /* Centra verticalmente */
+  text-align: left; /* Alinea el texto a la izquierda */
+  color: white;
+  padding: 40px 60px; /* Ajusta el padding para que no quede pegado a los bordes */
+  box-sizing: border-box;
+  flex-direction: column; /* Coloca los elementos en columna */
+  margin-top: 74px;
+  overflow: hidden; /* Asegura que el iframe no sobresalga */
+}
+
+.hero2 iframe {
+  position: absolute;
+  top: 0;
+  margin-top: -50px;
+  left: 0;
+  width: 100%;
+  height: 122%;
+  object-fit: cover;
+  transform-origin: center center;
+  transform: scale(1.5); /* Hace zoom del 150% en el iframe */
+  height: 100%; /* Opción adicional para extender el alto del iframe */
+  border: none;
+  z-index: -2; /* Coloca el iframe detrás del contenido */
+}
+
+.hero2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25); /* Capa negra semitransparente */
+  z-index: -1; /* Capa negra detrás del contenido pero sobre el video */
+}
+
+.hero-content2 {
+  position: relative; /* Mantén el contenido por encima del iframe y la capa negra */
+  margin-top: 100px;
+  margin-right: 600px;
+  align-items: start;
+}
+
+.hero2 h1 {
+  font-size: 3rem; /* Ajusta el tamaño del texto principal */
+  font-weight: bold;
+  margin-bottom: 10px; /* Espaciado entre las líneas de texto */
+}
+
+.hero2 h2 {
+  font-size: 2rem;
+  margin-bottom: 40px; /* Espaciado entre el subtítulo y el botón */
+}
+
+.hero2 button {
+  background-color: #3f51b5; /* Color de fondo del botón */
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  align-self: flex-start; /* Alinea el botón a la izquierda */
+}
+
+.hero2 button:hover {
+  background-color: #2c387e; /* Cambia el color cuando se pasa el mouse */
+}
+
+/* Estilos del Hero: ya incluidos arriba */
+
+/* Carousel Section */
+.carousel-section1 {
+  margin: 50px 0;
+  padding: 0 60px;
+  width: 100vw;
+}
+
+/* Ajustes de la cabecera del carrusel */
+.carousel-header1 {
+  display: flex;
+  flex-direction: column; /* Alinea los elementos verticalmente */
+  align-items: flex-start; /* Alinea a la izquierda */
+  margin-bottom: 20px;
+}
+
+.carousel-header1 h5 {
+  color: #6c757d; /* Color gris */
+  margin: 0;
+  font-size: 1rem;
+}
+
+.carousel-subheader1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Asegura que "Ver más" quede alineado a la derecha */
+  margin-top: 10px;
+}
+
+.carousel-subheader1 h2 {
+  font-size: 2rem;
+  color: #4B67AE;
+  font-weight: bold;
+  margin: 0;
+}
+
+.carousel-subheader1 a {
+  color: #4B67AE;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-subheader1 a span {
+  margin-left: 5px;
+}
+
+.carousel-container1 {
+  display: flex;
+  gap: 20px; /* Espacio entre las tarjetas */
+  padding-bottom: 10px;
+}
+
+.carousel-card1 {
+  flex: 1;
+  min-width: 250px; /* Tamaño mínimo de las tarjetas */
+  height: 380px; /* Altura de las tarjetas */
+  background-color: #e0e0e0; /* Color gris para las imágenes de ejemplo */
+  border-radius: 10px;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-image1 {
+  width: 100%;
+  height: 300px; /* Altura de la imagen dentro de la tarjeta */
+  background-color: #d3d3d3; /* Placeholder para la imagen */
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.carousel-card1 p {
+  font-size: 1.1rem;
+  color: #000;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Flechas de control del carrusel */
+.carousel-control1 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2; /* Asegura que esté encima del contenido */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-control1.prev {
+  left: 10px;
+}
+
+.carousel-control1.next {
+  right: 10px;
+}
+
+.carousel-control:hover {
+  background-color: #4B67AE;
+}
+
+/* Ajustes de las imágenes */
+.carousel-container1 {
+  display: flex;
+  gap: 20px;
+  overflow: hidden; /* Ocultar los elementos fuera del contenedor visible */
+  position: relative;
+}
+
+.carousel-card1 {
+  flex: 0 0 300px; /* Ajusta el ancho de las tarjetas */
+  transition: transform 0.5s ease;
+}
+
+.carousel-section1 {
+  position: relative; /* Necesario para que las flechas estén bien posicionadas */
+}
+
+
+/* Sección de Comunidad */
+.community-section1 {
+  background-image: url('../assets/img/image2.png'); /* Ruta de la imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 648px; /* Ajusta según sea necesario */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  color: white;
+  position: relative;
+}
+
+.community-content1 {
+  max-width: 1000px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.community-content1 h1 {
+  font-size: 4rem; /* Aumenta el tamaño del texto del título */
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.community-content1 p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.btn-blue {
+  background-color: #4B67AE;
+  margin-right: 1rem;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold; /* Hace el texto del botón en negritas */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-blue:hover {
+  background-color: #3f51b5;
+}
+
+.bi-play,
+.bi-pause {
+  font-size: 1.6rem;
+}
+
+.play-button {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+}
+
+/* Sección de Lugares inolvidables */
+.info-section1 {
+  background-color: #e0e0e0; /* Color gris claro temporal para el mapa */
+  width: 100vw;
+  height: 691px; /* Ajusta esta altura según el contenido */
+  display: flex;
+  justify-content: flex-end; /* Alinea el contenido a la derecha */
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.info-content1 {
+  background-color: white;
+  max-width: 400px; /* Tamaño del cuadro blanco */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.info-content h5 {
+  font-size: 1rem;
+  color: #6c757d; /* Color gris para el subtítulo */
+  margin-bottom: 10px;
+}
+
+.info-content h1 {
+  font-size: 2rem;
+  color: #4B67AE;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.info-content p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.btn-blue {
+  background-color: #4B67AE;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-blue:hover {
+  background-color: #3f51b5;
+}
+
+/* Sección de redes sociales */
+.social-section1 {
+  width: 100vw;
+  padding: 40px;
+  background-color: #f8f9fa; /* Color claro de fondo */
+}
+
+.social-content1 {
+  text-align: left; /* Alinea todo el texto a la izquierda */
+  margin-bottom: 30px;
+  max-width: 1200px; /* Ajusta el ancho máximo del contenido */
+  margin-left: 60px; /* Agrega margen a la izquierda */
+  color: #4B67AE; /* Aplica el azul usado previamente a todo el texto */
+}
+
+.social-content1 h2 {
+  font-size: 1.5rem; /* Tamaño de la pregunta más pequeño */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.social-content1 p {
+  font-size: 2rem; /* Aumenta el tamaño del texto de "Visita Colbún..." */
+  font-weight: bold; /* Asegura que el texto sea más destacado */
+  margin-bottom: 20px;
+}
+
+.social-content1 h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.social-icons1 {
+  font-size: 2rem;
+  color: #4B67AE; /* Color de los iconos en azul */
+  display: flex;
+  justify-content: flex-start; /* Alinea los iconos a la izquierda */
+  gap: 20px;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  margin: 40px 0;
+}
+
+/* Sección de ayuda */
+.help-section {
+  text-align: left;
+  margin-top: 40px;
+  padding: 0 60px; /* Ajusta el padding para que coincida con otras secciones */
+  max-width: 1200px; /* Limita el ancho máximo como en otras secciones */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+}
+
+.help-section h2 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.help-options {
+  display: flex;
+  justify-content: space-around; /* Distribuye las imágenes y el texto equitativamente */
+  align-items: center; /* Alinea las imágenes y los textos verticalmente */
+}
+
+.help-item {
+  display: flex;
+  align-items: center; /* Alinea la imagen y el texto horizontalmente */
+  gap: 15px; /* Espacio entre la imagen y el texto */
+  max-width: 300px; /* Ancho máximo para cada bloque */
+}
+
+/* Aquí se configuran las imágenes de fondo */
+.help-item .help-image {
+  width: 60px;
+  height: 60px;
+  background-size: cover; /* Asegura que la imagen cubra el área sin deformarse */
+  background-position: center; /* Centra la imagen dentro del div */
+  border-radius: 50%; /* Hace la imagen redonda */
+}
+
+/* Diferentes clases para cada imagen */
+.help-image-1 {
+  background-image: url('../assets/img/formulario.png'); /* Aquí va tu imagen */
+}
+
+.help-image-2 {
+  background-image: url('../assets/img/OIT.png'); /* Aquí va tu imagen */
+}
+
+.help-image-3 {
+  background-image: url('../assets/img/Mapa.png'); /* Aquí va tu imagen */
+}
+
+.help-item p {
+  font-size: 1rem;
+  color: #333;
+  margin: 0;
+  max-width: 200px; /* Limita el ancho del texto */
+}
+
+/* Divider styling */
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  margin: 40px 0; /* Espaciado para que coincida con otras secciones */
+}
+
+/* Footer */
+.footer-section {
+  background-color: #1a1a1a; /* Color de fondo oscuro */
+  color: white; /* Color de texto blanco */
+  padding: 40px 0; /* Padding para espacio vertical */
+  width: 100vw; /* Ocupa todo el ancho de la ventana */
+  box-sizing: border-box; /* Incluye el padding dentro del ancho total */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between; /* Distribuye las columnas equitativamente */
+  max-width: 1200px; /* Ancho máximo del contenido */
+  margin: 0 auto; /* Centra el contenido horizontalmente */
+  padding: 20px;
+  flex-wrap: wrap; /* Asegura que el contenido se ajuste a pantallas más pequeñas */
+}
+
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinea los logos a la izquierda */
+  gap: 20px; /* Espacio entre los logos */
+  margin-left: 0; /* Mueve el contenedor más cerca del borde izquierdo */
+}
+
+.logo {
+  width: 150px;
+  height: 80px; /* Ajusta la altura según la imagen */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Aquí agregamos las imágenes de fondo */
+.logo-1 {
+  background-image: url('../assets/img/marcaFundacion.png'); /* Ruta de tu imagen */
+}
+
+.logo-2 {
+  background-image: url('../assets/img/AU.png'); /* Ruta de tu imagen */
+}
+
+.logo-3 {
+  background-image: url('../assets/img/marcaColbun.png'); /* Ruta de tu imagen */
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: calc(25% - 20px); /* Ajusta cada columna para ocupar un cuarto del ancho */
+  margin-bottom: 20px; /* Espacio entre las columnas para pantallas más pequeñas */
+}
+
+.footer-column h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.footer-column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+  color: white; /* Texto blanco */
+  text-decoration: none;
+}
+
+.footer-column ul li a:hover {
+  text-decoration: underline; /* Subraya los enlaces al pasar el mouse */
+}
+
+/* Estilos para pantallas medianas */
+@media (max-width: 1048px) {
+  .navbar1 {
+    padding: 10px 10px; /* Reducción de padding en pantallas medianas */
+  }
+
+  .navbar-links1 {
+    margin-left: 0px; /* Reduce el margen izquierdo en pantallas medianas */
+  }
+
+  .navbar-links1 button {
+    font-size: 14px; /* Disminuye el tamaño de la fuente */
+    padding: 10px; /* Menos padding */
+  }
+
+  .hero2 iframe {
+    position: absolute;
+    top: 0;
+    margin-top: -20px;
+    left: 0;
+    width: 100%;
+    height: 122%;
+    object-fit: cover;
+    transform-origin: center center;
+    transform: scale(1.8); /* Hace zoom del 150% en el iframe */
+    height: 100%; /* Opción adicional para extender el alto del iframe */
+    border: none;
+    z-index: -2; /* Coloca el iframe detrás del contenido */
+  }
+
+  .hero2 {
+    position: relative;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start; /* Alinea los elementos a la izquierda */
+    align-items: center; /* Centra verticalmente */
+    text-align: left; /* Alinea el texto a la izquierda */
+    color: white;
+    padding: 40px 60px; /* Ajusta el padding para que no quede pegado a los bordes */
+    box-sizing: border-box;
+    flex-direction: column; /* Coloca los elementos en columna */
+    margin-top: 60px;
+    overflow: hidden; /* Asegura que el iframe no sobresalga */
+  }
+}
+
+@media (max-width: 840px) {
+  .navbar1 {
+    padding: 10px 10px; /* Reducción de padding en pantallas medianas */
+  }
+
+  .navbar-links1 {
+    margin-left: 0px; /* Reduce el margen izquierdo en pantallas medianas */
+  }
+
+  .navbar-links1 button {
+    font-size: 14px; /* Disminuye el tamaño de la fuente */
+    padding: 10px; /* Menos padding */
+    margin: 0 5px; /* Reduce el margen entre botones */
+  }
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  .navbar1 {
+    padding: 8px 10px; /* Reducción adicional de padding en pantallas pequeñas */
+  }
+
+  .navbar-links1 {
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en una nueva línea si es necesario */
+    justify-content: space-around; /* Distribuye equitativamente los botones */
+    margin-left: 40px; /* Elimina el margen en pantallas pequeñas */
+  }
+
+  .navbar-links1 button {
+    font-size: 12px; /* Ajusta el tamaño de la fuente */
+    margin: 0 5px; /* Reduce el margen entre botones */
+    padding: 5px 8px; /* Menos padding */
+  }
+
+  .hero2 iframe {
+    position: absolute;
+    top: 0;
+    margin-top: -20px;
+    left: 0;
+    width: 100%;
+    height: 122%;
+    object-fit: cover;
+    transform-origin: center center;
+    transform: scale(2.7); /* Hace zoom del 150% en el iframe */
+    height: 100%; /* Opción adicional para extender el alto del iframe */
+    border: none;
+    z-index: -2; /* Coloca el iframe detrás del contenido */
+  }
+
+  .hero2 {
+    position: relative;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start; /* Alinea los elementos a la izquierda */
+    align-items: center; /* Centra verticalmente */
+    text-align: left; /* Alinea el texto a la izquierda */
+    color: white;
+    padding: 40px 60px; /* Ajusta el padding para que no quede pegado a los bordes */
+    box-sizing: border-box;
+    flex-direction: column; /* Coloca los elementos en columna */
+    margin-top: 50px;
+    overflow: hidden; /* Asegura que el iframe no sobresalga */
+  }
+}
+
+/* Ajustes adicionales para móviles muy pequeños */
+@media (max-width: 480px) {
+  .navbar1 {
+    padding: 5px 5px;
+  }
+
+  .navbar-links1 button {
+    font-size: 10px; /* Aún más pequeño en pantallas muy pequeñas */
+    margin: 2px; /* Casi sin espacio entre botones */
+    padding: 4px 5px;
+  }
+
+  .hero2 {
+    margin-top: 20px;
+  }
+
+  .hero2 iframe {
+    position: absolute;
+    top: 0;
+    margin-top: -200px;
+    left: 0;
+    width: 100%;
+    height: 122%;
+    object-fit: cover;
+    transform-origin: center center;
+    transform: scale(4); /* Hace zoom del 150% en el iframe */
+    height: 150%; /* Opción adicional para extender el alto del iframe */
+    border: none;
+    z-index: -2; /* Coloca el iframe detrás del contenido */
+  }
+
+  
+
+  /* Sección de Lugares inolvidables */
+.info-section1 {
+  background-color: #e0e0e0; /* Color gris claro temporal para el mapa */
+  width: 100vw;
+  height: 691px; /* Ajusta esta altura según el contenido */
+  display: flex;
+  justify-content: flex-end; /* Alinea el contenido a la derecha */
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.info-content1 {
+  background-color: white;
+  max-width: 400px; /* Tamaño del cuadro blanco */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.social-icons1 {
+  font-size: 2rem;
+  color: #4B67AE; /* Color de los iconos en azul */
+  display: flex;
+  justify-content: center; /* Alinea los iconos a la izquierda */
+  gap: 20px;
+}
+}
+
+/* Responsividad: Ajusta las columnas para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-column {
+    flex-basis: 100%; /* Cada columna ocupa todo el ancho en pantallas pequeñas */
+  }
+
+  .footer-logo {
+    flex-direction: row; /* Coloca los logos en fila en pantallas pequeñas */
+    justify-content: flex-start; /* Alinea los logos a la izquierda */
+  }
+
+}
+
+/* Flexbox ajustes */
+.carousel-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Imagenes responsivas */
+img, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Hero section ajustes para móviles */
+@media (max-width: 480px) {
+  .hero2 {
+    padding: 20px;
+    padding-top: 120px;
+  }
+
+  .hero2 h1 {
+    font-size: 2rem;
+  }
+
+  .hero2 h2 {
+    font-size: 1.5rem;
+  }
+
+  .community-content h1 {
+    font-size: 1rem; /* Aumenta el tamaño del texto del título */
+    margin-bottom: 0px;
+    font-weight: bold;
+  }
+  
+  .community-content p {
+    font-size: 1.0rem;
+    margin-bottom: 30px;
+  }
+  /* Sección de redes sociales */
+.social-section1 {
+  width: 100vw;
+  padding: 40px;
+  background-color: #f8f9fa; /* Color claro de fondo */
+}
+
+.social-content1 {
+  text-align: center; /* Alinea todo el texto a la izquierda */
+  margin-bottom: 30px;
+  max-width: 1200px; /* Ajusta el ancho máximo del contenido */
+  margin-left: 0px; /* Agrega margen a la izquierda */
+  color: #4B67AE; /* Aplica el azul usado previamente a todo el texto */
+}
+}
+
+@media (max-width: 768px) {
+
+  .help-options {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .help-item {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 1048px) {
+  .hero-content2 {
+    margin-right: 0;
+    text-align: center; /* Center the text */
+    align-items: center; /* Center the button */
+    justify-content: center;
+  }
+
+  .hero2 h1, .hero2 h2 {
+    text-align: center; /* Center the headings */
+  }
+
+  .hero2 button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block; /* Center the button */
+  }
+
+  /* Sección de Comunidad */
+.community-section1 {
+  background-image: url('../assets/img/image2.png'); /* Ruta de la imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 700px; /* Ajusta según sea necesario */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  color: white;
+  position: relative;
+}
+
+.community-content1 {
+  max-width: 1000px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.community-content1 h1 {
+  font-size: 2.4rem; /* Aumenta el tamaño del texto del título */
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.community-content1 p {
+  font-size: 1.0rem;
+  margin-bottom: 30px;
+}
+}
