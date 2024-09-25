@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
 import '../styles/Index.css?v=3.1';
+import Footer from './Footer';
 
 
 const Index = () => {
@@ -15,10 +16,6 @@ const Index = () => {
   const videoRef = useRef(null); // Referencia al iframe del video
   const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
   const totalSlides = 4; // Número total de slides
-
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
-  };
 
   const toggleActivitiesDropdown = () => {
     setActivitiesDropdownOpen(!activitiesDropdownOpen);
@@ -82,8 +79,8 @@ const Index = () => {
       {/* Navbar */}
       <header className={`navbar1 ${showHeader ? 'show' : 'hide'}`}>
         <div className="navbar-links1">
-          <div className="dropdown">
-            <button className="Ir" onClick={toggleDropdown}>
+          <div className="dropdown" onMouseEnter={() => setDropdownOpen(true)} onMouseLeave={() => setDropdownOpen(false)}>
+            <button className="Ir">
               ¿A dónde ir?
             </button>
             {dropdownOpen && (
@@ -103,7 +100,7 @@ const Index = () => {
             )}
           </div>
 
-          <div className="dropdown">
+          <div className="dropdown" onMouseEnter={()=>setActivitiesDropdownOpen(true)} onMouseLeave={()=>setActivitiesDropdownOpen(false)}>
             <button className="Hacer" onClick={toggleActivitiesDropdown}>
               ¿Qué hacer?
             </button>
@@ -299,44 +296,8 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-      <footer className="footer-section">
-        <div className="footer-container">
-          <div className="footer-logo">
-            <div className="logo logo-1"></div>
-            <div className="logo logo-2"></div>
-            <div className="logo logo-3"></div>
-          </div>
-
-          <div className="footer-column">
-            <h3>Visita Colbún</h3>
-            <ul>
-              <li><a href="#">Sobre Nosotros</a></li>
-              <li><a href="#">Asociados</a></li>
-              <li><a href="#">Políticas de Privacidad</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-column">
-            <h3>Te puede interesar</h3>
-            <ul>
-              <li><a href="#">Municipalidad de Colbún</a></li>
-              <li><a href="#">Chile Travel</a></li>
-              <li><a href="#">Chile Cultura</a></li>
-              <li><a href="#">Parques nacionales Conaf</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-column">
-            <h3>Encuéntranos también en</h3>
-            <ul>
-              <li><a href="#">Facebook</a></li>
-              <li><a href="#">Instagram</a></li>
-              <li><a href="#">YouTube</a></li>
-            </ul>
-          </div>
-        </div>
-      </footer>
+      
+      <Footer />
     </div>
   );
 };
