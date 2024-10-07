@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-import '../styles/Colbunalto.css'; // Estilos específicos para el componente
+import '../styles/Colbunalto.css?v=1.1'; // Estilos específicos para el componente
 import Footer from './Footer';
 
 const Colbunalto = () => {
@@ -11,6 +11,9 @@ const Colbunalto = () => {
   const [activeSubMenu, setActiveSubMenu] = useState(null);
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
+  const totalSlides = 4; // Número total de slides
+  const [darkMode, setDarkMode] = useState(false); // Estado para modo oscuro
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -45,8 +48,49 @@ const Colbunalto = () => {
     };
   }, [lastScrollY]);
 
+  // Función para manejar las flechas
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlides); // Si llega al final, vuelve al inicio
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides); // Si está en la primera, va a la última
+  };
+
+  // Desliza automáticamente cada 10 segundos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 10000);
+
+    return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
+  }, []);
+
+  // Alternar modo oscuro y guardar en localStorage
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    localStorage.setItem('darkMode', !darkMode);
+  };
+
+  // Leer la preferencia guardada en localStorage cuando el componente cargue
+  useEffect(() => {
+    const savedMode = localStorage.getItem('darkMode') === 'true';
+    setDarkMode(savedMode);
+    if (savedMode) {
+      document.body.classList.add('dark-mode');
+    }
+  }, []);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }, [darkMode]);
+
   return (
-    <div className="index-container">
+    <div className={`index-container ${darkMode ? 'dark' : ''}`}>
       {/* Navbar */}
       <header className={`navbar ${showHeader ? 'show' : 'hide'}`}>
         <div className="navbar-links">
@@ -125,7 +169,7 @@ const Colbunalto = () => {
         </div>
         <div className="navbar-auth">
           {/* Botones para cambiar entre español e inglés */}
-          <button onClick={() => window.changeLanguage('es')}>ES</button> 
+          <button onClick={() => window.changeLanguage('es')}>ES/</button> 
           <button onClick={() => window.changeLanguage('en')}>EN</button>
         </div>
         <div className="navbar-search">
@@ -133,11 +177,17 @@ const Colbunalto = () => {
             <i className="bi bi-search"></i>
           </button>
         </div>
+        {/* Botón de Modo Oscuro */}
+        <div className="dark-mode-toggle">
+          <button onClick={toggleDarkMode}>
+            {darkMode ? 'Modo Claro' : 'Modo Oscuro'}
+          </button>
+        </div>
       </header>
 
       {/* Hero Section */}
-      <div className="hero4">
-        <div className="hero-content4">
+      <div className="hero3">
+        <div className="hero-content3">
           <h5>¿A donde ir?</h5>
           <h1>Colbun Alto</h1>
           <h4>Colbún Alto es una encantadora localidad en la comuna de Colbún, situada en la región del Maule, Chile. Este pintoresco rincón se destaca por sus vistas panorámicas de los majestuosos paisajes cordilleranos y su cercanía al embalse Colbún, una impresionante obra de ingeniería que no solo embellece el entorno, sino que también juega un papel crucial en la generación de energía hidroeléctrica. En Colbún Alto, la tranquilidad de la vida rural se combina con la majestuosidad de la naturaleza, ofreciendo a los visitantes la oportunidad de disfrutar de actividades al aire libre como el senderismo, la pesca y el avistamiento de aves. El área es ideal para quienes buscan escapar del bullicio urbano y sumergirse en un entorno sereno y natural, donde la comunidad local mantiene vivas las tradiciones y el espíritu acogedor del campo chileno.</h4>
@@ -154,34 +204,51 @@ const Colbunalto = () => {
       </section>
             
       {/* Carousel Section */}
-      <section className="carousel-section">
-        <div className="carousel-header">
+      <section className="carousel-section1">
+        <div className="carousel-header1">
           <h5>Admira</h5>
-          <div className="carousel-subheader">
+          <div className="carousel-subheader1">
             <h2>Belleza Natural</h2>
             <a href="#">Ve más <span>&#8594;</span></a>
           </div>
         </div>
 
         {/* Carrusel de imágenes */}
-        <div className="carousel-container">
-          <div className="carousel-card">
-            <div className="carousel-image"></div>
+        <div className="carousel-container1">
+          {/* Cards del carrusel */}
+          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+            <div className="carousel-image1"></div>
             <p>Mirador Las Vizcachas</p>
           </div>
-          <div className="carousel-card">
-            <div className="carousel-image"></div>
+          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+            <div className="carousel-image1"></div>
             <p>Parque Nacional Guaquivilo</p>
           </div>
-          <div className="carousel-card">
-            <div className="carousel-image"></div>
+          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+            <div className="carousel-image1"></div>
             <p>Cavernas Los Bellotos</p>
           </div>
-          <div className="carousel-card">
-            <div className="carousel-image"></div>
+          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+            <div className="carousel-image1"></div>
             <p>Embalse Machicura</p>
           </div>
+          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+            <div className="carousel-image1"></div>
+            <p>Prueba scroll</p>
+          </div>
+          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+            <div className="carousel-image1"></div>
+            <p>Prueba 2</p>
+          </div>
+          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+            <div className="carousel-image1"></div>
+            <p>Prueba 3</p>
+          </div>
         </div>
+
+        {/* Flechas de control */}
+        <button className="carousel-control1 prev" onClick={prevSlide}>&#10094;</button>
+        <button className="carousel-control1 next" onClick={nextSlide}>&#10095;</button>
       </section>
 
       <section className="social-section">

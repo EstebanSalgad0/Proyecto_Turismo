@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-import '../styles/Index.css?v=3.1';
+import '../styles/Index.css?v=3.4';
 import Footer from './Footer';
 
 
@@ -16,6 +16,7 @@ const Index = () => {
   const videoRef = useRef(null); // Referencia al iframe del video
   const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
   const totalSlides = 4; // Número total de slides
+  const [darkMode, setDarkMode] = useState(false); // Estado para modo oscuro
 
   const toggleActivitiesDropdown = () => {
     setActivitiesDropdownOpen(!activitiesDropdownOpen);
@@ -74,8 +75,31 @@ const Index = () => {
     return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
   }, []);
 
+  // Alternar modo oscuro y guardar en localStorage
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    localStorage.setItem('darkMode', !darkMode);
+  };
+
+  // Leer la preferencia guardada en localStorage cuando el componente cargue
+  useEffect(() => {
+    const savedMode = localStorage.getItem('darkMode') === 'true';
+    setDarkMode(savedMode);
+    if (savedMode) {
+      document.body.classList.add('dark-mode');
+    }
+  }, []);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }, [darkMode]);
+
   return (
-    <div className="index-container">
+    <div className={`index-container ${darkMode ? 'dark' : ''}`}>
       {/* Navbar */}
       <header className={`navbar1 ${showHeader ? 'show' : 'hide'}`}>
         <div className="navbar-links1">
@@ -165,6 +189,12 @@ const Index = () => {
         <div className="navbar-search">
           <button>
             <i className="bi bi-search"></i>
+          </button>
+        </div>
+        {/* Botón de Modo Oscuro */}
+        <div className="dark-mode-toggle">
+          <button onClick={toggleDarkMode}>
+            {darkMode ? 'Modo Claro' : 'Modo Oscuro'}
           </button>
         </div>
       </header>

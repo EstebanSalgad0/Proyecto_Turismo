@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-import '../styles/Zoit.css';
+import '../styles/Zoit.css?v=1.1';
 import Footer from './Footer';
 
 const Zoit = () => {
@@ -11,6 +11,7 @@ const Zoit = () => {
   const [activeSubMenu, setActiveSubMenu] = useState(null);
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [darkMode, setDarkMode] = useState(false); // Estado para modo oscuro
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -45,8 +46,31 @@ const Zoit = () => {
     };
   }, [lastScrollY]);
 
+  // Alternar modo oscuro y guardar en localStorage
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    localStorage.setItem('darkMode', !darkMode);
+  };
+
+  // Leer la preferencia guardada en localStorage cuando el componente cargue
+  useEffect(() => {
+    const savedMode = localStorage.getItem('darkMode') === 'true';
+    setDarkMode(savedMode);
+    if (savedMode) {
+      document.body.classList.add('dark-mode');
+    }
+  }, []);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }, [darkMode]);
+
   return (
-    <div className="index-container">
+    <div className={`index-container ${darkMode ? 'dark' : ''}`}>
       {/* Navbar */}
       <header className={`navbar ${showHeader ? 'show' : 'hide'}`}>
         <div className="navbar-links">
@@ -127,12 +151,18 @@ const Zoit = () => {
         </div>
         <div className="navbar-auth">
           {/* Botones para cambiar entre español e inglés */}
-          <button onClick={() => window.changeLanguage('es')}>ES</button> 
+          <button onClick={() => window.changeLanguage('es')}>ES/</button> 
           <button onClick={() => window.changeLanguage('en')}>EN</button>
         </div>
         <div className="navbar-search">
           <button>
             <i className="bi bi-search"></i>
+          </button>
+        </div>
+        {/* Botón de Modo Oscuro */}
+        <div className="dark-mode-toggle">
+          <button onClick={toggleDarkMode}>
+            {darkMode ? 'Modo Claro' : 'Modo Oscuro'}
           </button>
         </div>
       </header>
