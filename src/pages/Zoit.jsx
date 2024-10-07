@@ -3,7 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
 import '../styles/Zoit.css';
-import Footer from './Footer';
+import Footer from '../components/Footer';
+import SocialSection from '../components/SocialSeccion';
 
 const Zoit = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -175,38 +176,7 @@ const Zoit = () => {
         
       </section>
 
-      <section className="social-section">
-        <div className="social-content">
-          <h2>¿Cuál será tu próximo destino?</h2>
-          <p><strong>Visita Colbún y su gente.</strong> Etiquétanos con <strong>#VisitaColbun</strong>.</p>
-          <h3>ENCUÉNTRANOS TAMBIÉN EN</h3>
-          <div className="social-icons">
-            <i className="bi bi-facebook"></i>
-            <i className="bi bi-instagram"></i>
-            <i className="bi bi-youtube"></i>
-          </div>
-        </div>
-
-        <hr className="divider" />
-
-        <div className="help-section">
-          <h2>¿Tienes dudas? Nosotros <strong>te ayudamos</strong></h2>
-          <div className="help-options">
-            <div className="help-item">
-              <div className="help-image help-image-1"></div>
-              <p><strong>Turismo atiende</strong><br />Agenda tu hora y resuelve dudas</p>
-            </div>
-            <div className="help-item">
-              <div className="help-image help-image-2"></div> 
-              <p><strong>Oficinas información turística</strong></p>
-            </div>
-            <div className="help-item">
-              <div className="help-image help-image-3"></div>
-              <p><strong>Folletería y mapas</strong></p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <SocialSection />
       <Footer />
     </div>
   );

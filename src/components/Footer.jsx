@@ -1,4 +1,6 @@
 import React from 'react'
+import '../styles/footer.css';
+import ControlLetras from './ControlLetras'
 
 const Footer = () => {
   return (
@@ -37,6 +39,7 @@ const Footer = () => {
               <li><a href="#">YouTube</a></li>
             </ul>
           </div>
+          <ControlLetras />
         </div>
       </footer>
   )

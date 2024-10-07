@@ -374,7 +374,7 @@ a {
   background-position: center;
   background-repeat: no-repeat;
   width: 100vw;
-  height: 648px; /* Ajusta según sea necesario */
+  height: auto; /* Deja que crezca según el contenido */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -383,7 +383,9 @@ a {
   box-sizing: border-box;
   color: white;
   position: relative;
+  min-height: 100vh; /* Esto asegura que la sección ocupe al menos la altura de la ventana si el contenido es corto */
 }
+
 
 .community-content1 {
   max-width: 1000px;
@@ -434,13 +436,15 @@ a {
 .info-section1 {
   background-color: #e0e0e0; /* Color gris claro temporal para el mapa */
   width: 100vw;
-  height: 691px; /* Ajusta esta altura según el contenido */
+  height: auto; /* Ajusta la altura automáticamente según el contenido */
   display: flex;
   justify-content: flex-end; /* Alinea el contenido a la derecha */
   align-items: center;
   padding: 20px;
   box-sizing: border-box;
+  min-height: 100vh; /* Si quieres un mínimo de altura que ocupe toda la ventana */
 }
+
 
 .info-content1 {
   background-color: white;
@@ -486,198 +490,6 @@ a {
   background-color: #3f51b5;
 }
 
-/* Sección de redes sociales */
-.social-section1 {
-  width: 100vw;
-  padding: 40px;
-  background-color: #f8f9fa; /* Color claro de fondo */
-}
-
-.social-content1 {
-  text-align: left; /* Alinea todo el texto a la izquierda */
-  margin-bottom: 30px;
-  max-width: 1200px; /* Ajusta el ancho máximo del contenido */
-  margin-left: 60px; /* Agrega margen a la izquierda */
-  color: #4B67AE; /* Aplica el azul usado previamente a todo el texto */
-}
-
-.social-content1 h2 {
-  font-size: 1.5rem; /* Tamaño de la pregunta más pequeño */
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.social-content1 p {
-  font-size: 2rem; /* Aumenta el tamaño del texto de "Visita Colbún..." */
-  font-weight: bold; /* Asegura que el texto sea más destacado */
-  margin-bottom: 20px;
-}
-
-.social-content1 h3 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.social-icons1 {
-  font-size: 2rem;
-  color: #4B67AE; /* Color de los iconos en azul */
-  display: flex;
-  justify-content: flex-start; /* Alinea los iconos a la izquierda */
-  gap: 20px;
-}
-
-.divider {
-  width: 100%;
-  height: 1px;
-  background-color: #ccc;
-  margin: 40px 0;
-}
-
-/* Sección de ayuda */
-.help-section {
-  text-align: left;
-  margin-top: 40px;
-  padding: 0 60px; /* Ajusta el padding para que coincida con otras secciones */
-  max-width: 1200px; /* Limita el ancho máximo como en otras secciones */
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 100px;
-}
-
-.help-section h2 {
-  font-size: 1.5rem;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.help-options {
-  display: flex;
-  justify-content: space-around; /* Distribuye las imágenes y el texto equitativamente */
-  align-items: center; /* Alinea las imágenes y los textos verticalmente */
-}
-
-.help-item {
-  display: flex;
-  align-items: center; /* Alinea la imagen y el texto horizontalmente */
-  gap: 15px; /* Espacio entre la imagen y el texto */
-  max-width: 300px; /* Ancho máximo para cada bloque */
-}
-
-/* Aquí se configuran las imágenes de fondo */
-.help-item .help-image {
-  width: 60px;
-  height: 60px;
-  background-size: cover; /* Asegura que la imagen cubra el área sin deformarse */
-  background-position: center; /* Centra la imagen dentro del div */
-  border-radius: 50%; /* Hace la imagen redonda */
-}
-
-/* Diferentes clases para cada imagen */
-.help-image-1 {
-  background-image: url('../assets/img/formulario.png'); /* Aquí va tu imagen */
-}
-
-.help-image-2 {
-  background-image: url('../assets/img/OIT.png'); /* Aquí va tu imagen */
-}
-
-.help-image-3 {
-  background-image: url('../assets/img/Mapa.png'); /* Aquí va tu imagen */
-}
-
-.help-item p {
-  font-size: 1rem;
-  color: #333;
-  margin: 0;
-  max-width: 200px; /* Limita el ancho del texto */
-}
-
-/* Divider styling */
-.divider {
-  width: 100%;
-  height: 1px;
-  background-color: #ccc;
-  margin: 40px 0; /* Espaciado para que coincida con otras secciones */
-}
-
-/* Footer */
-.footer-section {
-  background-color: #1a1a1a; /* Color de fondo oscuro */
-  color: white; /* Color de texto blanco */
-  padding: 40px 0; /* Padding para espacio vertical */
-  width: 100vw; /* Ocupa todo el ancho de la ventana */
-  box-sizing: border-box; /* Incluye el padding dentro del ancho total */
-}
-
-.footer-container {
-  display: flex;
-  justify-content: space-between; /* Distribuye las columnas equitativamente */
-  max-width: 1200px; /* Ancho máximo del contenido */
-  margin: 0 auto; /* Centra el contenido horizontalmente */
-  padding: 20px;
-  flex-wrap: wrap; /* Asegura que el contenido se ajuste a pantallas más pequeñas */
-}
-
-.footer-logo {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* Alinea los logos a la izquierda */
-  gap: 20px; /* Espacio entre los logos */
-  margin-left: 0; /* Mueve el contenedor más cerca del borde izquierdo */
-}
-
-.logo {
-  width: 150px;
-  height: 80px; /* Ajusta la altura según la imagen */
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-/* Aquí agregamos las imágenes de fondo */
-.logo-1 {
-  background-image: url('../assets/img/marcaFundacion.png'); /* Ruta de tu imagen */
-}
-
-.logo-2 {
-  background-image: url('../assets/img/AU.png'); /* Ruta de tu imagen */
-}
-
-.logo-3 {
-  background-image: url('../assets/img/marcaColbun.png'); /* Ruta de tu imagen */
-}
-
-.footer-column {
-  display: flex;
-  flex-direction: column;
-  flex-basis: calc(25% - 20px); /* Ajusta cada columna para ocupar un cuarto del ancho */
-  margin-bottom: 20px; /* Espacio entre las columnas para pantallas más pequeñas */
-}
-
-.footer-column h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-.footer-column ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.footer-column ul li {
-  margin-bottom: 10px;
-}
-
-.footer-column ul li a {
-  color: white; /* Texto blanco */
-  text-decoration: none;
-}
-
-.footer-column ul li a:hover {
-  text-decoration: underline; /* Subraya los enlaces al pasar el mouse */
-}
 
 /* Estilos para pantallas medianas */
 @media (max-width: 1048px) {
@@ -852,32 +664,8 @@ a {
   text-align: left; /* Alinea el texto a la izquierda */
 }
 
-.social-icons1 {
-  font-size: 2rem;
-  color: #4B67AE; /* Color de los iconos en azul */
-  display: flex;
-  justify-content: center; /* Alinea los iconos a la izquierda */
-  gap: 20px;
-}
 }
 
-/* Responsividad: Ajusta las columnas para pantallas más pequeñas */
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .footer-column {
-    flex-basis: 100%; /* Cada columna ocupa todo el ancho en pantallas pequeñas */
-  }
-
-  .footer-logo {
-    flex-direction: row; /* Coloca los logos en fila en pantallas pequeñas */
-    justify-content: flex-start; /* Alinea los logos a la izquierda */
-  }
-
-}
 
 /* Flexbox ajustes */
 .carousel-container {
@@ -917,20 +705,6 @@ img, iframe {
     font-size: 1.0rem;
     margin-bottom: 30px;
   }
-  /* Sección de redes sociales */
-.social-section1 {
-  width: 100vw;
-  padding: 40px;
-  background-color: #f8f9fa; /* Color claro de fondo */
-}
-
-.social-content1 {
-  text-align: center; /* Alinea todo el texto a la izquierda */
-  margin-bottom: 30px;
-  max-width: 1200px; /* Ajusta el ancho máximo del contenido */
-  margin-left: 0px; /* Agrega margen a la izquierda */
-  color: #4B67AE; /* Aplica el azul usado previamente a todo el texto */
-}
 }
 
 @media (max-width: 768px) {
