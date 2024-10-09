@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-import '../styles/Index.css?v=3.4';
+import '../styles/Index.css?v=3.6';
 import Footer from './Footer';
 
 
@@ -103,6 +103,9 @@ const Index = () => {
       {/* Navbar */}
       <header className={`navbar1 ${showHeader ? 'show' : 'hide'}`}>
         <div className="navbar-links1">
+        <Link to="/Index" className="header-icon">
+        <img src="src/assets/img/icono.png" alt="icono"/>
+        </Link>
           <div className="dropdown" onMouseEnter={() => setDropdownOpen(true)} onMouseLeave={() => setDropdownOpen(false)}>
             <button className="Ir">
               ¿A dónde ir?
@@ -111,6 +114,7 @@ const Index = () => {
               <ul className="dropdown-menu">
                 <li><Link to="/ElMelado">El Melado</Link></li>
                 <li><Link to="/Paso-pehuenche">Paso Pehuenche</Link></li>
+                <li><Link to="/Colbun">Colbún</Link></li>
                 <li><Link to="/Colbun-alto">Colbún Alto</Link></li>
                 <li><Link to="/La-Guardia">La Guardia</Link></li>
                 <li><Link to="/Los-Boldos">Los Boldos</Link></li>
@@ -134,7 +138,10 @@ const Index = () => {
                 <li>Cultura y sitios históricos</li>
                   {activeSubMenu === 'cultura' && (
                     <ul className="dropdown-submenu">
-                      <li><Link to="/Cultura">Petroglifos, El Melado</Link></li>
+                      <li><Link to="/Cultura2">Petroglifos</Link></li>
+                      <li><Link to="/Cultura3">Iglesia de Panimavida</Link></li>
+                      <li><Link to="/Cultura4">Termas de Panimavida</Link></li>
+                      <li><Link to="/Cultura">Piedra Toba</Link></li>
                     </ul>
                   )}
                 </li>
@@ -142,8 +149,10 @@ const Index = () => {
                 <li>Senderismo</li>
                   {activeSubMenu === 'senderismo' && (
                     <ul className="dropdown-submenu">
-                      <li><Link to="/Senderismo#volcan">Volcán San Pedro y San Pablo</Link></li>
-                      <li><Link to="/Senderismo#mirador">Mirador las vizcachas</Link></li>
+                      <li><Link to="/Senderismo">Volcán San Pedro y San Pablo</Link></li>
+                      <li><Link to="/Senderismo2">Lagunas Verdes</Link></li>
+                      <li><Link to="/Senderismo3">Las Cuevas</Link></li>
+                      <li><Link to="/Senderismo4">Piedra del Indio</Link></li>
                     </ul>
                   )}
                 </li>
@@ -179,6 +188,13 @@ const Index = () => {
           <Link to="/Zoit">
         <button className="Zona">Zona ZOIT</button>
         </Link>
+
+        {/* Agregar botón de Panoramas */}
+        <Link to="/Panoramas">
+          <button className="Panoramas">Panoramas</button>
+        </Link>
+
+        
           
         </div>
         <div className="navbar-auth">

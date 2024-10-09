@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-import '../styles/Colbunalto.css?v=1.1'; // Estilos específicos para el componente
+import '../styles/Colbunalto.css?v=1.4'; // Estilos específicos para el componente
 import Footer from './Footer';
 
 const Colbunalto = () => {
@@ -94,6 +94,9 @@ const Colbunalto = () => {
       {/* Navbar */}
       <header className={`navbar ${showHeader ? 'show' : 'hide'}`}>
         <div className="navbar-links">
+        <Link to="/Index" className="header-icon">
+        <img src="src/assets/img/icono.png" alt="icono"/>
+        </Link>
           <div className="dropdown">
             <button className="Ir" onClick={toggleDropdown}>
               ¿A dónde ir?
@@ -102,6 +105,7 @@ const Colbunalto = () => {
               <ul className="dropdown-menu">
                 <li><Link to="/ElMelado">El Melado</Link></li>
                 <li><Link to="/Paso-pehuenche">Paso Pehuenche</Link></li>
+                <li><Link to="/Colbun">Colbún</Link></li>
                 <li><Link to="/Colbun-alto">Colbún Alto</Link></li>
                 <li><Link to="/La-Guardia">La Guardia</Link></li>
                 <li><Link to="/Los-Boldos">Los Boldos</Link></li>
@@ -165,7 +169,14 @@ const Colbunalto = () => {
               </ul>
             )}
           </div>
-          <button className="Zona">Zona ZOIT</button>
+          <Link to="/Zoit">
+        <button className="Zona">Zona ZOIT</button>
+        </Link>
+
+        {/* Agregar botón de Panoramas */}
+        <Link to="/Panoramas">
+          <button className="Panoramas">Panoramas</button>
+        </Link>
         </div>
         <div className="navbar-auth">
           {/* Botones para cambiar entre español e inglés */}
@@ -186,8 +197,8 @@ const Colbunalto = () => {
       </header>
 
       {/* Hero Section */}
-      <div className="hero3">
-        <div className="hero-content3">
+      <div className="hero22">
+        <div className="hero-content22">
           <h5>¿A donde ir?</h5>
           <h1>Colbun Alto</h1>
           <h4>Colbún Alto es una encantadora localidad en la comuna de Colbún, situada en la región del Maule, Chile. Este pintoresco rincón se destaca por sus vistas panorámicas de los majestuosos paisajes cordilleranos y su cercanía al embalse Colbún, una impresionante obra de ingeniería que no solo embellece el entorno, sino que también juega un papel crucial en la generación de energía hidroeléctrica. En Colbún Alto, la tranquilidad de la vida rural se combina con la majestuosidad de la naturaleza, ofreciendo a los visitantes la oportunidad de disfrutar de actividades al aire libre como el senderismo, la pesca y el avistamiento de aves. El área es ideal para quienes buscan escapar del bullicio urbano y sumergirse en un entorno sereno y natural, donde la comunidad local mantiene vivas las tradiciones y el espíritu acogedor del campo chileno.</h4>

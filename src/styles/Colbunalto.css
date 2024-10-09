@@ -111,8 +111,8 @@
     font-size: 16px;
     display: block;
   }
-  .hero4 {
-    background-image: url("../assets/img/Pasopehuenche.png") !important;  /* Aquí va la ruta de tu imagen */
+  .hero22 {
+    background-image: url("../assets/img/colbun_alto.png") !important;  /* Aquí va la ruta de tu imagen */
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat;
@@ -130,22 +130,22 @@
     position: relative;
   }
   
-  .hero-content4 {
+  .hero-content22 {
     margin-top: 100px;
     margin-left: 50px;
     align-items: start;
   }
   
-  .hero4 h5 {
+  .hero22 h5 {
     font-size: 1rem; /* Ajusta el tamaño del texto principal */
     margin-bottom: 5px; /* Espaciado entre las líneas de texto */
   }
   
-  .hero4 h1 {
+  .hero22 h1 {
     font-size: 3rem;
     margin-bottom: 40px; /* Espaciado entre el subtítulo y el botón */
   }
-  .hero4 h4 {
+  .hero22 h4 {
     margin-top: 150px;
     width: 690px;
     height: 297px;

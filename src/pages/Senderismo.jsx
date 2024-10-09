@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-import '../styles/Senderismo.css?v=1.1' // Estilos específicos para el componente
+import '../styles/Senderismo.css?v=1.2' // Estilos específicos para el componente
 import Footer from './Footer';
 
 const Elmelado = () => {
@@ -94,6 +94,9 @@ const Elmelado = () => {
       {/* Navbar */}
       <header className={`navbar ${showHeader ? 'show' : 'hide'}`}>
         <div className="navbar-links">
+        <Link to="/Index" className="header-icon">
+        <img src="src/assets/img/icono.png" alt="icono"/>
+        </Link>
           <div className="dropdown">
             <button className="Ir" onClick={toggleDropdown}>
               ¿A dónde ir?
@@ -102,6 +105,7 @@ const Elmelado = () => {
               <ul className="dropdown-menu">
                 <li><Link to="/ElMelado">El Melado</Link></li>
                 <li><Link to="/Paso-pehuenche">Paso Pehuenche</Link></li>
+                <li><Link to="/Colbun">Colbún</Link></li>
                 <li><Link to="/Colbun-alto">Colbún Alto</Link></li>
                 <li><Link to="/La-Guardia">La Guardia</Link></li>
                 <li><Link to="/Los-Boldos">Los Boldos</Link></li>
@@ -165,7 +169,14 @@ const Elmelado = () => {
               </ul>
             )}
           </div>
-          <button className="Zona">Zona ZOIT</button>
+          <Link to="/Zoit">
+        <button className="Zona">Zona ZOIT</button>
+        </Link>
+
+        {/* Agregar botón de Panoramas */}
+        <Link to="/Panoramas">
+          <button className="Panoramas">Panoramas</button>
+        </Link>
         </div>
         <div className="navbar-auth">
           {/* Botones para cambiar entre español e inglés */}
@@ -207,7 +218,43 @@ const Elmelado = () => {
       <div className="hero16">
         <div className="hero-content16">
           <h5>Senderismo</h5>
-          <h1 id='mirador'>Mirador las vizcachas</h1>
+          <h1 id='mirador'>La Laguna del Dial</h1>
+          <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos ab ipsa magni asperiores magnam adipisci earum nemo nisi iure voluptate culpa nihil dolores, possimus animi sapiente natus doloribus! Iste, aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, libero reiciendis. Eos consequatur voluptas consectetur repellat blanditiis velit obcaecati id quaerat dolore quod, numquam voluptate, molestias ipsum? Accusamus, odio similique?</h4>
+        </div>
+      </div>
+
+      <section className="info-section">
+        <div className="info-content">
+          <h5>Lugares inolvidables</h5>
+          <h1>Algo para no olvidar</h1>
+          <p>Descubre la belleza cautivadora de Colbún, donde los tranquilos paisajes rurales se entrelazan con los lagos cristalinos y montañas imponentes que ofrecen una combinación única de naturaleza, aventura al aire libre y un profundo sentido de comunidad. Puedes navegar en las aguas del embalse Machicura, disfrutar de las termas naturales de Panimávida o explorar los senderos que atraviesan los cerros verdes de la región. Colbún te invita a vivir experiencias inolvidables, inmersas en la serenidad y el encanto del corazón de la zona central de Chile.</p>
+          <button className="btn-blue">Descubre tu próximo destino</button>
+        </div>
+      </section>
+
+      {/* Hero Section */}
+      <div className="hero16">
+        <div className="hero-content16">
+          <h5>Senderismo</h5>
+          <h1 id='mirador'>Petroglifos</h1>
+          <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos ab ipsa magni asperiores magnam adipisci earum nemo nisi iure voluptate culpa nihil dolores, possimus animi sapiente natus doloribus! Iste, aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, libero reiciendis. Eos consequatur voluptas consectetur repellat blanditiis velit obcaecati id quaerat dolore quod, numquam voluptate, molestias ipsum? Accusamus, odio similique?</h4>
+        </div>
+      </div>
+
+      <section className="info-section">
+        <div className="info-content">
+          <h5>Lugares inolvidables</h5>
+          <h1>Algo para no olvidar</h1>
+          <p>Descubre la belleza cautivadora de Colbún, donde los tranquilos paisajes rurales se entrelazan con los lagos cristalinos y montañas imponentes que ofrecen una combinación única de naturaleza, aventura al aire libre y un profundo sentido de comunidad. Puedes navegar en las aguas del embalse Machicura, disfrutar de las termas naturales de Panimávida o explorar los senderos que atraviesan los cerros verdes de la región. Colbún te invita a vivir experiencias inolvidables, inmersas en la serenidad y el encanto del corazón de la zona central de Chile.</p>
+          <button className="btn-blue">Descubre tu próximo destino</button>
+        </div>
+      </section>
+
+      {/* Hero Section */}
+      <div className="hero16">
+        <div className="hero-content16">
+          <h5>Senderismo</h5>
+          <h1 id='mirador'>Baños del Socorro</h1>
           <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos ab ipsa magni asperiores magnam adipisci earum nemo nisi iure voluptate culpa nihil dolores, possimus animi sapiente natus doloribus! Iste, aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, libero reiciendis. Eos consequatur voluptas consectetur repellat blanditiis velit obcaecati id quaerat dolore quod, numquam voluptate, molestias ipsum? Accusamus, odio similique?</h4>
         </div>
       </div>

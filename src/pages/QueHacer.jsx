@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-import '../styles/QueHacer.css?v=1.1';
+import '../styles/QueHacer.css?v=1.2';
 import Footer from './Footer';
 
 // Importación de imágenes locales
@@ -80,6 +80,9 @@ const Index = () => {
       {/* Navbar */}
       <header className={`navbar ${showHeader ? 'show' : 'hide'}`}>
         <div className="navbar-links">
+        <Link to="/Index" className="header-icon">
+        <img src="src/assets/img/icono.png" alt="icono"/>
+        </Link>
           <div className="dropdown">
             <button className="Ir" onClick={toggleDropdown}>
               ¿A dónde ir?
@@ -88,6 +91,7 @@ const Index = () => {
               <ul className="dropdown-menu">
                 <li><Link to="/ElMelado">El Melado</Link></li>
                 <li><Link to="/Paso-pehuenche">Paso Pehuenche</Link></li>
+                <li><Link to="/Colbun">Colbún</Link></li>
                 <li><Link to="/Colbun-alto">Colbún Alto</Link></li>
                 <li><Link to="/La-Guardia">La Guardia</Link></li>
                 <li><Link to="/Los-Boldos">Los Boldos</Link></li>
@@ -152,8 +156,14 @@ const Index = () => {
               </ul>
             )}
           </div>
+          <Link to="/Zoit">
+        <button className="Zona">Zona ZOIT</button>
+        </Link>
 
-          <button className="Zona">Zona ZOIT</button>
+        {/* Agregar botón de Panoramas */}
+        <Link to="/Panoramas">
+          <button className="Panoramas">Panoramas</button>
+        </Link>
         </div>
         <div className="navbar-auth">
           {/* Botones para cambiar entre español e inglés */}
