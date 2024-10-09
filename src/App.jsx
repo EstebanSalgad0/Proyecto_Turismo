@@ -19,6 +19,8 @@ import Senderismo from './pages/Senderismo';
 import Parque from './pages/Parque';
 import Termas from './pages/Termas';
 import ZOIT from './pages/Zoit';
+import Registrarse from './pages/registrarse';
+import Verificacion from './pages/Verificacion';
 
 const App = () => {
   return (
@@ -44,6 +46,8 @@ const App = () => {
         <Route path="/Parque" element={<Parque/>} />
         <Route path="/Termas" element={<Termas/>} />
         <Route path="/Zoit" element={<ZOIT/>} />
+        <Route path="/registrarse" element={<Registrarse />} />
+        <Route path="/Verificacion" element={<Verificacion />} />
       </Routes>
     </Router>
   );

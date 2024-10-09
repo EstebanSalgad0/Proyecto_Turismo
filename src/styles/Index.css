@@ -157,7 +157,15 @@ a {
   font-size: 16px;
   display: block;
 }
-
+/*hamburguesa*/
+.navbar-toggle {
+  display: none;
+  font-size: 24px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 .hero2 {
   position: relative;
   background-size: cover !important;
@@ -573,6 +581,32 @@ a {
     font-size: 12px; /* Ajusta el tamaño de la fuente */
     margin: 0 5px; /* Reduce el margen entre botones */
     padding: 5px 8px; /* Menos padding */
+  }
+  .navbar-toggle {
+    display: block; /* Mostrar el botón hamburguesa */
+  }
+
+  .navbar-links1 {
+    display: none; /* Ocultar los enlaces en móviles */
+    flex-direction: column;
+    background-color: #4B67AE;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+  }
+
+  .navbar-links1.active {
+    display: flex; /* Mostrar el menú cuando está activo */
+  }
+
+  .navbar1 {
+    justify-content: space-between;
+  }
+
+  .navbar-auth {
+    display: none; /* Opcional: ocultar la parte de autenticación en móviles */
   }
 
   .hero2 iframe {

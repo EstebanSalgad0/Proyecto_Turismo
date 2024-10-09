@@ -12,6 +12,7 @@ const Index = () => {
   const [activeSubMenu, setActiveSubMenu] = useState(null);
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false); // Estado para el menú hamburguesa
   const [isPlaying, setIsPlaying] = useState(true); // Estado para pausar/reproducir
   const videoRef = useRef(null); // Referencia al iframe del video
   const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
@@ -78,7 +79,10 @@ const Index = () => {
     <div className="index-container">
       {/* Navbar */}
       <header className={`navbar1 ${showHeader ? 'show' : 'hide'}`}>
-        <div className="navbar-links1">
+        <button className="navbar-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+          <i className="bi bi-list"></i>
+        </button>
+        <div className={`navbar-links1 ${menuOpen ? 'active' : ''}`}>
           <div className="dropdown" onMouseEnter={() => setDropdownOpen(true)} onMouseLeave={() => setDropdownOpen(false)}>
             <button className="Ir">
               ¿A dónde ir?
@@ -100,7 +104,7 @@ const Index = () => {
             )}
           </div>
 
-          <div className="dropdown" onMouseEnter={()=>setActivitiesDropdownOpen(true)} onMouseLeave={()=>setActivitiesDropdownOpen(false)}>
+          <div className="dropdown" onMouseEnter={() => setActivitiesDropdownOpen(true)} onMouseLeave={() => setActivitiesDropdownOpen(false)}>
             <button className="Hacer" onClick={toggleActivitiesDropdown}>
               ¿Qué hacer?
             </button>
@@ -170,29 +174,29 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-<div className="hero2">
-  <iframe 
-    ref={videoRef}
-    width="560" 
-    height="315" 
-    src="https://www.youtube.com/embed/QCvh0Lwfmww?autoplay=1&mute=1&loop=1&playlist=QCvh0Lwfmww&vq=hd720" 
-    title="YouTube video player" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    referrerpolicy="strict-origin-when-cross-origin" 
-    allowfullscreen>
-  </iframe>
-  <div className="hero-content2">
-    <h1>CONVIERTE A COLBÚN EN TU PRÓXIMA AVENTURA</h1>
-    <h2>TE DAMOS LA BIENVENIDA A LA COMUNA</h2>
-    <a href="https://www.youtube.com/watch?v=QCvh0Lwfmww" target="colbun" rel="municipalidad_Colbun">
-      <button className="btn-blue">Ver ahora</button>
-    </a>
-  </div>
-  <button className="play-button" onClick={toggleVideoPlay}>
-            {isPlaying ? <i className="bi bi-pause"></i> : <i className="bi bi-play"></i>}
-    </button>
-</div>
+      <div className="hero2">
+        <iframe 
+          ref={videoRef}
+          width="560" 
+          height="315" 
+          src="https://www.youtube.com/embed/QCvh0Lwfmww?autoplay=1&mute=1&loop=1&playlist=QCvh0Lwfmww&vq=hd720" 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" 
+          allowfullscreen>
+        </iframe>
+        <div className="hero-content2">
+          <h1>CONVIERTE A COLBÚN EN TU PRÓXIMA AVENTURA</h1>
+          <h2>TE DAMOS LA BIENVENIDA A LA COMUNA</h2>
+          <a href="https://www.youtube.com/watch?v=QCvh0Lwfmww" target="colbun" rel="municipalidad_Colbun">
+            <button className="btn-blue">Ver ahora</button>
+          </a>
+        </div>
+        <button className="play-button" onClick={toggleVideoPlay}>
+                  {isPlaying ? <i className="bi bi-pause"></i> : <i className="bi bi-play"></i>}
+          </button>
+      </div>
 
 
       {/* Carousel Section */}

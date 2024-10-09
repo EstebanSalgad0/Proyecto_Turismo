@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google'; // Importa Google OAuth
 import 'bootstrap/dist/css/bootstrap.min.css'; // Importa los estilos de Bootstrap
 import 'boxicons/css/boxicons.min.css'; // Importa los iconos de Boxicons
@@ -11,42 +12,6 @@ const InicioSesion = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate(); // Hook de React Router para redirigir a otras rutas
 
-  // Inicializa el SDK de Facebook cuando el componente se carga
-  useEffect(() => {
-    window.fbAsyncInit = function () {
-      window.FB.init({
-        appId: '484575820957696', // Reemplaza con tu App ID de Facebook
-        cookie: true,
-        xfbml: true,
-        version: 'v12.0'
-      });
-    };
-
-    // Cargar el SDK de Facebook
-    (function (d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) { return; }
-      js = d.createElement(s); js.id = id;
-      js.src = "https://connect.facebook.net/en_US/sdk.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-  }, []);
-
-  // Manejar el inicio de sesión con Facebook
-  const handleFacebookLogin = () => {
-    window.FB.login(function (response) {
-      if (response.authResponse) {
-        console.log('Bienvenido! Fetching your information.... ');
-        window.FB.api('/me', function (response) {
-          console.log('Good to see you, ' + response.name + '.');
-        });
-        // Redirigir a la página en blanco (Index)
-        navigate('/Index');
-      } else {
-        console.log('User cancelled login or did not fully authorize.');
-      }
-    });
-  };
 
   // Manejar el inicio de sesión con Google
   const handleGoogleLoginSuccess = (credentialResponse) => {
@@ -79,50 +44,47 @@ const InicioSesion = () => {
 
   return (
     <div className="inicio-sesion-container">
-      <div className="wrapper">
+      <div className="wrapper-is">
         {/* Formulario de inicio de sesión */}
         <form onSubmit={handleSubmit}>
-          <h1>Login</h1>
+          <div className='Logo'></div>
+
+          <h1>Te damos la bienvenida
+          a Cultura y Turismo</h1>
           
-          <div className="input-box">
-            <input 
-              type="email" 
-              value={email} 
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email" 
-              required 
-            />
-            <i className='bx bx-user'></i>
+          <div className="input-box-is"> <label >Correo electrónico</label>
+            <div className='input-box-email'>
+              <input 
+                type="email" 
+                value={email} 
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="visitacolbun@turismo.cl" 
+                required 
+              />
+              <i className='bx bx-user'></i>
+            </div>
           </div>
 
-          <div className="input-box">
-            <input 
-              type="password" 
-              value={password} 
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Contraseña" 
-              required 
-            />
-            <i className='bx bx-lock-alt'></i>
+          <div className="input-box-is">
+            <div className='input-box-password'><label>Contraseña</label>
+              <input 
+                type="password" 
+                value={password} 
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Contraseña" 
+                required 
+              />
+              <i className='bx bx-lock-alt'></i>
+            </div>
           </div>
 
           <div className="remember-forgot">
-            <label><input type="checkbox" /> Recordar</label>
             <a href="#">¿Olvidaste tu contraseña?</a>
           </div>
 
-          <button type="submit" className="btn">Ingresar</button>
+          <button type="submit" className="btn-is">Iniciar sesión</button>
 
-          <div className="register-link">
-            <p>No tienes cuenta? <a href="#">Regístrate</a></p>
-          </div>
-
-          {/* Facebook Login Button */}
-          <div className="fb-login-container">
-            <button onClick={handleFacebookLogin} className="fb-login-button">
-              Iniciar con Facebook
-            </button>
-          </div>
+          <p className='O'>O</p>
 
           {/* Google Login Button */}
           <GoogleOAuthProvider clientId="665073710932-rnt0p38keoc3dtipen1t7vac08fq9k7a.apps.googleusercontent.com">
@@ -131,10 +93,18 @@ const InicioSesion = () => {
                 onSuccess={handleGoogleLoginSuccess}
                 onError={handleGoogleLoginError}
                 useOneTap={true}
-                width="300"
+                size="large" 
+                shape="pill"
+                width="250" 
               />
             </div>
           </GoogleOAuthProvider>
+
+          <div className="register-link">
+            
+            <p>¿Aún no estás en Turismo y Cultura? <Link to="/registrarse">Regístrate</Link></p>
+          </div>
+          
         </form>
       </div>
     </div>
