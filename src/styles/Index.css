@@ -257,6 +257,23 @@ a {
   width: 100vw;
 }
 
+.social-icons2 {
+  font-size: 2rem;
+  color: #4B67AE; /* Azul oscuro */
+  transition: color 0.3s ease; /* Añade una transición suave al color */
+  display: flex;
+  justify-content: flex-start; /* Alinea los iconos a la izquierda */
+  gap: 20px;
+}
+
+.social-icons2 i {
+  color: #4B67AE; /* Color ligeramente más oscuro al hacer hover */
+}
+
+.social-icons2 i:hover {
+  color: #0A3B8B; /* Color ligeramente más oscuro al hacer hover */
+}
+
 /* Ajustes de la cabecera del carrusel */
 .carousel-header1 {
   display: flex;
@@ -1132,4 +1149,21 @@ body.dark-mode .divider {
 /* Sección de ayuda */
 body.dark-mode .help-item p {
   color: #ffffff;
+}
+
+body.dark-mode .social-icons2 {
+  font-size: 2rem;
+  color: #ffffff; /* Azul oscuro */
+  transition: color 0.3s ease; /* Añade una transición suave al color */
+  display: flex;
+  justify-content: flex-start; /* Alinea los iconos a la izquierda */
+  gap: 20px;
+}
+
+body.dark-mode .social-icons2 i {
+  color: #ffffff; /* Color ligeramente más oscuro al hacer hover */
+}
+
+body.dark-mode .social-icons2 i:hover {
+  color: #ffffff; /* Color ligeramente más oscuro al hacer hover */
 }

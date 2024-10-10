@@ -26,6 +26,13 @@ import Senderismo4 from './pages/Senderismo4';
 import Parque from './pages/Parque';
 import Termas from './pages/Termas';
 import ZOIT from './pages/Zoit';
+import Turismo from './pages/Turismo';
+import OIT from './pages/OIT';
+import Folleteria from './pages/Folleteria';
+import SobreNosotros from './pages/SobreNosotros';
+import Asociados from './pages/Asociados';
+import Privacidad from './pages/Privacidad';
+import Catastro from './pages/Catastro';
 import Panoramas from './pages/Panoramas';
 
 const App = () => {
@@ -59,6 +66,13 @@ const App = () => {
         <Route path="/Parque" element={<Parque/>} />
         <Route path="/Termas" element={<Termas/>} />
         <Route path="/Zoit" element={<ZOIT/>} />
+        <Route path="/Turismo" element={<Turismo/>} />
+        <Route path="/OIT" element={<OIT/>} />
+        <Route path="/Folleteria" element={<Folleteria/>} />
+        <Route path="/SobreNosotros" element={<SobreNosotros/>} />
+        <Route path="/Asociados" element={<Asociados/>} />
+        <Route path="/Privacidad" element={<Privacidad/>} />
+        <Route path="/Catastro" element={<Catastro/>} />
         <Route path="/Panoramas" element={<Panoramas/>} />
       </Routes>
     </Router>

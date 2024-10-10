@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-import '../styles/Index.css?v=3.6';
+import '../styles/Index.css?v=3.9';
 import Footer from './Footer';
 
 
@@ -315,11 +315,17 @@ const Index = () => {
           <h2>¿Cuál será tu próximo destino?</h2>
           <p><strong>Visita Colbún y su gente.</strong> Etiquétanos con <strong>#VisitaColbun</strong>.</p>
           <h3>ENCUÉNTRANOS TAMBIÉN EN</h3>
-          <div className="social-icons1">
+          <div className="social-icons2">
+          <a href="https://web.facebook.com/p/Municipalidad-de-Colb%C3%BAn-100064570487351/?locale=es_LA&_rdc=1&_rdr" target="_blank" rel="noopener noreferrer">
             <i className="bi bi-facebook"></i>
+          </a>
+          <a href="https://www.instagram.com/municipalidad_colbun/?hl=es" target="_blank" rel="noopener noreferrer">
             <i className="bi bi-instagram"></i>
+          </a>
+          <a href="https://www.youtube.com/@municipalidadcolbun9532" target="_blank" rel="noopener noreferrer">
             <i className="bi bi-youtube"></i>
-          </div>
+          </a>
+        </div>
         </div>
 
         <hr className="divider" />
@@ -327,19 +333,19 @@ const Index = () => {
         <div className="help-section">
           <h2>¿Tienes dudas? Nosotros <strong>te ayudamos</strong></h2>
           <div className="help-options">
-            <div className="help-item">
-              <div className="help-image help-image-1"></div>
-              <p><strong>Turismo atiende</strong><br />Agenda tu hora y resuelve dudas</p>
-            </div>
-            <div className="help-item">
-              <div className="help-image help-image-2"></div> 
-              <p><strong>Oficinas información turística</strong></p>
-            </div>
-            <div className="help-item">
-              <div className="help-image help-image-3"></div>
-              <p><strong>Folletería y mapas</strong></p>
-            </div>
-          </div>
+          <a href="/Turismo" className="help-item">
+            <div className="help-image help-image-1"></div>
+          <p><strong>Turismo atiende</strong><br />Agenda tu hora y resuelve dudas</p>
+          </a>
+          <a href="/OIT" className="help-item">
+            <div className="help-image help-image-2"></div>
+          <p><strong>Oficinas información turística</strong></p>
+          </a>
+          <a href="/Folleteria" className="help-item">
+            <div className="help-image help-image-3"></div>
+            <p><strong>Folletería y mapas</strong></p>
+          </a>
+        </div>
         </div>
       </section>
       

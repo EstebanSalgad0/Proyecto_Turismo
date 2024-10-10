@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -11,13 +12,14 @@ const Footer = () => {
           </div>
 
           <div className="footer-column">
-            <h3>Visita Colbún</h3>
-            <ul>
-              <li><a href="#">Sobre Nosotros</a></li>
-              <li><a href="#">Asociados</a></li>
-              <li><a href="#">Políticas de Privacidad</a></li>
-            </ul>
-          </div>
+          <h3>Visita Colbún</h3>
+          <ul>
+          <li><Link to="/SobreNosotros">Sobre Nosotros</Link></li>
+          <li><Link to="/Asociados">Asociados</Link></li>
+          <li><Link to="/Privacidad">Políticas de Privacidad</Link></li>
+          <li><Link to="/Catastro">Se parte del catastro de servicios</Link></li>
+        </ul>
+      </div>
 
           <div className="footer-column">
             <h3>Te puede interesar</h3>
@@ -32,9 +34,9 @@ const Footer = () => {
           <div className="footer-column">
             <h3>Encuéntranos también en</h3>
             <ul>
-              <li><a href="#">Facebook</a></li>
-              <li><a href="#">Instagram</a></li>
-              <li><a href="#">YouTube</a></li>
+              <li><a href="https://web.facebook.com/p/Municipalidad-de-Colb%C3%BAn-100064570487351/?locale=es_LA&_rdc=1&_rdr">Facebook</a></li>
+              <li><a href="https://www.instagram.com/municipalidad_colbun/?hl=es">Instagram</a></li>
+              <li><a href="https://www.youtube.com/@municipalidadcolbun9532">YouTube</a></li>
             </ul>
           </div>
         </div>
