@@ -26,6 +26,7 @@ import Senderismo4 from './pages/Senderismo4';
 import Parque from './pages/Parque';
 import Termas from './pages/Termas';
 import ZOIT from './pages/Zoit';
+import Panoramas from './pages/Panoramas';
 
 const App = () => {
   return (
@@ -58,6 +59,7 @@ const App = () => {
         <Route path="/Parque" element={<Parque/>} />
         <Route path="/Termas" element={<Termas/>} />
         <Route path="/Zoit" element={<ZOIT/>} />
+        <Route path="/Panoramas" element={<Panoramas/>} />
       </Routes>
     </Router>
   );
