@@ -25,7 +25,7 @@ const Verificacion = () => {
                <span className="avatar-text">{getInitial(userName)}</span>
            </div>
 
-           <h1>Te damos la bienvenida <br /> a Cultura y Turismo</h1>
+           <h1 className='h1-veri'>Te damos la bienvenida <br /> a Cultura y Turismo</h1>
 
            <p className="subtitle">¡Conviértete a Colbún en tu próxima aventura!<br />
            Te damos la bienvenida a la comuna</p>

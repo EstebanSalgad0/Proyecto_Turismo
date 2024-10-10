@@ -6,7 +6,7 @@
     background-color: white;
   }
   
-  .wrapper {
+  .wrapper-regis {
     width: 420px;
     height: 700px;
     background-color: rgba(255, 255, 255, 0.9); 
@@ -26,7 +26,7 @@
     margin: 0 auto 10px;
   }
   
-  h1 {
+  .h1-regis {
     font-size: 27px;
     text-align: center;
     color: #4B67AE;
@@ -34,28 +34,28 @@
     font-weight: bold;
   }
   
-  .subtitle {
+  .subtitle-regis {
     font-size: 14px;
     text-align: center;
 
     margin-bottom: 20px;
   }
   
-  .input-box {
+  .input-box-regis {
     width: 100%;
     margin-bottom: 20px;
     font-size: 14px;
     text-align: center; 
   }
   
-  .input-box label {
+  .input-box-regis label {
     display: block;
     width: 80%; 
     margin: 0 auto 0 auto; 
     text-align: left; 
   }
   
-  .input-box input {
+  .input-box-regis input {
     width: 80%; 
     background: transparent;
     border: none;
@@ -69,11 +69,11 @@
     margin: 0 auto; 
   }
   
-  .input-box input::placeholder {
+  .input-box-regis input::placeholder {
     color: #aaa;
   }
   
-  .btn {
+  .btn-regis {
     width: 80%; 
     background-color: #4B67AE; /* Color de fondo */
     color: white; 
@@ -86,7 +86,7 @@
     margin: 0 auto; 
   }
   
-  .or-section {
+  .or-section-regis {
     text-align: center; 
     font-size: 16px;
     font-weight: bold;
@@ -97,41 +97,37 @@
     justify-content: center;
   }
   
-  .divider {
+  .divider-regis {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    margin-bottom: 10px; /* Ajusta el margen entre el divider y el texto */
   }
   
-  .divider::before {
+  .divider-regis::before {
     content: "";
     position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
     border-top: 1px solid; /* Color del divider */
     width: 80%;
-    z-index: 0;
+    margin-top: 30px;
   }
   
-  .login-link {
+  .login-link-regis {
     font-size: 12px;
     text-align: center;
-    margin: 10px 0 15px;
+    margin-top: 30px;
   }
   
-  .login-link p {
+  .login-link-regis p {
     margin: 0; /* Ajusta márgenes */
   }
   
-  .login-link p a {
+  .login-link-regis p a {
     text-decoration: none;
     font-weight: 600;
   }
   
-  .login-link p a:hover {
+  .login-link-regis p a:hover {
     text-decoration: underline;
   }
   .alert-float {

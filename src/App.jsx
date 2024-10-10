@@ -21,6 +21,8 @@ import Termas from './pages/Termas';
 import ZOIT from './pages/Zoit';
 import Registrarse from './pages/registrarse';
 import Verificacion from './pages/Verificacion';
+import Footer from '../src/components/Footer';
+import SocialSection from '../src/components/SocialSeccion';
 
 const App = () => {
   return (
@@ -49,6 +51,10 @@ const App = () => {
         <Route path="/registrarse" element={<Registrarse />} />
         <Route path="/Verificacion" element={<Verificacion />} />
       </Routes>
+
+      <SocialSection />
+
+      <Footer />
     </Router>
   );
 };

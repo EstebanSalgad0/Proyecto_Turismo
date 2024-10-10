@@ -63,13 +63,13 @@ const Registrarse = () => {
         </div>
       )}
 
-      <div className="wrapper">
+      <div className="wrapper-regis">
         <div className='Logo'></div>
-        <h1>Te damos la bienvenida a Cultura y Turismo</h1>
-        <p className="subtitle">¡Conviértete a Colbún en tu próxima aventura!<br />Te damos la bienvenida a la comuna</p>
+        <h1 className='h1-regis'>Te damos la bienvenida a Cultura y Turismo</h1>
+        <p className="subtitle-regis">¡Conviértete a Colbún en tu próxima aventura!<br />Te damos la bienvenida a la comuna</p>
 
         <form onSubmit={handleSubmit}>
-          <div className="input-box">
+          <div className="input-box-regis">
             <label>Correo electrónico</label>
             <input 
               type="email" 
@@ -80,7 +80,7 @@ const Registrarse = () => {
             />
           </div>
 
-          <div className="input-box">
+          <div className="input-box-regis">
             <label>Contraseña</label>
             <input 
               type="password" 
@@ -91,7 +91,7 @@ const Registrarse = () => {
             />
           </div>
 
-          <div className="input-box">
+          <div className="input-box-regis">
             <label>Fecha de nacimiento</label>
             <input 
               type="text" 
@@ -102,9 +102,9 @@ const Registrarse = () => {
             />
           </div>
 
-          <button type="submit" className="btn">Continuar</button>
+          <button type="submit" className="btn-regis">Continuar</button>
 
-          <div className="or-section">O</div>
+          <div className="or-section-regis">O</div>
 
           <GoogleOAuthProvider clientId="tu-google-client-id">
             <div className="google-login-container">
@@ -118,9 +118,9 @@ const Registrarse = () => {
             </div>
           </GoogleOAuthProvider>
 
-          <div className="divider"></div>
+          <div className="divider-regis"></div>
 
-          <div className="login-link">
+          <div className="login-link-regis">
             <p>¿Ya eres miembro? <Link to="/login">Iniciar Sesión</Link></p>
           </div>
         </form>
