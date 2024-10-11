@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-import '../styles/Index.css?v=4.2';
+import '../styles/Index.css?v=4.4';
 import Footer from './Footer';
 
 
@@ -215,10 +215,14 @@ const Index = () => {
         </div>
         {/* Botón de Modo Oscuro */}
         <div className="dark-mode-toggle">
-          <button onClick={toggleDarkMode}>
-            {darkMode ? 'Modo Claro' : 'Modo Oscuro'}
-          </button>
-        </div>
+  <button onClick={toggleDarkMode} className='btn-blue2'>
+    {darkMode ? (
+      <img src="src/assets/img/luna.png" alt="Sol" className="icon-image2" />
+    ) : (
+      <img src="src/assets/img/sol4.png" alt="Luna" className="icon-image2" />
+    )}
+  </button>
+</div>
       </header>
 
       {/* Hero Section */}

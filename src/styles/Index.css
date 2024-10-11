@@ -88,6 +88,11 @@ a {
   margin-left: 100px; /* Acerca "¿A dónde ir?" a la izquierda */
 }
 
+.icon-image2 {
+  width: 30px; /* Cambia el tamaño a tu preferencia */
+  height: 30px; /* Cambia el tamaño a tu preferencia */
+}
+
 /* Estilos para los botones que se ven como enlaces (invisibles pero funcionales) */
 .navbar-links2 button {
   color: #ffffff;
@@ -113,6 +118,12 @@ a {
   display: flex;
   justify-content: center;
   flex-grow: 1;
+}
+
+.btn-blue2 {
+    border: none;
+    background: none;
+    padding: 0;
 }
 
 .navbar-auth button {
