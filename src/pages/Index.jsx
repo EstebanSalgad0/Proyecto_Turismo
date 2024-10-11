@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-import '../styles/Index.css?v=3.9';
+import '../styles/Index.css?v=4.0';
 import Footer from './Footer';
 
 
@@ -107,9 +107,12 @@ const Index = () => {
         <img src="src/assets/img/icono.png" alt="icono"/>
         </Link>
           <div className="dropdown" onMouseEnter={() => setDropdownOpen(true)} onMouseLeave={() => setDropdownOpen(false)}>
-            <button className="Ir">
-              ¿A dónde ir?
-            </button>
+          <div className="button-with-arrow">
+          <button className="Ir">
+            ¿A dónde ir?
+          </button>
+          <img src="src/assets/img/flecha.png" alt="flecha" className="arrow-icon" />
+          </div>
             {dropdownOpen && (
               <ul className="dropdown-menu">
                 <li><Link to="/ElMelado">El Melado</Link></li>
@@ -129,9 +132,12 @@ const Index = () => {
           </div>
 
           <div className="dropdown" onMouseEnter={()=>setActivitiesDropdownOpen(true)} onMouseLeave={()=>setActivitiesDropdownOpen(false)}>
-            <button className="Hacer" onClick={toggleActivitiesDropdown}>
-              ¿Qué hacer?
-            </button>
+          <div className="button-with-arrow">
+          <button className="Hacer">
+            ¿Qué hacer?
+          </button>
+          <img src="src/assets/img/flecha.png" alt="flecha" className="arrow-icon" />
+        </div>
             {activitiesDropdownOpen && (
               <ul className="dropdown-menu">
                 <li onMouseEnter={() => showSubMenu('cultura')} onMouseLeave={hideSubMenu}>

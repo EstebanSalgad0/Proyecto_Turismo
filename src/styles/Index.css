@@ -95,7 +95,7 @@ a {
   border: none; /* Sin bordes */
   font-size: 16px;
   font-weight: bold;
-  margin: 0px 0px 0px 150px;
+  margin: 0px 0px 0px 100px;
   cursor: pointer; /* Muestra el cursor de enlace al pasar por el botón */
   padding: 10px 0; /* Añade un poco de padding para que sea clicable */
 }
@@ -119,8 +119,20 @@ a {
   padding: 0px 0; /* Añade padding para aumentar el área clicable */
 }
 
+.button-with-arrow {
+  display: inline-flex; /* Asegura que el botón y la flecha estén en la misma línea */
+  align-items: center; /* Alinea verticalmente el botón y la flecha */
+}
+
+.arrow-icon {
+  margin-left: 10px; /* Espacio entre el botón y la flecha */
+  width: 16px; /* Ajusta el tamaño de la flecha */
+  height: auto;
+  filter: brightness(0) invert(1); /* Cambia el color a blanco */
+}
+
 .navbar-search {
-  margin-right: 30px;
+  margin-right: 20px;
 }
 
 .navbar-search button {
