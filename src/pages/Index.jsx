@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-import '../styles/Index.css?v=4.0';
+import '../styles/Index.css?v=4.2';
 import Footer from './Footer';
 
 
@@ -102,7 +102,7 @@ const Index = () => {
     <div className={`index-container ${darkMode ? 'dark' : ''}`}>
       {/* Navbar */}
       <header className={`navbar1 ${showHeader ? 'show' : 'hide'}`}>
-        <div className="navbar-links1">
+        <div className="navbar-links2">
         <Link to="/Index" className="header-icon">
         <img src="src/assets/img/icono.png" alt="icono"/>
         </Link>
@@ -238,7 +238,10 @@ const Index = () => {
     <h1>CONVIERTE A COLBÚN EN TU PRÓXIMA AVENTURA</h1>
     <h2>TE DAMOS LA BIENVENIDA A LA COMUNA</h2>
     <a href="https://www.youtube.com/watch?v=QCvh0Lwfmww" target="colbun" rel="municipalidad_Colbun">
-      <button className="btn-blue">Ver ahora</button>
+    <button className="btn-blue">
+      Ver ahora 
+      <img src="src/assets/img/verahora_icon.png" alt="icono de reproducción" className="button-icon" />
+    </button>
     </a>
   </div>
   <button className="play-button" onClick={toggleVideoPlay}>

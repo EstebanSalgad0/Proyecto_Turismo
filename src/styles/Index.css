@@ -81,7 +81,7 @@ a {
   top: -100px; /* Desplaza el navbar hacia arriba, fuera de la pantalla */
 }
 
-.navbar-links1 {
+.navbar-links2 {
   display: flex;
   flex-grow: 1;
   justify-content: space-between; /* Distribuye los botones equitativamente */
@@ -89,7 +89,7 @@ a {
 }
 
 /* Estilos para los botones que se ven como enlaces (invisibles pero funcionales) */
-.navbar-links1 button {
+.navbar-links2 button {
   color: #ffffff;
   background-color: transparent; /* Fondo transparente */
   border: none; /* Sin bordes */
@@ -98,6 +98,12 @@ a {
   margin: 0px 0px 0px 100px;
   cursor: pointer; /* Muestra el cursor de enlace al pasar por el botón */
   padding: 10px 0; /* Añade un poco de padding para que sea clicable */
+}
+
+.button-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
 }
 
 /* Ajuste para "ES/EN" para que se distribuya equitativamente */
