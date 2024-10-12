@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-import '../styles/Balnearios.css?v=1.1'; // Estilos específicos para el componente
+import '../styles/Balnearios.css'; // Estilos específicos para el componente
 import Footer from '../components/Footer';
 import SocialSection from '../components/SocialSeccion';
 import Header from '../components/Header';
