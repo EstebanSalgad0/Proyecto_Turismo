@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../styles/Botones_tamano.css'; // Estilos específicos para el componente
 
 const ControlLetras = () => {
   const [fontSize, setFontSize] = useState(16); // Tamaño de fuente inicial
@@ -7,7 +8,6 @@ const ControlLetras = () => {
   const increaseFontSize = () => {
     setFontSize((prevSize) => (prevSize < 32 ? prevSize + 2 : prevSize)); // Máximo 32px
   };
-  
 
   // Función para disminuir el tamaño de la fuente
   const decreaseFontSize = () => {
@@ -20,14 +20,14 @@ const ControlLetras = () => {
   }, [fontSize]);
 
   return (
-    <div className="mt-4">
-      <button onClick={increaseFontSize} className="bg-blue-500 text-black p-2 m-2 rounded">
-        Aumentar letra
+    <>
+      <button onClick={decreaseFontSize} className="btn-floating left">
+        <span className="icon">-</span> {/* Icono de menos */}
       </button>
-      <button onClick={decreaseFontSize} className="bg-red-500 text-black p-2 m-2 rounded">
-        Reducir letra
+      <button onClick={increaseFontSize} className="btn-floating right">
+        <span className="icon">+</span> {/* Icono de más */}
       </button>
-    </div>
+    </>
   );
 };
 
