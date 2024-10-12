@@ -7,195 +7,11 @@
   flex-direction: column;
 }
 
-/* Estilos para el menú desplegable y submenú */
-.dropdown-menu {
-  position: relative;
-  display: block;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.dropdown-menu > li {
-  padding: 10px;
-  cursor: pointer;
-  position: relative; /* Añadido para que el submenú sea relativo a su padre */
-}
-
-.dropdown-submenu {
-  position: absolute;
-  top: 0;
-  left: 100%; /* Mueve el submenú a la derecha */
-  display: none; /* El submenú está oculto por defecto */
-  list-style-type: none;
-  padding: 0;
-  background-color: white;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1; /* Asegura que el submenú aparezca encima de otros elementos */
-}
-
-.dropdown-submenu li {
-  padding: 10px;
-}
-
-.dropdown-menu > li:hover .dropdown-submenu {
-  display: block; /* Muestra el submenú al pasar el mouse */
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-/* Estilos adicionales */
-.dropdown-menu > li:hover {
-  background-color: #f0f0f0; /* Cambia el color de fondo al pasar el mouse */
-}
-
-/* Estilos para el navbar */
-.navbar1 {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #4B67AE; /* Color de fondo del navbar */
-  padding: 15px 30px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  transition: transform 0.3s ease-in-out; /* Transición suave */
-  flex-wrap: nowrap; /* Evita que los elementos salten a una nueva línea */
-}
-
-.show {
-  transform: translateY(0); /* Header visible */
-}
-
-.hide {
-  transform: translateY(-100%); /* Header oculto al hacer scroll hacia abajo */
-}
-
-/* Clase para ocultar el navbar cuando se hace scroll hacia abajo */
-.navbar-hidden {
-  top: -100px; /* Desplaza el navbar hacia arriba, fuera de la pantalla */
-}
-
-.navbar-links2 {
-  display: flex;
-  flex-grow: 1;
-  justify-content: space-between; /* Distribuye los botones equitativamente */
-  margin-left: 100px; /* Acerca "¿A dónde ir?" a la izquierda */
-}
-
-.icon-image2 {
-  width: 30px; /* Cambia el tamaño a tu preferencia */
-  height: 30px; /* Cambia el tamaño a tu preferencia */
-}
-
-/* Estilos para los botones que se ven como enlaces (invisibles pero funcionales) */
-.navbar-links2 button {
-  color: #ffffff;
-  background-color: transparent; /* Fondo transparente */
-  border: none; /* Sin bordes */
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0px 0px 0px 100px;
-  cursor: pointer; /* Muestra el cursor de enlace al pasar por el botón */
-  padding: 10px 0; /* Añade un poco de padding para que sea clicable */
-}
-
 .button-icon {
   width: 20px;
   height: 20px;
   margin-left: 5px;
 }
-
-/* Ajuste para "ES/EN" para que se distribuya equitativamente */
-.navbar-auth {
-  margin-left: 120px;
-  margin-right: 40px;
-  display: flex;
-  justify-content: center;
-  flex-grow: 1;
-}
-
-.btn-blue2 {
-    border: none;
-    background: none;
-    padding: 0;
-}
-
-.navbar-auth button {
-  color: #ffffff;
-  background-color: transparent; /* Fondo transparente */
-  border: none; /* Sin bordes */
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 0px 0; /* Añade padding para aumentar el área clicable */
-}
-
-.button-with-arrow {
-  display: inline-flex; /* Asegura que el botón y la flecha estén en la misma línea */
-  align-items: center; /* Alinea verticalmente el botón y la flecha */
-}
-
-.arrow-icon {
-  margin-left: 10px; /* Espacio entre el botón y la flecha */
-  width: 16px; /* Ajusta el tamaño de la flecha */
-  height: auto;
-  filter: brightness(0) invert(1); /* Cambia el color a blanco */
-}
-
-.navbar-search {
-  margin-right: 20px;
-}
-
-.navbar-search button {
-  background-color: transparent; /* Fondo transparente */
-  border: none; /* Sin bordes */
-  cursor: pointer;
-}
-
-.navbar-search i {
-  font-size: 24px; /* Tamaño del icono */
-  color: #ffffff;
-}
-
-.header-icon {
-  width: 60px;
-  height: 45px;
-  margin-right: 0px;
-  margin-left: -75px;
-}
-
-.dropdown {
-  position: relative;
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: white;
-  list-style: none;
-  padding: 10px 0;
-  margin: 0;
-  display: block;
-}
-
-.dropdown-menu li {
-  padding: 10px 20px;
-}
-
-.dropdown-menu li a {
-  color: black;
-  text-decoration: none;
-  font-size: 16px;
-  display: block;
-}
-
 
 
 .hero2 {
@@ -284,23 +100,6 @@ a {
   margin: 50px 0;
   padding: 0 60px;
   width: 100vw;
-}
-
-.social-icons2 {
-  font-size: 2rem;
-  color: #4B67AE; /* Azul oscuro */
-  transition: color 0.3s ease; /* Añade una transición suave al color */
-  display: flex;
-  justify-content: flex-start; /* Alinea los iconos a la izquierda */
-  gap: 20px;
-}
-
-.social-icons2 i {
-  color: #4B67AE; /* Color ligeramente más oscuro al hacer hover */
-}
-
-.social-icons2 i:hover {
-  color: #0A3B8B; /* Color ligeramente más oscuro al hacer hover */
 }
 
 /* Ajustes de la cabecera del carrusel */
@@ -431,7 +230,7 @@ a {
   background-position: center;
   background-repeat: no-repeat;
   width: 100vw;
-  height: 648px; /* Ajusta según sea necesario */
+  height: auto; /* Deja que crezca según el contenido */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -440,7 +239,9 @@ a {
   box-sizing: border-box;
   color: white;
   position: relative;
+  min-height: 100vh; /* Esto asegura que la sección ocupe al menos la altura de la ventana si el contenido es corto */
 }
+
 
 .community-content1 {
   max-width: 1000px;
@@ -491,13 +292,15 @@ a {
 .info-section1 {
   background-color: #e0e0e0; /* Color gris claro temporal para el mapa */
   width: 100vw;
-  height: 691px; /* Ajusta esta altura según el contenido */
+  height: auto; /* Ajusta la altura automáticamente según el contenido */
   display: flex;
   justify-content: flex-end; /* Alinea el contenido a la derecha */
   align-items: center;
   padding: 20px;
   box-sizing: border-box;
+  min-height: 100vh; /* Si quieres un mínimo de altura que ocupe toda la ventana */
 }
+
 
 .info-content1 {
   background-color: white;
@@ -543,213 +346,9 @@ a {
   background-color: #3f51b5;
 }
 
-/* Sección de redes sociales */
-.social-section1 {
-  width: 100vw;
-  padding: 40px;
-  background-color: #f8f9fa; /* Color claro de fondo */
-}
-
-.social-content1 {
-  text-align: left; /* Alinea todo el texto a la izquierda */
-  margin-bottom: 30px;
-  max-width: 1200px; /* Ajusta el ancho máximo del contenido */
-  margin-left: 60px; /* Agrega margen a la izquierda */
-  color: #4B67AE; /* Aplica el azul usado previamente a todo el texto */
-}
-
-.social-content1 h2 {
-  font-size: 1.5rem; /* Tamaño de la pregunta más pequeño */
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.social-content1 p {
-  font-size: 2rem; /* Aumenta el tamaño del texto de "Visita Colbún..." */
-  font-weight: bold; /* Asegura que el texto sea más destacado */
-  margin-bottom: 20px;
-}
-
-.social-content1 h3 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.social-icons1 {
-  font-size: 2rem;
-  color: #4B67AE; /* Color de los iconos en azul */
-  display: flex;
-  justify-content: flex-start; /* Alinea los iconos a la izquierda */
-  gap: 20px;
-}
-
-.divider {
-  width: 100%;
-  height: 1px;
-  background-color: #ccc;
-  margin: 40px 0;
-}
-
-/* Sección de ayuda */
-.help-section {
-  text-align: left;
-  margin-top: 40px;
-  padding: 0 60px; /* Ajusta el padding para que coincida con otras secciones */
-  max-width: 1200px; /* Limita el ancho máximo como en otras secciones */
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 100px;
-}
-
-.help-section h2 {
-  font-size: 1.5rem;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.help-options {
-  display: flex;
-  justify-content: space-around; /* Distribuye las imágenes y el texto equitativamente */
-  align-items: center; /* Alinea las imágenes y los textos verticalmente */
-}
-
-.help-item {
-  display: flex;
-  align-items: center; /* Alinea la imagen y el texto horizontalmente */
-  gap: 15px; /* Espacio entre la imagen y el texto */
-  max-width: 300px; /* Ancho máximo para cada bloque */
-}
-
-/* Aquí se configuran las imágenes de fondo */
-.help-item .help-image {
-  width: 60px;
-  height: 60px;
-  background-size: cover; /* Asegura que la imagen cubra el área sin deformarse */
-  background-position: center; /* Centra la imagen dentro del div */
-  border-radius: 50%; /* Hace la imagen redonda */
-}
-
-/* Diferentes clases para cada imagen */
-.help-image-1 {
-  background-image: url('../assets/img/formulario.png'); /* Aquí va tu imagen */
-}
-
-.help-image-2 {
-  background-image: url('../assets/img/OIT.png'); /* Aquí va tu imagen */
-}
-
-.help-image-3 {
-  background-image: url('../assets/img/Mapa.png'); /* Aquí va tu imagen */
-}
-
-.help-item p {
-  font-size: 1rem;
-  color: #333;
-  margin: 0;
-  max-width: 200px; /* Limita el ancho del texto */
-}
-
-/* Divider styling */
-.divider {
-  width: 100%;
-  height: 1px;
-  background-color: #ccc;
-  margin: 40px 0; /* Espaciado para que coincida con otras secciones */
-}
-
-/* Footer */
-.footer-section {
-  background-color: #1a1a1a; /* Color de fondo oscuro */
-  color: white; /* Color de texto blanco */
-  padding: 40px 0; /* Padding para espacio vertical */
-  width: 100vw; /* Ocupa todo el ancho de la ventana */
-  box-sizing: border-box; /* Incluye el padding dentro del ancho total */
-}
-
-.footer-container {
-  display: flex;
-  justify-content: space-between; /* Distribuye las columnas equitativamente */
-  max-width: 1200px; /* Ancho máximo del contenido */
-  margin: 0 auto; /* Centra el contenido horizontalmente */
-  padding: 20px;
-  flex-wrap: wrap; /* Asegura que el contenido se ajuste a pantallas más pequeñas */
-}
-
-.footer-logo {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* Alinea los logos a la izquierda */
-  gap: 20px; /* Espacio entre los logos */
-  margin-left: 0; /* Mueve el contenedor más cerca del borde izquierdo */
-}
-
-.logo {
-  width: 150px;
-  height: 80px; /* Ajusta la altura según la imagen */
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-/* Aquí agregamos las imágenes de fondo */
-.logo-1 {
-  background-image: url('../assets/img/marcaFundacion.png'); /* Ruta de tu imagen */
-}
-
-.logo-2 {
-  background-image: url('../assets/img/AU.png'); /* Ruta de tu imagen */
-}
-
-.logo-3 {
-  background-image: url('../assets/img/marcaColbun.png'); /* Ruta de tu imagen */
-}
-
-.footer-column {
-  display: flex;
-  flex-direction: column;
-  flex-basis: calc(25% - 20px); /* Ajusta cada columna para ocupar un cuarto del ancho */
-  margin-bottom: 20px; /* Espacio entre las columnas para pantallas más pequeñas */
-}
-
-.footer-column h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-.footer-column ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.footer-column ul li {
-  margin-bottom: 10px;
-}
-
-.footer-column ul li a {
-  color: white; /* Texto blanco */
-  text-decoration: none;
-}
-
-.footer-column ul li a:hover {
-  text-decoration: underline; /* Subraya los enlaces al pasar el mouse */
-}
 
 /* Estilos para pantallas medianas */
 @media (max-width: 1048px) {
-  .navbar1 {
-    padding: 10px 10px; /* Reducción de padding en pantallas medianas */
-  }
-
-  .navbar-links1 {
-    margin-left: 0px; /* Reduce el margen izquierdo en pantallas medianas */
-  }
-
-  .navbar-links1 button {
-    font-size: 14px; /* Disminuye el tamaño de la fuente */
-    padding: 10px; /* Menos padding */
-  }
 
   .hero2 iframe {
     position: absolute;
@@ -786,40 +385,10 @@ a {
   }
 }
 
-@media (max-width: 840px) {
-  .navbar1 {
-    padding: 10px 10px; /* Reducción de padding en pantallas medianas */
-  }
-
-  .navbar-links1 {
-    margin-left: 0px; /* Reduce el margen izquierdo en pantallas medianas */
-  }
-
-  .navbar-links1 button {
-    font-size: 14px; /* Disminuye el tamaño de la fuente */
-    padding: 10px; /* Menos padding */
-    margin: 0 5px; /* Reduce el margen entre botones */
-  }
-}
 
 /* Estilos para pantallas pequeñas (móviles) */
 @media (max-width: 768px) {
-  .navbar1 {
-    padding: 8px 10px; /* Reducción adicional de padding en pantallas pequeñas */
-  }
-
-  .navbar-links1 {
-    flex-wrap: wrap; /* Permite que los elementos se ajusten en una nueva línea si es necesario */
-    justify-content: space-around; /* Distribuye equitativamente los botones */
-    margin-left: 40px; /* Elimina el margen en pantallas pequeñas */
-  }
-
-  .navbar-links1 button {
-    font-size: 12px; /* Ajusta el tamaño de la fuente */
-    margin: 0 5px; /* Reduce el margen entre botones */
-    padding: 5px 8px; /* Menos padding */
-  }
-
+  
   .hero2 iframe {
     position: absolute;
     top: 0;
@@ -857,15 +426,6 @@ a {
 
 /* Ajustes adicionales para móviles muy pequeños */
 @media (max-width: 480px) {
-  .navbar1 {
-    padding: 5px 5px;
-  }
-
-  .navbar-links1 button {
-    font-size: 10px; /* Aún más pequeño en pantallas muy pequeñas */
-    margin: 2px; /* Casi sin espacio entre botones */
-    padding: 4px 5px;
-  }
 
   .hero2 {
     margin-top: 20px;
@@ -909,32 +469,8 @@ a {
   text-align: left; /* Alinea el texto a la izquierda */
 }
 
-.social-icons1 {
-  font-size: 2rem;
-  color: #4B67AE; /* Color de los iconos en azul */
-  display: flex;
-  justify-content: center; /* Alinea los iconos a la izquierda */
-  gap: 20px;
-}
 }
 
-/* Responsividad: Ajusta las columnas para pantallas más pequeñas */
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .footer-column {
-    flex-basis: 100%; /* Cada columna ocupa todo el ancho en pantallas pequeñas */
-  }
-
-  .footer-logo {
-    flex-direction: row; /* Coloca los logos en fila en pantallas pequeñas */
-    justify-content: flex-start; /* Alinea los logos a la izquierda */
-  }
-
-}
 
 /* Flexbox ajustes */
 .carousel-container {
@@ -974,20 +510,6 @@ img, iframe {
     font-size: 1.0rem;
     margin-bottom: 30px;
   }
-  /* Sección de redes sociales */
-.social-section1 {
-  width: 100vw;
-  padding: 40px;
-  background-color: #f8f9fa; /* Color claro de fondo */
-}
-
-.social-content1 {
-  text-align: center; /* Alinea todo el texto a la izquierda */
-  margin-bottom: 30px;
-  max-width: 1200px; /* Ajusta el ancho máximo del contenido */
-  margin-left: 0px; /* Agrega margen a la izquierda */
-  color: #4B67AE; /* Aplica el azul usado previamente a todo el texto */
-}
 }
 
 @media (max-width: 768px) {
@@ -1054,145 +576,4 @@ img, iframe {
   font-size: 1.0rem;
   margin-bottom: 30px;
 }
-}
-
-/* Modo Oscuro */
-body.dark-mode {
-  background-color: #555;
-  color: #e0e0e0;
-}
-
-body.dark-mode .navbar1 {
-  background-color: #333;
-}
-
-body.dark-mode .btn-blue {
-  background-color: #555;
-}
-
-body.dark-mode .carousel-card1 {
-  background-color: #2c2c2c;
-}
-
-body.dark-mode .hero2::before {
-  background: rgba(0, 0, 0, 0.459); /* Capa negra semitransparente */
-}
-
-body.dark-mode .hero2 button {
-  background-color: #525563; /* Color de fondo del botón */
-  color: white;
-}
-
-body.dark-mode .hero2 button:hover {
-  background-color: #3b3d45; /* Color de fondo del botón */
-}
-
-body.dark-mode .carousel-subheader1 h2 {
-  color: #ffffff;
-}
-
-body.dark-mode .carousel-subheader1 a {
-  color: #ffffff;
-}
-
-body.dark-mode .carousel-card1 p {
-  color: #ffffff;
-}
-
-body.dark-mode .carousel-header1 h5 {
-  color: #ffffff; /* Color gris */
-  margin: 0;
-  font-size: 1rem;
-}
-
-/* Fondo oscuro para la sección community en modo oscuro */
-body.dark-mode .community-section1::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.411); /* Capa oscura semitransparente */
-  z-index: 1; /* Capa por encima del fondo pero debajo del contenido */
-}
-
-/* Asegura que el contenido de community-section1 esté por encima de la capa oscura */
-body.dark-mode .community-content1 {
-  position: relative;
-  z-index: 2;
-}
-
-/* Sección de Lugares inolvidables */
-body.dark-mode .info-section1 {
-  background-color: #212020; /* Color gris claro temporal para el mapa */
-}
-
-body.dark-mode .info-content1 {
-  background-color: rgb(58, 58, 58);
-}
-
-
-body.dark-mode .info-content h5 {
-  color: #ffffff; /* Color gris para el subtítulo */
-}
-
-
-body.dark-mode .info-content h1 {
-  color: #ffffff;
-}
-
-
-body.dark-mode .info-content p {
-  color: #333;
-}
-
-
-body.dark-mode .btn-blue {
-  background-color: #5e5e5e;
-  color: white;
-}
-
-
-body.dark-mode .btn-blue:hover {
-  background-color: #333333;
-}
-
-/* Sección de redes sociales */
-body.dark-mode .social-section1 {
-  background-color: #444444; /* Color claro de fondo */
-}
-
-body.dark-mode .social-content1 {
-  color: #ffffff; /* Aplica el azul usado previamente a todo el texto */
-}
-
-body.dark-mode .social-icons1 {
-  color: #ffffff; /* Color de los iconos en azul */
-}
-
-body.dark-mode .divider {
-  background-color: #ffffff;
-}
-
-/* Sección de ayuda */
-body.dark-mode .help-item p {
-  color: #ffffff;
-}
-
-body.dark-mode .social-icons2 {
-  font-size: 2rem;
-  color: #ffffff; /* Azul oscuro */
-  transition: color 0.3s ease; /* Añade una transición suave al color */
-  display: flex;
-  justify-content: flex-start; /* Alinea los iconos a la izquierda */
-  gap: 20px;
-}
-
-body.dark-mode .social-icons2 i {
-  color: #ffffff; /* Color ligeramente más oscuro al hacer hover */
-}
-
-body.dark-mode .social-icons2 i:hover {
-  color: #ffffff; /* Color ligeramente más oscuro al hacer hover */
 }

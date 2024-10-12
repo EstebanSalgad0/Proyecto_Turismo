@@ -34,6 +34,10 @@ import Asociados from './pages/Asociados';
 import Privacidad from './pages/Privacidad';
 import Catastro from './pages/Catastro';
 import Panoramas from './pages/Panoramas';
+import Registrarse from './pages/registrarse';
+import Verificacion from './pages/Verificacion';
+import Footer from '../src/components/Footer';
+import SocialSection from '../src/components/SocialSeccion';
 
 const App = () => {
   return (
@@ -74,7 +78,13 @@ const App = () => {
         <Route path="/Privacidad" element={<Privacidad/>} />
         <Route path="/Catastro" element={<Catastro/>} />
         <Route path="/Panoramas" element={<Panoramas/>} />
+        <Route path="/registrarse" element={<Registrarse />} />
+        <Route path="/Verificacion" element={<Verificacion />} />
       </Routes>
+
+      <SocialSection />
+
+      <Footer />
     </Router>
   );
 };

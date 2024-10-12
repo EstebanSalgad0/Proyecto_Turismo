@@ -278,7 +278,7 @@ body.dark-mode .help-item p {
 }
 
 /* Modo oscuro para la sección hero3 */
-body.dark-mode .hero5::before {
+body.dark-mode .hero40::before {
   content: "";
   position: absolute;
   top: 0;
@@ -290,7 +290,7 @@ body.dark-mode .hero5::before {
 }
 
 /* Asegura que el contenido de hero3 esté por encima de la capa oscura */
-body.dark-mode .hero-content5 {
+body.dark-mode .hero-content40 {
   position: relative;
   z-index: 2;
 }

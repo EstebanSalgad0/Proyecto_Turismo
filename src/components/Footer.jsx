@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import '../styles/Footer.css';
+import ControlLetras from './ControlLetras'
 
 const Footer = () => {
   return (
@@ -12,14 +14,14 @@ const Footer = () => {
           </div>
 
           <div className="footer-column">
-          <h3>Visita Colbún</h3>
-          <ul>
-          <li><Link to="/SobreNosotros">Sobre Nosotros</Link></li>
-          <li><Link to="/Asociados">Asociados</Link></li>
-          <li><Link to="/Privacidad">Políticas de Privacidad</Link></li>
-          <li><Link to="/Catastro">Se parte del catastro de servicios</Link></li>
-        </ul>
-      </div>
+            <h3>Visita Colbún</h3>
+            <ul>
+            <li><Link to="/SobreNosotros">Sobre Nosotros</Link></li>
+            <li><Link to="/Asociados">Asociados</Link></li>
+            <li><Link to="/Privacidad">Políticas de Privacidad</Link></li>
+            <li><Link to="/Catastro">Se parte del catastro de servicios</Link></li>
+            </ul>
+          </div>
 
           <div className="footer-column">
             <h3>Te puede interesar</h3>
@@ -39,6 +41,7 @@ const Footer = () => {
               <li><a href="https://www.youtube.com/@municipalidadcolbun9532">YouTube</a></li>
             </ul>
           </div>
+          <ControlLetras />
         </div>
       </footer>
   )

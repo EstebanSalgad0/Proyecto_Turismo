@@ -2,33 +2,16 @@ import React, { useState, useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-import '../styles/Index.css?v=4.4';
-import Footer from './Footer';
-
+import '../styles/Index.css?v=3.3';
+import Footer from '../components/Footer';
+import SocialSection from '../components/SocialSeccion';
+import Header from '../components/Header';
 
 const Index = () => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [activitiesDropdownOpen, setActivitiesDropdownOpen] = useState(false);
-  const [activeSubMenu, setActiveSubMenu] = useState(null);
-  const [showHeader, setShowHeader] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true); // Estado para pausar/reproducir
   const videoRef = useRef(null); // Referencia al iframe del video
   const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
   const totalSlides = 4; // Número total de slides
-  const [darkMode, setDarkMode] = useState(false); // Estado para modo oscuro
-
-  const toggleActivitiesDropdown = () => {
-    setActivitiesDropdownOpen(!activitiesDropdownOpen);
-  };
-
-  const showSubMenu = (menu) => {
-    setActiveSubMenu(menu);
-  };
-
-  const hideSubMenu = () => {
-    setActiveSubMenu(null);
-  };
 
   const toggleVideoPlay = () => {
     // Cambia el estado de reproducción
@@ -39,23 +22,6 @@ const Index = () => {
     }
     setIsPlaying(!isPlaying);
   };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > lastScrollY) {
-        setShowHeader(false);
-      } else {
-        setShowHeader(true);
-      }
-      setLastScrollY(window.scrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [lastScrollY]);
 
   // Función para manejar las flechas
   const nextSlide = () => {
@@ -75,183 +41,37 @@ const Index = () => {
     return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
   }, []);
 
-  // Alternar modo oscuro y guardar en localStorage
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    localStorage.setItem('darkMode', !darkMode);
-  };
-
-  // Leer la preferencia guardada en localStorage cuando el componente cargue
-  useEffect(() => {
-    const savedMode = localStorage.getItem('darkMode') === 'true';
-    setDarkMode(savedMode);
-    if (savedMode) {
-      document.body.classList.add('dark-mode');
-    }
-  }, []);
-
-  useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add('dark-mode');
-    } else {
-      document.body.classList.remove('dark-mode');
-    }
-  }, [darkMode]);
-
   return (
-    <div className={`index-container ${darkMode ? 'dark' : ''}`}>
+    <div className="index-container">
       {/* Navbar */}
-      <header className={`navbar1 ${showHeader ? 'show' : 'hide'}`}>
-        <div className="navbar-links2">
-        <Link to="/Index" className="header-icon">
-        <img src="src/assets/img/icono.png" alt="icono"/>
-        </Link>
-          <div className="dropdown" onMouseEnter={() => setDropdownOpen(true)} onMouseLeave={() => setDropdownOpen(false)}>
-          <div className="button-with-arrow">
-          <button className="Ir">
-            ¿A dónde ir?
-          </button>
-          <img src="src/assets/img/flecha.png" alt="flecha" className="arrow-icon" />
-          </div>
-            {dropdownOpen && (
-              <ul className="dropdown-menu">
-                <li><Link to="/ElMelado">El Melado</Link></li>
-                <li><Link to="/Paso-pehuenche">Paso Pehuenche</Link></li>
-                <li><Link to="/Colbun">Colbún</Link></li>
-                <li><Link to="/Colbun-alto">Colbún Alto</Link></li>
-                <li><Link to="/La-Guardia">La Guardia</Link></li>
-                <li><Link to="/Los-Boldos">Los Boldos</Link></li>
-                <li><Link to="/Panimavida">Panimávida</Link></li>
-                <li><Link to="/Rari">Rari</Link></li>
-                <li><Link to="/Quinamavida">Quinamávida</Link></li>
-                <li><Link to="/Rabones">Rabones</Link></li>
-                <li><Link to="/Los-Bellotos">Los Bellotos</Link></li>
-                <li><Link to="/Balneario-Machicura">Balneario Machicura</Link></li>
-              </ul>
-            )}
-          </div>
-
-          <div className="dropdown" onMouseEnter={()=>setActivitiesDropdownOpen(true)} onMouseLeave={()=>setActivitiesDropdownOpen(false)}>
-          <div className="button-with-arrow">
-          <button className="Hacer">
-            ¿Qué hacer?
-          </button>
-          <img src="src/assets/img/flecha.png" alt="flecha" className="arrow-icon" />
-        </div>
-            {activitiesDropdownOpen && (
-              <ul className="dropdown-menu">
-                <li onMouseEnter={() => showSubMenu('cultura')} onMouseLeave={hideSubMenu}>
-                <li>Cultura y sitios históricos</li>
-                  {activeSubMenu === 'cultura' && (
-                    <ul className="dropdown-submenu">
-                      <li><Link to="/Cultura2">Petroglifos</Link></li>
-                      <li><Link to="/Cultura3">Iglesia de Panimavida</Link></li>
-                      <li><Link to="/Cultura4">Termas de Panimavida</Link></li>
-                      <li><Link to="/Cultura">Piedra Toba</Link></li>
-                    </ul>
-                  )}
-                </li>
-                <li onMouseEnter={() => showSubMenu('senderismo')} onMouseLeave={hideSubMenu}>
-                <li>Senderismo</li>
-                  {activeSubMenu === 'senderismo' && (
-                    <ul className="dropdown-submenu">
-                      <li><Link to="/Senderismo">Volcán San Pedro y San Pablo</Link></li>
-                      <li><Link to="/Senderismo2">Lagunas Verdes</Link></li>
-                      <li><Link to="/Senderismo3">Las Cuevas</Link></li>
-                      <li><Link to="/Senderismo4">Piedra del Indio</Link></li>
-                    </ul>
-                  )}
-                </li>
-                <li onMouseEnter={() => showSubMenu('parques')} onMouseLeave={hideSubMenu}>
-                <li>Parques y vida salvaje</li>
-                  {activeSubMenu === 'parques' && (
-                    <ul className="dropdown-submenu">
-                      <li><Link to="/Parque">Parque nacional Guaiquivilo</Link></li>
-                      <li><Link to="/Parque">Cavernas Los Bellotos</Link></li>
-                    </ul>
-                  )}
-                </li>
-                <li onMouseEnter={() => showSubMenu('vida-salvaje')} onMouseLeave={hideSubMenu}>
-                <li>Rutas</li>
-                  {activeSubMenu === 'vida-salvaje' && (
-                    <ul className="dropdown-submenu">
-                      <li><Link to="/Termas">Termas</Link></li>
-                      <li><Link to="/Termas">Embalse Machicura</Link></li>
-                    </ul>
-                  )}
-                </li>
-                <li onMouseEnter={() => showSubMenu('vida-salvaje')} onMouseLeave={hideSubMenu}>
-                <li><Link to="/QueHacer">Ver Todo</Link></li>
-                  {activeSubMenu === 'vida-salvaje' && (
-                    <ul className="dropdown-submenu">
-                    </ul>
-                  )}
-                </li>
-              </ul>
-            )}
-          </div>
-
-          <Link to="/Zoit">
-        <button className="Zona">Zona ZOIT</button>
-        </Link>
-
-        {/* Agregar botón de Panoramas */}
-        <Link to="/Panoramas">
-          <button className="Panoramas">Panoramas</button>
-        </Link>
-
-        
-          
-        </div>
-        <div className="navbar-auth">
-          {/* Botones para cambiar entre español e inglés */}
-          <button onClick={() => window.changeLanguage('es')}>ES/</button> 
-          <button onClick={() => window.changeLanguage('en')}>EN</button>
-        </div>
-        <div className="navbar-search">
-          <button>
-            <i className="bi bi-search"></i>
-          </button>
-        </div>
-        {/* Botón de Modo Oscuro */}
-        <div className="dark-mode-toggle">
-  <button onClick={toggleDarkMode} className='btn-blue2'>
-    {darkMode ? (
-      <img src="src/assets/img/luna.png" alt="Sol" className="icon-image2" />
-    ) : (
-      <img src="src/assets/img/sol4.png" alt="Luna" className="icon-image2" />
-    )}
-  </button>
-</div>
-      </header>
-
+      <Header />
       {/* Hero Section */}
-<div className="hero2">
-  <iframe 
-    ref={videoRef}
-    width="560" 
-    height="315" 
-    src="https://www.youtube.com/embed/QCvh0Lwfmww?autoplay=1&mute=1&loop=1&playlist=QCvh0Lwfmww&vq=hd720" 
-    title="YouTube video player" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    referrerpolicy="strict-origin-when-cross-origin" 
-    allowfullscreen>
-  </iframe>
-  <div className="hero-content2">
-    <h1>CONVIERTE A COLBÚN EN TU PRÓXIMA AVENTURA</h1>
-    <h2>TE DAMOS LA BIENVENIDA A LA COMUNA</h2>
-    <a href="https://www.youtube.com/watch?v=QCvh0Lwfmww" target="colbun" rel="municipalidad_Colbun">
-    <button className="btn-blue">
+      <div className="hero2">
+        <iframe 
+          ref={videoRef}
+          width="560" 
+          height="315" 
+          src="https://www.youtube.com/embed/QCvh0Lwfmww?autoplay=1&mute=1&loop=1&playlist=QCvh0Lwfmww&vq=hd720" 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" 
+          allowfullscreen>
+        </iframe>
+        <div className="hero-content2">
+          <h1>CONVIERTE A COLBÚN EN TU PRÓXIMA AVENTURA</h1>
+          <h2>TE DAMOS LA BIENVENIDA A LA COMUNA</h2>
+          <a href="https://www.youtube.com/watch?v=QCvh0Lwfmww" target="colbun" rel="municipalidad_Colbun">
+          <button className="btn-blue">
       Ver ahora 
       <img src="src/assets/img/verahora_icon.png" alt="icono de reproducción" className="button-icon" />
     </button>
-    </a>
-  </div>
-  <button className="play-button" onClick={toggleVideoPlay}>
-            {isPlaying ? <i className="bi bi-pause"></i> : <i className="bi bi-play"></i>}
-    </button>
-</div>
+          </a>
+        </div>
+        <button className="play-button" onClick={toggleVideoPlay}>
+                  {isPlaying ? <i className="bi bi-pause"></i> : <i className="bi bi-play"></i>}
+          </button>
+      </div>
 
 
       {/* Carousel Section */}
@@ -323,46 +143,6 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="social-section1">
-        <div className="social-content1">
-          <h2>¿Cuál será tu próximo destino?</h2>
-          <p><strong>Visita Colbún y su gente.</strong> Etiquétanos con <strong>#VisitaColbun</strong>.</p>
-          <h3>ENCUÉNTRANOS TAMBIÉN EN</h3>
-          <div className="social-icons2">
-          <a href="https://web.facebook.com/p/Municipalidad-de-Colb%C3%BAn-100064570487351/?locale=es_LA&_rdc=1&_rdr" target="_blank" rel="noopener noreferrer">
-            <i className="bi bi-facebook"></i>
-          </a>
-          <a href="https://www.instagram.com/municipalidad_colbun/?hl=es" target="_blank" rel="noopener noreferrer">
-            <i className="bi bi-instagram"></i>
-          </a>
-          <a href="https://www.youtube.com/@municipalidadcolbun9532" target="_blank" rel="noopener noreferrer">
-            <i className="bi bi-youtube"></i>
-          </a>
-        </div>
-        </div>
-
-        <hr className="divider" />
-
-        <div className="help-section">
-          <h2>¿Tienes dudas? Nosotros <strong>te ayudamos</strong></h2>
-          <div className="help-options">
-          <a href="/Turismo" className="help-item">
-            <div className="help-image help-image-1"></div>
-          <p><strong>Turismo atiende</strong><br />Agenda tu hora y resuelve dudas</p>
-          </a>
-          <a href="/OIT" className="help-item">
-            <div className="help-image help-image-2"></div>
-          <p><strong>Oficinas información turística</strong></p>
-          </a>
-          <a href="/Folleteria" className="help-item">
-            <div className="help-image help-image-3"></div>
-            <p><strong>Folletería y mapas</strong></p>
-          </a>
-        </div>
-        </div>
-      </section>
-      
-      <Footer />
     </div>
   );
 };
