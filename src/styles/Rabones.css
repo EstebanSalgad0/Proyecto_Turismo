@@ -6,7 +6,7 @@
     min-height: 100vh;
     flex-direction: column;
   }
-  .hero14 {
+  .hero107 {
     background-image: url("../assets/img/rabones.png") !important;  /* Aquí va la ruta de tu imagen */
     background-size: cover !important;
     background-position: center !important;
@@ -24,22 +24,22 @@
     margin-top: 74px;
   }
   
-  .hero-content14 {
+  .hero-content107 {
     margin-top: 100px;
     margin-left: 50px;
     align-items: start;
   }
   
-  .hero14 h5 {
+  .hero107 h5 {
     font-size: 1rem; /* Ajusta el tamaño del texto principal */
     margin-bottom: 5px; /* Espaciado entre las líneas de texto */
   }
   
-  .hero14 h1 {
+  .hero107 h1 {
     font-size: 3rem;
     margin-bottom: 40px; /* Espaciado entre el subtítulo y el botón */
   }
-  .hero14 h4 {
+  .hero107 h4 {
     margin-top: 150px;
     width: 690px;
     height: 297px;
@@ -126,7 +126,7 @@ body.dark-mode .help-item p {
 }
 
 /* Modo oscuro para la sección hero3 */
-body.dark-mode .hero14::before {
+body.dark-mode .hero107::before {
   content: "";
   position: absolute;
   top: 0;
@@ -138,7 +138,7 @@ body.dark-mode .hero14::before {
 }
 
 /* Asegura que el contenido de hero3 esté por encima de la capa oscura */
-body.dark-mode .hero-content14 {
+body.dark-mode .hero-content107 {
   position: relative;
   z-index: 2;
 }

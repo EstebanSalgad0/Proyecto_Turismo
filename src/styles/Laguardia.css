@@ -7,7 +7,7 @@
     flex-direction: column;
   }
   
-  .hero6 {
+  .hero101 {
     background-image: url("../assets/img/guardia.png") !important;  /* Aquí va la ruta de tu imagen */
     background-size: cover !important;
     background-position: center !important;
@@ -25,22 +25,22 @@
     margin-top: 74px;
   }
   
-  .hero-content6 {
+  .hero-content101 {
     margin-top: 100px;
     margin-left: 50px;
     align-items: start;
   }
   
-  .hero6 h5 {
+  .hero101 h5 {
     font-size: 1rem; /* Ajusta el tamaño del texto principal */
     margin-bottom: 5px; /* Espaciado entre las líneas de texto */
   }
   
-  .hero6 h1 {
+  .hero101 h1 {
     font-size: 3rem;
     margin-bottom: 40px; /* Espaciado entre el subtítulo y el botón */
   }
-  .hero6 h4 {
+  .hero101 h4 {
     margin-top: 150px;
     width: 690px;
     height: 297px;
@@ -127,7 +127,7 @@ body.dark-mode .help-item p {
 }
 
 /* Modo oscuro para la sección hero3 */
-body.dark-mode .hero6::before {
+body.dark-mode .hero101::before {
   content: "";
   position: absolute;
   top: 0;
@@ -139,7 +139,7 @@ body.dark-mode .hero6::before {
 }
 
 /* Asegura que el contenido de hero3 esté por encima de la capa oscura */
-body.dark-mode .hero-content6 {
+body.dark-mode .hero-content101 {
   position: relative;
   z-index: 2;
 }

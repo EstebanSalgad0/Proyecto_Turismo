@@ -7,7 +7,7 @@
     flex-direction: column;
   }
   
-  .hero9 {
+  .hero104 {
     background-image: url("../assets/img/panimavida.png") !important;  /* Aquí va la ruta de tu imagen */
     background-size: cover !important;
     background-position: center !important;
@@ -25,22 +25,22 @@
     margin-top: 74px;
   }
   
-  .hero-content9 {
+  .hero-content104 {
     margin-top: 100px;
     margin-left: 50px;
     align-items: start;
   }
   
-  .hero9 h5 {
+  .hero104 h5 {
     font-size: 1rem; /* Ajusta el tamaño del texto principal */
     margin-bottom: 5px; /* Espaciado entre las líneas de texto */
   }
   
-  .hero9 h1 {
+  .hero104 h1 {
     font-size: 3rem;
     margin-bottom: 40px; /* Espaciado entre el subtítulo y el botón */
   }
-  .hero9 h4 {
+  .hero104 h4 {
     margin-top: 150px;
     width: 690px;
     height: 297px;
@@ -127,7 +127,7 @@ body.dark-mode .help-item p {
 }
 
 /* Modo oscuro para la sección hero3 */
-body.dark-mode .hero9::before {
+body.dark-mode .hero104::before {
   content: "";
   position: absolute;
   top: 0;
@@ -139,7 +139,7 @@ body.dark-mode .hero9::before {
 }
 
 /* Asegura que el contenido de hero3 esté por encima de la capa oscura */
-body.dark-mode .hero-content9 {
+body.dark-mode .hero-content104 {
   position: relative;
   z-index: 2;
 }

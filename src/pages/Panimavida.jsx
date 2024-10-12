@@ -35,8 +35,8 @@ const Panimavida = () => {
       {/* Navbar */}
       <Header/>
       {/* Hero Section */}
-      <div className="hero9">
-        <div className="hero-content9">
+      <div className="hero104">
+        <div className="hero-content104">
           <h5>¿A donde ir?</h5>
           <h1>Panimávida</h1>
           <h4>Panimávida es una pintoresca localidad en la comuna de Colbún, ubicada en la región del Maule, Chile. Famosa por sus termas naturales, Panimávida ofrece un refugio de relajación y bienestar en medio de un entorno natural impresionante. Las aguas termales de Panimávida, ricas en minerales, proporcionan una experiencia rejuvenecedora mientras te rodeas de paisajes de colinas verdes y la serenidad de la región. Además, el área es ideal para quienes buscan explorar la naturaleza a través de senderos y disfrutar de actividades al aire libre en el cercano embalse Colbún. Con su combinación de belleza natural y propiedades curativas, Panimávida invita a los visitantes a sumergirse en una experiencia única de descanso y conexión con la naturaleza en el corazón del Maule.</h4>

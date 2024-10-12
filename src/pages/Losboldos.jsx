@@ -37,8 +37,8 @@ const Losboldos = () => {
       <Header/>
 
       {/* Hero Section */}
-      <div className="hero8">
-        <div className="hero-content8">
+      <div className="hero103">
+        <div className="hero-content103">
           <h5>¿A donde ir?</h5>
           <h1>Los Boldos</h1>
           <h4>Los Boldos es una pintoresca localidad en la comuna de Colbún, situada en la región del Maule, Chile. Este encantador rincón destaca por sus amplios espacios naturales y su entorno sereno, caracterizado por colinas verdes y una rica biodiversidad. Los Boldos es conocido por su proximidad al embalse Colbún, que ofrece oportunidades para actividades recreativas como la navegación y la pesca. Además, la zona es ideal para quienes buscan explorar la naturaleza a través de caminatas y senderos que atraviesan paisajes impresionantes. Con su atmósfera tranquila y su belleza natural, Los Boldos proporciona una experiencia auténtica y relajante en el corazón de la zona central de Chile, donde la comunidad local vive en armonía con el entorno.</h4>

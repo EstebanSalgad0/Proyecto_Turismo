@@ -7,7 +7,7 @@
     flex-direction: column;
   }
   
-  .hero8 {
+  .hero103 {
     background-image: url("../assets/img/losboldos.png") !important;  /* Aquí va la ruta de tu imagen */
     background-size: cover !important;
     background-position: center !important;
@@ -25,22 +25,22 @@
     margin-top: 74px;
   }
   
-  .hero-content8 {
+  .hero-content103 {
     margin-top: 100px;
     margin-left: 50px;
     align-items: start;
   }
   
-  .hero8 h5 {
+  .hero103 h5 {
     font-size: 1rem; /* Ajusta el tamaño del texto principal */
     margin-bottom: 5px; /* Espaciado entre las líneas de texto */
   }
   
-  .hero8 h1 {
+  .hero103 h1 {
     font-size: 3rem;
     margin-bottom: 40px; /* Espaciado entre el subtítulo y el botón */
   }
-  .hero8 h4 {
+  .hero103 h4 {
     margin-top: 150px;
     width: 690px;
     height: 297px;
@@ -127,7 +127,7 @@ body.dark-mode .help-item p {
 }
 
 /* Modo oscuro para la sección hero3 */
-body.dark-mode .hero8::before {
+body.dark-mode .hero103::before {
   content: "";
   position: absolute;
   top: 0;
@@ -139,7 +139,7 @@ body.dark-mode .hero8::before {
 }
 
 /* Asegura que el contenido de hero3 esté por encima de la capa oscura */
-body.dark-mode .hero-content8 {
+body.dark-mode .hero-content103 {
   position: relative;
   z-index: 2;
 }
