@@ -1,0 +1,237 @@
+/* Sección de redes sociales */
+.social-section1 {
+    width: 100vw;
+    padding: 40px;
+    background-color: #f8f9fa; /* Color claro de fondo */
+  }
+  
+  .social-content1 {
+    text-align: left; /* Alinea todo el texto a la izquierda */
+    margin-bottom: 30px;
+    max-width: 1200px; /* Ajusta el ancho máximo del contenido */
+    margin-left: 60px; /* Agrega margen a la izquierda */
+    color: #4B67AE; /* Aplica el azul usado previamente a todo el texto */
+  }
+  
+  .social-content1 h2 {
+    font-size: 1.5rem; /* Tamaño de la pregunta más pequeño */
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .social-content1 p {
+    font-size: 2rem; /* Aumenta el tamaño del texto de "Visita Colbún..." */
+    font-weight: bold; /* Asegura que el texto sea más destacado */
+    margin-bottom: 20px;
+  }
+  
+  .social-content1 h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .social-icons1 {
+    font-size: 2rem;
+    color: #4B67AE; /* Color de los iconos en azul */
+    display: flex;
+    justify-content: flex-start; /* Alinea los iconos a la izquierda */
+    gap: 20px;
+  }
+  
+  .divider {
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    margin: 40px 0;
+  }
+  
+  /* Sección de ayuda */
+  .help-section {
+    text-align: left;
+    margin-top: 40px;
+    padding: 0 60px; /* Ajusta el padding para que coincida con otras secciones */
+    max-width: 1200px; /* Limita el ancho máximo como en otras secciones */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+  }
+  
+  .help-section h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .help-options {
+    display: flex;
+    justify-content: space-around; /* Distribuye las imágenes y el texto equitativamente */
+    align-items: center; /* Alinea las imágenes y los textos verticalmente */
+  }
+  
+  .help-item {
+    display: flex;
+    align-items: center; /* Alinea la imagen y el texto horizontalmente */
+    gap: 15px; /* Espacio entre la imagen y el texto */
+    max-width: 300px; /* Ancho máximo para cada bloque */
+  }
+  
+  /* Aquí se configuran las imágenes de fondo */
+  .help-item .help-image {
+    width: 60px;
+    height: 60px;
+    background-size: cover; /* Asegura que la imagen cubra el área sin deformarse */
+    background-position: center; /* Centra la imagen dentro del div */
+    border-radius: 50%; /* Hace la imagen redonda */
+  }
+  
+  /* Diferentes clases para cada imagen */
+  .help-image-1 {
+    background-image: url('../assets/img/Sociales/formulario.png') !important; /* Aquí va tu imagen */
+  }
+  
+  .help-image-2 {
+    background-image: url('../assets/img/Sociales/OIT.png') !important; /* Aquí va tu imagen */
+  }
+  
+  .help-image-3 {
+    background-image: url('../assets/img/Sociales/Mapa.png') !important; /* Aquí va tu imagen */
+  }
+  
+  .help-item p {
+    font-size: 1rem;
+    color: #333;
+    margin: 0;
+    max-width: 200px; /* Limita el ancho del texto */
+  }
+
+  .social-icons2 {
+    font-size: 2rem;
+    color: #4B67AE; /* Azul oscuro */
+    transition: color 0.3s ease; /* Añade una transición suave al color */
+    display: flex;
+    justify-content: flex-start; /* Alinea los iconos a la izquierda */
+    gap: 20px;
+  }
+  
+  .social-icons2 i {
+    color: #4B67AE; /* Color ligeramente más oscuro al hacer hover */
+  }
+  
+  .social-icons2 i:hover {
+    color: #0A3B8B; /* Color ligeramente más oscuro al hacer hover */
+  }
+  
+  /* Divider styling */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    margin: 40px 0; /* Espaciado para que coincida con otras secciones */
+  }
+  /* Estilos para la sección social en pantallas medianas */
+@media (max-width: 1048px) {
+    .social-section1 {
+      width: 100vw;
+      padding: 40px 20px; /* Ajusta el padding para pantallas medianas */
+      background-color: #f8f9fa; /* Color claro de fondo */
+    }
+  
+    .social-content1 {
+      text-align: center; /* Alinea todo el texto al centro */
+      margin-bottom: 20px;
+      max-width: 900px; /* Ajusta el ancho máximo del contenido */
+      margin-left: auto;
+      margin-right: auto;
+      color: #4B67AE; /* Color de texto */
+    }
+  
+    .social-icons1 {
+      font-size: 2rem; /* Tamaño de los íconos */
+      display: flex;
+      justify-content: center; /* Centra los íconos */
+      gap: 20px; /* Espacio entre íconos */
+    }
+  }
+  
+  /* Estilos para la sección social en pantallas pequeñas */
+  @media (max-width: 768px) {
+    .social-section1 {
+      width: 100vw;
+      padding: 30px 10px; /* Menor padding en pantallas pequeñas */
+      background-color: #f8f9fa;
+    }
+  
+    .social-content1 {
+      text-align: center;
+      margin-bottom: 20px;
+      max-width: 700px; /* Reduce el ancho máximo */
+      margin-left: auto;
+      margin-right: auto;
+      color: #4B67AE;
+    }
+  
+    .social-icons1 {
+      font-size: 1.8rem; /* Reduce ligeramente el tamaño de los íconos */
+      display: flex;
+      justify-content: center;
+      gap: 15px; /* Menor espacio entre íconos */
+    }
+  }
+  
+  /* Estilos para la sección social en pantallas muy pequeñas (móviles) */
+  @media (max-width: 480px) {
+    .social-section1 {
+      width: 100vw;
+      padding: 20px 5px; /* Padding más pequeño para pantallas móviles */
+      background-color: #f8f9fa;
+    }
+  
+    .social-content1 {
+      text-align: center;
+      margin-bottom: 15px;
+      max-width: 500px; /* Ajuste del ancho máximo para móviles */
+      margin-left: auto;
+      margin-right: auto;
+      color: #4B67AE;
+    }
+  
+    .social-icons1 {
+      font-size: 1.5rem; /* Tamaño de íconos más pequeño para pantallas móviles */
+      display: flex;
+      justify-content: center;
+      gap: 10px; /* Menor espacio entre íconos */
+    }
+  }
+
+  body.dark-mode .social-content1 {
+    position: relative;
+    z-index: 2;
+  }
+  body.dark-mode .social-icons1 {
+    position: relative;
+    z-index: 2;
+  }
+
+  body.dark-mode .social-section1 {
+    position: relative;
+    z-index: 2;
+  }
+
+  body.dark-mode .social-icons2 {
+    font-size: 2rem;
+    color: #ffffff; /* Azul oscuro */
+    transition: color 0.3s ease; /* Añade una transición suave al color */
+    display: flex;
+    justify-content: flex-start; /* Alinea los iconos a la izquierda */
+    gap: 20px;
+  }
+  
+  body.dark-mode .social-icons2 i {
+    color: #ffffff; /* Color ligeramente más oscuro al hacer hover */
+  }
+  
+  body.dark-mode .social-icons2 i:hover {
+    color: #bcbcbc; /* Color ligeramente más oscuro al hacer hover */
+  }
+  
