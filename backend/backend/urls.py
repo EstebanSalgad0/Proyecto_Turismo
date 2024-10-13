@@ -16,13 +16,27 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from accounts.views import CustomAuthToken  # Asegúrate de que está importado desde 'accounts'
-from accounts.views import RegisterView
-
+from accounts.views import (
+    CustomAuthToken,
+    RegisterView,
+    SolicitudOferenteView,
+    ManejarSolicitudOferenteView,
+    ListarSolicitudesView,
+    CrearServicioView,
+    ListarServiciosView,
+    ManejarServiciosView,  # Asegúrate de que esto está importado
+    ListarServiciosAceptadosView,
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/login/', CustomAuthToken.as_view(), name='login'),
     path('api/register/', RegisterView.as_view(), name='register'),
+    path('api/solicitar_oferente/', SolicitudOferenteView.as_view(), name='solicitar_oferente'),
+    path('api/manejar_solicitud/<int:solicitud_id>/', ManejarSolicitudOferenteView.as_view(), name='manejar_solicitud'),
+    path('api/solicitudes/', ListarSolicitudesView.as_view(), name='listar_solicitudes'),
+    path('api/crear_servicio/', CrearServicioView.as_view(), name='crear_servicio'),
+    path('api/servicios/', ListarServiciosView.as_view(), name='listar_servicios'),
+    path('api/manejar_servicios/<int:servicio_id>/', ManejarServiciosView.as_view(), name='manejar_servicios'),
+    path('api/listar_servicios_aceptados/', ListarServiciosAceptadosView.as_view(), name='listar_servicios_aceptados'),
 ]
-

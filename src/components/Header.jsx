@@ -113,7 +113,7 @@ const Header = () => {
           )}
         </div>
 
-        <div className="dropdown" onMouseEnter={()=>setActivitiesDropdownOpen(true)} onMouseLeave={()=>setActivitiesDropdownOpen(false)}>
+        <div className="dropdown" onMouseEnter={() => setActivitiesDropdownOpen(true)} onMouseLeave={() => setActivitiesDropdownOpen(false)}>
           <div className="button-with-arrow">
             <button className="Hacer">
               ¿Qué hacer?
@@ -192,17 +192,36 @@ const Header = () => {
           <i className="bi bi-search"></i>
         </button>
       </div>
-      {role === 'admin' && ( // Solo mostrar el botón si el rol es admin
-        <div className="dark-mode-toggle">
-          <button onClick={toggleDarkMode} className='btn-blue2'>
-            {darkMode ? (
-              <img src="src/assets/img/luna.png" alt="Luna" className="icon-image2" />
-            ) : (
-              <img src="src/assets/img/sol4.png" alt="Sol" className="icon-image2" />
+      {/* Botón de modo oscuro visible para todos */}
+      <div className="dark-mode-toggle">
+        <button onClick={toggleDarkMode} className='btn-blue2'>
+          {darkMode ? (
+            <img src="src/assets/img/luna.png" alt="Luna" className="icon-image2" />
+          ) : (
+            <img src="src/assets/img/sol4.png" alt="Sol" className="icon-image2" />
+          )}
+        </button>
+      </div>
+
+      {/* Botón de Servicios como desplegable */}
+      <div className="dropdown-service">
+        <button className="btn-blue2" onClick={() => setDropdownOpen(!dropdownOpen)}>
+          Servicios
+        </button>
+        {dropdownOpen && (
+          <ul className="menu-service">
+            {/* Botón de servicios visible solo para admin y oferente */}
+            {(role === 'admin' || role === 'oferente') && (
+              <li>
+                <Link to="/crearServicios">Crear Servicio</Link>
+              </li>
             )}
-          </button>
-        </div>
-      )}
+            <li>
+              <Link to="/mostrarServicios">Listar Servicios</Link>
+            </li>
+          </ul>
+        )}
+      </div>
 
       {/* Botón de Cerrar Sesión */}
       <div className="navbar-logout">

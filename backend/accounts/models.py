@@ -1,5 +1,7 @@
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin, User
 from django.db import models
+from django.conf import settings
+
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -40,3 +42,23 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+    
+class SolicitudOferente(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    servicio = models.CharField(max_length=255)
+    estado = models.CharField(max_length=50, default='pendiente')  # Estado de la solicitud
+
+    def __str__(self):
+        return f"{self.user.email} - {self.servicio} - {self.estado}"
+
+
+class Servicio(models.Model):
+    nombre = models.CharField(max_length=255)
+    correo = models.EmailField()
+    redes_sociales = models.CharField(max_length=255)
+    descripcion = models.TextField()
+    usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    estado = models.CharField(max_length=20, default='pendiente') 
+
+    def __str__(self):
+        return self.nombre

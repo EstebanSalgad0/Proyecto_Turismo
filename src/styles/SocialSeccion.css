@@ -104,7 +104,6 @@
     margin: 0;
     max-width: 200px; /* Limita el ancho del texto */
   }
-<<<<<<< HEAD
 
   .social-icons2 {
     font-size: 2rem;
@@ -122,8 +121,6 @@
   .social-icons2 i:hover {
     color: #0A3B8B; /* Color ligeramente más oscuro al hacer hover */
   }
-=======
->>>>>>> 3ba5deeb8babfee880462821fc1aa2f2d1e76525
   
   /* Divider styling */
   .divider {
@@ -206,7 +203,6 @@
       gap: 10px; /* Menor espacio entre íconos */
     }
   }
-<<<<<<< HEAD
 
   body.dark-mode .social-content1 {
     position: relative;
@@ -238,6 +234,4 @@
   body.dark-mode .social-icons2 i:hover {
     color: #bcbcbc; /* Color ligeramente más oscuro al hacer hover */
   }
-=======
->>>>>>> 3ba5deeb8babfee880462821fc1aa2f2d1e76525
   

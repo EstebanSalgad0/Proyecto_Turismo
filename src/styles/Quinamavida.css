@@ -7,13 +7,8 @@
     flex-direction: column;
   }
   
-<<<<<<< HEAD
   .hero105 {
     background-image: url("../assets/img/quinamavida.png") !important;  /* Aquí va la ruta de tu imagen */
-=======
-  .hero13 {
-    background-image: url("../assets/img/Panimavida.png") !important;  /* Aquí va la ruta de tu imagen */
->>>>>>> 3ba5deeb8babfee880462821fc1aa2f2d1e76525
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat;

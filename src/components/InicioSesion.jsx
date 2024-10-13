@@ -33,8 +33,13 @@ const InicioSesion = () => {
         localStorage.setItem('userRole', role); // Guardar el rol
         console.log("Email almacenado: ", email);
         console.log("Rol almacenado: ", role); // Verifica que imprima el rol correcto
-  
-        navigate('/Index');
+
+        // Redirigir según el rol del usuario
+        if (role === 'admin') {
+          navigate('/manejarSolicitudes'); // Redirigir a "Manejar Solicitudes" si el rol es admin
+        } else {
+          navigate('/Index'); // Redirigir a la página de inicio para otros roles
+        }
       } catch (error) {
         alert('Credenciales incorrectas. Inténtalo de nuevo.'); // Mostrar el error como alert
       }
