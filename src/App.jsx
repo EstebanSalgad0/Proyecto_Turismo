@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import InicioSesion from './pages/InicioSesion';
+import InicioSesion from './components/InicioSesion';
 import Titulo from './pages/Index'; // Importa el componente Index
 import ElMelado from './pages/Elmelado'; // Importa el componente ElMelado
 import Pasopehuenche from './pages/Pasopehuenche';
@@ -34,8 +34,8 @@ import Asociados from './pages/Asociados';
 import Privacidad from './pages/Privacidad';
 import Catastro from './pages/Catastro';
 import Panoramas from './pages/Panoramas';
-import Registrarse from './pages/registrarse';
-import Verificacion from './pages/Verificacion';
+import Registrarse from '../src/components/registrarse';
+import Verificacion from '../src/components/Verificacion';
 import Footer from '../src/components/Footer';
 import SocialSection from '../src/components/SocialSeccion';
 
