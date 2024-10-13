@@ -1,8 +1,10 @@
-# React + Vite
+# Instalacion WEB Windows
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+se necesita tener instalado Django y nodejs
 
-Currently, two official plugins are available:
+1- instalar axios = npm install axios
+2- intalar Django corseheaders = py -m pip install django-cors-headers 
+3- Instalar djangorestframework = py -m pip install djangorestframework
+4- Para arrancar el entorno virtual = npm run dev
+5- para arrancar la base de datos/login = manage.py runserver 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
