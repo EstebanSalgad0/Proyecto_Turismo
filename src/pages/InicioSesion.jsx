@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google'; // Importa Google OAuth
@@ -12,35 +12,46 @@ const InicioSesion = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate(); // Hook de React Router para redirigir a otras rutas
 
-
-  // Manejar el inicio de sesión con Google
-  const handleGoogleLoginSuccess = (credentialResponse) => {
-    console.log('Google Login Success:', credentialResponse);
-    // Redirigir a la página en blanco (Index)
-    navigate('/Index');
-  };
-
-  const handleGoogleLoginError = () => {
-    console.log('Google Login Failed');
-  };
-
   // Función para validar el formato del correo electrónico
   const validateEmail = (email) => /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(email);
 
   // Función para validar que la contraseña cumpla con ciertos requisitos
   const validatePassword = (password) => /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,15}$/.test(password);
 
-  // Función para manejar el envío del formulario
-  const handleSubmit = (event) => {
-    event.preventDefault(); // Previene que el formulario recargue la página al ser enviado
+  // Función para manejar el envío del formulario y la comunicación con el backend
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+  
     if (validateEmail(email) && validatePassword(password)) {
-      console.log("Formulario válido, redirigiendo...");
-      // Redirigir a la página en blanco (Index)
-      navigate('/Index');
+      try {
+        // Enviar solicitud al backend de Django
+        const response = await fetch('http://127.0.0.1:8000/inicio-sesion/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, password }), // Usamos email en lugar de username
+        });
+        
+        if (response.ok) {
+          const data = await response.json();
+          console.log('Inicio de sesión exitoso:', data);
+          // Redirigir al usuario a la página deseada
+          navigate('/Index');
+        } else {
+          const errorData = await response.json();
+          console.log('Error en el inicio de sesión:', errorData);
+          alert('Credenciales inválidas');
+        }
+      } catch (error) {
+        console.log('Error en la solicitud:', error);
+        alert('Ocurrió un error al iniciar sesión');
+      }
     } else {
-      alert("Por favor ingrese un correo y contraseña válidos");
+      alert('Por favor ingrese un correo y contraseña válidos');
     }
   };
+  
 
   return (
     <div className="inicio-sesion-container">
@@ -49,10 +60,10 @@ const InicioSesion = () => {
         <form onSubmit={handleSubmit}>
           <div className='Logo'></div>
 
-          <h1>Te damos la bienvenida
-          a Cultura y Turismo</h1>
-          
-          <div className="input-box-is"> <label >Correo electrónico</label>
+          <h1>Te damos la bienvenida a Cultura y Turismo</h1>
+
+          <div className="input-box-is">
+            <label>Correo electrónico</label>
             <div className='input-box-email'>
               <input 
                 type="email" 
@@ -66,7 +77,8 @@ const InicioSesion = () => {
           </div>
 
           <div className="input-box-is">
-            <div className='input-box-password'><label>Contraseña</label>
+            <div className='input-box-password'>
+              <label>Contraseña</label>
               <input 
                 type="password" 
                 value={password} 
@@ -86,22 +98,8 @@ const InicioSesion = () => {
 
           <p className='O'>O</p>
 
-          {/* Google Login Button */}
-          <GoogleOAuthProvider clientId="665073710932-rnt0p38keoc3dtipen1t7vac08fq9k7a.apps.googleusercontent.com">
-            <div className="google-login-container">
-              <GoogleLogin
-                onSuccess={handleGoogleLoginSuccess}
-                onError={handleGoogleLoginError}
-                useOneTap={true}
-                size="large" 
-                shape="pill"
-                width="250" 
-              />
-            </div>
-          </GoogleOAuthProvider>
 
           <div className="register-link">
-            
             <p>¿Aún no estás en Turismo y Cultura? <Link to="/registrarse">Regístrate</Link></p>
           </div>
           
