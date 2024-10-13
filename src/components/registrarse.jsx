@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+import axios from 'axios';  // Importar Axios para hacer la solicitud HTTP
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import '../styles/Registrarse.css';
 
 const Registrarse = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [birthDate, setBirthDate] = useState('');
   const [errorMessage, setErrorMessage] = useState(''); // Para almacenar mensajes de error
   const navigate = useNavigate();
 
@@ -16,14 +15,7 @@ const Registrarse = () => {
     return passwordRegex.test(password);
   };
 
-  const validateBirthDate = (birthDate) => {
-    const currentDate = new Date();
-    const [day, month, year] = birthDate.split('/');
-    const inputDate = new Date(`${year}-${month}-${day}`);
-    return inputDate <= currentDate;
-  };
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     let validationError = "";
@@ -36,17 +28,36 @@ const Registrarse = () => {
       validationError = "La contraseña debe tener entre 8 y 15 caracteres, incluir al menos una mayúscula, un número y un símbolo.";
     }
 
-    if (!validateBirthDate(birthDate)) {
-      validationError = "La fecha de nacimiento debe ser anterior o igual a la fecha actual.";
-    }
-
     if (validationError) {
       setErrorMessage(validationError);
       setTimeout(() => setErrorMessage(''), 3000); // Ocultar mensaje después de 3 segundos
     } else {
       setErrorMessage('');
-      navigate('/Verificacion');
+
+      try {
+        // Hacer la solicitud POST al backend para registrar el usuario
+        const response = await axios.post('http://localhost:8000/api/register/', {
+            email: email,
+            password: password,
+            role: 'turista'  // Asignamos el rol "turista"
+        });
+        
+        // Almacenar el correo del usuario en localStorage
+        localStorage.setItem('userEmail', email);
+    
+        // Si el registro es exitoso, redirigir a la página de verificación
+        navigate('/Verificacion');
+      } catch (error) {
+      
+        // Mostrar el mensaje de error recibido del backend
+        if (error.response && error.response.data) {
+            setErrorMessage(error.response.data.error || 'Error al registrar el usuario. Inténtelo de nuevo.');
+        } else {
+            setErrorMessage('Error al registrar el usuario. Inténtelo de nuevo.');
+        }
     }
+    
+    }  
   };
 
   const validateEmail = (email) => {
@@ -91,32 +102,9 @@ const Registrarse = () => {
             />
           </div>
 
-          <div className="input-box-regis">
-            <label>Fecha de nacimiento</label>
-            <input 
-              type="text" 
-              value={birthDate} 
-              onChange={(e) => setBirthDate(e.target.value)}
-              placeholder="dd/mm/aaaa" 
-              required 
-            />
-          </div>
-
           <button type="submit" className="btn-regis">Continuar</button>
 
           <div className="or-section-regis">O</div>
-
-          <GoogleOAuthProvider clientId="tu-google-client-id">
-            <div className="google-login-container">
-              <GoogleLogin 
-                onSuccess={() => navigate('/Index')}
-                onError={() => console.log('Error al iniciar sesión con Google')}
-                size="large" 
-                shape="pill"
-                width="250" 
-              />
-            </div>
-          </GoogleOAuthProvider>
 
           <div className="divider-regis"></div>
 
