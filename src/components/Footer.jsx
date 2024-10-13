@@ -1,6 +1,10 @@
 import React from 'react'
+<<<<<<< HEAD
 import { Link } from 'react-router-dom';
 import '../styles/Footer.css';
+=======
+import '../styles/footer.css';
+>>>>>>> 3ba5deeb8babfee880462821fc1aa2f2d1e76525
 import ControlLetras from './ControlLetras'
 
 const Footer = () => {
