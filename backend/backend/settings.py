@@ -66,6 +66,14 @@ REST_FRAMEWORK = {
     ]
 }
 
+# Configuración para el envío de correos
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mueblescaracol.cl'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'mueca@mueblescaracol.cl'
+EMAIL_HOST_PASSWORD = '800raco30'
+DEFAULT_FROM_EMAIL = 'mueca@mueblescaracol.cl'
 
 ROOT_URLCONF = 'backend.urls'
 

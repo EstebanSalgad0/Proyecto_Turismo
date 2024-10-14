@@ -30,17 +30,18 @@ const Verificacion = () => {
           <span className="avatar-text">{getInitial(email)}</span>
         </div>
 
-        <h1 className='h1-veri'>Te damos la bienvenida <br /> a Cultura y Turismo</h1>
+        <h1 className='h1-veri'>Verifique su Correo Electronico</h1>
 
-        <p className="subtitle">¡Conviértete a Colbún en tu próxima aventura!<br />
-          Te damos la bienvenida a la comuna
-        </p>
+        <p className="subtitle">¡Conviérte a Colbún en tu próxima aventura!</p>
+        
+        <p className='subtitle'>Te damos la bienvenida a la comuna, por favor verifique su correo electronico
+          para saber que es una persona real y conocer los lugares turisticos que Colbún 
+          tiene para ofrecer.</p>
 
-        {role === 'admin' && ( // Solo mostrar el botón si el rol es admin
-          <button onClick={() => navigate('/Index')} className="start-btn">
-            ¡Comienza tu aventura!
+          <button onClick={() => navigate('/login')} className="start-btn">
+            Regresar al Login
           </button>
-        )}
+        
       </div>
     </div>
   );

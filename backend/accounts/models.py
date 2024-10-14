@@ -22,10 +22,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=30, blank=True)
     last_name = models.CharField(max_length=30, blank=True)
-    is_active = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=False)  # Cambiado a False
     is_staff = models.BooleanField(default=False)
-
-    # Campo de rol con valor predeterminado "turista"
+    
     ROLE_CHOICES = (
         ('turista', 'Turista'),
         ('admin', 'Administrador'),
@@ -33,7 +32,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     )
     role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='turista')
 
-    objects = CustomUserManager()  # Aquí asignamos el manager personalizado
+    objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

@@ -18,11 +18,12 @@ from django.contrib import admin
 from django.urls import path
 from accounts.views import CustomAuthToken  # Asegúrate de que está importado desde 'accounts'
 from accounts.views import RegisterView
-
+from accounts.views import RegisterView, ActivateAccountView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/login/', CustomAuthToken.as_view(), name='login'),
     path('api/register/', RegisterView.as_view(), name='register'),
+    path('activate/<uidb64>/<token>/', ActivateAccountView.as_view(), name='activate'),
 ]
 
