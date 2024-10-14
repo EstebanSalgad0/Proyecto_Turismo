@@ -36,11 +36,9 @@ const Verificacion = () => {
           Te damos la bienvenida a la comuna
         </p>
 
-        {role === 'admin' && ( // Solo mostrar el botón si el rol es admin
-          <button onClick={() => navigate('/Index')} className="start-btn">
+        <button onClick={() => navigate('/Index')} className="start-btn">
             ¡Comienza tu aventura!
           </button>
-        )}
       </div>
     </div>
   );

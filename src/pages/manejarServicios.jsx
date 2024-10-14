@@ -44,6 +44,26 @@ const ListarServiciosPendientes = () => {
         }
     };
 
+    const handleRejectService = async (servicioId) => {
+        try {
+            const token = localStorage.getItem('token');
+            const response = await axios.post(`http://localhost:8000/api/manejar_servicios/${servicioId}/`, {
+                accion: 'rechazar'
+            }, {
+                headers: {
+                    'Authorization': `Token ${token}`
+                }
+            });
+            console.log(response.data);
+            setMensaje('Servicio rechazado con éxito.'); // Mensaje de éxito
+            await fetchServicios(); // Re-fetch the services after rejecting one
+        } catch (error) {
+            setMensaje('Error al rechazar el servicio.'); // Mensaje de error
+            console.error('Error al manejar el servicio:', error);
+        }
+    };
+    
+
     return (
         <div>
             <h1>Servicios Pendientes</h1>
@@ -56,6 +76,7 @@ const ListarServiciosPendientes = () => {
                         <div key={servicio.id}>
                             <span>{servicio.nombre}</span>
                             <button onClick={() => handleAcceptService(servicio.id)}>Aceptar</button>
+                            <button onClick={() => handleRejectService(servicio.id)}>Rechazar</button>
                         </div>
                     ))}
                 </ul>
