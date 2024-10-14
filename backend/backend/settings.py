@@ -66,14 +66,14 @@ REST_FRAMEWORK = {
     ]
 }
 
-# Configuración para el envío de correos
+# Configuración para el envío de correos con Postmark
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.mueblescaracol.cl'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'mueca@mueblescaracol.cl'
-EMAIL_HOST_PASSWORD = '800raco30'
-DEFAULT_FROM_EMAIL = 'mueca@mueblescaracol.cl'
+EMAIL_HOST = 'smtp.postmarkapp.com'  # Servidor SMTP de Postmark
+EMAIL_PORT = 587  # Puerto estándar para TLS
+EMAIL_USE_TLS = True  # Usar TLS
+EMAIL_HOST_USER = 'f71153f7-aee0-4c1f-b86a-e853848bc60a'  # Tu token de API de Postmark (nombre de usuario)
+EMAIL_HOST_PASSWORD = 'f71153f7-aee0-4c1f-b86a-e853848bc60a'  # También tu token de API como contraseña
+DEFAULT_FROM_EMAIL = 'mueca@mueblescaracol.cl'  # Reemplaza con el correo que utilizarás
 
 ROOT_URLCONF = 'backend.urls'
 
