@@ -15,6 +15,10 @@ from django.contrib.auth.tokens import default_token_generator
 from django.urls import reverse
 from .models import CustomUser
 from .serializers import UserSerializer  # Aquí está el serializador importado
+from django.shortcuts import render
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
 class CustomAuthToken(ObtainAuthToken):
     def post(self, request, *args, **kwargs):
@@ -57,13 +61,23 @@ class RegisterView(APIView):
             verification_link = reverse('activate', kwargs={'uidb64': uid, 'token': token})
             activation_url = f"http://{current_site.domain}{verification_link}"
 
-            # Envío de correo
-            subject = 'Activa tu cuenta'
-            message = render_to_string('accounts/activation_email.html', {
+            # Renderizar el contenido HTML y la versión en texto plano
+            html_content = render_to_string('accounts/activation_email.html', {
                 'user': user,
                 'activation_url': activation_url,
             })
-            send_mail(subject, message, 'mueca@mueblescaracol.cl', [user.email])
+            text_content = strip_tags(html_content)  # Convertir a texto plano por si el cliente no soporta HTML
+
+            # Crear el objeto de correo electrónico con HTML
+            subject = 'Activa tu cuenta en Turismo Colbún'
+            from_email = 'mueca@mueblescaracol.cl'
+            to_email = user.email
+
+            email = EmailMultiAlternatives(subject, text_content, from_email, [to_email])
+            email.attach_alternative(html_content, "text/html")  # Adjuntar la versión HTML
+
+            # Enviar el correo
+            email.send()
 
             return Response({'message': 'Usuario registrado. Revisa tu correo para activar la cuenta.'}, status=status.HTTP_201_CREATED)
         except Exception as e:
@@ -80,7 +94,7 @@ class ActivateAccountView(APIView):
         if user is not None and default_token_generator.check_token(user, token):
             user.is_active = True
             user.save()
-            return Response({'message': 'Cuenta activada exitosamente.'}, status=status.HTTP_200_OK)
+            return render(request, 'accounts/activation_success.html', {'user': user})
         else:
-            return Response({'error': 'El enlace de activación es inválido.'}, status=status.HTTP_400_BAD_REQUEST)
+            return render(request, 'accounts/activation_error.html')
 
