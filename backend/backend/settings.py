@@ -9,8 +9,11 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+import os 
+from dotenv import load_dotenv
 from pathlib import Path
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -67,13 +70,13 @@ REST_FRAMEWORK = {
 }
 
 # Configuración para el envío de correos con Postmark
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.postmarkapp.com'  # Servidor SMTP de Postmark
-EMAIL_PORT = 587  # Puerto estándar para TLS
-EMAIL_USE_TLS = True  # Usar TLS
-EMAIL_HOST_USER = 'f71153f7-aee0-4c1f-b86a-e853848bc60a'  # Tu token de API de Postmark (nombre de usuario)
-EMAIL_HOST_PASSWORD = 'f71153f7-aee0-4c1f-b86a-e853848bc60a'  # También tu token de API como contraseña
-DEFAULT_FROM_EMAIL = 'mueca@mueblescaracol.cl'  # Reemplaza con el correo que utilizarás
+EMAIL_BACKEND = os.getenv('EMAIL_BACKEND', 'django.core.mail.backends.smtp.EmailBackend')
+EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.postmarkapp.com')
+EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587))  # Asegúrate de convertir a entero
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'True') == 'True'  # Convertir de string a booleano
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', 'default@example.com')
 
 ROOT_URLCONF = 'backend.urls'
 
@@ -94,6 +97,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'backend.wsgi.application'
+
+RECAPTCHA_SECRET_KEY = os.getenv('RECAPTCHA_SECRET_KEY')
 
 
 # Database

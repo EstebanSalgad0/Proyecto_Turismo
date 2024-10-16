@@ -19,11 +19,17 @@ from django.shortcuts import render
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
+from .utils import verify_captcha  # Importa la función de verificación de captcha
 
 class CustomAuthToken(ObtainAuthToken):
     def post(self, request, *args, **kwargs):
         email = request.data.get('email')
         password = request.data.get('password')
+        captcha_response = request.data.get('captcha')  # Obtener la respuesta del captcha
+
+        # Verificar CAPTCHA
+        if not verify_captcha(captcha_response):
+            return Response({'error': 'Captcha inválido. Por favor verifica que no eres un robot.'}, status=status.HTTP_400_BAD_REQUEST)
 
         # Autenticando con email y password
         user = authenticate(request, email=email, password=password)
@@ -46,6 +52,11 @@ class RegisterView(APIView):
     def post(self, request):
         email = request.data.get('email')
         password = request.data.get('password')
+        captcha_response = request.data.get('captcha')  # Obtener la respuesta del captcha
+
+        # Verificar CAPTCHA
+        if not verify_captcha(captcha_response):
+            return Response({'error': 'Captcha inválido. Por favor verifica que no eres un robot.'}, status=status.HTTP_400_BAD_REQUEST)
 
         if not email or not password:
             return Response({'error': 'Faltan datos'}, status=status.HTTP_400_BAD_REQUEST)
@@ -82,7 +93,7 @@ class RegisterView(APIView):
             return Response({'message': 'Usuario registrado. Revisa tu correo para activar la cuenta.'}, status=status.HTTP_201_CREATED)
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
-        
+
 class ActivateAccountView(APIView):
     def get(self, request, uidb64, token):
         try:

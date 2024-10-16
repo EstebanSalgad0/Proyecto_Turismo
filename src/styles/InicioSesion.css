@@ -26,6 +26,12 @@
   margin: 0 0 15px 150px;
 }
 
+.recaptcha-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px; /* Espaciado inferior */
+}
+
 
 .wrapper-is {
   width: 420px;
@@ -89,7 +95,7 @@
 .remember-forgot {
   display: flex;
   font-size: 14.5px;
-  margin: -10px 70px 20px;
+  margin: 10px 70px 20px;
 }
 
 .remember-forgot a {
