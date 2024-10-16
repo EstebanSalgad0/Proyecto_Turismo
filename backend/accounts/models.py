@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db import models
+from django.conf import settings
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -39,3 +40,24 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+    
+# Modelo para las solicitudes de los usuarios para convertirse en oferentes
+class SolicitudOferente(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Relación con el usuario.
+    servicio = models.CharField(max_length=255)  # Nombre del servicio solicitado por el usuario.
+    estado = models.CharField(max_length=50, default='pendiente')  # Estado de la solicitud ('pendiente' por defecto).
+
+    def __str__(self):
+        return f"{self.user.email} - {self.servicio} - {self.estado}"  # Representación en texto de la solicitud.
+
+# Modelo para los servicios proporcionados por los oferentes
+class Servicio(models.Model):
+    nombre = models.CharField(max_length=255)  # Nombre del servicio.
+    correo = models.EmailField()  # Correo electrónico relacionado con el servicio.
+    redes_sociales = models.CharField(max_length=255)  # Información sobre las redes sociales del servicio.
+    descripcion = models.TextField()  # Descripción del servicio.
+    usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Usuario que creó el servicio.
+    estado = models.CharField(max_length=20, default='pendiente')  # Estado del servicio ('pendiente' por defecto).
+
+    def __str__(self):
+        return self.nombre  # Retorna el nombre del servicio como su representación textual.

@@ -6,6 +6,7 @@ import '../styles/Header.css';
 const Header = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [activitiesDropdownOpen, setActivitiesDropdownOpen] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false); // Estado para "Servicios"
   const [activeSubMenu, setActiveSubMenu] = useState(null);
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -185,11 +186,29 @@ const Header = () => {
         )}
 
         {/* Agregar botón de Servicios */}
-        {role === 'admin' && ( // Solo mostrar el botón de Panoramas si el rol es admin
-        <Link to="/Panoramas">
-          <button className="Panoramas">Servicios</button>
-        </Link>
+        {role === 'admin' && ( // Solo mostrar el botón desplegable de Servicios si el rol es admin
+  <div className="dropdown" onMouseEnter={() => setServicesDropdownOpen(true)} onMouseLeave={() => setServicesDropdownOpen(false)}>
+    <div className="button-with-arrow">
+      <button className="Hacer"> {/* Usamos la misma clase "Hacer" para que el estilo sea el mismo */}
+        Servicios
+      </button>
+      <img src="src/assets/img/flecha.png" alt="flecha" className="arrow-icon" />
+    </div>
+    {servicesDropdownOpen && (
+      <ul className="dropdown-menu">
+        {/* Botón de crear servicio visible solo para admin y oferente */}
+        {(role === 'admin' || role === 'oferente') && (
+          <li>
+            <Link to="/crearServicios">Crear Servicio</Link>
+          </li>
         )}
+        <li>
+          <Link to="/mostrarServicios">Listar Servicios</Link>
+        </li>
+      </ul>
+    )}
+  </div>
+)}
       </div>
 
       <div className="navbar-auth">
