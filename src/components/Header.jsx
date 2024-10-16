@@ -186,7 +186,7 @@ const Header = () => {
         )}
 
         {/* Agregar botón de Servicios */}
-        {role === 'admin' && ( // Solo mostrar el botón desplegable de Servicios si el rol es admin
+        {(role === 'admin' || role === 'oferente')&& ( // Solo mostrar el botón desplegable de Servicios si el rol es admin
   <div className="dropdown" onMouseEnter={() => setServicesDropdownOpen(true)} onMouseLeave={() => setServicesDropdownOpen(false)}>
     <div className="button-with-arrow">
       <button className="Hacer"> {/* Usamos la misma clase "Hacer" para que el estilo sea el mismo */}
