@@ -178,12 +178,10 @@ const Header = () => {
           <button className="Zona">Zona ZOIT</button>
         </Link>
 
-        {/* Agregar botón de Panoramas */}
-        {role === 'admin' && ( // Solo mostrar el botón de Panoramas si el rol es admin
         <Link to="/Panoramas">
           <button className="Panoramas">Panoramas</button>
         </Link>
-        )}
+
 
         {/* Agregar botón de Servicios */}
         {(role === 'admin' || role === 'oferente')&& ( // Solo mostrar el botón desplegable de Servicios si el rol es admin
