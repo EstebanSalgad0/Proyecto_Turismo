@@ -224,12 +224,12 @@ const Header = () => {
             )}
             {(role === 'admin') && (
             <li>
-              <Link to="/manejarSolicitudes">manejar Solicitudes</Link>
+              <Link to="/manejarSolicitudes">Administrar Solicitudes</Link>
            </li>
            )}
             {(role === 'admin') && (
             <li>
-              <Link to="/manejarServicios">manejar Servicios</Link>
+              <Link to="/manejarServicios">Administrar Servicios</Link>
             </li>
             )}
           </ul>
