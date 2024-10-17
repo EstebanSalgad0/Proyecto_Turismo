@@ -184,29 +184,47 @@ const Header = () => {
 
 
         {/* Agregar botón de Servicios */}
-        {(role === 'admin' || role === 'oferente')&& ( // Solo mostrar el botón desplegable de Servicios si el rol es admin
-  <div className="dropdown" onMouseEnter={() => setServicesDropdownOpen(true)} onMouseLeave={() => setServicesDropdownOpen(false)}>
-    <div className="button-with-arrow">
-      <button className="Hacer"> {/* Usamos la misma clase "Hacer" para que el estilo sea el mismo */}
-        Servicios
-      </button>
-      <img src="src/assets/img/flecha.png" alt="flecha" className="arrow-icon" />
-    </div>
-    {servicesDropdownOpen && (
-      <ul className="dropdown-menu">
-        {/* Botón de crear servicio visible solo para admin y oferente */}
-        {(role === 'admin' || role === 'oferente') && (
-          <li>
-            <Link to="/crearServicios">Crear Servicio</Link>
-          </li>
+        <div className="dropdown" onMouseEnter={() => setServicesDropdownOpen(true)} onMouseLeave={() => setServicesDropdownOpen(false)}>
+          <div className="button-with-arrow">
+            <button className="Hacer"> {/* Usamos la misma clase "Hacer" para que el estilo sea el mismo */}
+            Servicios
+            </button>
+            <img src="src/assets/img/flecha.png" alt="flecha" className="arrow-icon" />
+        </div>
+          {servicesDropdownOpen && (
+            <ul className="dropdown-menu">
+            {/* Botón de crear servicio visible solo para admin y oferente */}
+            {(role === 'admin' || role === 'oferente')&& ( // Solo mostrar el botón desplegable de Servicios si el rol es admin u oferente
+            <li>
+              <Link to="/crearServicios">Crear Servicio</Link>
+            </li>
+            )}
+            <li>
+              <Link to="/mostrarServicios">Ver Servicios</Link>
+            </li>
+            {(role === 'admin' || role === 'oferente')&& ( // Solo mostrar el botón desplegable de Servicios si el rol es admin u oferente
+            <li>
+              <Link to="/crearServicios">Editar Servicio</Link>
+            </li>
+            )}
+            {(role === 'admin' || role === 'oferente' || role === 'turista')&& (
+            <li>
+              <Link to="/mostrarServicios">Calificar Servicios</Link>
+            </li>
+            )}
+            {(role === 'admin') && (
+            <li>
+              <Link to="/manejarSolicitudes">manejar Solicitudes</Link>
+           </li>
+           )}
+            {(role === 'admin') && (
+            <li>
+              <Link to="/manejarServicios">manejar Servicios</Link>
+            </li>
+            )}
+          </ul>
         )}
-        <li>
-          <Link to="/mostrarServicios">Listar Servicios</Link>
-        </li>
-      </ul>
-    )}
-  </div>
-)}
+      </div>
       </div>
 
       <div className="navbar-auth">
@@ -229,11 +247,20 @@ const Header = () => {
     </div>
 
       {/* Botón de Cerrar Sesión */}
+      {(role === 'admin' || role === 'oferente' || role === 'turista')&& (
       <div className="navbar-logout">
         <button onClick={handleLogout} className="btn-logout">
           Cerrar Sesión
         </button>
       </div>
+      )}
+      {!(role === 'admin' || role === 'oferente' || role === 'turista') && (
+      <div className="navbar-logout">
+        <Link to="/login">
+          <button className="Zona">Iniciar Sesión</button>
+        </Link>
+      </div>
+    )}
     </header>
   );
 };
