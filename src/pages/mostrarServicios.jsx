@@ -28,7 +28,7 @@ const ListarServicios = () => {
             <br></br>
             <br></br>
             <br></br>
-            <h1>Servicios Aceptados</h1>
+            <h1>Servicios Disponibles</h1>
             <ul>
                 {servicios.map((servicio) => (
                     <li key={servicio.id}>
