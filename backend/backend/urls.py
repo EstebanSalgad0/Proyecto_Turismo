@@ -26,6 +26,7 @@ from accounts.views import (
     ListarServiciosView,
     ManejarServiciosView,  
     ListarServiciosAceptadosView,
+    MisServiciosView
 )
 
 urlpatterns = [
@@ -61,4 +62,10 @@ urlpatterns = [
 
     # Ruta para listar los servicios que han sido aceptados, utilizando la vista ListarServiciosAceptadosView.
     path('api/listar_servicios_aceptados/', ListarServiciosAceptadosView.as_view(), name='listar_servicios_aceptados'),
+
+    # urls.py en Django
+    path('api/mis_servicios/', MisServiciosView.as_view(), name='mis_servicios'),
+    path('api/mis_servicios/<int:servicio_id>/', MisServiciosView.as_view(), name='gestionar_servicio'),
+
+    path('api/reenviar_servicio/<int:servicio_id>/', MisServiciosView.as_view(), name='reenviar_servicio'),
 ]

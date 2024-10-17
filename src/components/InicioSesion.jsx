@@ -36,7 +36,7 @@ const InicioSesion = () => {
 
         // Redirigir según el rol del usuario
         if (role === 'admin') {
-          navigate('/manejarSolicitudes'); // Redirigir a "Manejar Solicitudes" si el rol es admin
+          navigate('/AdminPanel'); // Redirigir a "Manejar Solicitudes" si el rol es admin
         } else {
           navigate('/Index'); // Redirigir a la página de inicio para otros roles
         }

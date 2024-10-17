@@ -39,10 +39,10 @@ import Verificacion from './components/Verificacion';
 import Footer from '../src/components/Footer';
 import SocialSection from '../src/components/SocialSeccion';
 import SolicitudOferente from './pages/solicitudOferente';
-import ManejarSolicitudes from './pages/manejarSolicitudes';
 import CrearServicio from './pages/crearServicio';
 import ListarServicios from './pages/mostrarServicios';
-import ListarServiciosPendientes from './pages/manejarServicios';
+import AdminPanel from './pages/AdminPanel';
+
 
 const App = () => {
   return (
@@ -86,11 +86,9 @@ const App = () => {
         <Route path="/registrarse" element={<Registrarse />} />
         <Route path="/Verificacion" element={<Verificacion />} />
         <Route path="/solicitudOferente" element={<SolicitudOferente />} />
-        <Route path="/manejarSolicitudes" element={<ManejarSolicitudes />} />
         <Route path="/crearServicios" element={<CrearServicio/>} />
         <Route path="/mostrarServicios" element={<ListarServicios/>} />
-        <Route path="/manejarServicios" element={<ListarServiciosPendientes/>} />
-
+        <Route path="/AdminPanel" element={<AdminPanel/>} />
       </Routes>
 
       <SocialSection />

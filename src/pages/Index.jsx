@@ -12,6 +12,19 @@ const Index = () => {
   const videoRef = useRef(null); // Referencia al iframe del video
   const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
   const totalSlides = 4; // Número total de slides
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // Estado para verificar si está autenticado
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      console.log("Usuario autenticado");
+      setIsAuthenticated(true);  // El usuario está autenticado
+    } else {
+      console.log("Usuario no autenticado");
+      setIsAuthenticated(false);  // No hay sesión iniciada
+    }
+  }, []);
+
 
   const toggleVideoPlay = () => {
     // Cambia el estado de reproducción

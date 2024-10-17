@@ -143,5 +143,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  # La URL de tu frontend (React)
+    "http://localhost:5174",  # La URL de tu frontend (React)
 ]

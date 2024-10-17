@@ -213,7 +213,7 @@ const Header = () => {
             {/* Botón de servicios visible solo para admin y oferente */}
             {(role === 'admin' || role === 'oferente') && (
               <li>
-                <Link to="/crearServicios">Crear Servicio</Link>
+                <Link to="/crearServicios">Modificar Servicio</Link>
               </li>
             )}
             <li>

@@ -1,6 +1,8 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin, User
 from django.db import models
 from django.conf import settings
+from django.utils import timezone
+
 
 # Manager personalizado para gestionar la creación de usuarios y superusuarios
 class CustomUserManager(BaseUserManager):
@@ -48,21 +50,27 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
 # Modelo para las solicitudes de los usuarios para convertirse en oferentes
 class SolicitudOferente(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Relación con el usuario.
-    servicio = models.CharField(max_length=255)  # Nombre del servicio solicitado por el usuario.
-    estado = models.CharField(max_length=50, default='pendiente')  # Estado de la solicitud ('pendiente' por defecto).
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    servicio = models.CharField(max_length=255)
+    estado = models.CharField(max_length=50, default='pendiente')
+    created_at = models.DateTimeField(auto_now_add=True)  # Campo de fecha de creación
 
     def __str__(self):
-        return f"{self.user.email} - {self.servicio} - {self.estado}"  # Representación en texto de la solicitud.
+        return f"{self.user.email} - {self.servicio} - {self.estado}"
 
 # Modelo para los servicios proporcionados por los oferentes
+
 class Servicio(models.Model):
-    nombre = models.CharField(max_length=255)  # Nombre del servicio.
-    correo = models.EmailField()  # Correo electrónico relacionado con el servicio.
-    redes_sociales = models.CharField(max_length=255)  # Información sobre las redes sociales del servicio.
-    descripcion = models.TextField()  # Descripción del servicio.
-    usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Usuario que creó el servicio.
-    estado = models.CharField(max_length=20, default='pendiente')  # Estado del servicio ('pendiente' por defecto).
+    nombre = models.CharField(max_length=255)
+    correo = models.EmailField()
+    redes_sociales = models.CharField(max_length=255)
+    descripcion = models.TextField()
+    usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    estado = models.CharField(max_length=20, default='pendiente') 
+    administrador = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='admin_servicios', null=True, blank=True, on_delete=models.SET_NULL)
+
+    fecha_accion = models.DateTimeField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.nombre  # Retorna el nombre del servicio como su representación textual.
+        return self.nombre

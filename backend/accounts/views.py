@@ -6,8 +6,9 @@ from rest_framework import status  # Importa códigos de estado HTTP (200, 400, 
 from rest_framework.views import APIView  # Clase base para vistas basadas en API en Django REST Framework.
 from django.contrib.auth import get_user_model  # Obtiene el modelo de usuario personalizado.
 from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated  # Permisos de acceso a vistas.
-from .models import SolicitudOferente, Servicio  # Importa los modelos de la app (SolicitudOferente y Servicio).
+from .models import SolicitudOferente, Servicio, CustomUser, SolicitudOferente  # Importa los modelos de la app (SolicitudOferente y Servicio).
 from .serializers import ServicioSerializer  # Importa el serializador para el modelo Servicio.
+from django.utils import timezone
 
 
 class CustomAuthToken(ObtainAuthToken):
@@ -54,7 +55,7 @@ class SolicitudOferenteView(APIView):
         email = request.data.get('email')  # Obtiene el email de la solicitud.
         password = request.data.get('password')  # Obtiene la contraseña de la solicitud.
         servicio = request.data.get('servicio')  # Obtiene el nombre del servicio en la solicitud.
-
+        
         try:
             user = CustomUser.objects.get(email=email)  # Busca al usuario por email.
             if user.check_password(password):  # Verifica la contraseña proporcionada.
@@ -132,6 +133,12 @@ class ManejarServiciosView(APIView):
         servicios = Servicio.objects.filter(estado='pendiente')
         serializer = ServicioSerializer(servicios, many=True)  # Serializa los servicios.
         return Response(serializer.data)  # Devuelve los servicios pendientes.
+    
+    def get(self, request):
+        # Obtiene todos los servicios, independientemente de su estado.
+        servicios = Servicio.objects.all()
+        serializer = ServicioSerializer(servicios, many=True)  # Serializa los servicios.
+        return Response(serializer.data)  # Devuelve todos los servicios.
 
     def post(self, request, servicio_id):
         # Acepta o rechaza un servicio según el ID y la acción proporcionada.
@@ -142,11 +149,13 @@ class ManejarServiciosView(APIView):
             if accion == 'aceptar':
                 # Cambia el estado del servicio a 'aceptado'.
                 servicio.estado = 'aceptado'
+                servicio.fecha_accion = timezone.now()  # Registra la fecha de la acción
                 servicio.save()
                 return Response({'success': True, 'mensaje': 'Servicio aceptado'}, status=status.HTTP_200_OK)
             elif accion == 'rechazar':
                 # Cambia el estado del servicio a 'rechazado'.
                 servicio.estado = 'rechazado'
+                servicio.fecha_accion = timezone.now()  # Registra la fecha de la acción
                 servicio.save()
                 return Response({'success': True, 'mensaje': 'Servicio rechazado'}, status=status.HTTP_200_OK)
             else:
@@ -161,3 +170,51 @@ class ListarServiciosAceptadosView(APIView):
         servicios = Servicio.objects.filter(estado='aceptado')
         serializer = ServicioSerializer(servicios, many=True)  # Serializa los servicios.
         return Response(serializer.data)  # Devuelve los servicios aceptados.
+
+class MisServiciosView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        servicios = Servicio.objects.filter(usuario=request.user)
+        serializer = ServicioSerializer(servicios, many=True)
+        return Response(serializer.data)
+
+    def put(self, request, servicio_id):
+        try:
+            servicio = Servicio.objects.get(id=servicio_id, usuario=request.user)
+            serializer = ServicioSerializer(servicio, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except Servicio.DoesNotExist:
+            return Response({'error': 'Servicio no encontrado'}, status=status.HTTP_404_NOT_FOUND)
+
+    def delete(self, request, servicio_id):
+        try:
+            servicio = Servicio.objects.get(id=servicio_id, usuario=request.user)
+            servicio.delete()
+            return Response({'mensaje': 'Servicio eliminado correctamente'}, status=status.HTTP_200_OK)
+        except Servicio.DoesNotExist:
+            return Response({'error': 'Servicio no encontrado'}, status=status.HTTP_404_NOT_FOUND)
+
+    def post(self, request, servicio_id):
+        accion = request.data.get('accion')
+
+        try:
+            servicio = Servicio.objects.get(id=servicio_id, usuario=request.user)
+
+            if accion == 'reenviar':
+                if servicio.estado == 'aceptado':
+                    return Response({'error': 'No se puede reenviar un servicio que ya ha sido aceptado.'}, status=status.HTTP_400_BAD_REQUEST)
+                
+                # Cambia el estado a 'pendiente' y permite que el administrador lo revise nuevamente
+                servicio.estado = 'pendiente'
+                servicio.save()
+                return Response({'mensaje': 'Servicio reenviado correctamente.'}, status=status.HTTP_200_OK)
+
+            return Response({'error': 'Acción no válida.'}, status=status.HTTP_400_BAD_REQUEST)
+
+        except Servicio.DoesNotExist:
+            return Response({'error': 'Servicio no encontrado'}, status=status.HTTP_404_NOT_FOUND)
+
