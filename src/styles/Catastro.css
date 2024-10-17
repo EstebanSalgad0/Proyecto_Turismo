@@ -53,6 +53,12 @@
     cursor: pointer; /* Muestra el cursor de enlace al pasar por el botón */
     padding: 10px 0; /* Añade un poco de padding para que sea clicable */
   }
+
+  .carousel-subheader h2 a {
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: inherit; /* Mantiene el color del texto original */
+    font-size: inherit; /* Mantiene el tamaño de letra original */
+  }
   
   /* Ajuste para "ES/EN" para que se distribuya equitativamente */
   .navbar-auth {
@@ -173,9 +179,10 @@
   }
   
   /* Ajustes de la cabecera del carrusel */
-  .carousel-header {
+  .carousel-header1 {
     display: flex;
     flex-direction: column; /* Alinea los elementos verticalmente */
+    color: #4B67AE;
     align-items: flex-start; /* Alinea a la izquierda */
     margin-bottom: 20px;
   }

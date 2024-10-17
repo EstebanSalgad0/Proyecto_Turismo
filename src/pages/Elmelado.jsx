@@ -29,11 +29,11 @@ const Elmelado = () => {
 
     return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
   }, []);
-  
+
   return (
     <div className="index-container">
       {/* Navbar */}
-      <Header/>
+      <Header />
 
       {/* Hero Section */}
       <div className="hero0">
@@ -44,15 +44,27 @@ const Elmelado = () => {
         </div>
       </div>
 
-      <section className="info-section">
-        <div className="info-content">
+      <div className="info-section1">
+        {/* Map Section */}
+        <section className="map-section">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d415033.130862824!2d-71.74579409824344!3d-35.64137348183942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x9665c6a2ac07d07d%3A0x265657feafdac8b8!2sTalca!3m2!1d-35.4231882!2d-71.6496958!4m5!1s0x966f81458061102b%3A0xfaef80513d7f4f98!2sEl%20Melado%20Lodge%20-%20Alto%20Ancoa%2C%20Colb%C3%BAn%2C%20Maule!3m2!1d-35.8618603!2d-71.123295!5e0!3m2!1ses!2scl!4v1729200348270!5m2!1ses!2scl"
+            width="100%"
+            height="1200"
+            allowFullScreen=""
+            loading="lazy"
+          ></iframe>
+        </section>
+
+        {/* Existing Content Section */}
+        <section className="info-content">
           <h5>Lugares inolvidables</h5>
           <h1>Algo para no olvidar</h1>
           <p>Descubre la belleza cautivadora de Colbún, donde los tranquilos paisajes rurales se entrelazan con los lagos cristalinos y montañas imponentes que ofrecen una combinación única de naturaleza, aventura al aire libre y un profundo sentido de comunidad. Puedes navegar en las aguas del embalse Machicura, disfrutar de las termas naturales de Panimávida o explorar los senderos que atraviesan los cerros verdes de la región. Colbún te invita a vivir experiencias inolvidables, inmersas en la serenidad y el encanto del corazón de la zona central de Chile.</p>
           <button className="btn-blue">Descubre tu próximo destino</button>
-        </div>
-      </section>
-            
+        </section>
+      </div>
+
       {/* Carousel Section */}
       <section className="carousel-section1">
         <div className="carousel-header1">
@@ -70,38 +82,13 @@ const Elmelado = () => {
             <div className="carousel-image1"></div>
             <p>Mirador Las Vizcachas</p>
           </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>Parque Nacional Guaquivilo</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>Cavernas Los Bellotos</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>Embalse Machicura</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>Prueba scroll</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>Prueba 2</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>Prueba 3</p>
-          </div>
+          {/* Add more cards here */}
         </div>
 
         {/* Flechas de control */}
         <button className="carousel-control1 prev" onClick={prevSlide}>&#10094;</button>
         <button className="carousel-control1 next" onClick={nextSlide}>&#10095;</button>
       </section>
-
-
     </div>
   );
 };

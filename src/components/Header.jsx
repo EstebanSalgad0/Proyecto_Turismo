@@ -224,7 +224,7 @@ const Header = () => {
             )}
             {!(role === 'admin' || role === 'oferente' || role === 'turista')&& (
             <li>
-              <Link to="/Catastro">¿Calificar servicios?</Link>
+              <Link to="/Catastro_opiniones">¿Calificar servicios?</Link>
             </li>
             )}
             {(role === 'admin') && (

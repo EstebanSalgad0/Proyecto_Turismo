@@ -41,19 +41,26 @@ const Zoit = () => {
         <br></br>
         <br></br>
         <div className="carousel-subheader">
-            <h2>[Insertar Instrucciones]</h2>
-          </div>
-        <div className="carousel-subheader">
-            <h2>¿Eres Artesana/o? ¡Registrate Aquí!</h2>
+            <h2>[Insertar Instrucciones Video Corto]</h2>
           </div>
           <br></br>
-          <div className="carousel-subheader">
-            <h2>¿Ofreces Bienes y/o Servicios? ¡Registrate Aquí!</h2>
-          </div>
-          <br></br>
-          <div className="carousel-subheader">
-            <h2>¿Tienes cabañas? ¡Registrate Aquí!</h2>
-          </div>
+          <div className="carousel-header">
+  <h2>
+    <Link to="/registrarse">¿Eres Artesana/o? ¡Regístrate Aquí!</Link>
+  </h2>
+</div>
+<br />
+<div className="carousel-header">
+  <h2>
+    <Link to="/registrarse">¿Ofreces Bienes y/o Servicios? ¡Regístrate Aquí!</Link>
+  </h2>
+</div>
+<br />
+<div className="carousel-header">
+  <h2>
+    <Link to="/registrarse">¿Tienes cabañas? ¡Regístrate Aquí!</Link>
+  </h2>
+</div>
         
       </section>
     </div>

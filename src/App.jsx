@@ -44,6 +44,7 @@ import CrearServicio from './pages/crearServicio';
 import ListarServicios from './pages/mostrarServicios';
 import ListarServiciosPendientes from './pages/manejarServicios';
 import EditarServicio from './pages/EditarServicio';
+import Catastro_opiniones from './pages/Catastro_opiniones';
 
 const App = () => {
   return (
@@ -92,6 +93,7 @@ const App = () => {
         <Route path="/mostrarServicios" element={<ListarServicios/>} />
         <Route path="/manejarServicios" element={<ListarServiciosPendientes/>} />
         <Route path="/EditarServicio" element={<EditarServicio/>} />
+        <Route path="/Catastro_opiniones" element={<Catastro_opiniones/>} />
       </Routes>
 
       <SocialSection />
