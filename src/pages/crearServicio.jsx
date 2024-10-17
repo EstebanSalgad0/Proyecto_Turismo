@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Header from '../components/Header';
 
 const CrearServicio = () => {
     const [nombre, setNombre] = useState('');
@@ -43,6 +44,14 @@ const CrearServicio = () => {
     };
 
     return (
+        <div>
+            <Header/>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
         <form onSubmit={handleSubmit}>
             <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Nombre del Servicio" required />
             <input type="email" value={correo} onChange={(e) => setCorreo(e.target.value)} placeholder="Correo" required />
@@ -51,6 +60,7 @@ const CrearServicio = () => {
             <button type="submit">Crear Servicio</button>
             {mensaje && <p>{mensaje}</p>}
         </form>
+        </div>
     );
 };
 
