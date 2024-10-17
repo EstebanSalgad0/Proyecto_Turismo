@@ -212,6 +212,16 @@ const Header = () => {
               <Link to="/mostrarServicios">Calificar Servicios</Link>
             </li>
             )}
+            {(role === 'turista')&& (
+            <li>
+              <Link to="/solicitudOferente">Ofrecer servicios</Link>
+            </li>
+            )}
+            {!(role === 'admin' || role === 'oferente' || role === 'turista')&& (
+            <li>
+              <Link to="/Catastro">¿Quieres ser oferente?</Link>
+            </li>
+            )}
             {(role === 'admin') && (
             <li>
               <Link to="/manejarSolicitudes">manejar Solicitudes</Link>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Header from '../components/Header';
 
 const SolicitudOferente = () => {
   const [email, setEmail] = useState('');
@@ -37,6 +38,13 @@ const SolicitudOferente = () => {
 
   return (
     <div className="solicitud-oferente">
+      <Header/>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       <h1>Solicitar ser Oferente</h1>
       <form onSubmit={handleSubmit}>
         <div>

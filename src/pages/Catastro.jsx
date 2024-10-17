@@ -37,19 +37,22 @@ const Zoit = () => {
         <h5>- Conectar con potenciales clientes.</h5>
         <h5>- Formar parte de proyectos y actividades promocionales.</h5>
         <br></br>
-        <h5>¡Es rápido, gratuito y sencillo! Completa el formulario y comienza a potenciar tu negocio junto a nosotros. ¡Haz crecer tu emprendimiento siendo parte de este gran directorio comunitario!</h5>
+        <h5>¡Es rápido, gratuito y sencillo! Primero debe registrarse como turista presionando los botones azules de abajo y luego solicitar acceso al administrador mediante la sección de Servicios para poder ofrecer sus servicios publicamente en esta plataforma. Lo esperamos.</h5>
         <br></br>
         <br></br>
         <div className="carousel-subheader">
-            <h2>Eres Artesana/o</h2>
+            <h2>[Insertar Instrucciones]</h2>
+          </div>
+        <div className="carousel-subheader">
+            <h2>¿Eres Artesana/o? ¡Registrate Aquí!</h2>
           </div>
           <br></br>
           <div className="carousel-subheader">
-            <h2>Ofreces Bienes y Servicios</h2>
+            <h2>¿Ofreces Bienes y/o Servicios? ¡Registrate Aquí!</h2>
           </div>
           <br></br>
           <div className="carousel-subheader">
-            <h2>Tienes cabañas</h2>
+            <h2>¿Tienes cabañas? ¡Registrate Aquí!</h2>
           </div>
         
       </section>

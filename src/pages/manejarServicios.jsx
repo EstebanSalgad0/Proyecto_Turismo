@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'; 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Header from '../components/Header';
 
 const ListarServiciosPendientes = () => {
     const [servicios, setServicios] = useState([]);
@@ -66,6 +67,13 @@ const ListarServiciosPendientes = () => {
 
     return (
         <div>
+            <Header/>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             <h1>Servicios Pendientes</h1>
             {mensaje && <p>{mensaje}</p>}
             {servicios.length === 0 ? (

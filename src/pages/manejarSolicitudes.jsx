@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Header from '../components/Header';
 
 const ManejarSolicitudes = () => {
   const [solicitudes, setSolicitudes] = useState([]);
@@ -42,6 +43,13 @@ const ManejarSolicitudes = () => {
 
   return (
     <div>
+      <Header/>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       <h1>Manejar Solicitudes</h1>
       {mensaje && <p>{mensaje}</p>}
       <table>

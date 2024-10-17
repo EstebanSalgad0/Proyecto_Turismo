@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Header from '../components/Header';
 
 const ListarServicios = () => {
     const [servicios, setServicios] = useState([]);
@@ -20,6 +21,13 @@ const ListarServicios = () => {
 
     return (
         <div>
+            <Header/>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             <h1>Servicios Aceptados</h1>
             <ul>
                 {servicios.map((servicio) => (
