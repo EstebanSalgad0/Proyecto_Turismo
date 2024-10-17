@@ -10,7 +10,5 @@ class UserSerializer(serializers.ModelSerializer):
 class ServicioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Servicio
-        fields = ['id','nombre', 'correo', 'redes_sociales', 'descripcion']
-        # No incluyas 'valoracion' si este se asignará posteriormente
-
-        read_only_fields = ['estado']  # Esto asegura que el estado no se pueda establecer desde el cliente
+        fields = ['id', 'nombre', 'correo', 'redes_sociales', 'descripcion', 'estado', 'created_at', 'fecha_accion']
+        read_only_fields = ['estado', 'created_at', 'fecha_accion']  

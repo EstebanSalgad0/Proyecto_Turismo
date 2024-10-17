@@ -63,7 +63,6 @@ const ListarServiciosPendientes = () => {
             console.error('Error al manejar el servicio:', error);
         }
     };
-    
 
     return (
         <div>
@@ -81,10 +80,16 @@ const ListarServiciosPendientes = () => {
             ) : (
                 <ul>
                     {servicios.map(servicio => (
-                        <div key={servicio.id}>
-                            <span>{servicio.nombre}</span>
-                            <button onClick={() => handleAcceptService(servicio.id)}>Aceptar</button>
-                            <button onClick={() => handleRejectService(servicio.id)}>Rechazar</button>
+                        <div key={servicio.id} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
+                            <div>
+                                <p><strong>Nombre del Servicio:</strong> {servicio.nombre}</p>
+                                <p><strong>Correo:</strong> {servicio.correo}</p>
+                                <p><strong>Descripción:</strong> {servicio.descripcion}</p>
+                            </div>
+                            <div>
+                                <button onClick={() => handleAcceptService(servicio.id)}>Aceptar</button>
+                                <button onClick={() => handleRejectService(servicio.id)} style={{ marginLeft: '10px' }}>Rechazar</button>
+                            </div>
                         </div>
                     ))}
                 </ul>

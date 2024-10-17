@@ -43,6 +43,7 @@ import ManejarSolicitudes from './pages/manejarSolicitudes';
 import CrearServicio from './pages/crearServicio';
 import ListarServicios from './pages/mostrarServicios';
 import ListarServiciosPendientes from './pages/manejarServicios';
+import EditarServicio from './pages/EditarServicio';
 
 const App = () => {
   return (
@@ -90,6 +91,7 @@ const App = () => {
         <Route path="/crearServicios" element={<CrearServicio/>} />
         <Route path="/mostrarServicios" element={<ListarServicios/>} />
         <Route path="/manejarServicios" element={<ListarServiciosPendientes/>} />
+        <Route path="/EditarServicio" element={<EditarServicio/>} />
       </Routes>
 
       <SocialSection />

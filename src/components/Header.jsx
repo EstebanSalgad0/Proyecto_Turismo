@@ -204,7 +204,7 @@ const Header = () => {
             </li>
             {(role === 'admin' || role === 'oferente')&& ( // Solo mostrar el botón desplegable de Servicios si el rol es admin u oferente
             <li>
-              <Link to="/crearServicios">Editar Servicio</Link>
+              <Link to="/editarServicio">Editar Servicio</Link>
             </li>
             )}
             {(role === 'admin' || role === 'oferente' || role === 'turista')&& (

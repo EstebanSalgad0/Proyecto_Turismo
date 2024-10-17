@@ -25,6 +25,7 @@ from accounts.views import CrearServicioView
 from accounts.views import ListarServiciosView
 from accounts.views import ManejarServiciosView
 from accounts.views import ListarServiciosAceptadosView
+from accounts.views import MisServiciosView
 from accounts.views import RegisterView, ActivateAccountView
 
 urlpatterns = [
@@ -40,5 +41,10 @@ urlpatterns = [
     path('api/manejar_servicios/', ManejarServiciosView.as_view(), name='listar_servicios_pendientes'),
     path('api/manejar_servicios/<int:servicio_id>/', ManejarServiciosView.as_view(), name='manejar_servicios'),
     path('api/listar_servicios_aceptados/', ListarServiciosAceptadosView.as_view(), name='listar_servicios_aceptados'),
+    # urls.py en Django
+    path('api/mis_servicios/', MisServiciosView.as_view(), name='mis_servicios'),
+    path('api/mis_servicios/<int:servicio_id>/', MisServiciosView.as_view(), name='gestionar_servicio'),
+
+    path('api/reenviar_servicio/<int:servicio_id>/', MisServiciosView.as_view(), name='reenviar_servicio'),
 ]
 
