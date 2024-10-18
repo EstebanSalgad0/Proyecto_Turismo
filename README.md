@@ -12,7 +12,9 @@ se necesita tener instalado Django y nodejs
 
 5. Instalar recaptcha de google = npm install react-google-recaptcha
 
-6. Para arrancar el entorno virtual = npm run dev
+6. Instalar requests = npm install requests
 
-7. para arrancar la base de datos/login = manage.py runserver 
+7. Para arrancar el entorno virtual = npm run dev
+
+8. para arrancar la base de datos/login = manage.py runserver 
 
