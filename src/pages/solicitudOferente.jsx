@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import '../styles/solicitudOferente.css'
 
 const SolicitudOferente = () => {
   const [email, setEmail] = useState('');
@@ -37,7 +38,7 @@ const SolicitudOferente = () => {
 
   return (
     <div className="solicitud-oferente">
-      <h1>Solicitar ser Oferente</h1>
+      <h1>¿Quieres ser Oferente? <br /> envia tu solicitud.</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Correo electrónico:</label>

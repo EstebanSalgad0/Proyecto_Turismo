@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import '../styles/AdminPanel.css'
 
 const AdminPanel = () => {
   // Estado para solicitudes
@@ -80,79 +81,74 @@ const AdminPanel = () => {
   };
 
   return (
-    <div>
-      <h1>Panel de Administración</h1>
+    <div className="admin-panel-container">
+    <h1>Panel de Administración</h1>
 
-      {/* Manejar solicitudes */}
-      <div>
-        <h2>Manejar Solicitudes de Oferentes</h2>
-        {mensajeSolicitudes && <p>{mensajeSolicitudes}</p>}
-        <table>
+    {/* Manejar solicitudes */}
+    <div className="admin-section">
+      <h2>Manejar Solicitudes de Oferentes</h2>
+      {mensajeSolicitudes && <p className="admin-message">{mensajeSolicitudes}</p>}
+      <table className="admin-table">
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Servicio</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {solicitudes.map((solicitud) => (
+            <tr key={solicitud.id}>
+              <td>{solicitud.user}</td>
+              <td>{solicitud.servicio}</td>
+              <td>{solicitud.estado}</td>
+              <td>
+                <button className="accept" onClick={() => manejarSolicitud(solicitud.id, 'aceptar')} disabled={solicitud.estado !== 'pendiente'}>Aceptar</button>
+                <button className="reject" onClick={() => manejarSolicitud(solicitud.id, 'rechazar')} disabled={solicitud.estado !== 'pendiente'}>Rechazar</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    {/* Manejar servicios */}
+    <div className="admin-section">
+      <h2>Servicios</h2>
+      {mensajeServicios && <p className="admin-message">{mensajeServicios}</p>}
+      {servicios.length === 0 ? (
+        <p>No hay servicios disponibles.</p>
+      ) : (
+        <table className="admin-table">
           <thead>
             <tr>
-              <th>Email</th>
-              <th>Servicio</th>
+              <th>Nombre del Servicio</th>
               <th>Estado</th>
               <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
-            {solicitudes.map((solicitud) => (
-              <tr key={solicitud.id}>
-                <td>{solicitud.user}</td>
-                <td>{solicitud.servicio}</td>
-                <td>{solicitud.estado}</td>
+            {servicios.map(servicio => (
+              <tr key={servicio.id}>
+                <td>{servicio.nombre}</td>
+                <td>{servicio.estado}</td>
                 <td>
-                  <button onClick={() => manejarSolicitud(solicitud.id, 'aceptar')} disabled={solicitud.estado !== 'pendiente'}>Aceptar</button>
-                  <button onClick={() => manejarSolicitud(solicitud.id, 'rechazar')} disabled={solicitud.estado !== 'pendiente'}>Rechazar</button>
+                  <button className="accept" onClick={() => handleServiceAction(servicio.id, 'aceptar')} disabled={servicio.estado !== 'pendiente'}>
+                    Aceptar
+                  </button>
+                  <button className="reject" onClick={() => handleServiceAction(servicio.id, 'rechazar')} disabled={servicio.estado !== 'pendiente'}>
+                    Rechazar
+                  </button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-      </div>
-
-      {/* Manejar servicios */}
-      <div>
-        <h2>Servicios</h2>
-        {mensajeServicios && <p>{mensajeServicios}</p>}
-        {servicios.length === 0 ? (
-          <p>No hay servicios disponibles.</p>
-        ) : (
-          <table>
-            <thead>
-              <tr>
-                <th>Nombre del Servicio</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              {servicios.map(servicio => (
-                <tr key={servicio.id}>
-                  <td>{servicio.nombre}</td>
-                  <td>{servicio.estado}</td>
-                  <td>
-                    <button 
-                      onClick={() => handleServiceAction(servicio.id, 'aceptar')}
-                      disabled={servicio.estado !== 'pendiente'}
-                    >
-                      Aceptar
-                    </button>
-                    <button 
-                      onClick={() => handleServiceAction(servicio.id, 'rechazar')}
-                      disabled={servicio.estado !== 'pendiente'}
-                    >
-                      Rechazar
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
-      </div>
+      )}
     </div>
+  </div>
+
   );
 };
 
