@@ -8,13 +8,15 @@ se necesita tener instalado Django y nodejs
 
 3. Instalar djangorestframework = py -m pip install djangorestframework
 
-4. Instalar python3-dotenvironment = py -m pip install dotenv
+4. Instalar python3-dotenvironment = py -m pip install python-dotenv
 
 5. Instalar recaptcha de google = npm install react-google-recaptcha
 
 6. Instalar requests = npm install requests
 
-7. Para arrancar el entorno virtual = npm run dev
+7. Instalar i18n para traducciones = npm install i18next react-i18next
 
-8. para arrancar la base de datos/login = manage.py runserver 
+8. Para arrancar el entorno virtual = npm run dev
+
+9. para arrancar la base de datos/login = manage.py runserver 
 
