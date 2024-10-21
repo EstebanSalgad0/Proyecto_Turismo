@@ -6,12 +6,22 @@ import '../styles/Index.css?v=3.3';
 import Footer from '../components/Footer';
 import SocialSection from '../components/SocialSeccion';
 import Header from '../components/Header';
+import '../components/i18n'; // Importa el archivo de configuración
+import { useTranslation } from 'react-i18next';
 
 const Index = () => {
   const [isPlaying, setIsPlaying] = useState(true); // Estado para pausar/reproducir
   const videoRef = useRef(null); // Referencia al iframe del video
   const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
   const totalSlides = 4; // Número total de slides
+  const { t, i18n } = useTranslation(); // Hook para usar traducciones
+
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language'); // Obtener el idioma guardado
+    if (savedLanguage && savedLanguage !== i18n.language) {
+      i18n.changeLanguage(savedLanguage); // Cambiar el idioma si es necesario
+    }
+  }, [i18n.language]); // Añadir el estado del idioma como dependencia
 
   const toggleVideoPlay = () => {
     // Cambia el estado de reproducción
@@ -59,11 +69,11 @@ const Index = () => {
           allowfullscreen>
         </iframe>
         <div className="hero-content2">
-          <h1>CONVIERTE A COLBÚN EN TU PRÓXIMA AVENTURA</h1>
-          <h2>TE DAMOS LA BIENVENIDA A LA COMUNA</h2>
+          <h1>{t('ColbunTitle')}</h1>
+          <h2>{t('SubtitleMessage')}</h2>
           <a href="https://www.youtube.com/watch?v=QCvh0Lwfmww" target="colbun" rel="municipalidad_Colbun">
           <button className="btn-blue">
-      Ver ahora 
+          {t('WatchNow')} 
       <img src="src/assets/img/verahora_icon.png" alt="icono de reproducción" className="button-icon" />
     </button>
           </a>
@@ -77,10 +87,10 @@ const Index = () => {
       {/* Carousel Section */}
       <section className="carousel-section1">
         <div className="carousel-header1">
-          <h5>Admira</h5>
+          <h5>{t('Admire')}</h5>
           <div className="carousel-subheader1">
-            <h2>Belleza Natural</h2>
-            <a href="#">Ve más <span>&#8594;</span></a>
+            <h2>{t('NaturalBeauty')}</h2>
+            <a href="#">{t('ViewMore')}<span>&#8594;</span></a>
           </div>
         </div>
 
@@ -89,31 +99,31 @@ const Index = () => {
           {/* Cards del carrusel */}
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Mirador Las Vizcachas</p>
+            <p>{t('VizcachazViewpoint')}</p>
           </div>
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Parque Nacional Guaquivilo</p>
+            <p>{t('NationalPark')}</p>
           </div>
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Cavernas Los Bellotos</p>
+            <p>{t('CavesBellotos')}</p>
           </div>
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Embalse Machicura</p>
+            <p>{t('Reservoir')}</p>
           </div>
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Prueba scroll</p>
+            <p>{t('Test1')}</p>
           </div>
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Prueba 2</p>
+            <p>{t('Test2')}</p>
           </div>
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Prueba 3</p>
+            <p>{t('Test3')}</p>
           </div>
         </div>
 
@@ -124,22 +134,22 @@ const Index = () => {
 
       <section className="community-section1">
         <div className="community-content1">
-          <h1>Acércate más a <br />nuestra comuna</h1>
+          <h1>{t('ComeCloser')}<br />{t('OurCommunity')}</h1>
           <p>
-          Servicio País Colbún y la Municipalidad de Colbún comparten sus experiencias transformadoras en las diversas localidades de la comuna. Sumérgete en sus historias, desde la revitalización de espacios públicos hasta proyectos de inclusión social que han mejorado la calidad de vida de los vecinos. Desde talleres educativos en zonas rurales hasta el impulso de emprendimientos locales, descubre cómo el trabajo conjunto ha marcado la diferencia en el corazón de Colbún.
+          {t('ColbunServiceCountry')}
           </p>
           <a href="https://www.youtube.com/watch?v=NOi1JxhP8Y4" target="colbun" rel="municipalidad_Colbun">
-          <button className="btn-blue">Descubre cómo la colaboración puede transformar comunidades</button>
+          <button className="btn-blue">{t('Collaboration')}</button>
           </a>
         </div>
       </section>
 
       <section className="info-section1">
         <div className="info-content1">
-          <h5>Lugares inolvidables</h5>
-          <h1>Algo para no olvidar</h1>
-          <p>Descubre la belleza cautivadora de Colbún, donde los tranquilos paisajes rurales se entrelazan con los lagos cristalinos y montañas imponentes que ofrecen una combinación única de naturaleza, aventura al aire libre y un profundo sentido de comunidad. Puedes navegar en las aguas del embalse Machicura, disfrutar de las termas naturales de Panimávida o explorar los senderos que atraviesan los cerros verdes de la región. Colbún te invita a vivir experiencias inolvidables, inmersas en la serenidad y el encanto del corazón de la zona central de Chile.</p>
-          <button className="btn-blue">Descubre tu próximo destino</button>
+          <h5>{t('UnforgettablePlaces')}</h5>
+          <h1>{t('Remember')}</h1>
+          <p>{t('ColbunBeauty')}</p>
+          <button className="btn-blue">{t('Discover')}</button>
         </div>
       </section>
 

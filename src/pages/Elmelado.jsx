@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-import '../styles/Elmelado.css?v=1.2'; // Estilos específicos para el componente
+import '../styles/Elmelado.css?v=1.3'; // Estilos específicos para el componente
 import Footer from '../components/Footer'; 
 import SocialSection from '../components/SocialSeccion';
 import Header from '../components/Header';
 
-
 const Elmelado = () => {
   const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
+  const [isFirstMap, setIsFirstMap] = useState(true); // Estado para alternar entre los mapas
   const totalSlides = 4; // Número total de slides
 
   // Función para manejar las flechas
@@ -30,6 +30,11 @@ const Elmelado = () => {
     return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
   }, []);
 
+  // Función para alternar entre los mapas
+  const toggleMap = () => {
+    setIsFirstMap(!isFirstMap);
+  };
+
   return (
     <div className="index-container">
       {/* Navbar */}
@@ -48,7 +53,11 @@ const Elmelado = () => {
         {/* Map Section */}
         <section className="map-section">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d415033.130862824!2d-71.74579409824344!3d-35.64137348183942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x9665c6a2ac07d07d%3A0x265657feafdac8b8!2sTalca!3m2!1d-35.4231882!2d-71.6496958!4m5!1s0x966f81458061102b%3A0xfaef80513d7f4f98!2sEl%20Melado%20Lodge%20-%20Alto%20Ancoa%2C%20Colb%C3%BAn%2C%20Maule!3m2!1d-35.8618603!2d-71.123295!5e0!3m2!1ses!2scl!4v1729200348270!5m2!1ses!2scl"
+            src={
+              isFirstMap
+                ? "https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d415033.130862824!2d-71.74579409824344!3d-35.64137348183942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x9665c6a2ac07d07d%3A0x265657feafdac8b8!2sTalca!3m2!1d-35.4231882!2d-71.6496958!4m5!1s0x966f81458061102b%3A0xfaef80513d7f4f98!2sEl%20Melado%20Lodge%20-%20Alto%20Ancoa%2C%20Colb%C3%BAn%2C%20Maule!3m2!1d-35.8618603!2d-71.123295!5e0!3m2!1ses!2scl!4v1729200348270!5m2!1ses!2scl"
+                : "https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
+            }
             width="100%"
             height="1200"
             allowFullScreen=""
@@ -61,7 +70,16 @@ const Elmelado = () => {
           <h5>Lugares inolvidables</h5>
           <h1>Algo para no olvidar</h1>
           <p>Descubre la belleza cautivadora de Colbún, donde los tranquilos paisajes rurales se entrelazan con los lagos cristalinos y montañas imponentes que ofrecen una combinación única de naturaleza, aventura al aire libre y un profundo sentido de comunidad. Puedes navegar en las aguas del embalse Machicura, disfrutar de las termas naturales de Panimávida o explorar los senderos que atraviesan los cerros verdes de la región. Colbún te invita a vivir experiencias inolvidables, inmersas en la serenidad y el encanto del corazón de la zona central de Chile.</p>
-          <button className="btn-blue">Descubre tu próximo destino</button>
+          {/* Contenedor para alinear los botones */}
+          <div className="button-group">
+            <button className="btn-blue" onClick={() => window.open("https://maps.app.goo.gl/GZSD4dNAL8uKZx1N6", "_blank")}>
+              Descubre tu próximo destino
+            </button>
+            {/* Botón pequeño para cambiar entre los mapas */}
+            <button className="btn-blue2" onClick={toggleMap}>
+            <i className="bi bi-geo-alt"></i>
+            </button>
+          </div>
         </section>
       </div>
 
@@ -77,12 +95,10 @@ const Elmelado = () => {
 
         {/* Carrusel de imágenes */}
         <div className="carousel-container1">
-          {/* Cards del carrusel */}
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
             <p>Mirador Las Vizcachas</p>
           </div>
-          {/* Add more cards here */}
         </div>
 
         {/* Flechas de control */}

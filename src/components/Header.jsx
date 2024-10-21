@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';  // Importar useNavigate para redirigir
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../styles/Header.css';
+import './i18n'; // Importa el archivo de configuración
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -13,8 +15,29 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false); // Estado para el menú hamburguesa
   const [darkMode, setDarkMode] = useState(false); // Estado para modo oscuro
   const [role, setRole] = useState(''); // Estado para el rol del usuario
+  const { t, i18n } = useTranslation(); // Hook para usar traducciones
+
+  // Estado para el idioma
+  const [language, setLanguage] = useState('es');
+
+  // Función para alternar el idioma y guardar preferencia en localStorage
+  const toggleLanguage = () => {
+    const newLanguage = language === 'es' ? 'en' : 'es';
+    setLanguage(newLanguage);
+    i18n.changeLanguage(newLanguage);
+    localStorage.setItem('language', newLanguage);
+  };
 
   const navigate = useNavigate(); // Hook para redirigir
+
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language');
+    if (savedLanguage) {
+      setLanguage(savedLanguage);
+      i18n.changeLanguage(savedLanguage);
+    }
+  }, []);
+
 
   const toggleActivitiesDropdown = () => {
     setActivitiesDropdownOpen(!activitiesDropdownOpen);
@@ -92,7 +115,7 @@ const Header = () => {
         <div className="dropdown" onMouseEnter={() => setDropdownOpen(true)} onMouseLeave={() => setDropdownOpen(false)}>
           <div className="button-with-arrow">
             <button className="Ir">
-              ¿A dónde ir?
+            {t('WhereToGo')}  {/* Texto traducido dinámicamente */}
             </button>
             <img src="src/assets/img/flecha.png" alt="flecha" className="arrow-icon" />
           </div>
@@ -117,54 +140,54 @@ const Header = () => {
         <div className="dropdown" onMouseEnter={()=>setActivitiesDropdownOpen(true)} onMouseLeave={()=>setActivitiesDropdownOpen(false)}>
           <div className="button-with-arrow">
             <button className="Hacer">
-              ¿Qué hacer?
+            {t('WhatToDo')}
             </button>
             <img src="src/assets/img/flecha.png" alt="flecha" className="arrow-icon" />
           </div>
           {activitiesDropdownOpen && (
             <ul className="dropdown-menu">
               <li onMouseEnter={() => showSubMenu('cultura')} onMouseLeave={hideSubMenu}>
-                <li>Cultura y sitios históricos</li>
+                <li>{t('Culture')}</li>
                 {activeSubMenu === 'cultura' && (
                   <ul className="dropdown-submenu">
-                    <li><Link to="/Cultura2">Petroglifos</Link></li>
-                    <li><Link to="/Cultura3">Iglesia de Panimavida</Link></li>
-                    <li><Link to="/Cultura4">Termas de Panimavida</Link></li>
-                    <li><Link to="/Cultura">Piedra Toba</Link></li>
+                    <li><Link to="/Cultura2">{t('Petroglyphs')}</Link></li>
+                    <li><Link to="/Cultura3">{t('Church')}</Link></li>
+                    <li><Link to="/Cultura4">{t('Springs')}</Link></li>
+                    <li><Link to="/Cultura">{t('Toba')}</Link></li>
                   </ul>
                 )}
               </li>
               <li onMouseEnter={() => showSubMenu('senderismo')} onMouseLeave={hideSubMenu}>
-                <li>Senderismo</li>
+                <li>{t('Hike')}</li>
                 {activeSubMenu === 'senderismo' && (
                   <ul className="dropdown-submenu">
-                    <li><Link to="/Senderismo">Volcán San Pedro y San Pablo</Link></li>
-                    <li><Link to="/Senderismo2">Lagunas Verdes</Link></li>
-                    <li><Link to="/Senderismo3">Las Cuevas</Link></li>
-                    <li><Link to="/Senderismo4">Piedra del Indio</Link></li>
+                    <li><Link to="/Senderismo">{t('Volcano')}</Link></li>
+                    <li><Link to="/Senderismo2">{t('Lagoons')}</Link></li>
+                    <li><Link to="/Senderismo3">{t('Caves')}</Link></li>
+                    <li><Link to="/Senderismo4">{t('Indian')}</Link></li>
                   </ul>
                 )}
               </li>
               <li onMouseEnter={() => showSubMenu('parques')} onMouseLeave={hideSubMenu}>
-                <li>Parques y vida salvaje</li>
+                <li>{t('Parks')}</li>
                 {activeSubMenu === 'parques' && (
                   <ul className="dropdown-submenu">
-                    <li><Link to="/Parque">Parque nacional Guaiquivilo</Link></li>
-                    <li><Link to="/Parque">Cavernas Los Bellotos</Link></li>
+                    <li><Link to="/Parque">{t('NationalPark')}</Link></li>
+                    <li><Link to="/Parque">{t('CavesBellotos')}</Link></li>
                   </ul>
                 )}
               </li>
               <li onMouseEnter={() => showSubMenu('vida-salvaje')} onMouseLeave={hideSubMenu}>
-                <li>Rutas</li>
+                <li>{t('Routes')}</li>
                 {activeSubMenu === 'vida-salvaje' && (
                   <ul className="dropdown-submenu">
-                    <li><Link to="/Termas">Termas</Link></li>
-                    <li><Link to="/Termas">Embalse Machicura</Link></li>
+                    <li><Link to="/Termas">{t('HotSprings')}</Link></li>
+                    <li><Link to="/Termas">{t('Reservoir')}</Link></li>
                   </ul>
                 )}
               </li>
               <li onMouseEnter={() => showSubMenu('vida-salvaje')} onMouseLeave={hideSubMenu}>
-                <li><Link to="/QueHacer">Ver Todo</Link></li>
+                <li><Link to="/QueHacer">{t('View')}</Link></li>
                 {activeSubMenu === 'vida-salvaje' && (
                   <ul className="dropdown-submenu">
                   </ul>
@@ -175,11 +198,11 @@ const Header = () => {
         </div>
 
         <Link to="/Zoit">
-          <button className="Zona">Zona ZOIT</button>
+          <button className="Zona">{t('ZOIT')}</button>
         </Link>
 
         <Link to="/Panoramas">
-          <button className="Panoramas">Panoramas</button>
+          <button className="Panoramas">{t('Panoramas')}</button>
         </Link>
 
 
@@ -187,7 +210,7 @@ const Header = () => {
         <div className="dropdown" onMouseEnter={() => setServicesDropdownOpen(true)} onMouseLeave={() => setServicesDropdownOpen(false)}>
           <div className="button-with-arrow">
             <button className="Hacer"> {/* Usamos la misma clase "Hacer" para que el estilo sea el mismo */}
-            Servicios
+            {t('Services')}
             </button>
             <img src="src/assets/img/flecha.png" alt="flecha" className="arrow-icon" />
         </div>
@@ -196,45 +219,45 @@ const Header = () => {
             {/* Botón de crear servicio visible solo para admin y oferente */}
             {(role === 'admin' || role === 'oferente')&& ( // Solo mostrar el botón desplegable de Servicios si el rol es admin u oferente
             <li>
-              <Link to="/crearServicios">Crear Servicio</Link>
+              <Link to="/crearServicios">{t('CreateService')}</Link>
             </li>
             )}
             <li>
-              <Link to="/mostrarServicios">Ver Servicios</Link>
+              <Link to="/mostrarServicios">{t('ViewService')}</Link>
             </li>
             {(role === 'admin' || role === 'oferente')&& ( // Solo mostrar el botón desplegable de Servicios si el rol es admin u oferente
             <li>
-              <Link to="/editarServicio">Editar Servicio</Link>
+              <Link to="/editarServicio">{t('EditService')}</Link>
             </li>
             )}
             {(role === 'admin' || role === 'oferente' || role === 'turista')&& (
             <li>
-              <Link to="/mostrarServicios">Calificar Servicios</Link>
+              <Link to="/mostrarServicios">{t('RateServices')}</Link>
             </li>
             )}
             {(role === 'turista')&& (
             <li>
-              <Link to="/solicitudOferente">Ofrecer servicios</Link>
+              <Link to="/solicitudOferente">{t('OfferingServices')}</Link>
             </li>
             )}
             {!(role === 'admin' || role === 'oferente' || role === 'turista')&& (
             <li>
-              <Link to="/Catastro">¿Quieres ser oferente?</Link>
+              <Link to="/Catastro">{t('bidder')}</Link>
             </li>
             )}
             {!(role === 'admin' || role === 'oferente' || role === 'turista')&& (
             <li>
-              <Link to="/Catastro_opiniones">¿Calificar servicios?</Link>
+              <Link to="/Catastro_opiniones">{t('QualifyServices')}</Link>
             </li>
             )}
             {(role === 'admin') && (
             <li>
-              <Link to="/manejarSolicitudes">Administrar Solicitudes</Link>
+              <Link to="/manejarSolicitudes">{t('ManageRequests')}</Link>
            </li>
            )}
             {(role === 'admin') && (
             <li>
-              <Link to="/manejarServicios">Administrar Servicios</Link>
+              <Link to="/manejarServicios">{t('ManageServices')}</Link>
             </li>
             )}
           </ul>
@@ -243,8 +266,13 @@ const Header = () => {
       </div>
 
       <div className="navbar-auth">
-        <button onClick={() => window.changeLanguage('es')}>ES/</button>
-        <button onClick={() => window.changeLanguage('en')}>EN</button>
+        <button onClick={toggleLanguage} className='btn-blue2'>
+          {language === 'es' ? (
+            <img src="src/assets/img/espana.png" alt="Español" className="icon-image2"/>
+          ) : (
+            <img src="src/assets/img/uk4.png" alt="English" className="icon-image4"/>
+          )}
+      </button>
       </div>
       <div className="navbar-search">
         <button>
@@ -254,7 +282,7 @@ const Header = () => {
       <div className="dark-mode-toggle">
       <button onClick={toggleDarkMode} className='btn-blue2'>
         {darkMode ? (
-          <img src="src/assets/img/luna.png" alt="Luna" className="icon-image2" />
+          <img src="src/assets/img/luna.png" alt="Luna" className="icon-image3" />
         ) : (
           <img src="src/assets/img/sol4.png" alt="Sol" className="icon-image2" />
         )}
@@ -265,14 +293,14 @@ const Header = () => {
       {(role === 'admin' || role === 'oferente' || role === 'turista')&& (
       <div className="navbar-logout">
         <button onClick={handleLogout} className="btn-logout">
-          Cerrar Sesión
+        {t('Logout')}
         </button>
       </div>
       )}
       {!(role === 'admin' || role === 'oferente' || role === 'turista') && (
       <div className="navbar-logout">
         <Link to="/login">
-          <button className="Zona">Iniciar Sesión</button>
+          <button className="Zona">{t('Login')}</button>
         </Link>
       </div>
     )}

@@ -1,9 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import '../styles/Footer.css';
-import ControlLetras from './ControlLetras'
+import ControlLetras from './ControlLetras';
+import './i18n'; // Importa el archivo de configuración
+import { useTranslation } from 'react-i18next';
+
+
 
 const Footer = () => {
+
+  const { t, i18n } = useTranslation(); // Hook para usar traducciones
+
+
   return (
     <footer className="footer-section">
         <div className="footer-container">
@@ -14,27 +22,27 @@ const Footer = () => {
           </div>
 
           <div className="footer-column">
-            <h3>Visita Colbún</h3>
+            <h3>{t('VisitFooter')}</h3>
             <ul>
-            <li><Link to="/SobreNosotros">Sobre Nosotros</Link></li>
-            <li><Link to="/Asociados">Asociados</Link></li>
-            <li><Link to="/Privacidad">Políticas de Privacidad</Link></li>
-            <li><Link to="/Catastro">Se parte del catastro de servicios</Link></li>
+            <li><Link to="/SobreNosotros">{t('AboutUs')}</Link></li>
+            <li><Link to="/Asociados">{t('Associates')}</Link></li>
+            <li><Link to="/Privacidad">{t('Privacy')}</Link></li>
+            <li><Link to="/Catastro">{t('Cadastre')}</Link></li>
             </ul>
           </div>
 
           <div className="footer-column">
-            <h3>Te puede interesar</h3>
+            <h3>{t('Interested')}</h3>
             <ul>
-              <li><a href="#">Municipalidad de Colbún</a></li>
+              <li><a href="#">{t('Municipality')}</a></li>
               <li><a href="#">Chile Travel</a></li>
-              <li><a href="#">Chile Cultura</a></li>
-              <li><a href="#">Parques nacionales Conaf</a></li>
+              <li><a href="#">{t('ChileCulture')}</a></li>
+              <li><a href="#">{t('Conaf')}</a></li>
             </ul>
           </div>
 
           <div className="footer-column">
-            <h3>Encuéntranos también en</h3>
+            <h3>{t('findus')}</h3>
             <ul>
               <li><a href="https://web.facebook.com/p/Municipalidad-de-Colb%C3%BAn-100064570487351/?locale=es_LA&_rdc=1&_rdr">Facebook</a></li>
               <li><a href="https://www.instagram.com/municipalidad_colbun/?hl=es">Instagram</a></li>

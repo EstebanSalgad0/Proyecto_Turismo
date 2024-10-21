@@ -48,11 +48,28 @@
     margin-bottom: 5px; /* Espaciado entre el subtítulo y el botón */
   }
 
+
   /* Flex container for the map and the content */
 .info-section {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+}
+
+.btn-blue2 {
+  background-color: transparent;
+  border: none;
+  font-size: 26px; /* Tamaño del ícono */
+  cursor: pointer;
+  padding: 0px;
+}
+
+.btn-blue2 i {
+  color: #007bff; /* Color del ícono */
+}
+
+.btn-blue2:hover i {
+  color: #0056b3; /* Cambio de color al hacer hover */
 }
 
 /* Styling for the map section */

@@ -7,9 +7,20 @@
   }
 
   .icon-image2 {
+    width: 45px; /* Cambia el tamaño a tu preferencia */
+    height: 30px; /* Cambia el tamaño a tu preferencia */
+  }
+
+  .icon-image3 {
     width: 30px; /* Cambia el tamaño a tu preferencia */
     height: 30px; /* Cambia el tamaño a tu preferencia */
   }
+
+  .icon-image4 {
+    width: 40px; /* Cambia el tamaño a tu preferencia */
+    height: 33px; /* Cambia el tamaño a tu preferencia */
+  }
+
 
   .btn-blue2 {
     border: none;
