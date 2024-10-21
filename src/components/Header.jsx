@@ -268,7 +268,7 @@ const Header = () => {
       <div className="navbar-auth">
         <button onClick={toggleLanguage} className='btn-blue2'>
           {language === 'es' ? (
-            <img src="src/assets/img/espana.png" alt="Español" className="icon-image2"/>
+            <img src="src/assets/img/espana.png" alt="Español" className="icon-image5"/>
           ) : (
             <img src="src/assets/img/uk4.png" alt="English" className="icon-image4"/>
           )}

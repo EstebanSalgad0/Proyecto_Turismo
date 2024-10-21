@@ -7,6 +7,12 @@
   }
 
   .icon-image2 {
+    margin-top: -6px;
+    width: 45px; /* Cambia el tamaño a tu preferencia */
+    height: 30px; /* Cambia el tamaño a tu preferencia */
+  }
+
+  .icon-image5 {
     width: 45px; /* Cambia el tamaño a tu preferencia */
     height: 30px; /* Cambia el tamaño a tu preferencia */
   }
