@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';  // Importar useNavigate para redirigir
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import '../styles/Header.css';
+import '../styles/Header.css?v=1.1';
 import './i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
 
