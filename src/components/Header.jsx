@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';  // Importar useNavigate para redirigir
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import '../styles/Header.css?v=1.2';
+import '../styles/Header.css?v=1.4';
 import './i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
 
@@ -270,12 +270,12 @@ const Header = () => {
     {language === 'es' ? (
       <>
         <span className="language-label1">EN</span>
-        <img src="src/assets/img/uk4.png" alt="English" className="icon-image4" />
+        <img src="src/assets/img/uk4.png" alt="English" className="icon-image7" />
       </>
     ) : (
       <>
         <span className="language-label">ES</span>
-        <img src="src/assets/img/espana.png" alt="Español" className="icon-image5" />
+        <img src="src/assets/img/espana.png" alt="Español" className="icon-image6" />
       </>
     )}
   </button>

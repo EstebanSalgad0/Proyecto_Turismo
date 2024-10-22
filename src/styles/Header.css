@@ -12,7 +12,8 @@
     height: 30px; /* Cambia el tamaño a tu preferencia */
   }
 
-  .icon-image5 {
+  .icon-image6 {
+    margin-top: -2px;
     width: 45px; /* Cambia el tamaño a tu preferencia */
     height: 30px; /* Cambia el tamaño a tu preferencia */
   }
@@ -23,7 +24,10 @@
     height: 30px; /* Cambia el tamaño a tu preferencia */
   }
 
-  .icon-image4 {
+  .icon-image7 {
+    margin-right: -5px;
+    margin-left: 5px;
+    margin-top: -1px;
     width: 40px; /* Cambia el tamaño a tu preferencia */
     height: 33px; /* Cambia el tamaño a tu preferencia */
   }
@@ -45,6 +49,10 @@
   width: 16px; /* Ajusta el tamaño de la flecha */
   height: auto;
   filter: brightness(0) invert(1); /* Cambia el color a blanco */
+}
+
+.navbar-logout {
+  margin-right: -15px;
 }
 
 .header-icon {
@@ -163,7 +171,7 @@
   }
   
   .navbar-search {
-    margin-right: 20px;
+    margin-right: 10px;
   }
 
   
