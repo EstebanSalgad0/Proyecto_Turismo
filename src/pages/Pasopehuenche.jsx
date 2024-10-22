@@ -6,11 +6,21 @@ import '../styles/Pasopehuenche.css?v=1.1'; // Estilos específicos para el comp
 import Footer from '../components/Footer';
 import SocialSection from '../components/SocialSeccion';
 import Header from '../components/Header';
+import '../components/i18n'; // Importa el archivo de configuración
+import { useTranslation } from 'react-i18next';
 
 const Pasopehuenche = () => {
 
   const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
   const totalSlides = 4; // Número total de slides
+  const { t, i18n } = useTranslation(); // Hook para usar traducciones
+
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language'); // Obtener el idioma guardado
+    if (savedLanguage && savedLanguage !== i18n.language) {
+      i18n.changeLanguage(savedLanguage); // Cambiar el idioma si es necesario
+    }
+  }, [i18n.language]); // Añadir el estado del idioma como dependencia
 
   // Función para manejar las flechas
   const nextSlide = () => {
@@ -37,28 +47,28 @@ const Pasopehuenche = () => {
       {/* Hero Section */}
       <div className="hero12">
         <div className="hero-content12">
-          <h5>¿A donde ir?</h5>
+          <h5>{t('WhereToGo')}</h5>
           <h1>Paso Pehuenche</h1>
-          <h4>Paso Pehuenche, ubicado en la Región del Maule, Chile, es un paso montañoso que conecta el país con Argentina, ofreciendo una ruta impresionante a través de la Cordillera de los Andes. Este paso es conocido por sus paisajes espectaculares, que varían desde vastas planicies hasta formaciones rocosas imponentes y cumbres nevadas. Durante el viaje, los visitantes pueden disfrutar de vistas panorámicas que destacan la majestuosidad de los Andes y la diversidad de la flora y fauna local. En invierno, el paso puede verse cubierto por una capa de nieve, lo que agrega un toque mágico al entorno. Su relevancia no solo radica en su belleza natural, sino también en su importancia como una vía clave para el intercambio comercial y cultural entre Chile y Argentina.</h4>
+          <h4>{t('PehuencheInfo')}</h4>
         </div>
       </div>
 
       <section className="info-section">
         <div className="info-content">
-          <h5>Lugares inolvidables</h5>
-          <h1>Algo para no olvidar</h1>
-          <p>Descubre la belleza cautivadora de Colbún, donde los tranquilos paisajes rurales se entrelazan con los lagos cristalinos y montañas imponentes que ofrecen una combinación única de naturaleza, aventura al aire libre y un profundo sentido de comunidad. Puedes navegar en las aguas del embalse Machicura, disfrutar de las termas naturales de Panimávida o explorar los senderos que atraviesan los cerros verdes de la región. Colbún te invita a vivir experiencias inolvidables, inmersas en la serenidad y el encanto del corazón de la zona central de Chile.</p>
-          <button className="btn-blue">Descubre tu próximo destino</button>
+          <h5>{t('UnforgettablePlaces')}</h5>
+          <h1>{t('Remember')}</h1>
+          <p>{t('ColbunBeauty')}</p>
+          <button className="btn-blue">{t('Discover')}</button>
         </div>
       </section>
             
       {/* Carousel Section */}
       <section className="carousel-section1">
         <div className="carousel-header1">
-          <h5>Admira</h5>
+          <h5>{t('Admire')}</h5>
           <div className="carousel-subheader1">
-            <h2>Belleza Natural</h2>
-            <a href="#">Ve más <span>&#8594;</span></a>
+            <h2>{t('NaturalBeauty')}</h2>
+            <a href="#">{t('ViewMore')}<span>&#8594;</span></a>
           </div>
         </div>
 
@@ -67,31 +77,31 @@ const Pasopehuenche = () => {
           {/* Cards del carrusel */}
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Mirador Las Vizcachas</p>
+            <p>{t('VizcachazViewpoint')}</p>
           </div>
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Parque Nacional Guaquivilo</p>
+            <p>{t('NationalPark')}</p>
           </div>
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Cavernas Los Bellotos</p>
+            <p>{t('CavesBellotos')}</p>
           </div>
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Embalse Machicura</p>
+            <p>{t('Reservoir')}</p>
           </div>
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Prueba scroll</p>
+            <p>{t('Test1')}</p>
           </div>
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Prueba 2</p>
+            <p>{t('Test2')}</p>
           </div>
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Prueba 3</p>
+            <p>{t('Test3')}</p>
           </div>
         </div>
 
