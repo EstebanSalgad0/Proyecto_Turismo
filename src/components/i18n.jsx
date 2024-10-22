@@ -76,6 +76,7 @@ i18n.use(initReactI18next).init({
         "ChileCulture": "Chile Culture",
         "Conaf": "National Parks Conaf",
         "findus": "You can also find us at",
+        "MeladoInfo": "El Melado is a picturesque town located in the commune of Colbún, in the region of Maule, Chile. This place stands out for its natural environment, surrounded by mountains, rivers and lush vegetation, making it an ideal destination for nature lovers and ecotourism. El Melado is known for the reservoir of the same name, an impressive engineering work that supplies water to the area and is used for hydroelectric power generation. In addition, its landscapes are perfect for activities such as hiking, fishing and the sighting of native flora and fauna, offering a unique experience in contact with the tranquility of the mountain range.",
         // Añadir aquí más traducciones en inglés
       }
     },
@@ -152,6 +153,7 @@ i18n.use(initReactI18next).init({
         "ChileCulture": "Chile Cultura",
         "Conaf": "Parques nacionales Conaf",
         "findus": "Encuéntranos también en",
+        "MeladoInfo": "El Melado es una pintoresca localidad ubicada en la comuna de Colbún, en la región del Maule, Chile. Este lugar se destaca por su entorno natural, rodeado de montañas, ríos y exuberante vegetación, que lo convierten en un destino ideal para los amantes de la naturaleza y el ecoturismo. El Melado es conocido por el embalse del mismo nombre, una impresionante obra de ingeniería que abastece de agua a la zona y se utiliza para la generación de energía hidroeléctrica. Además, sus paisajes son perfectos para actividades como el senderismo, la pesca y el avistamiento de flora y fauna autóctona, ofreciendo una experiencia única en contacto con la tranquilidad de la cordillera.",
         // Añadir aquí más traducciones en español
       }
     }

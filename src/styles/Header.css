@@ -28,16 +28,17 @@
     height: 30px; /* Cambia el tamaño a tu preferencia */
   }
 
-  .icon-image6 {
-    margin-top: -2px;
-    width: 45px; /* Cambia el tamaño a tu preferencia */
-    height: 30px; /* Cambia el tamaño a tu preferencia */
-  }
-
   .icon-image3 {
     margin-top: -6px;
     margin-right: 12px;
     width: 30px; /* Cambia el tamaño a tu preferencia */
+    height: 30px; /* Cambia el tamaño a tu preferencia */
+  }
+
+  .icon-image6 {
+    margin-top: -2px;
+    margin-left: 2px;
+    width: 45px; /* Cambia el tamaño a tu preferencia */
     height: 30px; /* Cambia el tamaño a tu preferencia */
   }
 
@@ -97,15 +98,21 @@
   outline: none;
 }
 
+.navbar-search {
+  margin-right: 10px;
+}
+
 .search-bar button {
   background: none;
   border: none;
   cursor: pointer;
+  
 }
 
 .search-bar button i {
-  font-size: 16px;
+  font-size: 20px;
   color: #333;
+  margin-right: 10px;
 }
 
 .header-icon {
@@ -222,17 +229,13 @@
     cursor: pointer;
     padding: 0px 0; /* Añade padding para aumentar el área clicable */
   }
-  
-  .navbar-search {
-    margin-right: 10px;
-  }
 
   
   .navbar-search button {
     background-color: transparent; /* Fondo transparente */
     border: none; /* Sin bordes */
     cursor: pointer;
-    margin-right: 6px;
+    margin-right: -14px;
   }
   
   .navbar-search i {
