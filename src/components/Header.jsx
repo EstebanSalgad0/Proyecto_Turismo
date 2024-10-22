@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';  // Importar useNavigate para redirigir
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import '../styles/Header.css?v=1.5';
+import '../styles/Header.css?v=2.0';
 import './i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
 
@@ -332,20 +332,20 @@ const Header = () => {
     </div>
 
       {/* Botón de Cerrar Sesión */}
-      {(role === 'admin' || role === 'oferente' || role === 'turista')&& (
-      <div className="navbar-logout">
-        <button onClick={handleLogout} className="btn-logout">
-        {t('Logout')}
+      {(role === 'admin' || role === 'oferente' || role === 'turista') && (
+        <button onClick={handleLogout} className="btn-blue2">
+          <img src="src/assets/img/logout.png" alt="Logout" className="icon-image4" />
         </button>
-      </div>
       )}
+
+      {/* Botón de Iniciar Sesión */}
       {!(role === 'admin' || role === 'oferente' || role === 'turista') && (
-      <div className="navbar-logout">
-        <Link to="/login">
-          <button className="Zona">{t('Login')}</button>
-        </Link>
-      </div>
-    )}
+      <Link to="/login">
+        <button className="btn-blue2">
+          <img src="src/assets/img/login.png" alt="Login" className="icon-image5" />
+        </button>
+      </Link>
+      )}
     </header>
   );
 };

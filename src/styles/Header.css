@@ -12,6 +12,22 @@
     height: 30px; /* Cambia el tamaño a tu preferencia */
   }
 
+  .icon-image4 {
+    margin-top: -4px;
+    margin-right: -10px;
+    filter: invert(1);
+    width: 40px; /* Cambia el tamaño a tu preferencia */
+    height: 30px; /* Cambia el tamaño a tu preferencia */
+  }
+
+  .icon-image5 {
+    margin-top: -2px;
+    margin-left: 6px;
+    filter: invert(1);
+    width: 38px; /* Cambia el tamaño a tu preferencia */
+    height: 30px; /* Cambia el tamaño a tu preferencia */
+  }
+
   .icon-image6 {
     margin-top: -2px;
     width: 45px; /* Cambia el tamaño a tu preferencia */
@@ -20,6 +36,7 @@
 
   .icon-image3 {
     margin-top: -6px;
+    margin-right: 12px;
     width: 30px; /* Cambia el tamaño a tu preferencia */
     height: 30px; /* Cambia el tamaño a tu preferencia */
   }
@@ -215,6 +232,7 @@
     background-color: transparent; /* Fondo transparente */
     border: none; /* Sin bordes */
     cursor: pointer;
+    margin-right: 6px;
   }
   
   .navbar-search i {
