@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';  // Importar useNavigate para redirigir
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import '../styles/Header.css?v=1.4';
+import '../styles/Header.css?v=1.5';
 import './i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
 
@@ -16,9 +16,25 @@ const Header = () => {
   const [darkMode, setDarkMode] = useState(false); // Estado para modo oscuro
   const [role, setRole] = useState(''); // Estado para el rol del usuario
   const { t, i18n } = useTranslation(); // Hook para usar traducciones
+  const [searchOpen, setSearchOpen] = useState(false); // Estado para controlar la visibilidad de la barra de búsqueda
+  const [searchQuery, setSearchQuery] = useState(''); // Estado para almacenar el valor de la búsqueda
 
   // Estado para el idioma
   const [language, setLanguage] = useState('es');
+
+  const toggleSearch = () => {
+    setSearchOpen(!searchOpen); // Alterna la visibilidad de la barra de búsqueda
+  };
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value); // Actualiza el valor de la barra de búsqueda
+  };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    // Aquí puedes manejar la lógica para buscar dentro de la página
+    console.log('Buscando:', searchQuery);
+  };
 
   // Función para alternar el idioma y guardar preferencia en localStorage
   const toggleLanguage = () => {
@@ -37,6 +53,11 @@ const Header = () => {
       i18n.changeLanguage(savedLanguage);
     }
   }, []);
+
+  // Filtrar contenido en función del término de búsqueda
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
 
 
   const toggleActivitiesDropdown = () => {
@@ -280,11 +301,26 @@ const Header = () => {
     )}
   </button>
 </div>
-      <div className="navbar-search">
-        <button>
+<div className="navbar-search">
+        <button onClick={toggleSearch}>
           <i className="bi bi-search"></i>
         </button>
+
+        {searchOpen && ( // Mostrar la barra de búsqueda solo si searchOpen es true
+          <form onSubmit={handleSearchSubmit} className="search-bar">
+            <input
+              type="text"
+              placeholder={t('¿Que desea buscar?')} // Texto placeholder traducido
+              value={searchQuery}
+              onChange={handleSearchChange}
+            />
+            <button type="submit">
+              <i className="bi bi-arrow-right"></i>
+            </button>
+          </form>
+        )}
       </div>
+
       <div className="dark-mode-toggle">
       <button onClick={toggleDarkMode} className='btn-blue2'>
         {darkMode ? (

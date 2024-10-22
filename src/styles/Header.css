@@ -55,6 +55,42 @@
   margin-right: -15px;
 }
 
+/* Estilo para la barra de búsqueda flotante */
+.navbar-search {
+  position: relative; /* Mantiene el botón en su lugar */
+}
+
+.search-bar {
+  position: absolute; /* Hace que la barra de búsqueda sea flotante */
+  top: 50%;
+  left: -380px; /* Ajusta según la distancia que quieras que esté del icono */
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.search-bar input {
+  border: none;
+  padding: 5px;
+  outline: none;
+}
+
+.search-bar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.search-bar button i {
+  font-size: 16px;
+  color: #333;
+}
+
 .header-icon {
   width: 60px;
   height: 45px;
