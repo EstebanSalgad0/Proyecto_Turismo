@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';  // Importar useNavigate para redirigir
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import '../styles/Header.css?v=1.1';
+import '../styles/Header.css?v=1.2';
 import './i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
 
@@ -266,14 +266,20 @@ const Header = () => {
       </div>
 
       <div className="navbar-auth">
-        <button onClick={toggleLanguage} className='btn-blue2'>
-          {language === 'es' ? (
-            <img src="src/assets/img/espana.png" alt="Español" className="icon-image5"/>
-          ) : (
-            <img src="src/assets/img/uk4.png" alt="English" className="icon-image4"/>
-          )}
-      </button>
-      </div>
+  <button onClick={toggleLanguage} className='btn-blue2'>
+    {language === 'es' ? (
+      <>
+        <span className="language-label1">EN</span>
+        <img src="src/assets/img/uk4.png" alt="English" className="icon-image4" />
+      </>
+    ) : (
+      <>
+        <span className="language-label">ES</span>
+        <img src="src/assets/img/espana.png" alt="Español" className="icon-image5" />
+      </>
+    )}
+  </button>
+</div>
       <div className="navbar-search">
         <button>
           <i className="bi bi-search"></i>
@@ -282,9 +288,9 @@ const Header = () => {
       <div className="dark-mode-toggle">
       <button onClick={toggleDarkMode} className='btn-blue2'>
         {darkMode ? (
-          <img src="src/assets/img/luna.png" alt="Luna" className="icon-image3" />
-        ) : (
           <img src="src/assets/img/sol4.png" alt="Sol" className="icon-image2" />
+        ) : (
+          <img src="src/assets/img/luna.png" alt="Luna" className="icon-image3" />
         )}
       </button>
     </div>

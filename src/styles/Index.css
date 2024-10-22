@@ -288,6 +288,21 @@
   right: 15px;
 }
 
+.language-label {
+  margin-bottom: -1px; /* Ajusta el valor según sea necesario */
+  margin-right: -1px;
+  display: inline-block;
+  vertical-align: middle; /* Para alinearlo con la imagen */
+  position: relative;
+}
+
+.language-label1 {
+  margin-bottom: -1px; /* Ajusta el valor según sea necesario */
+  margin-right: 4px;
+  display: inline-block;
+  vertical-align: middle; /* Para alinearlo con la imagen */
+  position: relative;
+}
 /* Sección de Lugares inolvidables */
 .info-section1 {
   background-color: #e0e0e0; /* Color gris claro temporal para el mapa */
