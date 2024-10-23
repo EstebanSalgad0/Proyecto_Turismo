@@ -6,11 +6,21 @@ import '../styles/Panoramas.css?v=1.5' // Estilos específicos para el component
 import Footer from '../components/Footer';
 import SocialSection from '../components/SocialSeccion';
 import Header from '../components/Header';
+import '../components/i18n'; // Importa el archivo de configuración
+import { useTranslation } from 'react-i18next';
 
 const Panoramas = () => {
 
   const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
   const totalSlides = 4; // Número total de slides
+  const { t, i18n } = useTranslation(); // Hook para usar traducciones
+
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language'); // Obtener el idioma guardado
+    if (savedLanguage && savedLanguage !== i18n.language) {
+      i18n.changeLanguage(savedLanguage); // Cambiar el idioma si es necesario
+    }
+  }, [i18n.language]); // Añadir el estado del idioma como dependencia
 
   // Función para manejar las flechas
   const nextSlide = () => {
@@ -38,15 +48,15 @@ const Panoramas = () => {
       {/* Hero Section */}
       <div className="hero100">
         <div className="hero-content100">
-          <h5>Panoramas</h5>
-          <h1>Eventos y Celebraciones Locales</h1>
-          <h4>La comuna de Colbún, se caracteriza por una rica tradición cultural y un vibrante calendario de actividades que destacan a lo largo del año. Estos eventos, llenos de historia y costumbres, unen a los habitantes de la comuna y atraen a visitantes de todo el país.</h4>
+          <h5>{t('Panoramas')}</h5>
+          <h1>{t('Panoramas1')}</h1>
+          <h4>{t('Panoramas2')}</h4>
         </div>
       </div>
 
       <br></br>
       <div className="carousel-subheader2">
-            <h1>Lo más destacado de nuestros  próximos eventos y actividades</h1>
+            <h1>{t('Panoramas3')}</h1>
           </div>
 
       <br></br>
@@ -155,10 +165,10 @@ const Panoramas = () => {
       {/* Carousel Section */}
       <section className="carousel-section1">
         <div className="carousel-header1">
-          <h5>Admira</h5>
+          <h5>{t('Admire')}</h5>
           <div className="carousel-subheader1">
-            <h2>Belleza Natural</h2>
-            <a href="#">Ve más <span>&#8594;</span></a>
+            <h2>{t('NaturalBeauty')}</h2>
+            <a href="#">{t('ViewMore')}<span>&#8594;</span></a>
           </div>
         </div>
 
@@ -167,31 +177,31 @@ const Panoramas = () => {
           {/* Cards del carrusel */}
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Mirador Las Vizcachas</p>
+            <p>{t('VizcachazViewpoint')}</p>
           </div>
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Parque Nacional Guaquivilo</p>
+            <p>{t('NationalPark')}</p>
           </div>
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Cavernas Los Bellotos</p>
+            <p>{t('CavesBellotos')}</p>
           </div>
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Embalse Machicura</p>
+            <p>{t('Reservoir')}</p>
           </div>
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Prueba scroll</p>
+            <p>{t('Test1')}</p>
           </div>
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Prueba 2</p>
+            <p>{t('Test2')}</p>
           </div>
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Prueba 3</p>
+            <p>{t('Test3')}</p>
           </div>
         </div>
 
