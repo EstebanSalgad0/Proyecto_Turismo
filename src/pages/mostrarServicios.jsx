@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles/mostrarServicios.css';
+import Header from '../components/Header';
 
 const ListarServicios = () => {
     const [servicios, setServicios] = useState([]);
@@ -26,6 +27,12 @@ const ListarServicios = () => {
 
     return (
         <div className="services-list-container">
+            <Header/>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             <h1 className="services-title">Servicios Disponibles</h1>
             <div className="services-grid">
                 {servicios.map((servicio) => (

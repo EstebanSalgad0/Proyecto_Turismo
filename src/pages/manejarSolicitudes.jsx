@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import '../styles/AdminPanel.css'
+import '../styles/AdminPanel.css';
+import Header from '../components/Header';
 
 const AdminPanel = () => {
   // Estado para solicitudes
@@ -47,6 +48,12 @@ const AdminPanel = () => {
 
   return (
     <div className="admin-panel-container">
+      <Header/>
+      <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
     <h1>Panel de Administración de Oferentes</h1>
 
     {/* Manejar solicitudes */}

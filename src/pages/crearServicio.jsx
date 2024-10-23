@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../styles/crearServicio.css';
 import ConfirmModal from '../components/ModalDelete';
+import Header from '../components/Header';
 
 const CrearServicio = () => {
     const [nombre, setNombre] = useState('');
@@ -160,6 +161,7 @@ const CrearServicio = () => {
 
     return (
         <div className="container">
+            <Header/>
             <div className="sidebar">
                 <h1>{editMode ? 'Editar Servicio' : 'Crear Servicio'}</h1>
                 <form onSubmit={(e) => {
