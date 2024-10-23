@@ -23,6 +23,9 @@ i18n.use(initReactI18next).init({
         "Toba": "Toba Stone",
         "Volcano": "San Pedro and San Pablo Volcano",
         "Lagoons": "Green lagoons",
+        "Lagoons1": "Bull Lagoons",
+        "Lagoons2": "Maule Lagoons",
+        "Lagoons3": "Stairs Lagoon",
         "Caves": "The Caves",
         "Indian": "Indian Stone",
         "NationalPark": "Guaiquivilo National Park",
@@ -88,6 +91,11 @@ i18n.use(initReactI18next).init({
         "BellotosInfo": "Los Bellotos is a picturesque village in the commune of Colbún, in the Maule region of Chile, known for its serene atmosphere and stunning natural surroundings. Located in an area of green hills and rich vegetation, Los Bellotos offers an authentic experience of rural Chilean life. The area is noted for its tranquil landscapes and its proximity to the Colbún reservoir, which provides opportunities to enjoy outdoor recreational activities such as fishing and boating. The warm and welcoming local community contributes to the charm of the place, offering an immersion in the country life and natural beauty of the heart of the Maule region. Los Bellotos is the ideal destination for those seeking to escape the urban bustle and immerse themselves in the serenity and splendor of Chilean nature.",
         "BalneariosInfo": "Balneario Machicura, located in Colbún, Chile, is an outstanding destination for those seeking to enjoy natural beauty and tranquility in the heart of the Maule region. This charming seaside resort, located on the banks of the Machicura Reservoir, offers a serene setting surrounded by green hills and picturesque landscapes. Here, visitors can enjoy a variety of outdoor activities, such as swimming in the crystal-clear waters of the reservoir, practicing water sports or simply relaxing by the beach. With its cozy atmosphere and stunning natural surroundings, the Machicura Spa is the ideal place to escape the urban bustle and immerse oneself in a revitalizing experience in nature.",
         "WhatSearch": "What would you like to search for?",
+        "Train": "the little train",
+        "Bottling": "Bottling plant",
+        "Train1": "Train Station",
+        "HighStones": "High Stones",
+        "ColbunLake": "Colbun Lake",
         // Añadir aquí más traducciones en inglés
       }
     },
@@ -111,6 +119,9 @@ i18n.use(initReactI18next).init({
         "Toba": "Piedra Toba",
         "Volcano": "Volcán San Pedro y San Pablo",
         "Lagoons": "Lagunas verdes",
+        "Lagoons1": "Lagunas del Toro",
+        "Lagoons2": "Lagunas del Maule",
+        "Lagoons3": "Laguna las Escaleras",
         "Caves": "Las Cuevas",
         "Indian": "Piedra del Indio",
         "NationalPark": "Parque nacional Guaiquivilo",
@@ -176,7 +187,11 @@ i18n.use(initReactI18next).init({
         "BellotosInfo": "Los Bellotos es una pintoresca localidad en la comuna de Colbún, en la región del Maule, Chile, conocida por su ambiente sereno y su entorno natural impresionante. Situada en un área de colinas verdes y rica vegetación, Los Bellotos ofrece una experiencia auténtica de la vida rural chilena. El área se destaca por sus tranquilos paisajes y su cercanía al embalse Colbún, que brinda oportunidades para disfrutar de actividades recreativas al aire libre como la pesca y la navegación. La comunidad local, acogedora y cálida, contribuye al encanto del lugar, ofreciendo una inmersión en la vida campestre y la belleza natural del corazón del Maule. Los Bellotos es el destino ideal para quienes buscan escapar del bullicio urbano y sumergirse en la serenidad y el esplendor de la naturaleza chilena.",
         "BalneariosInfo": "El Balneario Machicura, ubicado en Colbún, Chile, es un destacado destino para quienes buscan disfrutar de la belleza natural y la tranquilidad en el corazón de la región del Maule. Este encantador balneario, situado a orillas del embalse Machicura, ofrece un entorno sereno rodeado de colinas verdes y paisajes pintorescos. Aquí, los visitantes pueden disfrutar de una variedad de actividades al aire libre, como nadar en las aguas cristalinas del embalse, practicar deportes acuáticos o simplemente relajarse junto a la playa. Con su ambiente acogedor y su entorno natural impresionante, el Balneario Machicura es el lugar ideal para escapar del bullicio urbano y sumergirse en una experiencia revitalizante en la naturaleza.",
         "WhatSearch": "¿Qué desea buscar?",
-
+        "Train": "el tren chico",
+        "Bottling": "Embotelladora",
+        "Train1": "Estación del Tren",
+        "HighStones": "Piedras Altas",
+        "ColbunLake": "Lago Colbún",
         // Añadir aquí más traducciones en español
       }
     }

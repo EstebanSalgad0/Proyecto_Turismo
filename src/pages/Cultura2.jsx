@@ -50,7 +50,7 @@ const Cultura4 = () => {
       <div className="hero5">
         <div className="hero-content5">
           <h5>{t('Culture')}</h5>
-          <h1>Petroglifos</h1>
+          <h1>{t('Petroglyphs')}</h1>
           <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos ab ipsa magni asperiores magnam adipisci earum nemo nisi iure voluptate culpa nihil dolores, possimus animi sapiente natus doloribus! Iste, aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, libero reiciendis. Eos consequatur voluptas consectetur repellat blanditiis velit obcaecati id quaerat dolore quod, numquam voluptate, molestias ipsum? Accusamus, odio similique?</h4>
         </div>
       </div>
@@ -86,7 +86,7 @@ const Cultura4 = () => {
       <div className="hero26">
         <div className="hero-content26">
           <h5>{t('Culture')}</h5>
-          <h1>El Tren Chico</h1>
+          <h1>{t('Train')}</h1>
           <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos ab ipsa magni asperiores magnam adipisci earum nemo nisi iure voluptate culpa nihil dolores, possimus animi sapiente natus doloribus! Iste, aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, libero reiciendis. Eos consequatur voluptas consectetur repellat blanditiis velit obcaecati id quaerat dolore quod, numquam voluptate, molestias ipsum? Accusamus, odio similique?</h4>
         </div>
       </div>
