@@ -6,11 +6,21 @@ import '../styles/Cultura3.css?v=1.4' // Estilos específicos para el componente
 import Footer from '../components/Footer';
 import SocialSection from '../components/SocialSeccion';
 import Header from '../components/Header';
+import '../components/i18n'; // Importa el archivo de configuración
+import { useTranslation } from 'react-i18next';
 
 const Cultura4 = () => {
 
   const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
   const totalSlides = 4; // Número total de slides
+  const { t, i18n } = useTranslation(); // Hook para usar traducciones
+
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language'); // Obtener el idioma guardado
+    if (savedLanguage && savedLanguage !== i18n.language) {
+      i18n.changeLanguage(savedLanguage); // Cambiar el idioma si es necesario
+    }
+  }, [i18n.language]); // Añadir el estado del idioma como dependencia
 
 
   // Función para manejar las flechas
@@ -39,25 +49,25 @@ const Cultura4 = () => {
       {/* Hero Section */}
       <div className="hero30">
         <div className="hero-content30">
-          <h5>Cultura y sitios históricos</h5>
-          <h1>Iglesia de Panimávida</h1>
+          <h5>{t('Culture')}</h5>
+          <h1>{t('Church')}</h1>
           <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos ab ipsa magni asperiores magnam adipisci earum nemo nisi iure voluptate culpa nihil dolores, possimus animi sapiente natus doloribus! Iste, aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, libero reiciendis. Eos consequatur voluptas consectetur repellat blanditiis velit obcaecati id quaerat dolore quod, numquam voluptate, molestias ipsum? Accusamus, odio similique?</h4>
         </div>
       </div>
 
       <section className="info-section">
         <div className="info-content">
-          <h5>Lugares inolvidables</h5>
-          <h1>Algo para no olvidar</h1>
-          <p>Descubre la belleza cautivadora de Colbún, donde los tranquilos paisajes rurales se entrelazan con los lagos cristalinos y montañas imponentes que ofrecen una combinación única de naturaleza, aventura al aire libre y un profundo sentido de comunidad. Puedes navegar en las aguas del embalse Machicura, disfrutar de las termas naturales de Panimávida o explorar los senderos que atraviesan los cerros verdes de la región. Colbún te invita a vivir experiencias inolvidables, inmersas en la serenidad y el encanto del corazón de la zona central de Chile.</p>
-          <button className="btn-blue">Descubre tu próximo destino</button>
+          <h5>{t('UnforgettablePlaces')}</h5>
+          <h1>{t('Remember')}</h1>
+          <p>{t('ColbunBeauty')}</p>
+          <button className="btn-blue">{t('Discover')}</button>
         </div>
       </section>
 
       {/* Hero Section */}
       <div className="hero31">
         <div className="hero-content31">
-          <h5>Cultura y sitios históricos</h5>
+          <h5>{t('Culture')}</h5>
           <h1>Las Tacitas</h1>
           <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos ab ipsa magni asperiores magnam adipisci earum nemo nisi iure voluptate culpa nihil dolores, possimus animi sapiente natus doloribus! Iste, aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, libero reiciendis. Eos consequatur voluptas consectetur repellat blanditiis velit obcaecati id quaerat dolore quod, numquam voluptate, molestias ipsum? Accusamus, odio similique?</h4>
         </div>
@@ -65,17 +75,17 @@ const Cultura4 = () => {
 
       <section className="info-section">
         <div className="info-content">
-          <h5>Lugares inolvidables</h5>
-          <h1>Algo para no olvidar</h1>
-          <p>Descubre la belleza cautivadora de Colbún, donde los tranquilos paisajes rurales se entrelazan con los lagos cristalinos y montañas imponentes que ofrecen una combinación única de naturaleza, aventura al aire libre y un profundo sentido de comunidad. Puedes navegar en las aguas del embalse Machicura, disfrutar de las termas naturales de Panimávida o explorar los senderos que atraviesan los cerros verdes de la región. Colbún te invita a vivir experiencias inolvidables, inmersas en la serenidad y el encanto del corazón de la zona central de Chile.</p>
-          <button className="btn-blue">Descubre tu próximo destino</button>
+          <h5>{t('UnforgettablePlaces')}</h5>
+          <h1>{t('Remember')}</h1>
+          <p>{t('ColbunBeauty')}</p>
+          <button className="btn-blue">{t('Discover')}</button>
         </div>
       </section>
 
       {/* Hero Section */}
       <div className="hero32">
         <div className="hero-content32">
-          <h5>Cultura y sitios históricos</h5>
+          <h5>{t('Culture')}</h5>
           <h1>Embotelladora</h1>
           <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos ab ipsa magni asperiores magnam adipisci earum nemo nisi iure voluptate culpa nihil dolores, possimus animi sapiente natus doloribus! Iste, aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, libero reiciendis. Eos consequatur voluptas consectetur repellat blanditiis velit obcaecati id quaerat dolore quod, numquam voluptate, molestias ipsum? Accusamus, odio similique?</h4>
         </div>
@@ -83,17 +93,17 @@ const Cultura4 = () => {
 
       <section className="info-section">
         <div className="info-content">
-          <h5>Lugares inolvidables</h5>
-          <h1>Algo para no olvidar</h1>
-          <p>Descubre la belleza cautivadora de Colbún, donde los tranquilos paisajes rurales se entrelazan con los lagos cristalinos y montañas imponentes que ofrecen una combinación única de naturaleza, aventura al aire libre y un profundo sentido de comunidad. Puedes navegar en las aguas del embalse Machicura, disfrutar de las termas naturales de Panimávida o explorar los senderos que atraviesan los cerros verdes de la región. Colbún te invita a vivir experiencias inolvidables, inmersas en la serenidad y el encanto del corazón de la zona central de Chile.</p>
-          <button className="btn-blue">Descubre tu próximo destino</button>
+          <h5>{t('UnforgettablePlaces')}</h5>
+          <h1>{t('Remember')}</h1>
+          <p>{t('ColbunBeauty')}</p>
+          <button className="btn-blue">{t('Discover')}</button>
         </div>
       </section>
 
       {/* Hero Section */}
       <div className="hero33">
         <div className="hero-content33">
-          <h5>Cultura y sitios históricos</h5>
+          <h5>{t('Culture')}</h5>
           <h1>Estación del Tren</h1>
           <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos ab ipsa magni asperiores magnam adipisci earum nemo nisi iure voluptate culpa nihil dolores, possimus animi sapiente natus doloribus! Iste, aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, libero reiciendis. Eos consequatur voluptas consectetur repellat blanditiis velit obcaecati id quaerat dolore quod, numquam voluptate, molestias ipsum? Accusamus, odio similique?</h4>
         </div>
@@ -101,20 +111,20 @@ const Cultura4 = () => {
 
       <section className="info-section">
         <div className="info-content">
-          <h5>Lugares inolvidables</h5>
-          <h1>Algo para no olvidar</h1>
-          <p>Descubre la belleza cautivadora de Colbún, donde los tranquilos paisajes rurales se entrelazan con los lagos cristalinos y montañas imponentes que ofrecen una combinación única de naturaleza, aventura al aire libre y un profundo sentido de comunidad. Puedes navegar en las aguas del embalse Machicura, disfrutar de las termas naturales de Panimávida o explorar los senderos que atraviesan los cerros verdes de la región. Colbún te invita a vivir experiencias inolvidables, inmersas en la serenidad y el encanto del corazón de la zona central de Chile.</p>
-          <button className="btn-blue">Descubre tu próximo destino</button>
+          <h5>{t('UnforgettablePlaces')}</h5>
+          <h1>{t('Remember')}</h1>
+          <p>{t('ColbunBeauty')}</p>
+          <button className="btn-blue">{t('Discover')}</button>
         </div>
       </section>
             
       {/* Carousel Section */}
       <section className="carousel-section1">
         <div className="carousel-header1">
-          <h5>Admira</h5>
+          <h5>{t('Admire')}</h5>
           <div className="carousel-subheader1">
-            <h2>Belleza Natural</h2>
-            <a href="#">Ve más <span>&#8594;</span></a>
+            <h2>{t('NaturalBeauty')}</h2>
+            <a href="#">{t('ViewMore')}<span>&#8594;</span></a>
           </div>
         </div>
 
@@ -123,31 +133,31 @@ const Cultura4 = () => {
           {/* Cards del carrusel */}
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Mirador Las Vizcachas</p>
+            <p>{t('VizcachazViewpoint')}</p>
           </div>
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Parque Nacional Guaquivilo</p>
+            <p>{t('NationalPark')}</p>
           </div>
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Cavernas Los Bellotos</p>
+            <p>{t('CavesBellotos')}</p>
           </div>
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Embalse Machicura</p>
+            <p>{t('Reservoir')}</p>
           </div>
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Prueba scroll</p>
+            <p>{t('Test1')}</p>
           </div>
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Prueba 2</p>
+            <p>{t('Test2')}</p>
           </div>
           <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
             <div className="carousel-image1"></div>
-            <p>Prueba 3</p>
+            <p>{t('Test3')}</p>
           </div>
         </div>
 

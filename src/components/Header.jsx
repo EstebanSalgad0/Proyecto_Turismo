@@ -310,7 +310,7 @@ const Header = () => {
           <form onSubmit={handleSearchSubmit} className="search-bar">
             <input
               type="text"
-              placeholder={t('¿Que desea buscar?')} // Texto placeholder traducido
+              placeholder={t('WhatSearch')} // Texto placeholder traducido
               value={searchQuery}
               onChange={handleSearchChange}
             />
