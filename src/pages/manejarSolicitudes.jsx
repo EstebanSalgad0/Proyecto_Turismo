@@ -1,58 +1,59 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import Header from '../components/Header';
+import '../styles/AdminPanel.css'
 
-const ManejarSolicitudes = () => {
+const AdminPanel = () => {
+  // Estado para solicitudes
   const [solicitudes, setSolicitudes] = useState([]);
-  const [mensaje, setMensaje] = useState('');
+  const [mensajeSolicitudes, setMensajeSolicitudes] = useState('');
 
+  const token = localStorage.getItem('token'); // Obtener el token del almacenamiento local
+
+  // Fetch de solicitudes
+  const fetchSolicitudes = async () => {
+    try {
+      const response = await axios.get('http://localhost:8000/api/solicitudes/', {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      });
+      setSolicitudes(response.data);
+    } catch (error) {
+      console.error('Error al obtener las solicitudes:', error);
+    }
+  };
+
+  // useEffect para obtener solicitudes y servicios al cargar la página
   useEffect(() => {
-    const fetchSolicitudes = async () => {
-      try {
-        const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:8000/api/solicitudes/', {
-          headers: {
-            Authorization: `Token ${token}`,
-          },
-        });
-        setSolicitudes(response.data);
-      } catch (error) {
-        console.error('Error al obtener las solicitudes:', error);
-      }
-    };
-
     fetchSolicitudes();
   }, []);
 
+  // Manejar solicitudes de oferentes (aceptar/rechazar)
   const manejarSolicitud = async (id, accion) => {
     try {
-      const token = localStorage.getItem('token');
       const response = await axios.post(`http://localhost:8000/api/manejar_solicitud/${id}/`, { accion }, {
         headers: {
           Authorization: `Token ${token}`,
         },
       });
-      setMensaje(response.data.mensaje); // Mensaje de éxito o error
+      setMensajeSolicitudes(response.data.mensaje); // Mensaje de éxito o error
       setSolicitudes((prev) => prev.filter((solicitud) => solicitud.id !== id));
     } catch (error) {
       console.error('Error al manejar la solicitud:', error);
-      setMensaje('Error al manejar la solicitud. Intenta nuevamente.');
+      setMensajeSolicitudes('Error al manejar la solicitud. Intenta nuevamente.');
     }
   };
 
   return (
-    <div>
-      <Header/>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <h1>Manejar Solicitudes</h1>
-      {mensaje && <p>{mensaje}</p>}
-      <table>
+    <div className="admin-panel-container">
+    <h1>Panel de Administración de Oferentes</h1>
+
+    {/* Manejar solicitudes */}
+    <div className="admin-section">
+      <h2>Manejar Solicitudes de Oferentes</h2>
+      {mensajeSolicitudes && <p className="admin-message">{mensajeSolicitudes}</p>}
+      <table className="admin-table">
         <thead>
           <tr>
             <th>Email</th>
@@ -68,15 +69,17 @@ const ManejarSolicitudes = () => {
               <td>{solicitud.servicio}</td>
               <td>{solicitud.estado}</td>
               <td>
-                <button onClick={() => manejarSolicitud(solicitud.id, 'aceptar')} disabled={solicitud.estado !== 'pendiente'}>Aceptar</button>
-                <button onClick={() => manejarSolicitud(solicitud.id, 'rechazar')} disabled={solicitud.estado !== 'pendiente'}>Rechazar</button>
+                <button className="accept" onClick={() => manejarSolicitud(solicitud.id, 'aceptar')} disabled={solicitud.estado !== 'pendiente'}>Aceptar</button>
+                <button className="reject" onClick={() => manejarSolicitud(solicitud.id, 'rechazar')} disabled={solicitud.estado !== 'pendiente'}>Rechazar</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
+  </div>
+
   );
 };
 
-export default ManejarSolicitudes;
+export default AdminPanel;

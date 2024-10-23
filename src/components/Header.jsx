@@ -246,11 +246,6 @@ const Header = () => {
             <li>
               <Link to="/mostrarServicios">{t('ViewService')}</Link>
             </li>
-            {(role === 'admin' || role === 'oferente')&& ( // Solo mostrar el botón desplegable de Servicios si el rol es admin u oferente
-            <li>
-              <Link to="/editarServicio">{t('EditService')}</Link>
-            </li>
-            )}
             {(role === 'admin' || role === 'oferente' || role === 'turista')&& (
             <li>
               <Link to="/mostrarServicios">{t('RateServices')}</Link>
