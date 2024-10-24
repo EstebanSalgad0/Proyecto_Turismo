@@ -14,6 +14,7 @@ const Index = () => {
   const videoRef = useRef(null); // Referencia al iframe del video
   const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
   const totalSlides = 4; // Número total de slides
+  const [isFirstMap, setIsFirstMap] = useState(true); // Estado para alternar entre los mapas
   const { t, i18n } = useTranslation(); // Hook para usar traducciones
 
   useEffect(() => {
@@ -31,6 +32,11 @@ const Index = () => {
       videoRef.current.src = videoRef.current.src.replace("autoplay=0", "autoplay=1");
     }
     setIsPlaying(!isPlaying);
+  };
+
+  // Función para alternar entre los mapas
+  const toggleMap = () => {
+    setIsFirstMap(!isFirstMap);
   };
 
   // Función para manejar las flechas
@@ -144,14 +150,39 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="info-section1">
-        <div className="info-content1">
+      <div className="info-section1">
+        {/* Map Section */}
+        <section className="map-section">
+          <iframe
+            src={
+              isFirstMap
+                ? "https://www.google.com/maps/d/embed?mid=1p6ZeFia-PILCBaTmJbeDvMfmEy6ZwRUx&ehbc=2E312F"
+                : "https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
+            }
+            width="100%"
+            height="1200"
+            allowFullScreen=""
+            loading="lazy"
+          ></iframe>
+        </section>
+
+        {/* Existing Content Section */}
+        <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
           <p>{t('ColbunBeauty')}</p>
-          <button className="btn-blue">{t('Discover')}</button>
-        </div>
-      </section>
+          {/* Contenedor para alinear los botones */}
+          <div className="button-group">
+            <button className="btn-blue" onClick={() => window.open("https://maps.app.goo.gl/GZSD4dNAL8uKZx1N6", "_blank")}>
+            {t('Discover')}
+            </button>
+            {/* Botón pequeño para cambiar entre los mapas */}
+            <button className="btn-blue2" onClick={toggleMap}>
+            <i className="bi bi-geo-alt"></i>
+            </button>
+          </div>
+        </section>
+      </div>
 
     </div>
   );

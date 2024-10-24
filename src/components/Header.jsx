@@ -246,11 +246,6 @@ const Header = () => {
             <li>
               <Link to="/mostrarServicios">{t('ViewService')}</Link>
             </li>
-            {(role === 'admin' || role === 'oferente' || role === 'turista')&& (
-            <li>
-              <Link to="/mostrarServicios">{t('RateServices')}</Link>
-            </li>
-            )}
             {(role === 'turista')&& (
             <li>
               <Link to="/solicitudOferente">{t('OfferingServices')}</Link>
@@ -259,11 +254,6 @@ const Header = () => {
             {!(role === 'admin' || role === 'oferente' || role === 'turista')&& (
             <li>
               <Link to="/Catastro">{t('bidder')}</Link>
-            </li>
-            )}
-            {!(role === 'admin' || role === 'oferente' || role === 'turista')&& (
-            <li>
-              <Link to="/Catastro_opiniones">{t('QualifyServices')}</Link>
             </li>
             )}
             {(role === 'admin') && (

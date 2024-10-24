@@ -7,8 +7,19 @@ import imagen from '../assets/img/contactanos.png';
 import Footer from '../components/Footer';
 import SocialSection from '../components/SocialSeccion';
 import Header from '../components/Header';
+import '../components/i18n'; // Importa el archivo de configuración
+import { useTranslation } from 'react-i18next';
 
 const Zoit = () => {
+
+  const { t, i18n } = useTranslation(); // Hook para usar traducciones
+
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language'); // Obtener el idioma guardado
+    if (savedLanguage && savedLanguage !== i18n.language) {
+      i18n.changeLanguage(savedLanguage); // Cambiar el idioma si es necesario
+    }
+  }, [i18n.language]); // Añadir el estado del idioma como dependencia
 
   return (
     <div className="index-container">
@@ -20,22 +31,22 @@ const Zoit = () => {
       <section className="carousel-section">
         <div className="carousel-header">
             <br></br><br></br><br></br><br></br>
-          <h5>Turismo atiende</h5>
+          <h5>{t('Turism')}</h5>
           <div className="carousel-subheader">
-            <h1>Oficinas de información turística (OIT)</h1>
+            <h1>{t('Tourist1')}</h1>
           </div>
         </div>
         <br></br>
-        <h5>Todas las personas que trabajan en los centros i-SITE son expertos en viajes en sus propias ciudades. Te ayudarán a encontrar actividades, atracciones, alojamiento y transporte de calidad, entre otras cosas. Sea lo que sea que estés buscando, esto garantiza que disfrutes de lo mejor y más reciente que el lugar tiene para ofrecer. Por eso, ya sea que vengas del otro lado del mundo o de las cercanías, comienza hoy a utilizar i-SITE.</h5>
+        <h5>{t('Tourist3')}</h5>
                 <br></br>
                <br></br><br></br>
-        <h5>- Planificación de itinerario e información</h5>
-        <h5>- Reservas en todo el país: alojamiento, transporte, actividades, atracciones</h5>
-        <h5>- Mapas gratis, información sobre el clima y la seguridad en la montaña</h5>
-        <h5>- Información local sobre eventos, atracciones, restaurantes y otros temas.</h5>
+        <h5>{t('Tourist4')}</h5>
+        <h5>{t('Tourist5')}</h5>
+        <h5>{t('Tourist6')}</h5>
+        <h5>{t('Tourist7')}</h5>
         <br></br><br></br><br></br>
         <div className="carousel-subheader">
-            <h1>Oficinas de información turística Colbún</h1>
+            <h1>{t('Tourist8')}</h1>
           </div>
           <br></br>
           <br></br>
@@ -80,7 +91,7 @@ const Zoit = () => {
           <br></br>
           <br></br>
           <div className="carousel-subheader">
-            <h2>Contáctanos</h2>
+            <h2>{t('Contact1')}</h2>
           </div>
           <br></br><br></br>
           <div className="contact-section">
@@ -89,7 +100,7 @@ const Zoit = () => {
     <p>+569 9458 0453</p>
   </div>
   <div className="contact-item">
-    <h3>Escríbenos</h3>
+    <h3>{t('WriteUs')}</h3>
     <p>turismoatiende@sernatur.cl</p>
   </div>
   <div className="contact-item">

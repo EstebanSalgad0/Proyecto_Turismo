@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import '../styles/solicitudOferente.css'
+import '../styles/solicitudOferente.css';
+import Header from '../components/Header';
 
 const SolicitudOferente = () => {
   const [email, setEmail] = useState('');

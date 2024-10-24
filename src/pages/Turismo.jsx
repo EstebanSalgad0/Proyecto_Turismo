@@ -7,8 +7,19 @@ import imagen from '../assets/img/contactanos.png';
 import Footer from '../components/Footer';
 import SocialSection from '../components/SocialSeccion';
 import Header from '../components/Header';
+import '../components/i18n'; // Importa el archivo de configuración
+import { useTranslation } from 'react-i18next';
 
 const Zoit = () => {
+
+  const { t, i18n } = useTranslation(); // Hook para usar traducciones
+
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language'); // Obtener el idioma guardado
+    if (savedLanguage && savedLanguage !== i18n.language) {
+      i18n.changeLanguage(savedLanguage); // Cambiar el idioma si es necesario
+    }
+  }, [i18n.language]); // Añadir el estado del idioma como dependencia
 
   return (
     <div className="index-container">
@@ -20,16 +31,16 @@ const Zoit = () => {
       <section className="carousel-section">
         <div className="carousel-header">
             <br></br><br></br><br></br><br></br>
-          <h5>Turismo atiende</h5>
+          <h5>{t('Turism')}</h5>
           <div className="carousel-subheader">
-            <h1>¿Qué hacer?</h1>
+            <h1>{t('WhatToDo')}</h1>
           </div>
         </div>
         <br></br>
-        <h5>¿Estas planeando una escapada con amigos, un fin de semana romántico o las vacaciones en familia? Acá te contamos qué, cómo y dónde puedes vivir esa experiencia que siempre soñaste y sumar algunas que aún no sabías que querías experimentar. ¡Vamos a la aventura!</h5>
+        <h5>{t('AdventureTime')}</h5>
                 <br></br><br></br><br></br>
                 <div className="carousel-subheader">
-            <h2>Contáctanos</h2>
+            <h2>{t('Contact1')}</h2>
           </div>
           <br></br><br></br>
 
@@ -41,7 +52,7 @@ const Zoit = () => {
     <p>+569 9458 0453</p>
   </div>
   <div className="contact-item">
-    <h3>Escríbenos</h3>
+    <h3>{t('WriteUs')}</h3>
     <p>turismoatiende@sernatur.cl</p>
   </div>
   <div className="contact-item">

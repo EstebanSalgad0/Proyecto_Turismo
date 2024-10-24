@@ -6,8 +6,19 @@ import '../styles/Turismo.css?v=1.4';
 import Footer from '../components/Footer';
 import SocialSection from '../components/SocialSeccion';
 import Header from '../components/Header';
+import '../components/i18n'; // Importa el archivo de configuración
+import { useTranslation } from 'react-i18next';
 
 const Zoit = () => {
+
+  const { t, i18n } = useTranslation(); // Hook para usar traducciones
+
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language'); // Obtener el idioma guardado
+    if (savedLanguage && savedLanguage !== i18n.language) {
+      i18n.changeLanguage(savedLanguage); // Cambiar el idioma si es necesario
+    }
+  }, [i18n.language]); // Añadir el estado del idioma como dependencia
 
   // Hook para desplazar la página al inicio cuando se carga el componente
   useEffect(() => {
@@ -23,21 +34,21 @@ const Zoit = () => {
       <section className="carousel-section">
         <div className="carousel-header">
             <br></br><br></br><br></br><br></br>
-          <h5>Se parte del catastro de servicios</h5>
+          <h5>{t('ServiceCadastre')}</h5>
           <div className="carousel-subheader">
-            <h1>Catastro de servicios</h1>
+            <h1>{t('CadastreService')}</h1>
           </div>
         </div>
         <br></br>
-        <h5>¡Únete al Catastro de Servicios para Artesanas/os, Bienes, Servicios y Cabañas!</h5>
+        <h5>{t('JoinService')}</h5>
                 <br></br>
-        <h5>Si eres artesana/o, ofreces productos, servicios o tienes cabañas, esta es tu oportunidad para formar parte de una comunidad que impulsa el desarrollo local. Regístrate en nuestro Catastro de Servicios y da a conocer tu oferta a nivel regional y nacional. Al inscribirte, podrás: </h5>
+        <h5>{t('Artisan')}</h5>
                <br></br>
-        <h5>- Visibilizar tu emprendimiento.</h5>
-        <h5>- Conectar con potenciales clientes.</h5>
-        <h5>- Formar parte de proyectos y actividades promocionales.</h5>
+        <h5>{t('Business')}</h5>
+        <h5>{t('Connect')}</h5>
+        <h5>{t('Promotional')}</h5>
         <br></br>
-        <h5>¡Es rápido, gratuito y sencillo! Primero debe registrarse como turista presionando los botones azules de abajo y luego solicitar acceso al administrador mediante la sección de Servicios para poder ofrecer sus servicios publicamente en esta plataforma. Lo esperamos.</h5>
+        <h5>{t('Fast')}</h5>
         <br></br>
         <br></br>
         <div className="carousel-subheader">
@@ -46,19 +57,19 @@ const Zoit = () => {
           <br></br>
           <div className="carousel-header">
   <h2>
-    <Link to="/registrarse">¿Eres Artesana/o? ¡Regístrate Aquí!</Link>
+    <Link to="/registrarse">{t('ArtisanRegister')}</Link>
   </h2>
 </div>
 <br />
 <div className="carousel-header">
   <h2>
-    <Link to="/registrarse">¿Ofreces Bienes y/o Servicios? ¡Regístrate Aquí!</Link>
+    <Link to="/registrarse">{t('BusinessRegister')}</Link>
   </h2>
 </div>
 <br />
 <div className="carousel-header">
   <h2>
-    <Link to="/registrarse">¿Tienes cabañas? ¡Regístrate Aquí!</Link>
+    <Link to="/registrarse">{t('CabinsRegister')}</Link>
   </h2>
 </div>
         

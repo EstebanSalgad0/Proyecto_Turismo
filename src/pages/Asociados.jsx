@@ -6,8 +6,20 @@ import '../styles/Turismo.css?v=1.6';
 import Footer from '../components/Footer';
 import SocialSection from '../components/SocialSeccion';
 import Header from '../components/Header';
+import '../components/i18n'; // Importa el archivo de configuración
+import { useTranslation } from 'react-i18next';
 
 const Zoit = () => {
+
+  const { t, i18n } = useTranslation(); // Hook para usar traducciones
+
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language'); // Obtener el idioma guardado
+    if (savedLanguage && savedLanguage !== i18n.language) {
+      i18n.changeLanguage(savedLanguage); // Cambiar el idioma si es necesario
+    }
+  }, [i18n.language]); // Añadir el estado del idioma como dependencia
+
   // Hook para desplazar la página al inicio cuando se carga el componente
   useEffect(() => {
     window.scrollTo(0, 0); // Mueve la página hacia la parte superior
@@ -22,26 +34,26 @@ const Zoit = () => {
       <section className="carousel-section">
         <div className="carousel-header">
             <br></br><br></br><br></br><br></br>
-          <h5>Visita Colbún</h5>
+          <h5>{t('VisitFooter')}</h5>
           <div className="carousel-subheader">
-            <h1>Asociados</h1>
+            <h1>{t('Associates')}</h1>
           </div>
         </div>
         <br></br>
         <div className="carousel-subheader">
-            <h2>Convenios establecidos</h2>
+            <h2>{t('Convenios')}</h2>
           </div>
           <br></br><br></br>
-        <h5>En enero del 2017, desde el Municipio se firmó un acuerdo con el Consejo Nacional de Cultura y las Artes, ingresando a la Agenda de Red Cultura comprometiéndose en 3 metas de gestión cultural entre los años 2017 y 2022:</h5>
+        <h5>{t('Convenios1')}</h5>
                 <br></br>
-        <h5>1. Disponer de al menos 2% del presupuesto municipal anual para asignar al ítem Cultura.</h5>
-        <h5>2. Contar con una persona especializada a cargo de Cultura.</h5>
-        <h5>3. Contar con un Plan Municipal de Cultura integrado en el PLADECO.</h5>
+        <h5>{t('Convenios2')}</h5>
+        <h5>{t('Convenios3')}</h5>
+        <h5>{t('Convenios4')}</h5>
         <br></br>
-        <h5>El 5 de mayo del 2017, por Decreto Extento N°001060 se aprueba la incorporación de la Municipalidad de Colbún a la Asociación Cultural del Maule, logrando tener acceso a recurso del Gobierno Regional para invertir en actividades culturales.</h5>
+        <h5>{t('Convenios5')}</h5>
         <br></br>
         <div className="carousel-subheader">
-            <h2>Redes de apoyo</h2>
+            <h2>{t('Convenios6')}</h2>
           </div>
           <br></br><br></br>
           <h5>- Fundación Superación de la Pobreza, Maule.</h5>

@@ -288,6 +288,49 @@
   right: 15px;
 }
 
+.info-section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.btn-blue2 {
+  background-color: transparent;
+  border: none;
+  font-size: 26px; /* Tamaño del ícono */
+  cursor: pointer;
+  padding: 0px;
+}
+
+.btn-blue2 i {
+  color: #007bff; /* Color del ícono */
+}
+
+.btn-blue2:hover i {
+  color: #0056b3; /* Cambio de color al hacer hover */
+}
+
+/* Styling for the map section */
+.map-section {
+  flex: 1;
+  margin-right: 10px;
+  height: 650px;
+}
+
+/* Existing content */
+.info-content1 {
+  flex: 1;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+/* Optional adjustments for the map iframe */
+.map-section iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
 .language-label {
   margin-bottom: -1px; /* Ajusta el valor según sea necesario */
   margin-right: -1px;
