@@ -45,6 +45,8 @@ import ListarServicios from './pages/mostrarServicios';
 import ListarServiciosPendientes from './pages/manejarServicios';
 import EditarServicio from './pages/EditarServicio';
 import Catastro_opiniones from './pages/Catastro_opiniones';
+import LeafletMapMelado from '../src/components/LeafletMapMelado';
+
 
 const App = () => {
   return (
@@ -94,6 +96,7 @@ const App = () => {
         <Route path="/manejarServicios" element={<ListarServiciosPendientes/>} />
         <Route path="/EditarServicio" element={<EditarServicio/>} />
         <Route path="/Catastro_opiniones" element={<Catastro_opiniones/>} />
+        <Route path="/LeafletMapMelado" element={<LeafletMapMelado/>} />
       </Routes>
 
       <SocialSection />

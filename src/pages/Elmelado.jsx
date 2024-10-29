@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
-import '../styles/Elmelado.css?v=1.3'; // Estilos específicos para el componente
+import LeafletMap from '../components/LeafletMapMelado';
+import '../styles/Elmelado.css?v=1.4'; // Estilos específicos para el componente
 import Footer from '../components/Footer'; 
 import SocialSection from '../components/SocialSeccion';
 import Header from '../components/Header';
 import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
+
 
 const Elmelado = () => {
   const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
@@ -62,17 +64,17 @@ const Elmelado = () => {
       <div className="info-section1">
         {/* Map Section */}
         <section className="map-section">
-          <iframe
-            src={
-              isFirstMap
-                ? "https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d415033.130862824!2d-71.74579409824344!3d-35.64137348183942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x9665c6a2ac07d07d%3A0x265657feafdac8b8!2sTalca!3m2!1d-35.4231882!2d-71.6496958!4m5!1s0x966f81458061102b%3A0xfaef80513d7f4f98!2sEl%20Melado%20Lodge%20-%20Alto%20Ancoa%2C%20Colb%C3%BAn%2C%20Maule!3m2!1d-35.8618603!2d-71.123295!5e0!3m2!1ses!2scl!4v1729200348270!5m2!1ses!2scl"
-                : "https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
-            }
-            width="100%"
-            height="1200"
-            allowFullScreen=""
-            loading="lazy"
-          ></iframe>
+          {isFirstMap ? (
+            <LeafletMap />
+          ) : (
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
+              width="100%"
+              height="1200"
+              allowFullScreen=""
+              loading="lazy"
+            ></iframe>
+          )}
         </section>
 
         {/* Existing Content Section */}
