@@ -1,22 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-import ReCAPTCHA from 'react-google-recaptcha';  // Importar el componente de reCAPTCHA
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Registrarse.css';
 
 const Registrarse = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [captchaToken, setCaptchaToken] = useState('');  // Estado para almacenar el token de reCAPTCHA
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
   const captchaKEY = import.meta.env.VITE_CAPTCHA_KEY;
 
-  // Función para manejar la respuesta de reCAPTCHA
-  const handleCaptcha = (token) => {
-    setCaptchaToken(token);  // Guardar el token de reCAPTCHA en el estado
-  };
+  useEffect(() => {
+    // Cargar el script de reCAPTCHA
+    const loadRecaptcha = () => {
+      const script = document.createElement('script');
+      script.src = `https://www.google.com/recaptcha/api.js?render=${captchaKEY}`;
+      script.async = true;
+      script.onload = () => {
+        console.log('reCAPTCHA script loaded');
+      };
+      document.body.appendChild(script);
+    };
+
+    loadRecaptcha();
+  }, [captchaKEY]);
 
   const validatePassword = (password) => {
     const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,15}$/;
@@ -31,54 +39,49 @@ const Registrarse = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    let validationError = "";
+    let validationError = '';
 
     if (!validateEmail(email)) {
-      validationError = "Por favor ingrese un correo electrónico válido.";
+      validationError = 'Por favor ingrese un correo electrónico válido.';
     }
 
     if (!validatePassword(password)) {
-      validationError = "La contraseña debe tener entre 8 y 15 caracteres, incluir al menos una mayúscula, un número y un símbolo.";
-    }
-
-    if (!captchaToken) {
-      validationError = "Por favor completa el reCAPTCHA para continuar.";
+      validationError = 'La contraseña debe tener entre 8 y 15 caracteres, incluir al menos una mayúscula, un número y un símbolo.';
     }
 
     if (validationError) {
       setErrorMessage(validationError);
       setTimeout(() => setErrorMessage(''), 3000); // Ocultar mensaje después de 3 segundos
+      return;
     } else {
       setErrorMessage('');
+    }
 
-      try {
-        // Hacer la solicitud POST al backend para registrar el usuario
-        const response = await axios.post(import.meta.env.VITE_REGISTRAR_URL, { // Importamos URL backend
-          email: email,
-          password: password,
-          role: 'turista',  // Asignamos el rol "turista"
-          captcha: captchaToken  // Enviar el token del reCAPTCHA al backend
-        });
+    try {
+      // Obtener el token de reCAPTCHA V3 al hacer clic en el botón
+      const recaptchaToken = await window.grecaptcha.execute(captchaKEY, { action: 'submit' });
 
-        // Almacenar el correo del usuario en localStorage
-        localStorage.setItem('userEmail', email);
+      // Hacer la solicitud POST al backend para registrar el usuario
+      const response = await axios.post(import.meta.env.VITE_REGISTRAR_URL, {
+        email,
+        password,
+        role: 'turista',
+        captcha: recaptchaToken, // Enviar el token de reCAPTCHA al backend
+      });
 
-        // Si el registro es exitoso, redirigir a la página de verificación
-        navigate('/Verificacion');
-      } catch (error) {
-        // Mostrar el mensaje de error recibido del backend
-        if (error.response && error.response.data) {
-          setErrorMessage(error.response.data.error || 'Error al registrar el usuario. Inténtelo de nuevo.');
-        } else {
-          setErrorMessage('Error al registrar el usuario. Inténtelo de nuevo.');
-        }
+      localStorage.setItem('userEmail', email);
+      navigate('/Verificacion');
+    } catch (error) {
+      if (error.response && error.response.data) {
+        setErrorMessage(error.response.data.error || 'Error al registrar el usuario. Inténtelo de nuevo.');
+      } else {
+        setErrorMessage('Error al registrar el usuario. Inténtelo de nuevo.');
       }
     }
   };
 
   return (
     <div className="registrarse-container">
-      {/* Alerta flotante */}
       {errorMessage && (
         <div className="alert-float">
           {errorMessage}
@@ -110,14 +113,6 @@ const Registrarse = () => {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Crea una contraseña"
               required
-            />
-          </div>
-
-          {/* Integración de reCAPTCHA */}
-          <div className="recaptcha-container">
-            <ReCAPTCHA
-              sitekey={captchaKEY}  // Reemplaza con tu clave del sitio reCAPTCHA
-              onChange={handleCaptcha}
             />
           </div>
 

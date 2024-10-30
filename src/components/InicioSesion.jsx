@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import axios from 'axios'; 
-import ReCAPTCHA from 'react-google-recaptcha';  // Importa reCAPTCHA
+import React, { useState, useEffect } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'boxicons/css/boxicons.min.css';
 import "../styles/InicioSesion.css";
@@ -10,21 +8,30 @@ import "../styles/InicioSesion.css";
 const InicioSesion = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [captchaToken, setCaptchaToken] = useState(''); // Estado para el token de captcha
   const [errorMessage, setErrorMessage] = useState(''); // Estado para manejar errores
   const navigate = useNavigate();
   const captchaKEY = import.meta.env.VITE_CAPTCHA_KEY;
 
+  useEffect(() => {
+    // Cargar el script de reCAPTCHA
+    const loadRecaptcha = () => {
+      const script = document.createElement('script');
+      script.src = `https://www.google.com/recaptcha/api.js?render=${captchaKEY}`;
+      script.async = true;
+      script.onload = () => {
+        console.log('reCAPTCHA script loaded');
+      };
+      document.body.appendChild(script);
+    };
+
+    loadRecaptcha();
+  }, [captchaKEY]);
+
   // Función para validar el formato del correo electrónico
   const validateEmail = (email) => /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(email);
 
-  // Función para validar la contraseña (entre 8-15 caracteres, al menos una mayúscula, un número y un símbolo)
+  // Función para validar la contraseña
   const validatePassword = (password) => /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,15}$/.test(password);
-
-  // Función para manejar el cambio del captcha
-  const onCaptchaChange = (value) => {
-    setCaptchaToken(value); // Guardar el token de reCAPTCHA
-  };
 
   // Función para manejar el envío del formulario
   const handleSubmit = async (event) => {
@@ -41,16 +48,14 @@ const InicioSesion = () => {
       return;
     }
 
-    if (!captchaToken) {
-      setErrorMessage('Por favor verifica que no eres un robot.');
-      return;
-    }
-
+    // Obtener el token de reCAPTCHA V3
     try {
-      const response = await axios.post(import.meta.env.VITE_LOGIN_URL, { // Importamos URL backend
+      const captchaToken = await window.grecaptcha.execute(captchaKEY, { action: 'login' }); // Acción asociada con 'login'
+
+      const response = await axios.post(import.meta.env.VITE_LOGIN_URL, {
         email: email,
         password: password,
-        captcha: captchaToken,  // Enviar el token del captcha al backend
+        captcha: captchaToken, // Enviar el token del captcha al backend
       });
 
       const { token, role } = response.data; // Asegurarse de que el backend devuelva el token y rol correctamente
@@ -58,7 +63,7 @@ const InicioSesion = () => {
       localStorage.setItem('userRole', role); // Guardar el rol en el localStorage
       navigate('/Index');
     } catch (error) {
-      setErrorMessage('Credenciales incorrectas. Inténtalo de nuevo.');
+      setErrorMessage('Credenciales incorrectas o error en la verificación del captcha. Inténtalo de nuevo.');
     }
   };
 
@@ -67,7 +72,7 @@ const InicioSesion = () => {
       <div className="wrapper-is">
         <form onSubmit={handleSubmit}>
           <div className='Logo'></div>
-          
+
           <h1>Te damos la bienvenida a Cultura y Turismo</h1>
 
           {/* Alerta flotante para mostrar errores */}
@@ -99,13 +104,6 @@ const InicioSesion = () => {
               />
               <i className='bx bx-lock-alt'></i>
             </div>
-          </div>
-
-          <div className='recaptcha-container'>
-          <ReCAPTCHA
-            sitekey={captchaKEY} // Reemplaza con tu clave de sitio reCAPTCHA
-            onChange={onCaptchaChange}
-          />
           </div>
 
           <button type="submit" className="btn-is">Iniciar sesión</button>

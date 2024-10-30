@@ -1,11 +1,13 @@
-import requests  # Importa el módulo requests, que permite hacer solicitudes HTTP en Python.
-from django.conf import settings  # Importa el módulo settings de Django, que permite acceder a las configuraciones del proyecto.
+import requests
+from django.conf import settings
 
-def verify_captcha(captcha_response):  # Define una función que verifica la respuesta de reCAPTCHA enviada desde el frontend.
-    payload = {  
-        'secret': settings.RECAPTCHA_SECRET_KEY,  # El campo 'secret' se llena con la clave secreta de reCAPTCHA, obtenida desde las configuraciones del proyecto.
-        'response': captcha_response  # El campo 'response' contiene la respuesta del captcha, enviada por el usuario.
+def verify_captcha(captcha_response):
+    payload = {
+        'secret': settings.RECAPTCHA_SECRET_KEY,
+        'response': captcha_response
     }
-    response = requests.post('https://www.google.com/recaptcha/api/siteverify', data=payload)  # Realiza una solicitud POST a la API de verificación de reCAPTCHA de Google, enviando el payload.
-    result = response.json()  # Convierte la respuesta de la solicitud en formato JSON.
-    return result.get('success', False)  # Devuelve True si la verificación del captcha fue exitosa, o False si no lo fue.
+    response = requests.post('https://www.google.com/recaptcha/api/siteverify', data=payload)
+    result = response.json()
+    
+    # Verificar que la respuesta sea exitosa y el puntaje sea superior a 0.5
+    return result.get('success', False) and result.get('score', 0) > 0.5
