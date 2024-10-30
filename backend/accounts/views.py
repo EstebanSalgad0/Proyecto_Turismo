@@ -67,7 +67,7 @@ class RegisterView(APIView):  # Define una clase para manejar la vista de regist
             return Response({'error': 'Faltan datos'}, status=status.HTTP_400_BAD_REQUEST)  # Si faltan datos, devuelve un error.
 
         try:
-            user = CustomUser.objects.create_user(email=email, password=password, role='turista', is_active=False)  # Crea un nuevo usuario con el rol 'turista' y lo marca como inactivo inicialmente.
+            user = CustomUser.objects.create_user(email=email, password=password, role='oferente', is_active=False)  # Crea un nuevo usuario con el rol 'oferente' y lo marca como inactivo inicialmente.
             user.save()  # Guarda el usuario en la base de datos.
 
             # Enviar correo de verificación
