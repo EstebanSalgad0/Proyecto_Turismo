@@ -74,6 +74,7 @@ const Panoramas = () => {
       {/* Carousel Section */}
       <section className="carousel-section1">
         <div className="carousel-header1">
+          <br></br><br></br><br></br><br></br><br></br>
           <h5>{t('Admire')}</h5>
           <div className="carousel-subheader1">
             <h2>{t('NaturalBeauty')}</h2>
