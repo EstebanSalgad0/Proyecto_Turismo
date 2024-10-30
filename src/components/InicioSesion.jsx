@@ -13,6 +13,7 @@ const InicioSesion = () => {
   const [captchaToken, setCaptchaToken] = useState(''); // Estado para el token de captcha
   const [errorMessage, setErrorMessage] = useState(''); // Estado para manejar errores
   const navigate = useNavigate();
+  const captchaKEY = import.meta.env.VITE_CAPTCHA_KEY;
 
   // Función para validar el formato del correo electrónico
   const validateEmail = (email) => /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(email);
@@ -46,7 +47,7 @@ const InicioSesion = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:8000/api/login/', {
+      const response = await axios.post(import.meta.env.VITE_LOGIN_URL, { // Importamos URL backend
         email: email,
         password: password,
         captcha: captchaToken,  // Enviar el token del captcha al backend
@@ -102,7 +103,7 @@ const InicioSesion = () => {
 
           <div className='recaptcha-container'>
           <ReCAPTCHA
-            sitekey="6LdasmIqAAAAAF4N767_sMTOr62p9lsJOLqLzXYu"  // Reemplaza con tu clave de sitio reCAPTCHA
+            sitekey={captchaKEY} // Reemplaza con tu clave de sitio reCAPTCHA
             onChange={onCaptchaChange}
           />
           </div>

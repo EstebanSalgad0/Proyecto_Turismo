@@ -11,7 +11,7 @@ const ListarServicios = () => {
     useEffect(() => {
         const fetchServicios = async () => {
             try {
-                const response = await axios.get('http://localhost:8000/api/listar_servicios_aceptados/');
+                const response = await axios.get(import.meta.env.VITE_MOSTRAR_SERVICIOS_URL);
                 setServicios(response.data);
             } catch (error) {
                 console.error('Error al obtener los servicios:', error);

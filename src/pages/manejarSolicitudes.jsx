@@ -14,7 +14,7 @@ const AdminPanel = () => {
   // Fetch de solicitudes
   const fetchSolicitudes = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/solicitudes/', {
+      const response = await axios.get(import.meta.env.VITE_SOLICITUDES_URL, {
         headers: {
           Authorization: `Token ${token}`,
         },
@@ -33,7 +33,7 @@ const AdminPanel = () => {
   // Manejar solicitudes de oferentes (aceptar/rechazar)
   const manejarSolicitud = async (id, accion) => {
     try {
-      const response = await axios.post(`http://localhost:8000/api/manejar_solicitud/${id}/`, { accion }, {
+      const response = await axios.post(import.meta.env.VITE_SOLICITUDES_ID_URL, { accion }, {
         headers: {
           Authorization: `Token ${token}`,
         },

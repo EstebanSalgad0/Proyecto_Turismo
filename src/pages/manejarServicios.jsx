@@ -15,7 +15,7 @@ const AdminPanel = () => {
   // Fetch de servicios pendientes
   const fetchServicios = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/manejar_servicios/', {
+      const response = await axios.get(import.meta.env.VITE_SERVICIOS_URL, {
         headers: {
           'Authorization': `Token ${token}`,
         }
@@ -34,7 +34,7 @@ const AdminPanel = () => {
   // Manejar servicios (aceptar/rechazar)
   const handleServiceAction = async (servicioId, accion) => {
     try {
-      const response = await axios.post(`http://localhost:8000/api/manejar_servicios/${servicioId}/`, { accion }, {
+      const response = await axios.post(import.meta.env.VITE_SERVICIOS_ID_URL, { accion }, {
         headers: {
           'Authorization': `Token ${token}`
         }

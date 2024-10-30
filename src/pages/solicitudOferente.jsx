@@ -16,7 +16,7 @@ const SolicitudOferente = () => {
 
     try {
       // Enviar solicitud al backend
-      const response = await axios.post('http://localhost:8000/api/solicitar_oferente/', {
+      const response = await axios.post(import.meta.env.VITE_SOLICITUD_OFERENTE_URL, {
         email,
         password,
         servicio,

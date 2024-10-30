@@ -11,6 +11,7 @@ const Registrarse = () => {
   const [captchaToken, setCaptchaToken] = useState('');  // Estado para almacenar el token de reCAPTCHA
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
+  const captchaKEY = import.meta.env.VITE_CAPTCHA_KEY;
 
   // Función para manejar la respuesta de reCAPTCHA
   const handleCaptcha = (token) => {
@@ -52,7 +53,7 @@ const Registrarse = () => {
 
       try {
         // Hacer la solicitud POST al backend para registrar el usuario
-        const response = await axios.post('http://localhost:8000/api/register/', {
+        const response = await axios.post(import.meta.env.VITE_REGISTRAR_URL, { // Importamos URL backend
           email: email,
           password: password,
           role: 'turista',  // Asignamos el rol "turista"
@@ -115,7 +116,7 @@ const Registrarse = () => {
           {/* Integración de reCAPTCHA */}
           <div className="recaptcha-container">
             <ReCAPTCHA
-              sitekey="6LdasmIqAAAAAF4N767_sMTOr62p9lsJOLqLzXYu"  // Reemplaza con tu clave del sitio reCAPTCHA
+              sitekey={captchaKEY}  // Reemplaza con tu clave del sitio reCAPTCHA
               onChange={handleCaptcha}
             />
           </div>

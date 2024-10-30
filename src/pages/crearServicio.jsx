@@ -24,7 +24,7 @@ const CrearServicio = () => {
     const fetchServicios = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://localhost:8000/api/mis_servicios/', {
+            const response = await axios.get(import.meta.env.VITE_MIS_SERVICIOS_URL, {
                 headers: {
                     'Authorization': `Token ${token}`
                 }
@@ -54,7 +54,7 @@ const CrearServicio = () => {
 
             if (editMode) {
                 // Si estamos en modo de edición, actualizamos el servicio
-                response = await axios.put(`http://localhost:8000/api/mis_servicios/${editServicioId}/`, formData, {
+                response = await axios.put(import.meta.env.VITE_EDITAR_SERVICIOS_URL, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         'Authorization': `Token ${token}`
@@ -63,7 +63,7 @@ const CrearServicio = () => {
                 setMensaje('Servicio actualizado exitosamente!');
             } else {
                 // Si no estamos en modo de edición, creamos un nuevo servicio
-                response = await axios.post('http://localhost:8000/api/crear_servicio/', formData, {
+                response = await axios.post(import.meta.env.VITE_CREAR_SERVICIOS_URL, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         'Authorization': `Token ${token}`
@@ -95,7 +95,7 @@ const CrearServicio = () => {
     const handleDelete = async () => {
         try {
             const token = localStorage.getItem('token');
-            await axios.delete(`http://localhost:8000/api/mis_servicios/${deleteServiceId}/`, {
+            await axios.delete(import.meta.env.VITE_ELIMINAR_SERVICIOS_URL, {
                 headers: {
                     'Authorization': `Token ${token}`
                 }
@@ -112,7 +112,7 @@ const CrearServicio = () => {
     const handleReenviar = async (servicioId) => {
         try {
             const token = localStorage.getItem('token');
-            await axios.post(`http://localhost:8000/api/reenviar_servicio/${servicioId}/`, { accion: 'reenviar' }, {
+            await axios.post(import.meta.env.VITE_REENVIAR_SERVICIOS_URL, { accion: 'reenviar' }, {
                 headers: {
                     'Authorization': `Token ${token}`
                 }
