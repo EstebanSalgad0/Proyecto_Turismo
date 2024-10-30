@@ -185,6 +185,22 @@
     text-align: center;
   }
 
+  /* Contenedor para escalar el iframe */
+.calendar-container {
+  height: 400px;
+  width: 60%; /* Ancho completo */
+  display: flex;
+  justify-content: center;
+  overflow: hidden; /* Oculta cualquier desbordamiento */
+  transform: scale(1.4); /* Escala para ajustar el tamaño */
+  transform-origin: top; /* Fija el punto de escala en la parte superior */
+  margin: 0 auto; /* Centra el contenedor */
+}
+
+.calendar-container iframe {
+  border-radius: 10px; /* Opcional: redondea los bordes del calendario */
+}
+
     /* Modo Oscuro */
     body.dark-mode {
       background-color: #555;
