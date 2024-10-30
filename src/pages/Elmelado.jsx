@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
 import LeafletMap from '../components/LeafletMapMelado';
-import '../styles/Elmelado.css?v=1.4'; // Estilos específicos para el componente
+import '../styles/Elmelado.css?v=1.6'; // Estilos específicos para el componente
 import Footer from '../components/Footer'; 
 import SocialSection from '../components/SocialSeccion';
 import Header from '../components/Header';
