@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';  // Importar useNavigate para redirigir
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import '../styles/Header.css?v=3.0';
+import '../styles/Header.css?v=3.1';
 import './i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
 
@@ -55,9 +55,39 @@ const Header = () => {
   // Lista de vistas disponibles con sus nombres y rutas
   const pages = [
     { name: "El Melado", path: "/ElMelado" },
-    { name: "Paso Pehuenche", path: "/Paso-pehuenche" },
+    { name: "Paso Pehuenche", path: "/Pasopehuenche" },
     { name: "Colbún", path: "/Colbun" },
     { name: "Colbún Alto", path: "/Colbun-alto" },
+    { name: "Asociados", path: "/Asociados" },
+    { name: "Balnearios", path: "/Balnearios" },
+    { name: "Petroglifos", path: "/Cultura2" },
+    { name: "Iglesia de Panimavida", path: "/Cultura3" },
+    { name: "Termas de Panimavida", path: "/Cultura4" },
+    { name: "Piedra Toba", path: "/Cultura" },
+    { name: "La Guardia", path: "/Laguardia" },
+    { name: "Los Bellotos", path: "/Losbellotos" },
+    { name: "Los boldos", path: "/Losboldos" },
+    { name: "OIT", path: "/OIT" },
+    { name: "Panimavida", path: "/Panimavida" },
+    { name: "Panoramas", path: "/Panoramas" },
+    { name: "Parques nacionales", path: "/Parque" },
+    { name: "Politicas de Privacidad", path: "/Privacidad" },
+    { name: "Belleza Natural", path: "/QueHacer" },
+    { name: "Quinamavida", path: "/Quinamavida" },
+    { name: "Rabones", path: "/Rabones" },
+    { name: "Rari", path: "/Rari" },
+    { name: "Volcan San Pedro y San Pablo", path: "/Senderismo" },
+    { name: "Lagunas Verdes", path: "/Senderismo2" },
+    { name: "Las Cuevas", path: "/Senderismo3" },
+    { name: "Piedra del Indio", path: "/Senderismo4" },
+    { name: "Termas", path: "/Termas" },
+    { name: "Sobre Nosotros", path: "/SobreNosotros" },
+    { name: "Zona ZOIT", path: "/Zoit" },
+    { name: "Registrarse Oferente", path: "/registrarse" },
+    { name: "Iniciar Sesión", path: "/login" },
+    { name: "Ver Servicios", path: "/mostrarServicios" },
+    { name: "Turismo Atiende", path: "/Turismo" },
+    { name: "Folletería y Mapas", path: "/Folleteria" },
     // Agrega aquí todas las demás vistas como objetos con `name` y `path`
   ];
 
@@ -330,7 +360,7 @@ const Header = () => {
         </button>
       </form>
       {searchQuery && (
-        <ul className="search-results">
+        <ul className="dropdown-menu1">
           {searchResults.map((result, index) => (
             <li key={index} onClick={() => handleResultClick(result.path)}>
               {result.name}

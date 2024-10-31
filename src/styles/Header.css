@@ -5,6 +5,12 @@
     list-style-type: none;
     right: -30%;
   }
+  .dropdown-menu1 {
+    position: relative;
+    display: block;
+    list-style-type: none;
+    right: -30%;
+  }
 
   .icon-image2 {
     margin-top: -6px;
@@ -127,6 +133,11 @@
     cursor: pointer;
     position: relative; /* Añadido para que el submenú sea relativo a su padre */
   }
+  .dropdown-menu1 > li {
+    padding: 10px;
+    cursor: pointer;
+    position: relative; /* Añadido para que el submenú sea relativo a su padre */
+  }
   
   .dropdown-submenu {
     position: absolute;
@@ -147,6 +158,9 @@
   .dropdown-menu > li:hover .dropdown-submenu {
     display: block; /* Muestra el submenú al pasar el mouse */
   }
+  .dropdown-menu1 > li:hover .dropdown-submenu {
+    display: block; /* Muestra el submenú al pasar el mouse */
+  }
   
   a {
     text-decoration: none;
@@ -155,6 +169,9 @@
   
   /* Estilos adicionales */
   .dropdown-menu > li:hover {
+    background-color: #f0f0f0; /* Cambia el color de fondo al pasar el mouse */
+  }
+  .dropdown-menu1 > li:hover {
     background-color: #f0f0f0; /* Cambia el color de fondo al pasar el mouse */
   }
 
@@ -270,6 +287,28 @@
   }
   
   .dropdown-menu li a {
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+  }
+  .dropdown-menu1 {
+    position: absolute;
+    top: 100%;
+    left: -380px;
+    right: 34px;
+    background-color: white;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    display: block;
+  }
+  
+  .dropdown-menu1 li {
+    padding: 10px 20px;
+  }
+  
+  .dropdown-menu1 li a {
     color: black;
     text-decoration: none;
     font-size: 16px;
