@@ -18,7 +18,9 @@ se necesita tener instalado Django y nodejs
 
 8. Instalar i18n para traducciones = npm install i18next react-i18next
 
-9. Para arrancar el entorno virtual = npm run dev
+9. Instalar Leaflet y OpenStreetMap = npm install leaflet leaflet-routing-machine
 
-10. para arrancar la base de datos/login = manage.py runserver 
+10. Para arrancar el entorno virtual = npm run dev
+
+11. para arrancar la base de datos/login = manage.py runserver 
 
