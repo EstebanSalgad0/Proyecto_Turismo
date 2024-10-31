@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';  // Importar useNavigate para redirigir
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import '../styles/Header.css?v=2.8';
+import '../styles/Header.css?v=3.0';
 import './i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
 
@@ -17,6 +17,7 @@ const Header = () => {
   const [role, setRole] = useState(''); // Estado para el rol del usuario
   const { t, i18n } = useTranslation(); // Hook para usar traducciones
   const [searchOpen, setSearchOpen] = useState(false); // Estado para controlar la visibilidad de la barra de búsqueda
+  const [searchResults, setSearchResults] = useState([]);
   const [searchQuery, setSearchQuery] = useState(''); // Estado para almacenar el valor de la búsqueda
 
   // Estado para el idioma
@@ -27,14 +28,38 @@ const Header = () => {
   };
 
   const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value); // Actualiza el valor de la barra de búsqueda
+    const query = e.target.value;
+    setSearchQuery(query);
+    if (query) {
+      const results = pages.filter(page => page.name.toLowerCase().includes(query.toLowerCase()));
+      setSearchResults(results);
+    } else {
+      setSearchResults([]);
+    }
   };
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    // Aquí puedes manejar la lógica para buscar dentro de la página
-    console.log('Buscando:', searchQuery);
+    if (searchResults.length > 0) {
+      navigate(searchResults[0].path);
+      setSearchOpen(false);
+    }
   };
+
+  // Redirige al hacer clic en un resultado de búsqueda
+  const handleResultClick = (path) => {
+    navigate(path);
+    setSearchOpen(false);
+  };
+
+  // Lista de vistas disponibles con sus nombres y rutas
+  const pages = [
+    { name: "El Melado", path: "/ElMelado" },
+    { name: "Paso Pehuenche", path: "/Paso-pehuenche" },
+    { name: "Colbún", path: "/Colbun" },
+    { name: "Colbún Alto", path: "/Colbun-alto" },
+    // Agrega aquí todas las demás vistas como objetos con `name` y `path`
+  ];
 
   // Función para alternar el idioma y guardar preferencia en localStorage
   const toggleLanguage = () => {
@@ -287,24 +312,35 @@ const Header = () => {
   </button>
 </div>
 <div className="navbar-search">
-        <button onClick={toggleSearch}>
-          <i className="bi bi-search"></i>
-        </button>
+  <button onClick={toggleSearch}>
+    <i className="bi bi-search"></i>
+  </button>
 
-        {searchOpen && ( // Mostrar la barra de búsqueda solo si searchOpen es true
-          <form onSubmit={handleSearchSubmit} className="search-bar">
-            <input
-              type="text"
-              placeholder={t('WhatSearch')} // Texto placeholder traducido
-              value={searchQuery}
-              onChange={handleSearchChange}
-            />
-            <button type="submit">
-              <i className="bi bi-arrow-right"></i>
-            </button>
-          </form>
-        )}
-      </div>
+  {searchOpen && (
+    <div className="search-container"> {/* Envuelve el formulario de búsqueda y los resultados */}
+      <form onSubmit={handleSearchSubmit} className="search-bar">
+        <input
+          type="text"
+          placeholder={t('WhatSearch')}
+          value={searchQuery}
+          onChange={handleSearchChange}
+        />
+        <button type="submit">
+          <i className="bi bi-arrow-right"></i>
+        </button>
+      </form>
+      {searchQuery && (
+        <ul className="search-results">
+          {searchResults.map((result, index) => (
+            <li key={index} onClick={() => handleResultClick(result.path)}>
+              {result.name}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  )}
+</div>
 
       <div className="dark-mode-toggle">
       <button onClick={toggleDarkMode} className='btn-blue2'>
