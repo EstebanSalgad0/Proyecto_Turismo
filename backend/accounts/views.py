@@ -52,53 +52,64 @@ class CustomAuthToken(ObtainAuthToken):  # Define una clase CustomAuthToken que 
 
 CustomUser = get_user_model()  # Obtiene el modelo de usuario personalizado configurado en el proyecto.
 
-class RegisterView(APIView):  # Define una clase para manejar la vista de registro de usuarios, heredando de APIView.
-    def post(self, request):  # Sobrescribe el método POST para manejar la creación de usuarios.
-        email = request.data.get('email')  # Obtiene el email proporcionado en la solicitud POST.
-        password = request.data.get('password')  # Obtiene la contraseña proporcionada en la solicitud POST.
-        captcha_response = request.data.get('captcha')  # Obtiene la respuesta del captcha proporcionada en la solicitud POST.
+class RegisterView(APIView):
+    def post(self, request):
+        email = request.data.get('email')
+        password = request.data.get('password')
+        captcha_response = request.data.get('captcha')
+        tipo_oferente = request.data.get('tipo_oferente')  # Obtiene el tipo de oferente
 
         # Verificar CAPTCHA
-        if not verify_captcha(captcha_response):  # Llama a la función verify_captcha para validar el captcha.
+        if not verify_captcha(captcha_response):
             return Response({'error': 'Captcha inválido. Por favor verifica que no eres un robot.'}, status=status.HTTP_400_BAD_REQUEST)
-            # Si el captcha no es válido, devuelve un error con estado 400.
 
-        if not email or not password:  # Verifica que tanto el email como la contraseña hayan sido proporcionados.
-            return Response({'error': 'Faltan datos'}, status=status.HTTP_400_BAD_REQUEST)  # Si faltan datos, devuelve un error.
+        if not email or not password:
+            return Response({'error': 'Faltan datos'}, status=status.HTTP_400_BAD_REQUEST)
 
         try:
-            user = CustomUser.objects.create_user(email=email, password=password, role='oferente', is_active=False)  # Crea un nuevo usuario con el rol 'oferente' y lo marca como inactivo inicialmente.
-            user.save()  # Guarda el usuario en la base de datos.
+            user = CustomUser.objects.create_user(
+                email=email, password=password, role='oferente', tipo_oferente=tipo_oferente, is_active=False
+            )
+            user.save()
 
             # Enviar correo de verificación
-            token = default_token_generator.make_token(user)  # Genera un token de verificación para el usuario.
-            uid = urlsafe_base64_encode(force_bytes(user.pk))  # Codifica el ID del usuario de forma segura para la URL.
-            current_site = get_current_site(request)  # Obtiene el sitio actual (dominio) desde donde se realiza la solicitud.
-            verification_link = reverse('activate', kwargs={'uidb64': uid, 'token': token})  # Genera la URL para la activación de la cuenta.
-            activation_url = f"http://{current_site.domain}{verification_link}"  # Crea la URL completa de activación con el dominio actual.
+            token = default_token_generator.make_token(user)
+            uid = urlsafe_base64_encode(force_bytes(user.pk))
+            current_site = get_current_site(request)
+            verification_link = reverse('activate', kwargs={'uidb64': uid, 'token': token})
+            activation_url = f"http://{current_site.domain}{verification_link}"
+
+            # Seleccionar el asunto y la plantilla según el tipo de oferente
+            if tipo_oferente == 'artesano':
+                subject = 'Activa tu cuenta como Artesano/a en Turismo Colbún'
+                template_name = 'accounts/activation_email_artesano.html'
+            elif tipo_oferente == 'bienesServicios':
+                subject = 'Activa tu cuenta de Bienes y Servicios en Turismo Colbún'
+                template_name = 'accounts/activation_email_bienes.html'
+            elif tipo_oferente == 'cabanas':
+                subject = 'Activa tu cuenta de Cabañas en Turismo Colbún'
+                template_name = 'accounts/activation_email_cabanas.html'
+            else:
+                return Response({'error': 'Tipo de oferente no válido.'}, status=status.HTTP_400_BAD_REQUEST)
 
             # Renderizar el contenido HTML y la versión en texto plano
-            html_content = render_to_string('accounts/activation_email.html', {
-                'user': user,  # Pasa el usuario y la URL de activación a la plantilla HTML del correo.
+            html_content = render_to_string(template_name, {
+                'user': user,
                 'activation_url': activation_url,
             })
-            text_content = strip_tags(html_content)  # Convierte el contenido HTML a texto plano por si el cliente de correo no soporta HTML.
+            text_content = strip_tags(html_content)
 
-            # Crear el objeto de correo electrónico con HTML
-            subject = 'Activa tu cuenta en Turismo Colbún'  # Asigna el asunto del correo.
-            from_email = 'mueca@mueblescaracol.cl'  # Asigna la dirección de correo del remitente.
-            to_email = user.email  # Asigna la dirección de correo del destinatario.
-
-            email = EmailMultiAlternatives(subject, text_content, from_email, [to_email])  # Crea un objeto de correo electrónico con la versión de texto plano.
-            email.attach_alternative(html_content, "text/html")  # Adjunta la versión HTML del correo.
-
-            # Enviar el correo
-            email.send()  # Envía el correo de verificación.
+            # Crear y enviar el correo
+            from_email = 'mueca@mueblescaracol.cl'
+            to_email = user.email
+            email = EmailMultiAlternatives(subject, text_content, from_email, [to_email])
+            email.attach_alternative(html_content, "text/html")
+            email.send()
 
             return Response({'message': 'Usuario registrado. Revisa tu correo para activar la cuenta.'}, status=status.HTTP_201_CREATED)
-            # Si todo sale bien, devuelve un mensaje de éxito con estado 201 (usuario creado).
-        except Exception as e:  # Captura cualquier excepción que pueda ocurrir.
-            return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)  # Si ocurre un error, devuelve el mensaje del error con estado 400.
+
+        except Exception as e:
+            return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
 class ActivateAccountView(APIView):  # Define una vista para activar cuentas de usuario, heredando de APIView.
     def get(self, request, uidb64, token):  # Sobrescribe el método GET para manejar las solicitudes de activación de cuenta.

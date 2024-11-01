@@ -2,10 +2,10 @@ from rest_framework import serializers  # Importa el módulo serializers de Djan
 from .models import CustomUser  # Importa el modelo CustomUser desde los modelos locales.
 from .models import Servicio  # Importa el modelo Servicio desde los modelos locales.
 
-class UserSerializer(serializers.ModelSerializer):  # Define un serializador para el modelo CustomUser, heredando de ModelSerializer.
-    class Meta:  # Meta clase para especificar detalles del serializador.
-        model = CustomUser  # Especifica que el modelo a serializar es CustomUser.
-        fields = ['id', 'email', 'first_name', 'last_name', 'is_active', 'role']  # Define los campos que se incluirán en la serialización: ID, email, nombre, apellido, estado activo y rol.
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = ['id', 'email', 'first_name', 'last_name', 'is_active', 'role', 'tipo_oferente']  # Agregar tipo_oferente aquí
 
 class ServicioSerializer(serializers.ModelSerializer):  # Define un serializador para el modelo Servicio, heredando de ModelSerializer.
     class Meta:  # Meta clase para especificar detalles del serializador.

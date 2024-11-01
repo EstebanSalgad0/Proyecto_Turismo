@@ -10,6 +10,12 @@ const Registrarse = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
   const captchaKEY = import.meta.env.VITE_CAPTCHA_KEY;
+  const [tipoOferente, setTipoOferente] = useState("");
+
+  const handleTipoOferenteChange = (e) => {
+    console.log(`Tipo de Oferente cambiado: ${e.target.value}`);
+    setTipoOferente(e.target.value);
+  };
 
   useEffect(() => {
     // Cargar el script de reCAPTCHA
@@ -28,25 +34,32 @@ const Registrarse = () => {
 
   const validatePassword = (password) => {
     const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,15}$/;
-    return passwordRegex.test(password);
+    const isValid = passwordRegex.test(password);
+    console.log(`Validación de contraseña: ${isValid}`);
+    return isValid;
   };
 
   const validateEmail = (email) => {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    return emailRegex.test(email);
+    const isValid = emailRegex.test(email);
+    console.log(`Validación de correo electrónico: ${isValid}`);
+    return isValid;
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log('Formulario enviado');
 
     let validationError = '';
 
     if (!validateEmail(email)) {
       validationError = 'Por favor ingrese un correo electrónico válido.';
+      console.log('Error de validación:', validationError);
     }
 
     if (!validatePassword(password)) {
       validationError = 'La contraseña debe tener entre 8 y 15 caracteres, incluir al menos una mayúscula, un número y un símbolo.';
+      console.log('Error de validación:', validationError);
     }
 
     if (validationError) {
@@ -60,18 +73,22 @@ const Registrarse = () => {
     try {
       // Obtener el token de reCAPTCHA V3 al hacer clic en el botón
       const recaptchaToken = await window.grecaptcha.execute(captchaKEY, { action: 'submit' });
+      console.log('Token reCAPTCHA obtenido:', recaptchaToken);
 
       // Hacer la solicitud POST al backend para registrar el usuario
       const response = await axios.post(import.meta.env.VITE_REGISTRAR_URL, {
         email,
         password,
-        role: 'turista',
-        captcha: recaptchaToken, // Enviar el token de reCAPTCHA al backend
+        role: 'oferente',
+        tipo_oferente: tipoOferente, // Enviar tipoOferente aquí
+        captcha: recaptchaToken,
       });
+      console.log('Respuesta del servidor:', response.data);
 
       localStorage.setItem('userEmail', email);
       navigate('/Verificacion');
     } catch (error) {
+      console.error('Error al registrar el usuario:', error);
       if (error.response && error.response.data) {
         setErrorMessage(error.response.data.error || 'Error al registrar el usuario. Inténtelo de nuevo.');
       } else {
@@ -114,6 +131,16 @@ const Registrarse = () => {
               placeholder="Crea una contraseña"
               required
             />
+          </div>
+
+          <div className="input-box-regis">
+            <label htmlFor="tipoOferente">Tipo de Oferente:</label>
+            <select id="tipoOferente" value={tipoOferente} onChange={handleTipoOferenteChange} required>
+                <option value="">Seleccione una opción</option>
+                <option value="artesano">Artesano/a</option>
+                <option value="bienesServicios">Bienes y Servicios</option>
+                <option value="cabanas">Cabañas</option>
+            </select>
           </div>
 
           <button type="submit" className="btn-regis">Continuar</button>

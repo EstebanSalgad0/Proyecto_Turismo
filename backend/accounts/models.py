@@ -33,7 +33,14 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):  # Define un modelo Custom
         ('admin', 'Administrador'),  # Opción de rol 'admin'.
         ('oferente', 'Oferente'),  # Opción de rol 'oferente'.
     )
-    role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='turista')  # Campo que almacena el rol del usuario, por defecto 'turista'.
+    role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='oferente')  # Campo que almacena el rol del usuario, por defecto 'turista'.
+
+    OFERENTE_CHOICES = [
+        ('artesano', 'artesano'),
+        ('bienesServicios', 'bienesServicios'),
+        ('cabanas', 'cabanas')
+    ]
+    tipo_oferente = models.CharField(max_length=20, choices=OFERENTE_CHOICES, default='artesano')
 
     objects = CustomUserManager()  # Asigna el CustomUserManager como el administrador de usuarios.
 
@@ -42,6 +49,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):  # Define un modelo Custom
 
     def __str__(self):  # Define la representación en string del usuario.
         return self.email  # Muestra el email como la representación del usuario.
+    
 
 # Modelo para las solicitudes de los usuarios para convertirse en oferentes
 class SolicitudOferente(models.Model):  # Define un modelo para gestionar las solicitudes de los usuarios que desean convertirse en oferentes.
