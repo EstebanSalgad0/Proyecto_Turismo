@@ -28,11 +28,15 @@ from accounts.views import ManejarServiciosView  # Vista para manejar acciones s
 from accounts.views import ListarServiciosAceptadosView  # Vista para listar servicios que han sido aceptados.
 from accounts.views import MisServiciosView  # Vista para que los usuarios vean sus propios servicios.
 from accounts.views import ActivateAccountView  # Vista para activar cuentas de usuario mediante un enlace de verificación.
+from accounts.views import RegisterView, ActivateView
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),  # Ruta para acceder al panel de administración de Django.
     path('api/login/', CustomAuthToken.as_view(), name='login'),  # Ruta para el inicio de sesión utilizando el token de autenticación personalizada.
     path('api/register/', RegisterView.as_view(), name='register'),  # Ruta para el registro de nuevos usuarios.
+    path('activate/<uidb64>/<token>/', ActivateView.as_view(), name='activate'),
+    path('activation_success/', TemplateView.as_view(template_name='accounts/activation_success.html'), name='activation_success'),
     path('activate/<uidb64>/<token>/', ActivateAccountView.as_view(), name='activate'),  # Ruta para activar la cuenta de un usuario utilizando un token y un ID codificado.
     path('api/solicitar_oferente/', SolicitudOferenteView.as_view(), name='solicitar_oferente'),  # Ruta para que los usuarios soliciten convertirse en oferentes.
     path('api/manejar_solicitud/<int:solicitud_id>/', ManejarSolicitudOferenteView.as_view(), name='manejar_solicitud'),  # Ruta para manejar la aceptación o rechazo de una solicitud de oferente.

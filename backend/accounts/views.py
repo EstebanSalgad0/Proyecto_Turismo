@@ -24,6 +24,19 @@ from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated  #
 from .models import SolicitudOferente, Servicio  # Importa los modelos SolicitudOferente y Servicio de la app.
 from .serializers import ServicioSerializer  # Importa el serializador ServicioSerializer para el modelo Servicio.
 from django.utils import timezone  # Importa timezone para manejar fechas y horas con soporte de zona horaria.
+from django.urls import reverse
+from django.utils.http import urlsafe_base64_encode
+from django.utils.encoding import force_bytes
+from django.contrib.sites.shortcuts import get_current_site
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from django.utils.html import strip_tags
+from django.contrib.auth.tokens import default_token_generator
+from django.shortcuts import get_object_or_404, render, redirect
+from .models import CustomUser
 
 class CustomAuthToken(ObtainAuthToken):  # Define una clase CustomAuthToken que hereda de ObtainAuthToken para personalizar la autenticación basada en tokens.
     def post(self, request, *args, **kwargs):  # Sobrescribe el método POST para manejar las solicitudes de autenticación.
@@ -125,6 +138,40 @@ class ActivateAccountView(APIView):  # Define una vista para activar cuentas de 
             return render(request, 'accounts/activation_success.html', {'user': user})  # Renderiza la plantilla de éxito de activación, pasando el usuario.
         else:
             return render(request, 'accounts/activation_error.html')  # Si el usuario no es válido o el token es incorrecto, renderiza la plantilla de error de activación.
+        
+class ActivateView(APIView):
+    def get(self, request, uidb64, token):
+        try:
+            uid = force_bytes(urlsafe_base64_decode(uidb64))
+            user = get_object_or_404(CustomUser, pk=uid)
+            if default_token_generator.check_token(user, token):
+                if user.tipo_oferente == 'artesano':
+                    template_name = 'accounts/formulario_artesano.html'
+                elif user.tipo_oferente == 'bienesServicios':
+                    template_name = 'accounts/formulario_bienes.html'
+                elif user.tipo_oferente == 'cabanas':
+                    template_name = 'accounts/formulario_cabanas.html'
+                else:
+                    return Response({'error': 'Tipo de oferente no válido.'}, status=status.HTTP_400_BAD_REQUEST)
+                return render(request, template_name, {'user': user, 'uidb64': uidb64, 'token': token})
+            else:
+                return Response({'error': 'Token inválido o expirado.'}, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response({'error': 'Error de activación.'}, status=status.HTTP_400_BAD_REQUEST)
+
+    def post(self, request, uidb64, token):
+        try:
+            uid = force_bytes(urlsafe_base64_decode(uidb64))
+            user = get_object_or_404(CustomUser, pk=uid)
+            if default_token_generator.check_token(user, token):
+                # Procesa el formulario completado y activa la cuenta
+                user.is_active = True
+                user.save()
+                return redirect('activation_success')  # Redirige a una página de éxito de activación
+            else:
+                return render(request, 'activation_error.html')
+        except Exception as e:
+            return render(request, 'activation_error.html')
         
 class SolicitudOferenteView(APIView):
     def post(self, request):
