@@ -37,6 +37,12 @@ from django.utils.html import strip_tags
 from django.contrib.auth.tokens import default_token_generator
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import CustomUser
+import csv
+from django.core.mail import EmailMessage
+from django.http import HttpResponse
+from io import StringIO
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 class CustomAuthToken(ObtainAuthToken):  # Define una clase CustomAuthToken que hereda de ObtainAuthToken para personalizar la autenticación basada en tokens.
     def post(self, request, *args, **kwargs):  # Sobrescribe el método POST para manejar las solicitudes de autenticación.
@@ -65,6 +71,159 @@ class CustomAuthToken(ObtainAuthToken):  # Define una clase CustomAuthToken que 
 
 CustomUser = get_user_model()  # Obtiene el modelo de usuario personalizado configurado en el proyecto.
 
+class ArtesanoFormView(APIView):
+    def get(self, request, uidb64, token):
+        try:
+            # Decodificar uidb64 para obtener el ID original
+            uid = force_str(urlsafe_base64_decode(uidb64))
+            user = get_object_or_404(CustomUser, pk=uid)
+            
+            if default_token_generator.check_token(user, token):
+                return render(request, 'accounts/formulario_artesano.html', {'user': user, 'uidb64': uidb64, 'token': token})
+            else:
+                return render(request, 'accounts/activation_error.html')
+        except (TypeError, ValueError, OverflowError, CustomUser.DoesNotExist):
+            return render(request, 'accounts/activation_error.html')
+
+    def post(self, request, uidb64, token):
+        try:
+            uid = force_str(urlsafe_base64_decode(uidb64))
+            user = get_object_or_404(CustomUser, pk=uid)
+
+            if default_token_generator.check_token(user, token):
+                # Procesar el formulario y activar la cuenta
+                user_data = {
+                    'tipo_formulario': 'Formulario de Artesanos',  # Añadir título del formulario
+                    'nombre_completo': request.data.get('nombre_completo', ''),
+                    'tipo_artesania': request.data.get('tipo_artesania', ''),
+                    'descripcion': request.data.get('descripcion', ''),
+                    'agrupacion': request.data.get('agrupacion', ''),
+                    'direccion': request.data.get('direccion', ''),
+                    'coordenadas': request.data.get('coordenadas', ''),
+                    'localidad': request.data.get('localidad', ''),
+                    'telefono': request.data.get('telefono', ''),
+                    'email': user.email,
+                    'redes_sociales': request.data.get('redes_sociales', ''),
+                    'pagina_web': request.data.get('pagina_web', ''),
+                    'medios_pago': request.data.getlist('medios_pago', [])
+                }
+                send_csv_email(user_data)
+                user.is_active = True
+                user.save()
+                return redirect('activation_success')
+            else:
+                return render(request, 'accounts/activation_error.html')
+        except (TypeError, ValueError, OverflowError, CustomUser.DoesNotExist):
+            return render(request, 'accounts/activation_error.html')
+
+class BienesServiciosFormView(APIView):
+    def get(self, request, uidb64, token):
+        try:
+            # Decodificar uidb64 para obtener el ID original
+            uid = force_str(urlsafe_base64_decode(uidb64))
+            user = get_object_or_404(CustomUser, pk=uid)
+            
+            if default_token_generator.check_token(user, token):
+                return render(request, 'accounts/formulario_bienes.html', {'user': user, 'uidb64': uidb64, 'token': token})
+            else:
+                return render(request, 'accounts/activation_error.html')
+        except (TypeError, ValueError, OverflowError, CustomUser.DoesNotExist):
+            return render(request, 'accounts/activation_error.html')
+
+    def post(self, request, uidb64, token):
+        try:
+            # Decodificar uidb64 para obtener el ID original
+            uid = force_str(urlsafe_base64_decode(uidb64))
+            user = get_object_or_404(CustomUser, pk=uid)
+            
+            if default_token_generator.check_token(user, token):
+                # Procesar el formulario y activar la cuenta
+                user_data = {
+                    'tipo_formulario': 'Formulario de Bienes y Servicios',  # Añadir título del formulario
+                    'nombre_local': request.data.get('nombre_local', ''),
+                    'actividad': request.data.get('actividad', ''),
+                    'direccion': request.data.get('direccion', ''),
+                    'coordenadas': request.data.get('coordenadas', ''),
+                    'localidad': request.data.get('localidad', ''),
+                    'telefono': request.data.get('telefono', ''),
+                    'horarios_atencion': request.data.get('horarios_atencion', ''),
+                    'redes_sociales': request.data.get('redes_sociales', ''),
+                    'email': user.email,
+                    'medios_pago': request.data.getlist('medios_pago', [])
+                }
+                send_csv_email(user_data)
+                user.is_active = True
+                user.save()
+                return redirect('activation_success')
+            else:
+                return render(request, 'accounts/activation_error.html')
+        except (TypeError, ValueError, OverflowError, CustomUser.DoesNotExist):
+            return render(request, 'accounts/activation_error.html')
+
+class CabanasFormView(APIView):
+    def get(self, request, uidb64, token):
+        try:
+            # Decodificar uidb64 para obtener el ID original
+            uid = force_str(urlsafe_base64_decode(uidb64))
+            user = get_object_or_404(CustomUser, pk=uid)
+            
+            if default_token_generator.check_token(user, token):
+                return render(request, 'accounts/formulario_cabanas.html', {'user': user, 'uidb64': uidb64, 'token': token})
+            else:
+                return render(request, 'accounts/activation_error.html')
+        except (TypeError, ValueError, OverflowError, CustomUser.DoesNotExist):
+            return render(request, 'accounts/activation_error.html')
+
+    def post(self, request, uidb64, token):
+        try:
+            # Decodificar uidb64 para obtener el ID original
+            uid = force_str(urlsafe_base64_decode(uidb64))
+            user = get_object_or_404(CustomUser, pk=uid)
+            
+            if default_token_generator.check_token(user, token):
+                # Procesar el formulario y activar la cuenta
+                user_data = {
+                    'tipo_formulario': 'Formulario de Cabañas',  # Añadir título del formulario
+                    'nombre': request.data.get('nombre', ''),
+                    'actividad': request.data.get('actividad', ''),
+                    'direccion': request.data.get('direccion', ''),
+                    'coordenadas': request.data.get('coordenadas', ''),
+                    'localidad': request.data.get('localidad', ''),
+                    'telefono': request.data.get('telefono', ''),
+                    'horarios': request.data.get('horarios', ''),
+                    'redes': request.data.get('redes', ''),
+                    'pagina_web': request.data.get('pagina_web', ''),
+                    'email': user.email,
+                    'medios_pago': request.data.getlist('medios_pago', [])
+                }
+                send_csv_email(user_data)
+                user.is_active = True
+                user.save()
+                return redirect('activation_success')
+            else:
+                return render(request, 'accounts/activation_error.html')
+        except (TypeError, ValueError, OverflowError, CustomUser.DoesNotExist):
+            return render(request, 'accounts/activation_error.html')
+
+def send_csv_email(user_data):
+    csv_file = StringIO()
+    writer = csv.writer(csv_file)
+    
+    # Escribir los datos en formato de filas: columna 1 para el encabezado y columna 2 para el valor
+    for key, value in user_data.items():
+        writer.writerow([key, value])
+
+    email = EmailMessage(
+        subject="Nuevo Registro de Oferente",
+        body="Adjunto el archivo CSV con los datos del nuevo registro.",
+        from_email="mueca@mueblescaracol.cl",
+        to=["mueca@mueblescaracol.cl"],
+    )
+    csv_file.seek(0)
+    email.attach("registro_oferente.csv", csv_file.getvalue(), "text/csv")
+    email.send()
+
+
 class RegisterView(APIView):
     def post(self, request):
         email = request.data.get('email')
@@ -80,39 +239,44 @@ class RegisterView(APIView):
             return Response({'error': 'Faltan datos'}, status=status.HTTP_400_BAD_REQUEST)
 
         try:
+            # Crear el usuario sin activar
             user = CustomUser.objects.create_user(
                 email=email, password=password, role='oferente', tipo_oferente=tipo_oferente, is_active=False
             )
             user.save()
 
-            # Enviar correo de verificación
+            # Generar token y enlace de activación
             token = default_token_generator.make_token(user)
             uid = urlsafe_base64_encode(force_bytes(user.pk))
             current_site = get_current_site(request)
-            verification_link = reverse('activate', kwargs={'uidb64': uid, 'token': token})
-            activation_url = f"http://{current_site.domain}{verification_link}"
 
-            # Seleccionar el asunto y la plantilla según el tipo de oferente
+            # Determinar el enlace de activación según el tipo de oferente
             if tipo_oferente == 'artesano':
+                verification_link = reverse('activar_artesano', kwargs={'uidb64': uid, 'token': token})
                 subject = 'Activa tu cuenta como Artesano/a en Turismo Colbún'
                 template_name = 'accounts/activation_email_artesano.html'
             elif tipo_oferente == 'bienesServicios':
+                verification_link = reverse('activar_bienes', kwargs={'uidb64': uid, 'token': token})
                 subject = 'Activa tu cuenta de Bienes y Servicios en Turismo Colbún'
                 template_name = 'accounts/activation_email_bienes.html'
             elif tipo_oferente == 'cabanas':
+                verification_link = reverse('activar_cabanas', kwargs={'uidb64': uid, 'token': token})
                 subject = 'Activa tu cuenta de Cabañas en Turismo Colbún'
                 template_name = 'accounts/activation_email_cabanas.html'
             else:
                 return Response({'error': 'Tipo de oferente no válido.'}, status=status.HTTP_400_BAD_REQUEST)
 
-            # Renderizar el contenido HTML y la versión en texto plano
+            # Construir el enlace completo de activación
+            activation_url = f"http://{current_site.domain}{verification_link}"
+
+            # Renderizar el contenido del correo
             html_content = render_to_string(template_name, {
                 'user': user,
                 'activation_url': activation_url,
             })
             text_content = strip_tags(html_content)
 
-            # Crear y enviar el correo
+            # Crear y enviar el correo de verificación
             from_email = 'mueca@mueblescaracol.cl'
             to_email = user.email
             email = EmailMultiAlternatives(subject, text_content, from_email, [to_email])
@@ -123,6 +287,7 @@ class RegisterView(APIView):
 
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+            
 
 class ActivateAccountView(APIView):  # Define una vista para activar cuentas de usuario, heredando de APIView.
     def get(self, request, uidb64, token):  # Sobrescribe el método GET para manejar las solicitudes de activación de cuenta.

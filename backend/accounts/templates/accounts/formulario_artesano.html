@@ -77,7 +77,7 @@
 <body>
     <div class="form-container">
         <h1>Formulario para Artesanos</h1>
-        <form method="post">
+        <form method="post" action="{% url 'activar_artesano' uidb64=uidb64 token=token %}">
             {% csrf_token %}
             <label for="nombre_completo">Nombre Completo:</label>
             <input type="text" id="nombre_completo" name="nombre_completo" placeholder="María Eugenia de las Mercedes" required>

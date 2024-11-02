@@ -76,7 +76,7 @@
 <body>
     <div class="form-container">
         <h1>Formulario para Bienes y Servicios</h1>
-        <form method="post">
+        <form method="post" action="{% url 'activar_bienes' uidb64=uidb64 token=token %}">
             {% csrf_token %}
             <label for="nombre_local">Nombre del Local:</label>
             <input type="text" id="nombre_local" name="nombre_local" placeholder="Mueblería Los Verdugos" required>

@@ -30,6 +30,7 @@ from accounts.views import MisServiciosView  # Vista para que los usuarios vean 
 from accounts.views import ActivateAccountView  # Vista para activar cuentas de usuario mediante un enlace de verificación.
 from accounts.views import RegisterView, ActivateView
 from django.views.generic import TemplateView
+from accounts.views import ArtesanoFormView, BienesServiciosFormView, CabanasFormView
 
 urlpatterns = [
     path('admin/', admin.site.urls),  # Ruta para acceder al panel de administración de Django.
@@ -49,5 +50,8 @@ urlpatterns = [
     path('api/mis_servicios/', MisServiciosView.as_view(), name='mis_servicios'),  # Ruta para que los usuarios vean sus propios servicios.
     path('api/mis_servicios/<int:servicio_id>/', MisServiciosView.as_view(), name='gestionar_servicio'),  # Ruta para gestionar un servicio específico del usuario.
     path('api/reenviar_servicio/<int:servicio_id>/', MisServiciosView.as_view(), name='reenviar_servicio'),  # Ruta para reenviar un servicio específico.
+    path('activar/artesano/<uidb64>/<token>/', ArtesanoFormView.as_view(), name='activar_artesano'),
+    path('activar/bienes_servicios/<uidb64>/<token>/', BienesServiciosFormView.as_view(), name='activar_bienes'),
+    path('activar/cabanas/<uidb64>/<token>/', CabanasFormView.as_view(), name='activar_cabanas'),
 ]
 
