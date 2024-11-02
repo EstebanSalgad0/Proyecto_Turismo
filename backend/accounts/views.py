@@ -206,7 +206,7 @@ class CabanasFormView(APIView):
                 user_data = {
                     'tipo_formulario': 'Formulario de Cabañas',  # Añadir título del formulario
                     'separador': '-' * 60,  # Separador visual
-                    'nombre': f"Nombre: {request.data.get('nombre', '')}",
+                    'nombre': f"Nombre del local: {request.data.get('nombre', '')}",
                     'actividad': f"Actividad: {request.data.get('actividad', '')}",
                     'direccion': f"Dirección: {request.data.get('direccion', '')}",
                     'coordenadas': f"Coordenadas: {request.data.get('coordenadas', '')}",
