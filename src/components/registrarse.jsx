@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Registrarse.css';
 
 const Registrarse = () => {
+  const [first_name, setFirstName] = useState('');
+  const [last_name, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -77,6 +79,8 @@ const Registrarse = () => {
 
       // Hacer la solicitud POST al backend para registrar el usuario
       const response = await axios.post(import.meta.env.VITE_REGISTRAR_URL, {
+        first_name,
+        last_name,
         email,
         password,
         role: 'oferente',
@@ -111,6 +115,29 @@ const Registrarse = () => {
         <p className="subtitle-regis">¡Conviértete a Colbún en tu próxima aventura!<br />Te damos la bienvenida a la comuna</p>
 
         <form onSubmit={handleSubmit}>
+
+        <div className="input-box-regis">
+            <label>Nombres</label>
+            <input
+              type="text"
+              value={first_name}
+              onChange={(e) => setFirstName(e.target.value)}
+              placeholder="Eduardo Alexis"
+              required
+            />
+          </div>
+
+          <div className="input-box-regis">
+            <label>Apellidos</label>
+            <input
+              type="text"
+              value={last_name}
+              onChange={(e) => setLastName(e.target.value)}
+              placeholder="Guerrero Cabello"
+              required
+            />
+          </div>
+
           <div className="input-box-regis">
             <label>Correo electrónico</label>
             <input

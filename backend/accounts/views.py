@@ -64,6 +64,8 @@ class CustomAuthToken(ObtainAuthToken):  # Define una clase CustomAuthToken que 
                 'token': token.key,  # Devuelve el token del usuario.
                 'user_id': user.pk,  # Devuelve el ID del usuario.
                 'email': user.email,  # Devuelve el email del usuario.
+                'first_name': user.first_name,  # Devuelve el primer nombre
+                'last_name': user.last_name,  # Devuelve el apellido
                 'role': user.role,  # Devuelve el rol del usuario.
             })
         else:  # Si la autenticación falla:
@@ -91,21 +93,28 @@ class ArtesanoFormView(APIView):
             user = get_object_or_404(CustomUser, pk=uid)
 
             if default_token_generator.check_token(user, token):
+                # Nombre de la persona que envia el formulario
+                nombre_completo = f"{user.first_name} {user.last_name}"
+
                 # Procesar el formulario y activar la cuenta
                 user_data = {
                     'tipo_formulario': 'Formulario de Artesanos',  # Añadir título del formulario
-                    'nombre_completo': request.data.get('nombre_completo', ''),
-                    'tipo_artesania': request.data.get('tipo_artesania', ''),
-                    'descripcion': request.data.get('descripcion', ''),
-                    'agrupacion': request.data.get('agrupacion', ''),
-                    'direccion': request.data.get('direccion', ''),
-                    'coordenadas': request.data.get('coordenadas', ''),
-                    'localidad': request.data.get('localidad', ''),
-                    'telefono': request.data.get('telefono', ''),
-                    'email': user.email,
-                    'redes_sociales': request.data.get('redes_sociales', ''),
-                    'pagina_web': request.data.get('pagina_web', ''),
-                    'medios_pago': request.data.getlist('medios_pago', [])
+                    'separador': '-' * 60,  # Separador visual
+                    'nombre_completo': f"Nombre completo: {request.data.get('nombre_completo', '')}",
+                    'tipo_artesania': f"Tipo de artesanía: {request.data.get('tipo_artesania', '')}",
+                    'descripcion': f"Descripción: {request.data.get('descripcion', '')}",
+                    'agrupacion': f"Agrupación: {request.data.get('agrupacion', '')}",
+                    'direccion': f"Dirección: {request.data.get('direccion', '')}",
+                    'coordenadas': f"Coordenadas: {request.data.get('coordenadas', '')}",
+                    'localidad': f"Localidad: {request.data.get('localidad', '')}",
+                    'telefono': f"Teléfono: {request.data.get('telefono', '')}",
+                    'email': f"Email: {request.data.get('email', '')}",
+                    'redes_sociales': f"Redes sociales: {request.data.get('redes_sociales', '')}",
+                    'pagina_web': f"Páginas web: {request.data.get('pagina_web', '')}",
+                    'medios_pago': f"Medios de pago: {', '.join(request.data.getlist('medios_pago', []))}",
+                    'separador1': '-' * 60,  # Separador visual
+                    'enviado_por': f"Enviado por: {nombre_completo}",
+                    'correo_asociado': f"Correo asociado a la cuenta: {user.email}"  # Formatear el correo
                 }
                 send_csv_email(user_data)
                 user.is_active = True
@@ -137,19 +146,27 @@ class BienesServiciosFormView(APIView):
             user = get_object_or_404(CustomUser, pk=uid)
             
             if default_token_generator.check_token(user, token):
-                # Procesar el formulario y activar la cuenta
+               
+                # Nombre de la persona que envia el formulario
+                nombre_completo = f"{user.first_name} {user.last_name}"
+
+                 # Procesar el formulario y activar la cuenta
                 user_data = {
                     'tipo_formulario': 'Formulario de Bienes y Servicios',  # Añadir título del formulario
-                    'nombre_local': request.data.get('nombre_local', ''),
-                    'actividad': request.data.get('actividad', ''),
-                    'direccion': request.data.get('direccion', ''),
-                    'coordenadas': request.data.get('coordenadas', ''),
-                    'localidad': request.data.get('localidad', ''),
-                    'telefono': request.data.get('telefono', ''),
-                    'horarios_atencion': request.data.get('horarios_atencion', ''),
-                    'redes_sociales': request.data.get('redes_sociales', ''),
-                    'email': user.email,
-                    'medios_pago': request.data.getlist('medios_pago', [])
+                    'separador': '-' * 60,  # Separador visual
+                    'nombre_local': f"Nombre del local: {request.data.get('nombre_local', '')}",
+                    'actividad': f"Actividad: {request.data.get('actividad', '')}",
+                    'direccion': f"Dirección: {request.data.get('direccion', '')}",
+                    'coordenadas': f"Coordenadas: {request.data.get('coordenadas', '')}",
+                    'localidad': f"Localidad: {request.data.get('localidad', '')}",
+                    'telefono': f"Teléfono: {request.data.get('telefono', '')}",
+                    'horarios_atencion': f"Horarios de atención: {request.data.get('horarios_atencion', '')}",
+                    'redes_sociales': f"Redes sociales: {request.data.get('redes_sociales', '')}",
+                    'email': f"Email: {request.data.get('email', '')}",
+                    'medios_pago': f"Medios de pago: {', '.join(request.data.getlist('medios_pago', []))}",
+                    'separador1': '-' * 60,  # Separador visual
+                    'enviado_por': f"Enviado por: {nombre_completo}",
+                    'correo_asociado': f"Correo asociado a la cuenta: {user.email}"  # Formatear el correo
                 }
                 send_csv_email(user_data)
                 user.is_active = True
@@ -181,20 +198,28 @@ class CabanasFormView(APIView):
             user = get_object_or_404(CustomUser, pk=uid)
             
             if default_token_generator.check_token(user, token):
+
+                # Nombre de la persona que envia el formulario
+                nombre_completo = f"{user.first_name} {user.last_name}"
+
                 # Procesar el formulario y activar la cuenta
                 user_data = {
                     'tipo_formulario': 'Formulario de Cabañas',  # Añadir título del formulario
-                    'nombre': request.data.get('nombre', ''),
-                    'actividad': request.data.get('actividad', ''),
-                    'direccion': request.data.get('direccion', ''),
-                    'coordenadas': request.data.get('coordenadas', ''),
-                    'localidad': request.data.get('localidad', ''),
-                    'telefono': request.data.get('telefono', ''),
-                    'horarios': request.data.get('horarios', ''),
-                    'redes': request.data.get('redes', ''),
-                    'pagina_web': request.data.get('pagina_web', ''),
-                    'email': user.email,
-                    'medios_pago': request.data.getlist('medios_pago', [])
+                    'separador': '-' * 60,  # Separador visual
+                    'nombre': f"Nombre: {request.data.get('nombre', '')}",
+                    'actividad': f"Actividad: {request.data.get('actividad', '')}",
+                    'direccion': f"Dirección: {request.data.get('direccion', '')}",
+                    'coordenadas': f"Coordenadas: {request.data.get('coordenadas', '')}",
+                    'localidad': f"Localidad: {request.data.get('localidad', '')}",
+                    'telefono': f"Teléfono: {request.data.get('telefono', '')}",
+                    'horarios': f"Horarios de atención: {request.data.get('horarios', '')}",
+                    'redes': f"Redes sociales: {request.data.get('redes', '')}",
+                    'pagina_web': f"Páginas web: {request.data.get('pagina_web', '')}",
+                    'email': f"Email: {request.data.get('email', '')}",
+                    'medios_pago': f"Medios de pago: {', '.join(request.data.getlist('medios_pago', []))}",
+                    'separador1': '-' * 60,  # Separador visual
+                    'enviado_por': f"Enviado por: {nombre_completo}",
+                    'correo_asociado': f"Correo asociado a la cuenta: {user.email}"  # Formatear el correo
                 }
                 send_csv_email(user_data)
                 user.is_active = True
@@ -211,7 +236,7 @@ def send_csv_email(user_data):
     
     # Escribir los datos en formato de filas: columna 1 para el encabezado y columna 2 para el valor
     for key, value in user_data.items():
-        writer.writerow([key, value])
+        writer.writerow([f"{value}\t"])
 
     email = EmailMessage(
         subject="Nuevo Registro de Oferente",
@@ -228,6 +253,8 @@ class RegisterView(APIView):
     def post(self, request):
         email = request.data.get('email')
         password = request.data.get('password')
+        first_name = request.data.get('first_name')  # Obtiene el primer nombre
+        last_name = request.data.get('last_name')  # Obtiene el apellido
         captcha_response = request.data.get('captcha')
         tipo_oferente = request.data.get('tipo_oferente')  # Obtiene el tipo de oferente
 
@@ -241,7 +268,7 @@ class RegisterView(APIView):
         try:
             # Crear el usuario sin activar
             user = CustomUser.objects.create_user(
-                email=email, password=password, role='oferente', tipo_oferente=tipo_oferente, is_active=False
+                email=email, password=password, first_name=first_name, last_name=last_name, role='oferente', tipo_oferente=tipo_oferente, is_active=False
             )
             user.save()
 

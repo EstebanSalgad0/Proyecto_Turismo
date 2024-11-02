@@ -23,17 +23,16 @@ class CustomUserManager(BaseUserManager):  # Define una clase CustomUserManager 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):  # Define un modelo CustomUser que hereda de AbstractBaseUser para la base del usuario y de PermissionsMixin para gestionar permisos.
     email = models.EmailField(unique=True)  # Campo de email, único para cada usuario.
-    first_name = models.CharField(max_length=30, blank=True)  # Campo opcional para el primer nombre del usuario.
-    last_name = models.CharField(max_length=30, blank=True)  # Campo opcional para el apellido del usuario.
+    first_name = models.CharField(max_length=30, blank=False, null=False)  # Campo Obligatorio para el primer nombre del usuario en formulario y base de datos.
+    last_name = models.CharField(max_length=30, blank=False, null=False)  # Campo Obligatorio para el apellido del usuario en formulario y base de datos.
     is_active = models.BooleanField(default=False)  # Indica si la cuenta está activa; por defecto False.
     is_staff = models.BooleanField(default=False)  # Indica si el usuario es parte del personal administrativo.
 
     ROLE_CHOICES = (  # Definición de los roles posibles para el usuario.
-        ('turista', 'Turista'),  # Opción de rol 'turista'.
         ('admin', 'Administrador'),  # Opción de rol 'admin'.
         ('oferente', 'Oferente'),  # Opción de rol 'oferente'.
     )
-    role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='oferente')  # Campo que almacena el rol del usuario, por defecto 'turista'.
+    role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='oferente')  # Campo que almacena el rol del usuario, por defecto 'oferente'.
 
     OFERENTE_CHOICES = [
         ('artesano', 'artesano'),
