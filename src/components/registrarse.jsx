@@ -161,7 +161,7 @@ const Registrarse = () => {
           </div>
 
           <div className="input-box-regis">
-            <label htmlFor="tipoOferente">Tipo de Oferente:</label>
+            <label htmlFor="tipoOferente">Seleccione su servicio:</label>
             <select id="tipoOferente" value={tipoOferente} onChange={handleTipoOferenteChange} required>
                 <option value="">Seleccione una opción</option>
                 <option value="artesano">Artesano/a</option>
@@ -171,8 +171,6 @@ const Registrarse = () => {
           </div>
 
           <button type="submit" className="btn-regis">Continuar</button>
-
-          <div className="or-section-regis">O</div>
 
           <div className="divider-regis"></div>
 
