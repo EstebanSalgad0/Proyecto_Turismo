@@ -31,6 +31,8 @@ from accounts.views import ActivateAccountView  # Vista para activar cuentas de 
 from accounts.views import RegisterView, ActivateView
 from django.views.generic import TemplateView
 from accounts.views import ArtesanoFormView, BienesServiciosFormView, CabanasFormView
+from accounts.views import RequestPasswordResetView, PasswordResetConfirmView, password_reset_confirm_view
+from accounts.views import password_reset_success_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),  # Ruta para acceder al panel de administración de Django.
@@ -53,5 +55,8 @@ urlpatterns = [
     path('activar/artesano/<uidb64>/<token>/', ArtesanoFormView.as_view(), name='activar_artesano'),
     path('activar/bienes_servicios/<uidb64>/<token>/', BienesServiciosFormView.as_view(), name='activar_bienes'),
     path('activar/cabanas/<uidb64>/<token>/', CabanasFormView.as_view(), name='activar_cabanas'),
+    path('api/password_reset/', RequestPasswordResetView.as_view(), name='password_reset_request'),
+    path('api/password_reset_confirm/<uidb64>/<token>/', password_reset_confirm_view, name='password_reset_confirm'),
+    path('password-reset-success/', password_reset_success_view, name='password_reset_success'),
 ]
 

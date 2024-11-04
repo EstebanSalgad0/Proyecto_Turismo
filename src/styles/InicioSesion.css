@@ -98,11 +98,26 @@
   margin: 10px 70px 20px;
 }
 
+.remember-forgot1 {
+  display: flex;
+  font-size: 14.5px;
+  margin: 15px 10px 20px;
+  justify-content: center;
+}
+
 .remember-forgot a {
   text-decoration: none;
 }
 
 .remember-forgot a:hover {
+  text-decoration: underline;
+}
+
+.remember-forgot1 a {
+  text-decoration: none;
+}
+
+.remember-forgot1 a:hover {
   text-decoration: underline;
 }
 

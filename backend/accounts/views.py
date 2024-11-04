@@ -43,6 +43,7 @@ from django.http import HttpResponse
 from io import StringIO
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.http import JsonResponse
 
 class CustomAuthToken(ObtainAuthToken):  # Define una clase CustomAuthToken que hereda de ObtainAuthToken para personalizar la autenticación basada en tokens.
     def post(self, request, *args, **kwargs):  # Sobrescribe el método POST para manejar las solicitudes de autenticación.
@@ -364,6 +365,80 @@ class ActivateView(APIView):
                 return render(request, 'activation_error.html')
         except Exception as e:
             return render(request, 'activation_error.html')
+        
+class RequestPasswordResetView(APIView):
+    def post(self, request):
+        email = request.data.get('email')  # Cambiado de request.POST a request.data
+        user = CustomUser.objects.filter(email=email).first()
+
+        if user:
+            token = default_token_generator.make_token(user)
+            uid = urlsafe_base64_encode(force_bytes(user.pk))
+            reset_link = request.build_absolute_uri(
+                reverse('password_reset_confirm', kwargs={'uidb64': uid, 'token': token})
+            )
+
+            # Cargar la plantilla HTML y pasar el enlace de restablecimiento
+            email_html = render_to_string('accounts/reset_email.html', {'reset_link': reset_link})
+
+            # Enviar correo en formato HTML
+            email_message = EmailMessage(
+                subject="Restablecimiento de Contraseña",
+                body=email_html,
+                from_email="mueca@mueblescaracol.cl",
+                to=[user.email]
+            )
+            email_message.content_subtype = "html"  # Importante: especificar que es HTML
+            email_message.send()
+
+            return JsonResponse({'message': 'Se ha enviado un correo de restablecimiento de contraseña.'}, status=200)
+        
+        return JsonResponse({'error': 'No existe una cuenta con ese correo electrónico.'}, status=404)
+
+class PasswordResetConfirmView(APIView):
+    def post(self, request, uidb64, token):
+        try:
+            uid = force_str(urlsafe_base64_decode(uidb64))
+            user = CustomUser.objects.get(pk=uid)
+        except (TypeError, ValueError, OverflowError, CustomUser.DoesNotExist):
+            user = None
+
+        if user and default_token_generator.check_token(user, token):
+            new_password = request.data.get('new_password')  # Cambiado de request.POST a request.data
+            user.set_password(new_password)
+            user.save()
+            return redirect('password_reset_success')  # Redirige a la vista de éxito
+        
+        return JsonResponse({'error': 'El enlace de restablecimiento es inválido o ha expirado.'}, status=400)
+    
+def password_reset_confirm_view(request, uidb64, token):
+    # Decodificar uid
+    try:
+        uid = force_str(urlsafe_base64_decode(uidb64))
+        user = CustomUser.objects.get(pk=uid)
+    except (TypeError, ValueError, OverflowError, CustomUser.DoesNotExist):
+        user = None
+
+    # Verificar que el token sea válido
+    if user and default_token_generator.check_token(user, token):
+        if request.method == 'POST':
+            new_password = request.POST.get('new_password')
+            if new_password:
+                user.set_password(new_password)
+                user.save()
+                return redirect('password_reset_success')  # Redirige a la vista de éxito
+            else:
+                return JsonResponse({'error': 'La nueva contraseña no puede estar vacía.'}, status=400)
+    
+    # Renderiza la vista de confirmación con el uid y el token
+    return render(request, 'accounts/password_reset_confirm.html', {
+        'uid': uidb64,
+        'token': token,
+    })
+
+def password_reset_success_view(request):
+    return render(request, 'accounts/password_reset_success.html')
+    
         
 class SolicitudOferenteView(APIView):
     def post(self, request):

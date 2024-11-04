@@ -109,8 +109,8 @@ const InicioSesion = () => {
           <button type="submit" className="btn-is">Iniciar sesión</button>
 
           <div className="remember-forgot">
-            <a href="#">¿Olvidaste tu contraseña?</a>
-          </div>
+            <Link to="/OlvideContrasena">¿Olvidaste tu contraseña?</Link>
+        </div>
 
           <div className="register-link">
             <p>¿Aún no estás en Turismo y Cultura? <Link to="/registrarse">Regístrate</Link></p>
