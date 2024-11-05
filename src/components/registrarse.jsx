@@ -111,7 +111,7 @@ const Registrarse = () => {
 
       <div className="wrapper-regis">
         <div className='Logo'></div>
-        <h1 className='h1-regis'>Te damos la bienvenida a Cultura y Turismo</h1>
+        <h1 className='h1-regis'>Te damos la Bienvenida a Visita Colbún</h1>
         <p className="subtitle-regis">¡Conviértete a Colbún en tu próxima aventura!<br />Te damos la bienvenida a la comuna</p>
 
         <form onSubmit={handleSubmit}>

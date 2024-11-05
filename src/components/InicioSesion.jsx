@@ -80,7 +80,7 @@ const InicioSesion = () => {
         <form onSubmit={handleSubmit}>
           <div className='Logo'></div>
 
-          <h1>Te damos la bienvenida a Cultura y Turismo</h1>
+          <h1>Te damos la Bienvenida a Visita Colbún</h1>
 
           {/* Alerta flotante para mostrar errores */}
           {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
