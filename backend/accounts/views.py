@@ -5,45 +5,23 @@ from django.contrib.auth import authenticate  # Importa la función authenticate
 from rest_framework import status  # Importa los códigos de estado HTTP de Django REST Framework.
 from rest_framework.views import APIView  # Importa la clase base APIView para crear vistas basadas en API.
 from django.contrib.auth import get_user_model  # Obtiene el modelo de usuario personalizado configurado en el proyecto.
-from rest_framework.permissions import AllowAny  # Permiso que permite el acceso a cualquier usuario, autenticado o no.
-from django.core.mail import send_mail  # Importa la función send_mail para enviar correos electrónicos.
+from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated  # Importa permisos: acceso para cualquier usuario, solo admins o usuarios autenticados.
+from django.core.mail import send_mail, EmailMultiAlternatives, EmailMessage  # Importa funciones para enviar correos electrónicos.
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode  # Funciones que codifican y decodifican datos en base64 de manera segura.
 from django.utils.encoding import force_bytes, force_str  # Funciones para convertir datos a bytes o strings.
 from django.template.loader import render_to_string  # Importa render_to_string para renderizar plantillas HTML a cadenas de texto.
+from django.utils.html import strip_tags  # Elimina etiquetas HTML de un string para generar una versión de texto plano de un contenido HTML.
 from django.contrib.sites.shortcuts import get_current_site  # Obtiene el sitio actual (dominio) en el que se está ejecutando la solicitud.
 from django.contrib.auth.tokens import default_token_generator  # Importa el generador de tokens predeterminado para autenticación de usuarios.
 from django.urls import reverse  # Importa reverse para obtener URLs en base a sus nombres en el sistema de rutas.
-from .models import CustomUser  # Importa el modelo CustomUser definido en la aplicación.
-from .serializers import UserSerializer  # Importa el serializador UserSerializer para el modelo CustomUser.
-from django.shortcuts import render  # Importa la función render para generar respuestas HTML.
-from django.core.mail import EmailMultiAlternatives  # Importa EmailMultiAlternatives para enviar correos electrónicos con formato HTML y texto plano.
-from django.template.loader import render_to_string  # Se usa para renderizar plantillas HTML como cadenas de texto (importado de nuevo).
-from django.utils.html import strip_tags  # Elimina etiquetas HTML de un string para generar una versión de texto plano de un contenido HTML.
-from .utils import verify_captcha  # Importa la función verify_captcha, que se usa para verificar el captcha con Google reCAPTCHA.
-from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated  # Importa permisos: acceso para cualquier usuario, solo admins o usuarios autenticados.
-from .models import SolicitudOferente, Servicio  # Importa los modelos SolicitudOferente y Servicio de la app.
-from .serializers import ServicioSerializer  # Importa el serializador ServicioSerializer para el modelo Servicio.
+from django.shortcuts import render, get_object_or_404, redirect  # Importa funciones para manejar respuestas y vistas.
+from .models import CustomUser, SolicitudOferente, Servicio  # Importa modelos de la app.
+from .serializers import UserSerializer, ServicioSerializer  # Importa serializadores para los modelos.
+from .utils import verify_captcha  # Importa la función verify_captcha para verificar captchas.
 from django.utils import timezone  # Importa timezone para manejar fechas y horas con soporte de zona horaria.
-from django.urls import reverse
-from django.utils.http import urlsafe_base64_encode
-from django.utils.encoding import force_bytes
-from django.contrib.sites.shortcuts import get_current_site
-from django.core.mail import EmailMultiAlternatives
-from django.template.loader import render_to_string
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-from django.utils.html import strip_tags
-from django.contrib.auth.tokens import default_token_generator
-from django.shortcuts import get_object_or_404, render, redirect
-from .models import CustomUser
-import csv
-from django.core.mail import EmailMessage
-from django.http import HttpResponse
-from io import StringIO
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse  # Importa clases para respuestas HTTP.
+import csv  # Importa csv para manejar archivos CSV.
+from io import StringIO  # Importa StringIO para operaciones de manejo de strings en memoria.
 
 class CustomAuthToken(ObtainAuthToken):  # Define una clase CustomAuthToken que hereda de ObtainAuthToken para personalizar la autenticación basada en tokens.
     def post(self, request, *args, **kwargs):  # Sobrescribe el método POST para manejar las solicitudes de autenticación.
@@ -316,21 +294,6 @@ class RegisterView(APIView):
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
             
-
-class ActivateAccountView(APIView):  # Define una vista para activar cuentas de usuario, heredando de APIView.
-    def get(self, request, uidb64, token):  # Sobrescribe el método GET para manejar las solicitudes de activación de cuenta.
-        try:
-            uid = force_str(urlsafe_base64_decode(uidb64))  # Decodifica el ID del usuario (uidb64) de la URL y lo convierte a una cadena.
-            user = CustomUser.objects.get(pk=uid)  # Intenta obtener el usuario de la base de datos utilizando el ID decodificado.
-        except (TypeError, ValueError, OverflowError, CustomUser.DoesNotExist):  # Captura excepciones si hay un error en la decodificación o si el usuario no existe.
-            user = None  # Si hay un error, establece user en None.
-
-        if user is not None and default_token_generator.check_token(user, token):  # Verifica si el usuario existe y si el token es válido para ese usuario.
-            user.is_active = True  # Cambia el estado del usuario a activo.
-            user.save()  # Guarda los cambios en la base de datos.
-            return render(request, 'accounts/activation_success.html', {'user': user})  # Renderiza la plantilla de éxito de activación, pasando el usuario.
-        else:
-            return render(request, 'accounts/activation_error.html')  # Si el usuario no es válido o el token es incorrecto, renderiza la plantilla de error de activación.
         
 class ActivateView(APIView):
     def get(self, request, uidb64, token):
@@ -394,22 +357,6 @@ class RequestPasswordResetView(APIView):
             return JsonResponse({'message': 'Se ha enviado un correo de restablecimiento de contraseña.'}, status=200)
         
         return JsonResponse({'error': 'No existe una cuenta con ese correo electrónico.'}, status=404)
-
-class PasswordResetConfirmView(APIView):
-    def post(self, request, uidb64, token):
-        try:
-            uid = force_str(urlsafe_base64_decode(uidb64))
-            user = CustomUser.objects.get(pk=uid)
-        except (TypeError, ValueError, OverflowError, CustomUser.DoesNotExist):
-            user = None
-
-        if user and default_token_generator.check_token(user, token):
-            new_password = request.data.get('new_password')  # Cambiado de request.POST a request.data
-            user.set_password(new_password)
-            user.save()
-            return redirect('password_reset_success')  # Redirige a la vista de éxito
-        
-        return JsonResponse({'error': 'El enlace de restablecimiento es inválido o ha expirado.'}, status=400)
     
 def password_reset_confirm_view(request, uidb64, token):
     # Decodificar uid

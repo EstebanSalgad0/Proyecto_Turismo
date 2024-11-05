@@ -16,23 +16,27 @@ Including another URLconf
 """
 from django.contrib import admin  # Importa el módulo admin de Django, que permite gestionar el panel de administración de la aplicación.
 from django.urls import path  # Importa la función path para definir rutas URL en la aplicación.
-# Importa varias vistas desde el módulo accounts.views, que manejan diferentes funcionalidades de la aplicación.
-from accounts.views import CustomAuthToken  # Vista para la autenticación personalizada mediante token.
-from accounts.views import RegisterView  # Vista para el registro de nuevos usuarios.
-from accounts.views import SolicitudOferenteView  # Vista para gestionar las solicitudes de los oferentes.
-from accounts.views import ManejarSolicitudOferenteView  # Vista para manejar la aceptación o rechazo de solicitudes de oferentes.
-from accounts.views import ListarSolicitudesView  # Vista para listar las solicitudes de oferentes.
-from accounts.views import CrearServicioView  # Vista para crear nuevos servicios por parte de los oferentes.
-from accounts.views import ListarServiciosView  # Vista para listar todos los servicios disponibles.
-from accounts.views import ManejarServiciosView  # Vista para manejar acciones sobre los servicios (editar, eliminar, etc.).
-from accounts.views import ListarServiciosAceptadosView  # Vista para listar servicios que han sido aceptados.
-from accounts.views import MisServiciosView  # Vista para que los usuarios vean sus propios servicios.
-from accounts.views import ActivateAccountView  # Vista para activar cuentas de usuario mediante un enlace de verificación.
-from accounts.views import RegisterView, ActivateView
 from django.views.generic import TemplateView
-from accounts.views import ArtesanoFormView, BienesServiciosFormView, CabanasFormView
-from accounts.views import RequestPasswordResetView, PasswordResetConfirmView, password_reset_confirm_view
-from accounts.views import password_reset_success_view
+# Importa las vistas necesarias desde el módulo accounts.views
+from accounts.views import (
+    CustomAuthToken,
+    RegisterView,
+    ActivateView,
+    SolicitudOferenteView,
+    ManejarSolicitudOferenteView,
+    ListarSolicitudesView,
+    CrearServicioView,
+    ListarServiciosView,
+    ManejarServiciosView,
+    ListarServiciosAceptadosView,
+    MisServiciosView,
+    ArtesanoFormView,
+    BienesServiciosFormView,
+    CabanasFormView,
+    RequestPasswordResetView,
+    password_reset_confirm_view,
+    password_reset_success_view
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),  # Ruta para acceder al panel de administración de Django.
@@ -40,7 +44,6 @@ urlpatterns = [
     path('api/register/', RegisterView.as_view(), name='register'),  # Ruta para el registro de nuevos usuarios.
     path('activate/<uidb64>/<token>/', ActivateView.as_view(), name='activate'),
     path('activation_success/', TemplateView.as_view(template_name='accounts/activation_success.html'), name='activation_success'),
-    path('activate/<uidb64>/<token>/', ActivateAccountView.as_view(), name='activate'),  # Ruta para activar la cuenta de un usuario utilizando un token y un ID codificado.
     path('api/solicitar_oferente/', SolicitudOferenteView.as_view(), name='solicitar_oferente'),  # Ruta para que los usuarios soliciten convertirse en oferentes.
     path('api/manejar_solicitud/<int:solicitud_id>/', ManejarSolicitudOferenteView.as_view(), name='manejar_solicitud'),  # Ruta para manejar la aceptación o rechazo de una solicitud de oferente.
     path('api/solicitudes/', ListarSolicitudesView.as_view(), name='listar_solicitudes'),  # Ruta para listar todas las solicitudes de oferentes.

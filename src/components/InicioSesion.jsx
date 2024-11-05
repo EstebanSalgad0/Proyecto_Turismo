@@ -61,7 +61,14 @@ const InicioSesion = () => {
       const { token, role } = response.data; // Asegurarse de que el backend devuelva el token y rol correctamente
       localStorage.setItem('token', token);
       localStorage.setItem('userRole', role); // Guardar el rol en el localStorage
-      navigate('/Index');
+
+      // Comprobar si es la primera vez que el usuario inicia sesión
+      if (!localStorage.getItem('hasVisited')) {
+        localStorage.setItem('hasVisited', 'true');
+        navigate('/bienvenida'); // Navega a la página de bienvenida
+      } else {
+        navigate('/Index'); // Navega directamente al index
+      }
     } catch (error) {
       setErrorMessage('Credenciales incorrectas o error en la verificación del captcha. Inténtalo de nuevo.');
     }

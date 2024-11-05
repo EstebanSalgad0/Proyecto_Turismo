@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import InicioSesion from './components/InicioSesion';
+import Bienvenida from './components/bienvenida';
 import OlvideContrasena from './components/OlvideContrasena';
 import Titulo from './pages/Index'; // Importa el componente Index
 import ElMelado from './pages/Elmelado'; // Importa el componente ElMelado
@@ -54,6 +55,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Titulo />} />
         <Route path="/login" element={<InicioSesion />} /> {/* Nueva ruta para InicioSesion */}
+        <Route path="/bienvenida" element={<Bienvenida />} /> {/* Nueva ruta para Bienvenida */}
         <Route path="/OlvideContrasena" element={<OlvideContrasena />} /> {/* Nueva ruta para OlvideContraseña */}
         <Route path="/Index" element={<Titulo />} />
         <Route path="/ElMelado" element={<ElMelado />} /> {/* Nueva ruta para ElMelado */}
