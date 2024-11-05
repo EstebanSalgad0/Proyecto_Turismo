@@ -10,17 +10,17 @@ const CrearServicio = () => {
     const [correo, setCorreo] = useState('');
     const [redesSociales, setRedesSociales] = useState('');
     const [descripcion, setDescripcion] = useState('');
+    const [imagen, setImagen] = useState(null); // Estado para la imagen
     const [mensaje, setMensaje] = useState('');
-    const [servicios, setServicios] = useState([]); // Estado para listar los servicios
-    const [editMode, setEditMode] = useState(false); // Modo de edición
-    const [editServicioId, setEditServicioId] = useState(null); // ID del servicio que se está editando
+    const [servicios, setServicios] = useState([]);
+    const [editMode, setEditMode] = useState(false);
+    const [editServicioId, setEditServicioId] = useState(null);
     const [expandedServicio, setExpandedServicio] = useState(null);
-    const [showModal, setShowModal] = useState(false); // Controlar si el modal está visible
+    const [showModal, setShowModal] = useState(false);
     const [deleteServiceId, setDeleteServiceId] = useState(null);
-    const [actionType, setActionType] = useState(''); // Controlar si es delete o edit
-    const navigate = useNavigate(); // Hook para redireccionar
+    const [actionType, setActionType] = useState('');
+    const navigate = useNavigate();
 
-    // Función para obtener los servicios del oferente
     const fetchServicios = async () => {
         try {
             const token = localStorage.getItem('token');
@@ -35,7 +35,6 @@ const CrearServicio = () => {
         }
     };
 
-    // Se ejecuta cuando el componente se monta para obtener los servicios
     useEffect(() => {
         fetchServicios();
     }, []);
@@ -47,14 +46,16 @@ const CrearServicio = () => {
         formData.append('correo', correo);
         formData.append('redes_sociales', redesSociales);
         formData.append('descripcion', descripcion);
+        if (imagen) {
+            formData.append('imagen', imagen); // Adjuntar la imagen al FormData
+        }
 
         try {
             const token = localStorage.getItem('token');
             let response;
 
             if (editMode) {
-                // Si estamos en modo de edición, actualizamos el servicio
-                response = await axios.put(import.meta.env.VITE_EDITAR_SERVICIOS_URL, formData, {
+                response = await axios.put(`http://localhost:8000/api/mis_servicios/${editServicioId}/`, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         'Authorization': `Token ${token}`
@@ -62,7 +63,6 @@ const CrearServicio = () => {
                 });
                 setMensaje('Servicio actualizado exitosamente!');
             } else {
-                // Si no estamos en modo de edición, creamos un nuevo servicio
                 response = await axios.post(import.meta.env.VITE_CREAR_SERVICIOS_URL, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
@@ -71,12 +71,13 @@ const CrearServicio = () => {
                 });
                 setMensaje('Servicio creado exitosamente!');
             }
-            fetchServicios(); // Refrescar la lista de servicios después de crear o editar
-            setEditMode(false); // Volver al modo de creación
+            fetchServicios();
+            setEditMode(false);
             setNombre('');
             setCorreo('');
             setRedesSociales('');
             setDescripcion('');
+            setImagen(null); // Limpiar el estado de la imagen
         } catch (error) {
             setMensaje('Error al crear o actualizar el servicio: ' + (error.response?.data?.error || 'Error desconocido.'));
             console.error("Error al crear o actualizar el servicio:", error);
@@ -89,20 +90,20 @@ const CrearServicio = () => {
         setRedesSociales(servicio.redes_sociales);
         setDescripcion(servicio.descripcion);
         setEditServicioId(servicio.id);
-        setEditMode(true); // Cambiar a modo edición
+        setEditMode(true);
     };
 
     const handleDelete = async () => {
         try {
             const token = localStorage.getItem('token');
-            await axios.delete(import.meta.env.VITE_ELIMINAR_SERVICIOS_URL, {
+            await axios.delete(`http://localhost:8000/api/mis_servicios/${deleteServiceId}/`, {
                 headers: {
                     'Authorization': `Token ${token}`
                 }
             });
             setMensaje('Servicio eliminado exitosamente!');
             fetchServicios();
-            setShowModal(false); // Cerrar el modal después de eliminar
+            setShowModal(false);
         } catch (error) {
             setMensaje('Error al eliminar el servicio: ' + (error.response?.data?.error || 'Error desconocido.'));
             console.error("Error al eliminar el servicio:", error);
@@ -112,51 +113,54 @@ const CrearServicio = () => {
     const handleReenviar = async (servicioId) => {
         try {
             const token = localStorage.getItem('token');
-            await axios.post(import.meta.env.VITE_REENVIAR_SERVICIOS_URL, { accion: 'reenviar' }, {
+            await axios.post(`http://localhost:8000/api/reenviar_servicio/${servicioId}/`, { accion: 'reenviar' }, {
                 headers: {
                     'Authorization': `Token ${token}`
                 }
             });
             setMensaje('Servicio reenviado exitosamente!');
-            fetchServicios(); // Refrescar la lista de servicios
+            fetchServicios();
         } catch (error) {
             setMensaje('Error al reenviar el servicio: ' + (error.response?.data?.error || 'Error desconocido.'));
             console.error("Error al reenviar el servicio:", error);
         }
     };
-    
 
     const handleCreateNew = () => {
-        // Restablece el formulario para crear un nuevo servicio
         setNombre('');
         setCorreo('');
         setRedesSociales('');
         setDescripcion('');
-        setEditMode(false); // Cambiar a modo creación
+        setImagen(null);
+        setEditMode(false);
+    };
+
+    const handleFileChange = (e) => {
+        setImagen(e.target.files[0]); // Manejar el archivo de imagen seleccionado
     };
 
     const toggleExpand = (id) => {
-        setExpandedServicio(expandedServicio === id ? null : id); // Toggle del expandir/colapsar
+        setExpandedServicio(expandedServicio === id ? null : id);
     };
-    
+
     const confirmDelete = (id) => {
         setDeleteServiceId(id);
         setActionType('delete');
-        setShowModal(true); // Mostrar el modal de confirmación
+        setShowModal(true);
     };
 
     const confirmEdit = () => {
         setActionType('edit');
-        setShowModal(true); // Mostrar el modal de confirmación para la actualización
+        setShowModal(true);
     };
 
     const handleConfirmAction = () => {
         if (actionType === 'delete') {
             handleDelete();
         } else if (actionType === 'edit') {
-            handleSubmit(); // Aquí se llama a handleSubmit solo después de confirmar
+            handleSubmit();
         }
-        setShowModal(false); // Cerrar modal después de la acción
+        setShowModal(false);
     };
 
     return (
@@ -167,21 +171,22 @@ const CrearServicio = () => {
                 <form onSubmit={(e) => {
                     e.preventDefault();
                     if (editMode) {
-                        confirmEdit(); // Si estamos en modo edición, mostrar el modal
+                        confirmEdit();
                     } else {
-                        handleSubmit(e); // Si no es modo edición, crear directamente
+                        handleSubmit(e);
                     }
                 }}>
                     <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Nombre del Servicio" required />
                     <input type="email" value={correo} onChange={(e) => setCorreo(e.target.value)} placeholder="Correo" required />
                     <input type="text" value={redesSociales} onChange={(e) => setRedesSociales(e.target.value)} placeholder="Redes Sociales" />
                     <textarea value={descripcion} onChange={(e) => setDescripcion(e.target.value)} placeholder="Descripción" required />
+                    <input type="file" onChange={handleFileChange} accept="image/*" />
                     <button type="submit">{editMode ? 'Actualizar Servicio' : 'Crear Servicio'}</button>
                     {editMode && <button type="button" onClick={handleCreateNew}>Crear Nuevo Servicio</button>}
                     {mensaje && <p>{mensaje}</p>}
                 </form>
             </div>
-    
+
             <div className="services">
                 {servicios.length === 0 ? (
                     <p>No tienes servicios creados.</p>
@@ -215,7 +220,6 @@ const CrearServicio = () => {
                 )}
             </div>
 
-            {/* Modal de Confirmación */}
             <ConfirmModal 
                 show={showModal}
                 message={actionType === 'delete' ? "¿Estás seguro de que quieres eliminar este servicio?" : "¿Estás seguro de que quieres actualizar este servicio?"}

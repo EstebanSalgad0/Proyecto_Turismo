@@ -22,6 +22,7 @@ from django.utils import timezone  # Importa timezone para manejar fechas y hora
 from django.http import HttpResponse, JsonResponse  # Importa clases para respuestas HTTP.
 import csv  # Importa csv para manejar archivos CSV.
 from io import StringIO  # Importa StringIO para operaciones de manejo de strings en memoria.
+from rest_framework.parsers import MultiPartParser, FormParser
 
 class CustomAuthToken(ObtainAuthToken):  # Define una clase CustomAuthToken que hereda de ObtainAuthToken para personalizar la autenticación basada en tokens.
     def post(self, request, *args, **kwargs):  # Sobrescribe el método POST para manejar las solicitudes de autenticación.
@@ -444,15 +445,15 @@ class ListarSolicitudesView(APIView):
 
     
 class CrearServicioView(APIView):
-    permission_classes = [IsAuthenticated]  # Solo usuarios autenticados pueden crear servicios.
+    permission_classes = [IsAuthenticated]
+    parser_classes = [MultiPartParser, FormParser]  # Permitir la carga de archivos
 
     def post(self, request):
-        serializer = ServicioSerializer(data=request.data)  # Serializa los datos enviados en la solicitud.
-        if serializer.is_valid():  # Verifica si los datos son válidos.
-            # Crea un nuevo servicio con el usuario logueado y estado 'pendiente'.
+        serializer = ServicioSerializer(data=request.data)
+        if serializer.is_valid():
             servicio = serializer.save(usuario=request.user, estado='pendiente')
-            return Response(serializer.data, status=status.HTTP_201_CREATED)  # Devuelve el servicio creado.
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)  # Devuelve errores si los datos no son válidos.
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class ListarServiciosView(APIView):  # Define una vista basada en clase usando APIView de Django REST Framework.

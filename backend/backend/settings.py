@@ -158,3 +158,6 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 CORS_ALLOWED_ORIGINS = [
     "https://localhost:5173",  # La URL de tu frontend (React)
 ]
+
+MEDIA_URL = '/media/'  # URL de acceso a los archivos de medios
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Ruta donde se almacenarán los archivos de medios en el sistema de archivos

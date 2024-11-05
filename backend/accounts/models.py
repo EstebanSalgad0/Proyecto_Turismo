@@ -72,6 +72,7 @@ class Servicio(models.Model):  # Define un modelo para almacenar los servicios q
         settings.AUTH_USER_MODEL, related_name='admin_servicios', null=True, blank=True, on_delete=models.SET_NULL
     )
     fecha_accion = models.DateTimeField(null=True, blank=True)  # Campo opcional para registrar la fecha de una acción administrativa (aprobación, rechazo).
+    imagen = models.ImageField(upload_to='imagenes_servicios/', null=True, blank=True)  # Campo para almacenar la imagen del servicio.
     created_at = models.DateTimeField(auto_now_add=True)  # Almacena la fecha de creación del servicio, se establece automáticamente al crear el servicio.
 
     def __str__(self):  # Define la representación en string del servicio.

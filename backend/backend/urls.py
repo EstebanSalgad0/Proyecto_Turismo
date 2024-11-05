@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin  # Importa el módulo admin de Django, que permite gestionar el panel de administración de la aplicación.
 from django.urls import path  # Importa la función path para definir rutas URL en la aplicación.
 from django.views.generic import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
 # Importa las vistas necesarias desde el módulo accounts.views
 from accounts.views import (
     CustomAuthToken,
@@ -62,4 +64,8 @@ urlpatterns = [
     path('api/password_reset_confirm/<uidb64>/<token>/', password_reset_confirm_view, name='password_reset_confirm'),
     path('password-reset-success/', password_reset_success_view, name='password_reset_success'),
 ]
+
+# Solo para el entorno de desarrollo: sirve archivos de medios
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

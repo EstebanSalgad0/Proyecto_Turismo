@@ -42,6 +42,20 @@ const ListarServicios = () => {
                         onClick={() => toggleExpand(servicio.id)}
                     >
                         <h2 className="service-name">{servicio.nombre}</h2>
+
+                        {/* Debugging: log the image URL */}
+                        {console.log(servicio.imagen)}
+
+                        {/* Renderizar la imagen */}
+                        {servicio.imagen && (
+                        <img 
+                            src={`${import.meta.env.VITE_BACKEND_URL}${servicio.imagen}`} // Asumiendo que tienes esta variable de entorno configurada
+                            alt={`Imagen de ${servicio.nombre}`} 
+                            className="service-image" 
+                            onError={() => console.error(`Error al cargar la imagen: ${servicio.imagen}`)} 
+                        />
+                        )}
+
                         <p className="service-description">Descripción: {servicio.descripcion}</p>
                         {expandedServicio === servicio.id && (
                             <div className="service-extra-details">

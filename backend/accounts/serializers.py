@@ -7,8 +7,8 @@ class UserSerializer(serializers.ModelSerializer):
         model = CustomUser
         fields = ['id', 'email', 'first_name', 'last_name', 'is_active', 'role', 'tipo_oferente']  # Agregar tipo_oferente aquí
 
-class ServicioSerializer(serializers.ModelSerializer):  # Define un serializador para el modelo Servicio, heredando de ModelSerializer.
-    class Meta:  # Meta clase para especificar detalles del serializador.
-        model = Servicio  # Especifica que el modelo a serializar es Servicio.
-        fields = ['id', 'nombre', 'correo', 'redes_sociales', 'descripcion', 'estado', 'created_at', 'fecha_accion']  # Define los campos que se incluirán en la serialización: ID, nombre, correo, redes sociales, descripción, estado, fecha de creación y fecha de acción.
-        read_only_fields = ['estado', 'created_at', 'fecha_accion']  # Especifica que los campos 'estado', 'created_at' y 'fecha_accion' son solo de lectura, es decir, no pueden ser modificados al crear o actualizar el servicio.
+class ServicioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Servicio
+        fields = ['id', 'nombre', 'correo', 'redes_sociales', 'descripcion', 'estado', 'imagen', 'created_at', 'fecha_accion']
+        read_only_fields = ['estado', 'created_at', 'fecha_accion']
