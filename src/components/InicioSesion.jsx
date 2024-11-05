@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -69,6 +69,7 @@ const InicioSesion = () => {
       } else {
         navigate('/Index'); // Navega directamente al index
       }
+    // eslint-disable-next-line no-unused-vars
     } catch (error) {
       setErrorMessage('Credenciales incorrectas o error en la verificación del captcha. Inténtalo de nuevo.');
     }

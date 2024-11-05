@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import '../styles/crearServicio.css';
 import ConfirmModal from '../components/ModalDelete';
 import Header from '../components/Header';
@@ -19,7 +18,6 @@ const CrearServicio = () => {
     const [showModal, setShowModal] = useState(false);
     const [deleteServiceId, setDeleteServiceId] = useState(null);
     const [actionType, setActionType] = useState('');
-    const navigate = useNavigate();
 
     const fetchServicios = async () => {
         try {
@@ -52,10 +50,9 @@ const CrearServicio = () => {
 
         try {
             const token = localStorage.getItem('token');
-            let response;
 
             if (editMode) {
-                response = await axios.put(`http://localhost:8000/api/mis_servicios/${editServicioId}/`, formData, {
+                await axios.put(`http://localhost:8000/api/mis_servicios/${editServicioId}/`, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         'Authorization': `Token ${token}`
@@ -63,7 +60,7 @@ const CrearServicio = () => {
                 });
                 setMensaje('Servicio actualizado exitosamente!');
             } else {
-                response = await axios.post(import.meta.env.VITE_CREAR_SERVICIOS_URL, formData, {
+                await axios.post(import.meta.env.VITE_CREAR_SERVICIOS_URL, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         'Authorization': `Token ${token}`

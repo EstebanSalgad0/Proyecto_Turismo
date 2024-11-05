@@ -1,10 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import { Link } from 'react-router-dom';
 import '../styles/Index.css?v=3.4';
-import Footer from '../components/Footer';
-import SocialSection from '../components/SocialSeccion';
 import Header from '../components/Header';
 import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
@@ -22,7 +19,7 @@ const Index = () => {
     if (savedLanguage && savedLanguage !== i18n.language) {
       i18n.changeLanguage(savedLanguage); // Cambiar el idioma si es necesario
     }
-  }, [i18n.language]); // Añadir el estado del idioma como dependencia
+  }, [i18n]); // Añadir el estado del idioma como dependencia
 
   const toggleVideoPlay = () => {
     // Cambia el estado de reproducción
@@ -69,9 +66,9 @@ const Index = () => {
           height="315" 
           src="https://www.youtube.com/embed/QCvh0Lwfmww?autoplay=1&mute=1&loop=1&playlist=QCvh0Lwfmww&vq=hd720" 
           title="YouTube video player" 
-          frameborder="0" 
+          frameBorder="0" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          referrerpolicy="strict-origin-when-cross-origin" 
+          referrerPolicy="strict-origin-when-cross-origin" 
           allowfullscreen>
         </iframe>
         <div className="hero-content2">

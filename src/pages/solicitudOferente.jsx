@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import '../styles/solicitudOferente.css';
-import Header from '../components/Header';
 
 const SolicitudOferente = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [servicio, setServicio] = useState('');
   const [mensaje, setMensaje] = useState('');
-  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();

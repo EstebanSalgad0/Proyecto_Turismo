@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import { Link } from 'react-router-dom';
 import '../styles/Cultura4.css?v=1.5' // Estilos específicos para el componente
-import Footer from '../components/Footer';
-import SocialSection from '../components/SocialSeccion';
 import Header from '../components/Header';
 import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
@@ -20,7 +17,7 @@ const Cultura4 = () => {
     if (savedLanguage && savedLanguage !== i18n.language) {
       i18n.changeLanguage(savedLanguage); // Cambiar el idioma si es necesario
     }
-  }, [i18n.language]); // Añadir el estado del idioma como dependencia
+  }, [i18n]); // Añadir el estado del idioma como dependencia
 
   // Función para manejar las flechas
   const nextSlide = () => {
@@ -85,7 +82,8 @@ const Cultura4 = () => {
       <div className="hero40">
         <div className="hero-content40">
           <h5>{t('Culture')}</h5>
-          <h1>Rari "Ciudad Artesanal del Mundo"</h1>
+          {/* comillas reemplazadas por el caracter de escape correspondiente */}
+          <h1>Rari &quot;Ciudad Artesanal del Mundo&quot;</h1>
           <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos ab ipsa magni asperiores magnam adipisci earum nemo nisi iure voluptate culpa nihil dolores, possimus animi sapiente natus doloribus! Iste, aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, libero reiciendis. Eos consequatur voluptas consectetur repellat blanditiis velit obcaecati id quaerat dolore quod, numquam voluptate, molestias ipsum? Accusamus, odio similique?</h4>
         </div>
       </div>

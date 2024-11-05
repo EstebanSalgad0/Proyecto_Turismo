@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import '../styles/Botones_tamano.css'; // Estilos específicos para el componente
 
 const ControlLetras = () => {

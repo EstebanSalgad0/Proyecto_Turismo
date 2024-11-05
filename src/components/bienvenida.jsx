@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import '../styles/Verificacion.css';
 import { useNavigate } from 'react-router-dom';
 
 const Verificacion = () => {
   const [email, setEmail] = useState('');
+  // eslint-disable-next-line no-unused-vars
   const [role, setRole] = useState(''); // Agregar el estado para el rol
 
   useEffect(() => {

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom';
 import '../styles/Footer.css';
 import ControlLetras from './ControlLetras';
@@ -9,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
 
-  const { t, i18n } = useTranslation(); // Hook para usar traducciones
+  const { t } = useTranslation(); // Hook para usar traducciones
 
 
   return (

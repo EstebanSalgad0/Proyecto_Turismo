@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from 'react-router-dom';
 import '../styles/Turismo.css?v=1.4';
-import Footer from '../components/Footer';
-import SocialSection from '../components/SocialSeccion';
 import Header from '../components/Header';
 
 const Zoit = () => {
@@ -31,7 +29,7 @@ const Zoit = () => {
         <br></br>
         <h5>¡Únete al Catastro de Opiniones de Servicios para turistas</h5>
                 <br></br>
-        <h5>Por favor, ser respetuoso con las opiniones dadas. Para dar su opinión debe registrarse siguiendo las instrucciones presentes a continuación </h5>
+        <h5>Por favor, ser respetuoso con las opiniones dadas. Para dar su opinión debe registrarse siguiendo las instrucciones presentes a continuación</h5>
                <br></br>
         <br></br>
         <br></br>

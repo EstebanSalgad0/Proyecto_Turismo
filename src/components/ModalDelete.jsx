@@ -1,6 +1,6 @@
-import React from 'react';
 import '../styles/Modal.css'; // Asegúrate de incluir el archivo de estilos
 
+// eslint-disable-next-line react/prop-types
 const ConfirmModal = ({ show, message, onConfirm, onCancel }) => {
   if (!show) {
     return null; // Si show es falso, no mostramos el modal

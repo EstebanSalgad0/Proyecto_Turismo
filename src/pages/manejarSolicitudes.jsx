@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import '../styles/AdminPanel.css';
 import Header from '../components/Header';
 
@@ -12,7 +11,7 @@ const AdminPanel = () => {
   const token = localStorage.getItem('token'); // Obtener el token del almacenamiento local
 
   // Fetch de solicitudes
-  const fetchSolicitudes = async () => {
+  const fetchSolicitudes = useCallback(async () => {
     try {
       const response = await axios.get(import.meta.env.VITE_SOLICITUDES_URL, {
         headers: {
@@ -23,12 +22,12 @@ const AdminPanel = () => {
     } catch (error) {
       console.error('Error al obtener las solicitudes:', error);
     }
-  };
+  }, [token]);
 
   // useEffect para obtener solicitudes y servicios al cargar la página
   useEffect(() => {
     fetchSolicitudes();
-  }, []);
+  }, [fetchSolicitudes]);
 
   // Manejar solicitudes de oferentes (aceptar/rechazar)
   const manejarSolicitud = async (id, accion) => {

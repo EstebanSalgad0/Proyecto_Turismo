@@ -1,11 +1,11 @@
-import React from 'react';
+
 import '../styles/SocialSeccion.css';
 import './i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
 
 const SocialSeccion = () => {
 
-  const { t, i18n } = useTranslation(); // Hook para usar traducciones
+  const { t } = useTranslation(); // Hook para usar traducciones
 
   return (
     <section className="social-section1">

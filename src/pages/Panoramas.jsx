@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../styles/Panoramas.css?v=1.7' // Estilos específicos para el componente
@@ -17,7 +17,7 @@ const Panoramas = () => {
     if (savedLanguage && savedLanguage !== i18n.language) {
       i18n.changeLanguage(savedLanguage); // Cambiar el idioma si es necesario
     }
-  }, [i18n.language]); // Añadir el estado del idioma como dependencia
+  }, [i18n]); // Añadir el estado del idioma como dependencia
 
   // Función para manejar las flechas
   const nextSlide = () => {

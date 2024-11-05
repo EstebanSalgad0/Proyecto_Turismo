@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import '../styles/AdminPanel.css'
 
 const AdminPanel = () => {
@@ -12,7 +11,7 @@ const AdminPanel = () => {
   const token = localStorage.getItem('token'); // Obtener el token del almacenamiento local
 
   // Fetch de servicios pendientes
-  const fetchServicios = async () => {
+  const fetchServicios = useCallback(async () => {
     try {
       const response = await axios.get(import.meta.env.VITE_SERVICIOS_URL, {
         headers: {
@@ -23,17 +22,17 @@ const AdminPanel = () => {
     } catch (error) {
       console.error('Error al obtener servicios:', error);
     }
-  };
+  }, [token]);
 
   // useEffect para obtener solicitudes y servicios al cargar la página
   useEffect(() => {
     fetchServicios();
-  }, []);
+  }, [fetchServicios]);
 
   // Manejar servicios (aceptar/rechazar)
   const handleServiceAction = async (servicioId, accion) => {
     try {
-      const response = await axios.post(import.meta.env.VITE_SERVICIOS_ID_URL, { accion }, {
+      await axios.post(import.meta.env.VITE_SERVICIOS_ID_URL, { accion }, {
         headers: {
           'Authorization': `Token ${token}`
         }

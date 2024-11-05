@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import { Link } from 'react-router-dom';
 import '../styles/Losbellotos.css?v=1.1'; // Estilos específicos para el componente
-import Footer from '../components/Footer';
-import SocialSection from '../components/SocialSeccion';
 import Header from '../components/Header';
 import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
@@ -21,7 +18,7 @@ const Losbellotos = () => {
     if (savedLanguage && savedLanguage !== i18n.language) {
       i18n.changeLanguage(savedLanguage); // Cambiar el idioma si es necesario
     }
-  }, [i18n.language]); // Añadir el estado del idioma como dependencia
+  }, [i18n]); // Añadir el estado del idioma como dependencia
 
   // Función para manejar las flechas
   const nextSlide = () => {
