@@ -53,7 +53,8 @@ const CrearServicio = () => {
 
             if (editMode) {
                 const url = `${import.meta.env.VITE_MIS_SERVICIOS_URL}${editServicioId}/`;
-                response = await axios.put(url, formData, {
+                // No es necesario guardar la respuesta de axios si no la vamos a usar
+                await axios.put(url, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         'Authorization': `Token ${token}`

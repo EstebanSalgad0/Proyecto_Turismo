@@ -34,7 +34,8 @@ const AdminPanel = () => {
   const handleServiceAction = async (servicioId, accion) => {
     try {
       const url = `${import.meta.env.VITE_SERVICIOS_URL}${servicioId}/`;
-      const response = await axios.post(url, { accion }, {
+      // No es necesario guardar response si no lo vamos a usar
+      await axios.post(url, { accion }, {
         headers: {
           'Authorization': `Token ${token}`
         }

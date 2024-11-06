@@ -33,6 +33,7 @@ const AdminPanel = () => {
   const manejarSolicitud = async (id, accion) => {
     try {
       const url = `${import.meta.env.VITE_SOLICITUDES_ID_URL}${id}/`;
+      // Aqui SÍ usamos response
       const response = await axios.post(url, { accion }, {
         headers: {
           Authorization: `Token ${token}`,
