@@ -58,13 +58,15 @@ const InicioSesion = () => {
         captcha: captchaToken, // Enviar el token del captcha al backend
       });
 
-      const { token, role } = response.data; // Asegurarse de que el backend devuelva el token y rol correctamente
+      const { token, role, is_first_login } = response.data; // Asegurarse de que el backend devuelva el token y rol correctamente
       localStorage.setItem('token', token);
       localStorage.setItem('userRole', role); // Guardar el rol en el localStorage
+      localStorage.setItem('is_first_login', is_first_login); // Guardar el rol en el localStorage
+
+      console.log('is_first_login:', is_first_login);  // Verifica el valor antes de la redirección
 
       // Comprobar si es la primera vez que el usuario inicia sesión
-      if (!localStorage.getItem('hasVisited')) {
-        localStorage.setItem('hasVisited', 'true');
+      if (is_first_login) {
         navigate('/bienvenida'); // Navega a la página de bienvenida
       } else {
         navigate('/Index'); // Navega directamente al index
