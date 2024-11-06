@@ -55,7 +55,8 @@ const CrearServicio = () => {
             let response;
 
             if (editMode) {
-                response = await axios.put(`http://localhost:8000/api/mis_servicios/${editServicioId}/`, formData, {
+                const url = `${import.meta.env.VITE_MIS_SERVICIOS_URL}${editServicioId}/`;
+                response = await axios.put(url, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         'Authorization': `Token ${token}`
@@ -96,7 +97,8 @@ const CrearServicio = () => {
     const handleDelete = async () => {
         try {
             const token = localStorage.getItem('token');
-            await axios.delete(`http://localhost:8000/api/mis_servicios/${deleteServiceId}/`, {
+            const url = `${import.meta.env.VITE_MIS_SERVICIOS_URL}${deleteServiceId}/`;
+            await axios.delete(url, {
                 headers: {
                     'Authorization': `Token ${token}`
                 }
@@ -113,7 +115,8 @@ const CrearServicio = () => {
     const handleReenviar = async (servicioId) => {
         try {
             const token = localStorage.getItem('token');
-            await axios.post(`http://localhost:8000/api/reenviar_servicio/${servicioId}/`, { accion: 'reenviar' }, {
+            const url = `${import.meta.env.VITE_REENVIAR_SERVICIOS_URL}${servicioId}/`;
+            await axios.post(url, { accion: 'reenviar' }, {
                 headers: {
                     'Authorization': `Token ${token}`
                 }
