@@ -12,15 +12,17 @@ se necesita tener instalado Django y nodejs
 
 5. Instalar python3-requests = py -m pip install python-requests
 
-6. Instalar recaptcha de google = npm install react-google-recaptcha
+6. Instalar python3-Pillow = py -m pip install pillow
 
-7. Instalar requests = npm install requests
+7. Instalar recaptcha de google = npm install react-google-recaptcha
 
-8. Instalar i18n para traducciones = npm install i18next react-i18next
+8. Instalar requests = npm install requests
 
-9. Instalar Leaflet y OpenStreetMap = npm install leaflet leaflet-routing-machine
+9. Instalar i18n para traducciones = npm install i18next react-i18next
 
-10. Para arrancar el entorno virtual = npm run dev
+10. Instalar Leaflet y OpenStreetMap = npm install leaflet leaflet-routing-machine
 
-11. para arrancar la base de datos/login = manage.py runserver 
+11. Para arrancar el entorno virtual = npm run dev
+
+12. para arrancar la base de datos/login = manage.py runserver 
 
