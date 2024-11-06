@@ -41,6 +41,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):  # Define un modelo Custom
     ]
     tipo_oferente = models.CharField(max_length=20, choices=OFERENTE_CHOICES, default='artesano')
 
+    # Nuevo campo para detectar si es la primera vez que se inicia sesión
+    is_first_login = models.BooleanField(default=True)
+
     objects = CustomUserManager()  # Asigna el CustomUserManager como el administrador de usuarios.
 
     USERNAME_FIELD = 'email'  # Define el campo que se usará para identificar al usuario en el login (email en lugar de username).

@@ -23,9 +23,10 @@ from django.http import HttpResponse, JsonResponse  # Importa clases para respue
 import csv  # Importa csv para manejar archivos CSV.
 from io import StringIO  # Importa StringIO para operaciones de manejo de strings en memoria.
 from rest_framework.parsers import MultiPartParser, FormParser
+from django.db import transaction
 
-class CustomAuthToken(ObtainAuthToken):  # Define una clase CustomAuthToken que hereda de ObtainAuthToken para personalizar la autenticación basada en tokens.
-    def post(self, request, *args, **kwargs):  # Sobrescribe el método POST para manejar las solicitudes de autenticación.
+class CustomAuthToken(ObtainAuthToken):
+    def post(self, request, *args, **kwargs):
         email = request.data.get('email')  # Obtiene el email enviado en la solicitud POST.
         password = request.data.get('password')  # Obtiene la contraseña enviada en la solicitud POST.
         captcha_response = request.data.get('captcha')  # Obtiene la respuesta del captcha enviado en la solicitud POST.
@@ -39,17 +40,35 @@ class CustomAuthToken(ObtainAuthToken):  # Define una clase CustomAuthToken que 
         user = authenticate(request, email=email, password=password)  # Autentica al usuario utilizando el email y la contraseña proporcionados.
 
         if user is not None:  # Si el usuario fue autenticado correctamente:
+
+            # Crea el token para el usuario
             token, created = Token.objects.get_or_create(user=user)  # Obtiene o crea un token de autenticación para el usuario.
-            return Response({  
+
+            # Respuesta con los datos del usuario
+            response_data = {
                 'token': token.key,  # Devuelve el token del usuario.
                 'user_id': user.pk,  # Devuelve el ID del usuario.
                 'email': user.email,  # Devuelve el email del usuario.
                 'first_name': user.first_name,  # Devuelve el primer nombre
                 'last_name': user.last_name,  # Devuelve el apellido
                 'role': user.role,  # Devuelve el rol del usuario.
-            })
+                'is_first_login': user.is_first_login,  # Devolver esta información al frontend
+            }
+
+            # Usar transaction.on_commit para que el cambio se haga después de la respuesta
+            if user.is_first_login:
+                # Actualiza el valor de is_first_login después de enviar la respuesta
+                transaction.on_commit(lambda: self.update_first_login_status(user))  # Cambia el valor de `is_first_login` después de la respuesta
+
+            return Response(response_data)  # Devuelve la respuesta al frontend
+
         else:  # Si la autenticación falla:
             return Response({'error': 'Credenciales incorrectas'}, status=400)  # Devuelve un error indicando credenciales incorrectas.
+
+    def update_first_login_status(self, user):
+        """Actualiza el estado de 'is_first_login' después de la transacción"""
+        user.is_first_login = False  # Marca como falso después del primer inicio de sesión
+        user.save()
 
 CustomUser = get_user_model()  # Obtiene el modelo de usuario personalizado configurado en el proyecto.
 
@@ -248,7 +267,7 @@ class RegisterView(APIView):
         try:
             # Crear el usuario sin activar
             user = CustomUser.objects.create_user(
-                email=email, password=password, first_name=first_name, last_name=last_name, role='oferente', tipo_oferente=tipo_oferente, is_active=False
+                email=email, password=password, first_name=first_name, last_name=last_name, role='oferente', tipo_oferente=tipo_oferente, is_active=False, is_first_login=True
             )
             user.save()
 

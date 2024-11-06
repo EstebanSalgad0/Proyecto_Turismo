@@ -5,7 +5,7 @@ from .models import Servicio  # Importa el modelo Servicio desde los modelos loc
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ['id', 'email', 'first_name', 'last_name', 'is_active', 'role', 'tipo_oferente']  # Agregar tipo_oferente aquí
+        fields = ['id', 'email', 'first_name', 'last_name', 'is_active', 'role', 'tipo_oferente', 'is_first_login']  # Agregar tipo_oferente aquí
 
 class ServicioSerializer(serializers.ModelSerializer):
     class Meta:

@@ -13,7 +13,7 @@ const AdminPanel = () => {
   // Fetch de servicios pendientes
   const fetchServicios = useCallback(async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/api/manejar_servicios/`, { // Cambia aquí
+      const response = await axios.get(import.meta.env.VITE_SERVICIOS_URL, { // Cambia aquí
         headers: {
           'Authorization': `Token ${token}`,
         }
@@ -33,7 +33,8 @@ const AdminPanel = () => {
   // Manejar servicios (aceptar/rechazar)
   const handleServiceAction = async (servicioId, accion) => {
     try {
-      await axios.post(`http://localhost:8000/api/manejar_servicios/${servicioId}/`, { accion }, {
+      const url = `${import.meta.env.VITE_SERVICIOS_URL}${servicioId}/`;
+      const response = await axios.post(url, { accion }, {
         headers: {
           'Authorization': `Token ${token}`
         }

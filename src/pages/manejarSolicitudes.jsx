@@ -32,7 +32,8 @@ const AdminPanel = () => {
   // Manejar solicitudes de oferentes (aceptar/rechazar)
   const manejarSolicitud = async (id, accion) => {
     try {
-      const response = await axios.post(import.meta.env.VITE_SOLICITUDES_ID_URL, { accion }, {
+      const url = `${import.meta.env.VITE_SOLICITUDES_ID_URL}${id}/`;
+      const response = await axios.post(url, { accion }, {
         headers: {
           Authorization: `Token ${token}`,
         },
