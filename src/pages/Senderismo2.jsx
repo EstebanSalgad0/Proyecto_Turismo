@@ -1,56 +1,70 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import '../styles/Senderismo2.css?v=1.5' // Estilos específicos para el componente
+import { Link } from 'react-router-dom';
+import '../styles/Senderismo.css?v=2.0';// Estilos específicos para el componente
+import Footer from '../components/Footer';
+import SocialSection from '../components/SocialSeccion';
 import Header from '../components/Header';
 import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
 
-const Elmelado = () => {
-
+const Senderismo = () => {
   const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
-  const totalSlides = 4; // Número total de slides
   const { t, i18n } = useTranslation(); // Hook para usar traducciones
 
+  // Guardar el idioma seleccionado en localStorage y cargarlo al inicio
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('language'); // Obtener el idioma guardado
+    const savedLanguage = localStorage.getItem('language');
     if (savedLanguage && savedLanguage !== i18n.language) {
-      i18n.changeLanguage(savedLanguage); // Cambiar el idioma si es necesario
+      i18n.changeLanguage(savedLanguage);
     }
-  }, [i18n]); // Añadir el estado del idioma como dependencia
+  }, [i18n.language]);
 
-  // Función para manejar las flechas
+  // Array de nombres de los slides para el carrusel
+  const slideNames = [
+    'VizcachazViewpoint',
+    'NationalPark',
+    'CavesBellotos',
+    'Reservoir',
+    'Test1',
+    'Test2',
+    'Test3'
+  ];
+
+  // Función para manejar las flechas del carrusel
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides); // Si llega al final, vuelve al inicio
+    setCurrentSlide((prev) => (prev + 1) % slideNames.length);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides); // Si está en la primera, va a la última
+    setCurrentSlide((prev) => (prev - 1 + slideNames.length) % slideNames.length);
   };
 
-  // Desliza automáticamente cada 10 segundos
+  // Configuración para deslizar automáticamente cada 10 segundos
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
     }, 10000);
 
-    return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="index-container">
       {/* Navbar */}
-      <Header/>
+      <Header />
 
-      {/* Hero Section */}
+      {/* Hero Section 1 */}
       <div className="hero16">
         <div className="hero-content16">
           <h5>{t('Hike')}</h5>
-          <h1 id='volcan'>{t('Lagoons')}</h1>
-          <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos ab ipsa magni asperiores magnam adipisci earum nemo nisi iure voluptate culpa nihil dolores, possimus animi sapiente natus doloribus! Iste, aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, libero reiciendis. Eos consequatur voluptas consectetur repellat blanditiis velit obcaecati id quaerat dolore quod, numquam voluptate, molestias ipsum? Accusamus, odio similique?</h4>
+          <h1 id='volcan'>{t('Volcano')}</h1>
+          <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos ab ipsa magni asperiores magnam adipisci earum nemo nisi iure voluptate culpa nihil dolores, possimus animi sapiente natus doloribus! Iste, aliquid!</h4>
         </div>
       </div>
 
+      {/* Info Section 1 */}
       <section className="info-section">
         <div className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
@@ -60,15 +74,16 @@ const Elmelado = () => {
         </div>
       </section>
 
-      {/* Hero Section */}
+      {/* Hero Section 2 */}
       <div className="hero16">
         <div className="hero-content16">
           <h5>{t('Hike')}</h5>
-          <h1 id='mirador'>{t('Lagoons1')}</h1>
-          <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos ab ipsa magni asperiores magnam adipisci earum nemo nisi iure voluptate culpa nihil dolores, possimus animi sapiente natus doloribus! Iste, aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, libero reiciendis. Eos consequatur voluptas consectetur repellat blanditiis velit obcaecati id quaerat dolore quod, numquam voluptate, molestias ipsum? Accusamus, odio similique?</h4>
+          <h1 id='mirador'>{t('VizcachazViewpoint')}</h1>
+          <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos ab ipsa magni asperiores magnam adipisci earum nemo nisi iure voluptate culpa nihil dolores, possimus animi sapiente natus doloribus! Iste, aliquid!</h4>
         </div>
       </div>
 
+      {/* Info Section 2 */}
       <section className="info-section">
         <div className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
@@ -78,42 +93,6 @@ const Elmelado = () => {
         </div>
       </section>
 
-      {/* Hero Section */}
-      <div className="hero16">
-        <div className="hero-content16">
-          <h5>{t('Hike')}</h5>
-          <h1 id='mirador'>{t('Lagoons2')}</h1>
-          <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos ab ipsa magni asperiores magnam adipisci earum nemo nisi iure voluptate culpa nihil dolores, possimus animi sapiente natus doloribus! Iste, aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, libero reiciendis. Eos consequatur voluptas consectetur repellat blanditiis velit obcaecati id quaerat dolore quod, numquam voluptate, molestias ipsum? Accusamus, odio similique?</h4>
-        </div>
-      </div>
-
-      <section className="info-section">
-        <div className="info-content">
-          <h5>{t('UnforgettablePlaces')}</h5>
-          <h1>{t('Remember')}</h1>
-          <p>{t('ColbunBeauty')}</p>
-          <button className="btn-blue">{t('Discover')}</button>
-        </div>
-      </section>
-
-      {/* Hero Section */}
-      <div className="hero16">
-        <div className="hero-content16">
-          <h5>S{t('Hike')}</h5>
-          <h1 id='mirador'>{t('Lagoons3')}</h1>
-          <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos ab ipsa magni asperiores magnam adipisci earum nemo nisi iure voluptate culpa nihil dolores, possimus animi sapiente natus doloribus! Iste, aliquid! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, libero reiciendis. Eos consequatur voluptas consectetur repellat blanditiis velit obcaecati id quaerat dolore quod, numquam voluptate, molestias ipsum? Accusamus, odio similique?</h4>
-        </div>
-      </div>
-
-      <section className="info-section">
-        <div className="info-content">
-          <h5>{t('UnforgettablePlaces')}</h5>
-          <h1>{t('Remember')}</h1>
-          <p>{t('ColbunBeauty')}</p>
-          <button className="btn-blue">{t('Discover')}</button>
-        </div>
-      </section>
-            
       {/* Carousel Section */}
       <section className="carousel-section1">
         <div className="carousel-header1">
@@ -126,45 +105,26 @@ const Elmelado = () => {
 
         {/* Carrusel de imágenes */}
         <div className="carousel-container1">
-          {/* Cards del carrusel */}
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('VizcachazViewpoint')}</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('NationalPark')}</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('CavesBellotos')}</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('Reservoir')}</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('Test1')}</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('Test2')}</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('Test3')}</p>
-          </div>
+          {slideNames.map((slideName, index) => (
+            <div
+              key={index}
+              className="carousel-card1"
+              style={{
+                transform: `translateX(-${currentSlide * (window.innerWidth <= 768 ? 113 : 40)}%)`
+              }}
+            >
+              <div className="carousel-image1"></div>
+              <p>{t(slideName)}</p>
+            </div>
+          ))}
         </div>
 
         {/* Flechas de control */}
         <button className="carousel-control1 prev" onClick={prevSlide}>&#10094;</button>
         <button className="carousel-control1 next" onClick={nextSlide}>&#10095;</button>
       </section>
-
-
     </div>
   );
 };
 
-export default Elmelado;
+export default Senderismo;

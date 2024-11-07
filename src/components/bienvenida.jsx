@@ -32,7 +32,7 @@ const Verificacion = () => {
         </div>
 
         <br></br>
-        <h1 className='h1-veri'>Te damos la bienvenida a nuestra comunidad de oferentes</h1>
+        <h1 className='h1-veri'>Te damos la bienvenida a Oferentes de Servicios</h1>
         <br></br>
         <p className='subtitle'>¡Gracias por registrarte y ser parte de nuestra red!
                                 Te damos la bienvenida a nuestro espacio de Artesanas/os,

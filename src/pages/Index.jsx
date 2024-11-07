@@ -1,28 +1,44 @@
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import { Link } from 'react-router-dom';
 import '../styles/Index.css?v=3.4';
+import Footer from '../components/Footer';
+import SocialSection from '../components/SocialSeccion';
 import Header from '../components/Header';
-import '../components/i18n'; // Importa el archivo de configuración
+import '../components/i18n';
 import { useTranslation } from 'react-i18next';
+import useCarousel from '../components/useCarousel'; // Importa el hook de carrusel
 
 const Index = () => {
-  const [isPlaying, setIsPlaying] = useState(true); // Estado para pausar/reproducir
-  const videoRef = useRef(null); // Referencia al iframe del video
-  const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
-  const totalSlides = 4; // Número total de slides
-  const [isFirstMap, setIsFirstMap] = useState(true); // Estado para alternar entre los mapas
-  const { t, i18n } = useTranslation(); // Hook para usar traducciones
+  const [isPlaying, setIsPlaying] = useState(true);
+  const videoRef = useRef(null);
+  const [isFirstMap, setIsFirstMap] = useState(true);
+  const { t, i18n } = useTranslation();
+  
+  const slideNames = [
+    'VizcachazViewpoint',
+    'NationalPark',
+    'CavesBellotos',
+    'Reservoir',
+    'LakeColbun',
+    'HillViewpoint',
+    'ToroWaterfall',
+    'AnotherLocation'
+  ];
+
+  // Usa el hook de carrusel
+  const { currentSlide, nextSlide, prevSlide, totalSlides } = useCarousel(4);
+
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('language'); // Obtener el idioma guardado
+    const savedLanguage = localStorage.getItem('language');
     if (savedLanguage && savedLanguage !== i18n.language) {
-      i18n.changeLanguage(savedLanguage); // Cambiar el idioma si es necesario
+      i18n.changeLanguage(savedLanguage);
     }
-  }, [i18n]); // Añadir el estado del idioma como dependencia
+  }, [i18n.language]);
 
   const toggleVideoPlay = () => {
-    // Cambia el estado de reproducción
     if (isPlaying) {
       videoRef.current.src = videoRef.current.src.replace("autoplay=1", "autoplay=0");
     } else {
@@ -31,28 +47,9 @@ const Index = () => {
     setIsPlaying(!isPlaying);
   };
 
-  // Función para alternar entre los mapas
   const toggleMap = () => {
     setIsFirstMap(!isFirstMap);
   };
-
-  // Función para manejar las flechas
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides); // Si llega al final, vuelve al inicio
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides); // Si está en la primera, va a la última
-  };
-
-  // Desliza automáticamente cada 10 segundos
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 10000);
-
-    return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
-  }, []);
 
   return (
     <div className="index-container">
@@ -60,32 +57,31 @@ const Index = () => {
       <Header />
       {/* Hero Section */}
       <div className="hero2">
-        <iframe 
+        <iframe
           ref={videoRef}
-          width="560" 
-          height="315" 
-          src="https://www.youtube.com/embed/QCvh0Lwfmww?autoplay=1&mute=1&loop=1&playlist=QCvh0Lwfmww&vq=hd720" 
-          title="YouTube video player" 
-          frameBorder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          referrerPolicy="strict-origin-when-cross-origin" 
-          allowfullscreen>
-        </iframe>
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/QCvh0Lwfmww?autoplay=1&mute=1&loop=1&playlist=QCvh0Lwfmww&vq=hd720"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        ></iframe>
         <div className="hero-content2">
           <h1>{t('ColbunTitle')}</h1>
           <h2>{t('SubtitleMessage')}</h2>
           <a href="https://www.youtube.com/watch?v=QCvh0Lwfmww" target="colbun" rel="municipalidad_Colbun">
-          <button className="btn-blue">
-          {t('WatchNow')} 
-      <img src="src/assets/img/verahora_icon.png" alt="icono de reproducción" className="button-icon" />
-    </button>
+            <button className="btn-blue">
+              {t('WatchNow')}
+              <img src="src/assets/img/verahora_icon.png" alt="icono de reproducción" className="button-icon" />
+            </button>
           </a>
         </div>
         <button className="play-button" onClick={toggleVideoPlay}>
-                  {isPlaying ? <i className="bi bi-pause"></i> : <i className="bi bi-play"></i>}
-          </button>
+          {isPlaying ? <i className="bi bi-pause"></i> : <i className="bi bi-play"></i>}
+        </button>
       </div>
-
 
       {/* Carousel Section */}
       <section className="carousel-section1">
@@ -99,35 +95,18 @@ const Index = () => {
 
         {/* Carrusel de imágenes */}
         <div className="carousel-container1">
-          {/* Cards del carrusel */}
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('VizcachazViewpoint')}</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('NationalPark')}</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('CavesBellotos')}</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('Reservoir')}</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('Test1')}</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('Test2')}</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('Test3')}</p>
-          </div>
+          {slideNames.map((slideName, index) => (
+            <div
+              key={index}
+              className="carousel-card1"
+              style={{
+                transform: `translateX(-${currentSlide * (window.innerWidth <= 768 ? 113 : 130)}%)`
+              }}
+            >
+              <div className="carousel-image1"></div>
+              <p>{t(slideName)}</p>
+            </div>
+          ))}
         </div>
 
         {/* Flechas de control */}
@@ -138,11 +117,9 @@ const Index = () => {
       <section className="community-section1">
         <div className="community-content1">
           <h1>{t('ComeCloser')}<br />{t('OurCommunity')}</h1>
-          <p>
-          {t('ColbunServiceCountry')}
-          </p>
+          <p>{t('ColbunServiceCountry')}</p>
           <a href="https://www.youtube.com/watch?v=NOi1JxhP8Y4" target="colbun" rel="municipalidad_Colbun">
-          <button className="btn-blue">{t('Collaboration')}</button>
+            <button className="btn-blue">{t('Collaboration')}</button>
           </a>
         </div>
       </section>
@@ -168,19 +145,16 @@ const Index = () => {
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
           <p>{t('ColbunBeauty')}</p>
-          {/* Contenedor para alinear los botones */}
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://maps.app.goo.gl/GZSD4dNAL8uKZx1N6", "_blank")}>
-            {t('Discover')}
+              {t('Discover')}
             </button>
-            {/* Botón pequeño para cambiar entre los mapas */}
             <button className="btn-blue2" onClick={toggleMap}>
-            <i className="bi bi-geo-alt"></i>
+              <i className="bi bi-geo-alt"></i>
             </button>
           </div>
         </section>
       </div>
-
     </div>
   );
 };

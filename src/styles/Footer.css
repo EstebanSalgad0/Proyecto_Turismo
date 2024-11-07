@@ -1,106 +1,105 @@
 /* Footer */
 .footer-section {
-    background-color: #1a1a1a; /* Color de fondo oscuro */
-    color: white; /* Color de texto blanco */
-    padding: 40px 0; /* Padding para espacio vertical */
-    width: 100vw; /* Ocupa todo el ancho de la ventana */
-    box-sizing: border-box; /* Incluye el padding dentro del ancho total */
-  }
-  
+  background-color: #1a1a1a; /* Color de fondo oscuro */
+  color: white; /* Color de texto blanco */
+  padding: 40px 0; /* Padding para espacio vertical */
+  width: 100vw; /* Ocupa todo el ancho de la ventana */
+  box-sizing: border-box; /* Incluye el padding dentro del ancho total */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between; /* Distribuye las columnas equitativamente */
+  max-width: 1200px; /* Ancho máximo del contenido */
+  margin: 0 auto; /* Centra el contenido horizontalmente */
+  padding: 20px;
+  flex-wrap: wrap; /* Asegura que el contenido se ajuste a pantallas más pequeñas */
+}
+
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinea los logos a la izquierda */
+  gap: 20px; /* Espacio entre los logos */
+  margin-left: 0; /* Mueve el contenedor más cerca del borde izquierdo */
+}
+
+.logo {
+  width: 150px;
+  height: 80px; /* Ajusta la altura según la imagen */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Aquí agregamos las imágenes de fondo */
+.logo-1 {
+  background-image: url('../assets/img/Footer/marcaFundacion.png') !important; /* Ajusta la ruta correctamente */
+}
+
+.logo-2 {
+  background-image: url('../assets/img/Footer/AU.png') !important;
+}
+
+.logo-3 {
+  background-image: url('../assets/img/Footer/marcaColbun.png') !important;
+}
+
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: calc(25% - 20px); /* Ajusta cada columna para ocupar un cuarto del ancho */
+  margin-bottom: 20px; /* Espacio entre las columnas para pantallas más pequeñas */
+}
+
+.footer-column h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.footer-column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+  color: white; /* Texto blanco */
+  text-decoration: none;
+}
+
+.footer-column ul li a:hover {
+  text-decoration: underline; /* Subraya los enlaces al pasar el mouse */
+}
+
+/* Responsividad: Ajusta las columnas para pantallas más pequeñas */
+@media (max-width: 768px) {
   .footer-container {
-    display: flex;
-    justify-content: space-between; /* Distribuye las columnas equitativamente */
-    max-width: 1200px; /* Ancho máximo del contenido */
-    margin: 0 auto; /* Centra el contenido horizontalmente */
-    padding: 20px;
-    flex-wrap: wrap; /* Asegura que el contenido se ajuste a pantallas más pequeñas */
-  }
-  
-  .footer-logo {
-    display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Alinea los logos a la izquierda */
-    gap: 20px; /* Espacio entre los logos */
-    margin-left: 0; /* Mueve el contenedor más cerca del borde izquierdo */
+    align-items: flex-start;
   }
-  
-  .logo {
-    width: 150px;
-    height: 80px; /* Ajusta la altura según la imagen */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-  
-  /* Aquí agregamos las imágenes de fondo */
-  .logo-1 {
-    background-image: url('../assets/img/Footer/marcaFundacion.png') !important; /* Ajusta la ruta correctamente */
-  }
-  
-  .logo-2 {
-    background-image: url('../assets/img/Footer/AU.png') !important;
-  }
-  
-  .logo-3 {
-    background-image: url('../assets/img/Footer/marcaColbun.png') !important;
-  }
-  
-  
+
   .footer-column {
-    display: flex;
-    flex-direction: column;
-    flex-basis: calc(25% - 20px); /* Ajusta cada columna para ocupar un cuarto del ancho */
-    margin-bottom: 20px; /* Espacio entre las columnas para pantallas más pequeñas */
-  }
-  
-  .footer-column h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    font-weight: bold;
-  }
-  
-  .footer-column ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .footer-column ul li {
-    margin-bottom: 10px;
-  }
-  
-  .footer-column ul li a {
-    color: white; /* Texto blanco */
-    text-decoration: none;
-  }
-  
-  .footer-column ul li a:hover {
-    text-decoration: underline; /* Subraya los enlaces al pasar el mouse */
-  }
-  
-  /* Responsividad: Ajusta las columnas para pantallas más pequeñas */
-  @media (max-width: 768px) {
-    .footer-container {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .footer-column {
-      flex-basis: 100%; /* Cada columna ocupa todo el ancho en pantallas pequeñas */
-    }
-  
-    .footer-logo {
-      flex-direction: row; /* Coloca los logos en fila en pantallas pequeñas */
-      justify-content: flex-start; /* Alinea los logos a la izquierda */
-    }
+    flex-basis: 100%; /* Cada columna ocupa todo el ancho en pantallas pequeñas */
   }
 
-  body.dark-mode .footer-column {
-    position: relative;
-    z-index: 2;
+  .footer-logo {
+    flex-direction: row; /* Coloca los logos en fila en pantallas pequeñas */
+    justify-content: flex-start; /* Alinea los logos a la izquierda */
   }
+}
 
-  body.dark-mode .footer-container {
-    position: relative;
-    z-index: 2;
-  }
-  
+body.dark-mode .footer-column {
+  position: relative;
+  z-index: 2;
+}
+
+body.dark-mode .footer-container {
+  position: relative;
+  z-index: 2;
+}
