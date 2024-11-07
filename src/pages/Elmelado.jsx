@@ -6,6 +6,7 @@ import '../styles/Elmelado.css?v=1.6'; // Estilos específicos para el component
 import Header from '../components/Header';
 import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
+import useCarousel from '../components/useCarousel'; // Importa el hook personalizado
 
 
 const Elmelado = () => {
@@ -13,8 +14,20 @@ const Elmelado = () => {
   const lng = -71.05518511993768;
   const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
   const [isFirstMap, setIsFirstMap] = useState(true); // Estado para alternar entre los mapas
-  const totalSlides = 4; // Número total de slides
+  const { currentSlide, nextSlide, prevSlide, totalSlides } = useCarousel(4); // Usa el hook personalizado
   const { t, i18n } = useTranslation(); // Hook para usar traducciones
+
+  // Nombres de las tarjetas
+  const slideNames = [
+    'VizcachazViewpoint',
+    'NationalPark',
+    'CavesBellotos',
+    'Reservoir',
+    'LakeColbun',
+    'HillViewpoint',
+    'ToroWaterfall',
+    'AnotherLocation'
+  ];
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem('language'); // Obtener el idioma guardado
@@ -22,24 +35,6 @@ const Elmelado = () => {
       i18n.changeLanguage(savedLanguage); // Cambiar el idioma si es necesario
     }
   }, [i18n]); // Añadir el estado del idioma como dependencia
-
-  // Función para manejar las flechas
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides); // Si llega al final, vuelve al inicio
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides); // Si está en la primera, va a la última
-  };
-
-  // Desliza automáticamente cada 10 segundos
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 10000);
-
-    return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
-  }, []);
 
   // Función para alternar entre los mapas
   const toggleMap = () => {
@@ -106,35 +101,18 @@ const Elmelado = () => {
 
         {/* Carrusel de imágenes */}
         <div className="carousel-container1">
-          {/* Cards del carrusel */}
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('VizcachazViewpoint')}</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('NationalPark')}</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('CavesBellotos')}</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('Reservoir')}</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('Test1')}</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('Test2')}</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('Test3')}</p>
-          </div>
+          {slideNames.map((slideName, index) => (
+            <div
+              key={index}
+              className="carousel-card1"
+              style={{
+                transform: `translateX(-${currentSlide * (window.innerWidth <= 768 ? 113 : 130)}%)`
+              }}
+            >
+              <div className="carousel-image1"></div>
+              <p>{t(slideName)}</p>
+            </div>
+          ))}
         </div>
 
         {/* Flechas de control */}

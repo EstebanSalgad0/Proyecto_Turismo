@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';  // Importar useNavigate para redirigir
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import '../styles/Header.css?v=3.1';
+import '../styles/Header.css?v=3.2';
 import './i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
 
@@ -19,8 +19,7 @@ const Header = () => {
   const [searchOpen, setSearchOpen] = useState(false); // Estado para controlar la visibilidad de la barra de búsqueda
   const [searchResults, setSearchResults] = useState([]);
   const [searchQuery, setSearchQuery] = useState(''); // Estado para almacenar el valor de la búsqueda
-
-  // Estado para el idioma
+  const [dropdownIconsOpen, setDropdownIconsOpen] = useState(false);
   const [language, setLanguage] = useState('es');
 
   const toggleSearch = () => {
@@ -46,16 +45,10 @@ const Header = () => {
     }
   };
 
-  // Redirige al hacer clic en un resultado de búsqueda
-  const handleResultClick = (path) => {
-    navigate(path);
-    setSearchOpen(false);
-  };
-
   // Lista de vistas disponibles con sus nombres y rutas
   const pages = [
     { name: "El Melado", path: "/ElMelado" },
-    { name: "Paso Pehuenche", path: "/Pasopehuenche" },
+    { name: "Paso Pehuenche", path: "/Paso-pehuenche" },
     { name: "Colbún", path: "/Colbun" },
     { name: "Colbún Alto", path: "/Colbun-alto" },
     { name: "Asociados", path: "/Asociados" },
@@ -91,6 +84,12 @@ const Header = () => {
     // Agrega aquí todas las demás vistas como objetos con `name` y `path`
   ];
 
+  // Redirige al hacer clic en un resultado de búsqueda
+  const handleResultClick = (path) => {
+    navigate(path);
+    setSearchOpen(false);
+  };
+
   // Función para alternar el idioma y guardar preferencia en localStorage
   const toggleLanguage = () => {
     const newLanguage = language === 'es' ? 'en' : 'es';
@@ -107,7 +106,17 @@ const Header = () => {
       setLanguage(savedLanguage);
       i18n.changeLanguage(savedLanguage);
     }
-  }, [i18n]);
+  }, []);
+
+  // Filtrar contenido en función del término de búsqueda
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+
+  const toggleActivitiesDropdown = () => {
+    setActivitiesDropdownOpen(!activitiesDropdownOpen);
+  };
 
   const showSubMenu = (menu) => {
     setActiveSubMenu(menu);
@@ -169,19 +178,28 @@ const Header = () => {
     navigate('/login');
   };
 
+  const toggleDropdownIcons = () => {
+    setDropdownIconsOpen(!dropdownIconsOpen);
+  };
+  
+
   return (
     <header className={`navbar1 ${showHeader ? 'show' : 'hide'}`}>
-      <button className="navbar-toggle" onClick={() => setMenuOpen(!menuOpen)}>
-        <i className="bi bi-list"></i>
-      </button>
-      <div className={`navbar-links1 ${menuOpen ? 'active' : ''}`}>
+      <div className="header-left">
         <Link to="/Index" className="header-icon">
           <img src="src/assets/img/icono.png" alt="icono"/>
         </Link>
+        
+        <button className="navbar-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+          <i className="bi bi-list"></i>
+        </button>
+      </div>
+
+      <div className={`navbar-links1 ${menuOpen ? 'active' : ''}`}>
         <div className="dropdown" onMouseEnter={() => setDropdownOpen(true)} onMouseLeave={() => setDropdownOpen(false)}>
           <div className="button-with-arrow">
             <button className="Ir">
-            {t('WhereToGo')}  {/* Texto traducido dinámicamente */}
+              {t('WhereToGo')}  {/* Texto traducido dinámicamente */}
             </button>
             <img src="src/assets/img/flecha.png" alt="flecha" className="arrow-icon" />
           </div>
@@ -316,22 +334,33 @@ const Header = () => {
       </div>
       </div>
 
-      <div className="navbar-auth">
-  <button onClick={toggleLanguage} className='btn-blue2'>
-    {language === 'es' ? (
-      <>
-        <span className="language-label1">EN</span>
-        <img src="src/assets/img/uk4.png" alt="English" className="icon-image7" />
-      </>
-    ) : (
-      <>
-        <span className="language-label">ES</span>
-        <img src="src/assets/img/espana.png" alt="Español" className="icon-image6" />
-      </>
-    )}
-  </button>
-</div>
-<div className="navbar-search">
+      <div className="navbar-icons-right">
+        {/* Botón caret-down visible solo en pantallas pequeñas */}
+        <button onClick={toggleDropdownIcons} className="navbar-toggle-icons">
+          {dropdownIconsOpen ? (
+            <i className="bi bi-caret-down"></i>  // Icono cuando está abierto
+          ) : (
+            <i className="bi bi-caret-left"></i>  // Icono cuando está cerrado
+          )}
+        </button>
+        <div className={`icons-container ${dropdownIconsOpen ? 'show' : ''}`}>
+          <div className="navbar-auth">
+            <button onClick={toggleLanguage} className='btn-blue2'>
+              {language === 'es' ? (
+                <>
+                  <span className="language-label1">EN</span>
+                  <img src="src/assets/img/uk4.png" alt="English" className="icon-image7" />
+                </>
+              ) : (
+                <>
+                  <span className="language-label">ES</span>
+                  <img src="src/assets/img/espana.png" alt="Español" className="icon-image6" />
+                </>
+              )}
+            </button>
+          </div>
+
+          <div className="navbar-search">
   <button onClick={toggleSearch}>
     <i className="bi bi-search"></i>
   </button>
@@ -362,31 +391,31 @@ const Header = () => {
   )}
 </div>
 
-      <div className="dark-mode-toggle">
-      <button onClick={toggleDarkMode} className='btn-blue2'>
-        {darkMode ? (
-          <img src="src/assets/img/sol4.png" alt="Sol" className="icon-image2" />
-        ) : (
-          <img src="src/assets/img/luna.png" alt="Luna" className="icon-image3" />
-        )}
-      </button>
-    </div>
+          <div className="dark-mode-toggle">
+            <button onClick={toggleDarkMode} className='btn-blue2'>
+              {darkMode ? (
+                <img src="src/assets/img/sol4.png" alt="Sol" className="icon-image2" />
+              ) : (
+                <img src="src/assets/img/luna.png" alt="Luna" className="icon-image3" />
+              )}
+            </button>
+          </div>
 
-      {/* Botón de Cerrar Sesión */}
-      {(role === 'admin' || role === 'oferente' || role === 'turista') && (
-        <button onClick={handleLogout} className="btn-blue2">
-          <img src="src/assets/img/logout.png" alt="Logout" className="icon-image4" />
-        </button>
-      )}
+          {(role === 'admin' || role === 'oferente' || role === 'turista') && (
+            <button onClick={handleLogout} className="btn-blue2">
+              <img src="src/assets/img/logout.png" alt="Logout" className="icon-image4" />
+            </button>
+          )}
 
-      {/* Botón de Iniciar Sesión */}
-      {!(role === 'admin' || role === 'oferente' || role === 'turista') && (
-      <Link to="/login">
-        <button className="btn-blue2">
-          <img src="src/assets/img/login.png" alt="Login" className="icon-image5" />
-        </button>
-      </Link>
-      )}
+          {!(role === 'admin' || role === 'oferente' || role === 'turista') && (
+            <Link to="/login">
+              <button className="btn-blue2">
+                <img src="src/assets/img/login.png" alt="Login" className="icon-image5" />
+              </button>
+            </Link>
+          )}
+        </div>
+      </div>
     </header>
   );
 };

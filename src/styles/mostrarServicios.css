@@ -14,13 +14,6 @@
     font-weight: bold;
 }
 
-.service-image {
-    max-width: 100%; /* Asegúrate de que la imagen se ajuste al contenedor */
-    height: auto; /* Mantiene la proporción de la imagen */
-    display: block;
-    margin: 0 auto; /* Centra la imagen si es necesario */
-}
-
 /* Grid para mostrar las tarjetas */
 .services-grid {
     display: grid;
