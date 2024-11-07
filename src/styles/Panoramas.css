@@ -1,0 +1,203 @@
+/* Aplica este estilo solo al contenedor principal de Index */
+.index-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  
+  .hero100 {
+    background-image: url("../assets/img/Panoramas.png") !important;  /* Aquí va la ruta de tu imagen */
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start; /* Alinea los elementos a la izquierda */
+    align-items: left; /* Centra verticalmente */
+    text-align: left; /* Alinea el texto a la izquierda */
+    color: white;
+    padding: 40px 60px; /* Ajusta el padding para que no quede pegado a los bordes */
+    box-sizing: border-box;
+    flex-direction: column; /* Coloca los elementos en columna */
+    margin-top: 74px;
+    position: relative;
+  }
+  
+  .hero-content100 {
+    margin-top: 100px;
+    margin-left: 50px;
+    align-items: start;
+  }
+  
+  .hero100 h5 {
+    font-size: 1rem; /* Ajusta el tamaño del texto principal */
+    margin-bottom: 5px; /* Espaciado entre las líneas de texto */
+  }
+  
+  .hero100 h1 {
+    font-size: 3rem;
+    margin-bottom: 40px; /* Espaciado entre el subtítulo y el botón */
+  }
+  .hero100 h4 {
+    margin-top: 150px;
+    width: 690px;
+    height: 297px;
+    font-size: 1rem;
+    margin-bottom: 5px; /* Espaciado entre el subtítulo y el botón */
+  }
+
+  /* Ajustes de la cabecera del carrusel */
+.carousel-header2 {
+    display: flex;
+    flex-direction: column; /* Alinea los elementos verticalmente */
+    align-items: center; /* Alinea a la izquierda */
+    margin-bottom: 20px;
+  }
+  
+  .carousel-header2 h5 {
+    color: #6c757d; /* Color gris */
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  .carousel-subheader2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Asegura que "Ver más" quede alineado a la derecha */
+    margin-top: 40px;
+    padding-left: 300px;
+    padding-right: 300px;
+  }
+  
+  .carousel-subheader2 h1 {
+    font-size: 3rem;
+    color: #4B67AE;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+  }
+
+  /* Contenedor para escalar el iframe */
+.calendar-container {
+  height: 400px;
+  width: 60%; /* Ancho completo */
+  display: flex;
+  justify-content: center;
+  overflow: hidden; /* Oculta cualquier desbordamiento */
+  transform: scale(1.4); /* Escala para ajustar el tamaño */
+  transform-origin: top; /* Fija el punto de escala en la parte superior */
+  margin: 0 auto; /* Centra el contenedor */
+}
+
+.calendar-container iframe {
+  border-radius: 10px; /* Opcional: redondea los bordes del calendario */
+}
+
+/* Ajustes para pantallas móviles */
+@media (max-width: 768px) {
+  .hero100 {
+    padding: 20px;
+    min-height: 65vh;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-content100 {
+    margin-top: 60px;
+    margin-left: 0;
+    align-items: center;
+  }
+
+  .hero100 h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .hero100 h4 {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  /* Ajuste específico para carousel-subheader2 en móviles */
+  .carousel-subheader2 {
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .carousel-subheader2 h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Ajustes para pantallas extra pequeñas (480px o menos) */
+@media (max-width: 480px) {
+  .hero100 h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero100 h4 {
+    font-size: 0.8rem;
+    margin-top: 10px;
+  }
+
+  .carousel-subheader2 h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Estilos del modo oscuro */
+body.dark-mode {
+  background-color: #555;
+  color: #e0e0e0;
+}
+
+body.dark-mode .navbar {
+  background-color: #333;
+}
+
+body.dark-mode .hero100::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+body.dark-mode .hero-content100 {
+  position: relative;
+  z-index: 2;
+}
+
+body.dark-mode .carousel-subheader2 h1 {
+  color: #ffffff;
+}
+
+/* Fondo oscuro para secciones adicionales */
+body.dark-mode .info-section,
+body.dark-mode .social-section {
+  background-color: #444444;
+}
+
+body.dark-mode .info-content,
+body.dark-mode .social-content,
+body.dark-mode .divider {
+  color: #ffffff;
+}
+
+body.dark-mode .info-content h5,
+body.dark-mode .info-content h1,
+body.dark-mode .info-content p {
+  color: #ffffff;
+}

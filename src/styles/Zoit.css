@@ -1,0 +1,8 @@
+/* Aplica este estilo solo al contenedor principal de Index */
+.index-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}

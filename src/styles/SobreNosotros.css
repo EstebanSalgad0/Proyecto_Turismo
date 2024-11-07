@@ -1,0 +1,31 @@
+/* Aplica este estilo solo al contenedor principal de Index */
+.index-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+
+/* Responsividad: Ajusta las columnas para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-column {
+    flex-basis: 100%; /* Cada columna ocupa todo el ancho en pantallas pequeñas */
+  }
+
+  .footer-logo {
+    flex-direction: row; /* Coloca los logos en fila en pantallas pequeñas */
+    justify-content: flex-start; /* Alinea los logos a la izquierda */
+  }
+
+  .logo {
+    width: 100px; /* Ajusta el tamaño de los logos en pantallas pequeñas */
+    height: auto;
+  }
+}
