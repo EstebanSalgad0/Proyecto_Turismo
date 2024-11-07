@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #b0b0b0;
+            font-weight: bold;
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            background-color: #ffffff;
+            margin: 30px auto;
+            padding: 20px;
+            max-width: 600px;
+            border: 10px solid #8896d2;
+            border-radius: 20px;
+        }
+        h1 {
+            color: #4B67AE;
+            text-align: center;
+        }
+        p {
+            color: #000000;
+            line-height: 1.6;
+            text-align: center;
+        }
+        .activation-link {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #4B67AE;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #686868;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <h1>Complete su registro</h1>
+        <p>Hola estimado Oferente de Cabañas.</p>
+        <p>Gracias por registrarte en nuestro sitio web Turismo Colbún. Para completar el proceso, por favor haz clic en el botón azul de abajo para completar el formulario y activar su cuenta y poder publicar sus cabañas.</p>
+        <a href="{{ activation_url }}" class="activation-link">¡Presiona Aquí!</a>
+        <p>Si no solicitaste esta verificación, puedes ignorar este mensaje.</p>
+        <div class="footer">
+            <p>&copy; 2024 Turismo Colbún.</p>
+        </div>
+    </div>
+</body>
+</html>
