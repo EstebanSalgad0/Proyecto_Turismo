@@ -1,3 +1,7 @@
+React + vite version:
+Django version:
+Base de datos version:
+
 # Instalacion WEB Windows
 
 se necesita tener instalado Django y nodejs
