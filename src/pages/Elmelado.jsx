@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import LeafletMap from '../components/LeafletMapMelado';
+import LeafletMap from '../components/LeafletMap';
 import '../styles/Elmelado.css?v=1.6'; // Estilos específicos para el componente
 import Header from '../components/Header';
 import '../components/i18n'; // Importa el archivo de configuración
@@ -9,6 +9,8 @@ import { useTranslation } from 'react-i18next';
 
 
 const Elmelado = () => {
+  const lat = -35.847518970858225;
+  const lng = -71.05518511993768;
   const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
   const [isFirstMap, setIsFirstMap] = useState(true); // Estado para alternar entre los mapas
   const totalSlides = 4; // Número total de slides
@@ -62,7 +64,7 @@ const Elmelado = () => {
         {/* Map Section */}
         <section className="map-section">
           {isFirstMap ? (
-            <LeafletMap />
+            <LeafletMap latitud={lat} longitud={lng}/>
           ) : (
             <iframe
               src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"

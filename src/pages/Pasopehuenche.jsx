@@ -2,11 +2,16 @@ import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../styles/Pasopehuenche.css?v=1.1'; // Estilos específicos para el componente
+import LeafletMap from '../components/LeafletMap';
 import Header from '../components/Header';
 import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
 
 const Pasopehuenche = () => {
+
+  const lat = -35.98341667;
+  const lng = -70.40005556;
+  const [isFirstMap, setIsFirstMap] = useState(true); // Estado para alternar entre los mapas
 
   const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
   const totalSlides = 4; // Número total de slides
@@ -37,6 +42,12 @@ const Pasopehuenche = () => {
     return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
   }, []);
   
+    // Función para alternar entre los mapas
+  const toggleMap = () => {
+    setIsFirstMap(!isFirstMap);
+  };
+
+
   return (
     <div className="index-container">
       {/* Navbar */}
@@ -50,15 +61,29 @@ const Pasopehuenche = () => {
         </div>
       </div>
 
-      <section className="info-section">
-        <div className="info-content">
-          <h5>{t('UnforgettablePlaces')}</h5>
-          <h1>{t('Remember')}</h1>
-          <p>{t('ColbunBeauty')}</p>
-          <button className="btn-blue">{t('Discover')}</button>
-        </div>
-      </section>
-            
+      <div className="info-section1">
+        {/* Map Section */}
+        <section className="map-section">
+          {isFirstMap ? (
+            <LeafletMap latitud={lat} longitud={lng}/>
+          ) : (
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
+              width="100%"
+              height="1200"
+              allowFullScreen=""
+              loading="lazy"
+            ></iframe>
+          )}
+        </section>
+        {/* Existing information section */}
+        <section className="info-content">
+            <h5>{t('UnforgettablePlaces')}</h5>
+            <h1>{t('Remember')}</h1>
+            <p>{t('ColbunBeauty')}</p>
+            <button className="btn-blue">{t('Discover')}</button>
+        </section>
+            </div>
       {/* Carousel Section */}
       <section className="carousel-section1">
         <div className="carousel-header1">
