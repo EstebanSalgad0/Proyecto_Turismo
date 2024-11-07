@@ -13,6 +13,49 @@
   margin-right: 10px; /* Espacio entre el logo y el botón de hamburguesa */
 }
 
+.dropdown-menu1 {
+  position: relative;
+  display: block;
+  list-style-type: none;
+  right: -30%;
+}
+
+.dropdown-menu1 > li {
+  padding: 10px;
+  cursor: pointer;
+  position: relative; /* Añadido para que el submenú sea relativo a su padre */
+}
+.dropdown-menu1 > li:hover .dropdown-submenu {
+  display: block; /* Muestra el submenú al pasar el mouse */
+}
+.dropdown-menu1 > li:hover {
+  background-color: #f0f0f0; /* Cambia el color de fondo al pasar el mouse */
+}
+.dropdown-menu1 {
+  position: absolute;
+  top: 100%;
+  left: -380px;
+  right: 34px;
+  background-color: white;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  display: block;
+}
+
+.dropdown-menu1 li {
+  padding: 10px 20px;
+}
+
+.dropdown-menu1 li a {
+  color: black;
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+}
+
+
+
 /* Estilos para el botón hamburguesa */
 .header-left .navbar-toggle {
   display: none; /* Asegura que se muestre en dispositivos móviles */
