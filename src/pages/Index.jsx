@@ -1,10 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import { Link } from 'react-router-dom';
 import '../styles/Index.css?v=3.4';
-import Footer from '../components/Footer';
-import SocialSection from '../components/SocialSeccion';
 import Header from '../components/Header';
 import '../components/i18n';
 import { useTranslation } from 'react-i18next';
@@ -28,7 +25,7 @@ const Index = () => {
   ];
 
   // Usa el hook de carrusel
-  const { currentSlide, nextSlide, prevSlide, totalSlides } = useCarousel(4);
+  const { currentSlide, nextSlide, prevSlide } = useCarousel(4);
 
 
   useEffect(() => {
@@ -36,7 +33,7 @@ const Index = () => {
     if (savedLanguage && savedLanguage !== i18n.language) {
       i18n.changeLanguage(savedLanguage);
     }
-  }, [i18n.language]);
+  }, [i18n]);
 
   const toggleVideoPlay = () => {
     if (isPlaying) {

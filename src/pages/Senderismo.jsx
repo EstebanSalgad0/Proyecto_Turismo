@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import { Link } from 'react-router-dom';
 import '../styles/Senderismo.css?v=2.0';// Estilos específicos para el componente
-import Footer from '../components/Footer';
-import SocialSection from '../components/SocialSeccion';
 import Header from '../components/Header';
 import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
@@ -12,7 +9,6 @@ import { useTranslation } from 'react-i18next';
 const Senderismo = () => {
   const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
   const { t, i18n } = useTranslation(); // Hook para usar traducciones
-  const totalSlides = 4; // Asegúrate de que totalSlides representa el número deseado de slides
 
 
   // Guardar el idioma seleccionado en localStorage y cargarlo al inicio
@@ -21,7 +17,7 @@ const Senderismo = () => {
     if (savedLanguage && savedLanguage !== i18n.language) {
       i18n.changeLanguage(savedLanguage);
     }
-  }, [i18n.language]);
+  }, [i18n]);
 
   // Array de nombres de los slides para el carrusel
   const slideNames = [
@@ -35,9 +31,9 @@ const Senderismo = () => {
   ];
 
   // Función para manejar las flechas del carrusel
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % slideNames.length);
-  };
+  }, [slideNames.length]);
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + slideNames.length) % slideNames.length);
@@ -50,7 +46,7 @@ const Senderismo = () => {
     }, 10000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [nextSlide]);
 
   return (
     <div className="index-container">

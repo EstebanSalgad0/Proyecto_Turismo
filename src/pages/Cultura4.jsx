@@ -1,10 +1,7 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import { Link } from 'react-router-dom';
 import '../styles/Cultura4.css?v=1.5'; // Estilos específicos para el componente
-import Footer from '../components/Footer';
-import SocialSection from '../components/SocialSeccion';
 import Header from '../components/Header';
 import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
@@ -12,7 +9,7 @@ import useCarousel from '../components/useCarousel'; // Hook personalizado para 
 
 const Cultura4 = () => {
   const { t, i18n } = useTranslation();
-  const { currentSlide, nextSlide, prevSlide, totalSlides } = useCarousel(4); // Configurado para 4 slides
+  const { currentSlide, nextSlide, prevSlide } = useCarousel(4); // Configurado para 4 slides
   const slideNames = [
     'VizcachazViewpoint',
     'NationalPark',
@@ -28,7 +25,7 @@ const Cultura4 = () => {
     if (savedLanguage && savedLanguage !== i18n.language) {
       i18n.changeLanguage(savedLanguage); // Cambiar el idioma si es necesario
     }
-  }, [i18n.language]); // Añadir el estado del idioma como dependencia
+  }, [i18n]); // Añadir el estado del idioma como dependencia
 
   return (
     <div className="index-container">
@@ -77,7 +74,7 @@ const Cultura4 = () => {
       <div className="hero42">
         <div className="hero-content42">
           <h5>{t('Culture')}</h5>
-          <h1>Rari "Ciudad Artesanal del Mundo"</h1>
+          <h1>Rari &quot;Ciudad Artesanal del Mundo&quot;</h1>
           <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</h4>
         </div>
       </div>

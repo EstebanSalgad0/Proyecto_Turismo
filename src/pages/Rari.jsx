@@ -1,10 +1,7 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import { Link } from 'react-router-dom';
 import '../styles/Rari.css?v=1.1';
-import Footer from '../components/Footer';
-import SocialSection from '../components/SocialSeccion';
 import Header from '../components/Header';
 import '../components/i18n';
 import { useTranslation } from 'react-i18next';
@@ -12,7 +9,7 @@ import useCarousel from '../components/useCarousel'; // Importa el hook personal
 
 const Rari = () => { 
   const { t, i18n } = useTranslation();
-  const { currentSlide, nextSlide, prevSlide, totalSlides } = useCarousel(4); // Usa el hook personalizado
+  const { currentSlide, nextSlide, prevSlide } = useCarousel(4); // Usa el hook personalizado
   const slideNames = [
     'VizcachazViewpoint',
     'NationalPark',
@@ -28,7 +25,7 @@ const Rari = () => {
     if (savedLanguage && savedLanguage !== i18n.language) {
       i18n.changeLanguage(savedLanguage);
     }
-  }, [i18n.language]);
+  }, [i18n]);
 
   return (
     <div className="index-container">

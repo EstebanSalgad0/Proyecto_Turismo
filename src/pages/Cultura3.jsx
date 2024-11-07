@@ -1,10 +1,7 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import { Link } from 'react-router-dom';
 import '../styles/Cultura3.css?v=1.4'; // Estilos específicos para el componente
-import Footer from '../components/Footer';
-import SocialSection from '../components/SocialSeccion';
 import Header from '../components/Header';
 import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
@@ -12,7 +9,7 @@ import useCarousel from '../components/useCarousel'; // Hook personalizado para 
 
 const Cultura4 = () => {
   const { t, i18n } = useTranslation();
-  const { currentSlide, nextSlide, prevSlide, totalSlides } = useCarousel(0); // Configurado para 7 slides
+  const { currentSlide, nextSlide, prevSlide } = useCarousel(0); // Configurado para 7 slides
   const slideNames = [
     'VizcachazViewpoint',
     'NationalPark',
@@ -28,7 +25,7 @@ const Cultura4 = () => {
     if (savedLanguage && savedLanguage !== i18n.language) {
       i18n.changeLanguage(savedLanguage); // Cambiar el idioma si es necesario
     }
-  }, [i18n.language]); // Añadir el estado del idioma como dependencia
+  }, [i18n]); // Añadir el estado del idioma como dependencia
 
   return (
     <div className="index-container">

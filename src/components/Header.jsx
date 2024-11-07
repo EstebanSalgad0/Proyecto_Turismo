@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';  // Importar useNavigate para redirigir
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../styles/Header.css?v=3.2';
@@ -106,17 +106,7 @@ const Header = () => {
       setLanguage(savedLanguage);
       i18n.changeLanguage(savedLanguage);
     }
-  }, []);
-
-  // Filtrar contenido en función del término de búsqueda
-  const handleSearch = (e) => {
-    setSearchTerm(e.target.value);
-  };
-
-
-  const toggleActivitiesDropdown = () => {
-    setActivitiesDropdownOpen(!activitiesDropdownOpen);
-  };
+  }, [i18n]);
 
   const showSubMenu = (menu) => {
     setActiveSubMenu(menu);

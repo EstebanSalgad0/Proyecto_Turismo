@@ -12,9 +12,8 @@ import useCarousel from '../components/useCarousel'; // Importa el hook personal
 const Elmelado = () => {
   const lat = -35.847518970858225;
   const lng = -71.05518511993768;
-  const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
   const [isFirstMap, setIsFirstMap] = useState(true); // Estado para alternar entre los mapas
-  const { currentSlide, nextSlide, prevSlide, totalSlides } = useCarousel(4); // Usa el hook personalizado
+  const { currentSlide, nextSlide, prevSlide } = useCarousel(4); // Usa el hook personalizado
   const { t, i18n } = useTranslation(); // Hook para usar traducciones
 
   // Nombres de las tarjetas

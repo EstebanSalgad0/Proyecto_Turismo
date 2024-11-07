@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../styles/Panoramas.css?v=1.7';
 import Header from '../components/Header';
-import Footer from '../components/Footer';
-import SocialSection from '../components/SocialSeccion';
 import '../components/i18n';
 import { useTranslation } from 'react-i18next';
 
