@@ -14,7 +14,7 @@ se necesita tener instalado Django y nodejs
 
 4. Instalar python3-dotenvironment = py -m pip install python-dotenv
 
-5. Instalar python3-requests = py -m pip install python-requests
+5. Instalar python3-requests = py -m pip install requests
 
 6. Instalar python3-Pillow = py -m pip install pillow
 
