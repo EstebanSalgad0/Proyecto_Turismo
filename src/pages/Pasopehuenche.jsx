@@ -43,6 +43,7 @@ const Pasopehuenche = () => {
   }, []);
   
     // Función para alternar entre los mapas
+    // To Apply
   const toggleMap = () => {
     setIsFirstMap(!isFirstMap);
   };
@@ -78,10 +79,19 @@ const Pasopehuenche = () => {
         </section>
         {/* Existing information section */}
         <section className="info-content">
-            <h5>{t('UnforgettablePlaces')}</h5>
-            <h1>{t('Remember')}</h1>
-            <p>{t('ColbunBeauty')}</p>
-            <button className="btn-blue">{t('Discover')}</button>
+          <h5>{t('UnforgettablePlaces')}</h5>
+          <h1>{t('Remember')}</h1>
+          <p>{t('ColbunBeauty')}</p>
+          {/* Contenedor para alinear los botones */}
+          <div className="button-group">
+            <button className="btn-blue" onClick={() => window.open("#", "_blank")}>
+              {t('Discover')}
+            </button>
+            {/* Botón pequeño para cambiar entre los mapas */}
+            <button className="btn-blue2" onClick={toggleMap}>
+            <i className="bi bi-geo-alt"></i>
+            </button>
+          </div>
         </section>
             </div>
       {/* Carousel Section */}
