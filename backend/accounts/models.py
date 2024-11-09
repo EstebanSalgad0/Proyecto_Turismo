@@ -1,7 +1,5 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin  # Importa clases necesarias para la creación de un usuario personalizado: AbstractBaseUser para la base de usuarios, BaseUserManager para gestionar la creación de usuarios, y PermissionsMixin para manejar los permisos.
 from django.db import models  # Importa el módulo models para definir modelos en Django.
-from django.conf import settings  # Importa la configuración de Django, incluidas configuraciones de autenticación.
-from django.utils import timezone  # Importa timezone para manejar fechas y horas con zona horaria.
 
 class CustomUserManager(BaseUserManager):  # Define una clase CustomUserManager que hereda de BaseUserManager para manejar la creación de usuarios personalizados.
     
@@ -51,32 +49,5 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):  # Define un modelo Custom
 
     def __str__(self):  # Define la representación en string del usuario.
         return self.email  # Muestra el email como la representación del usuario.
-    
 
-# Modelo para las solicitudes de los usuarios para convertirse en oferentes
-class SolicitudOferente(models.Model):  # Define un modelo para gestionar las solicitudes de los usuarios que desean convertirse en oferentes.
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Relaciona cada solicitud con un usuario.
-    servicio = models.CharField(max_length=255)  # Almacena el nombre del servicio propuesto por el oferente.
-    estado = models.CharField(max_length=50, default='pendiente')  # Almacena el estado de la solicitud, por defecto 'pendiente'.
-    created_at = models.DateTimeField(auto_now_add=True)  # Almacena la fecha de creación de la solicitud, se establece automáticamente al crear la instancia.
 
-    def __str__(self):  # Define la representación en string de la solicitud.
-        return f"{self.user.email} - {self.servicio} - {self.estado}"  # Muestra el email del usuario, el servicio y el estado de la solicitud.
-
-# Modelo para los servicios proporcionados por los oferentes
-class Servicio(models.Model):  # Define un modelo para almacenar los servicios que proporcionan los oferentes.
-    nombre = models.CharField(max_length=255)  # Nombre del servicio proporcionado.
-    correo = models.EmailField()  # Correo electrónico del oferente.
-    redes_sociales = models.CharField(max_length=255)  # Almacena las redes sociales relacionadas con el servicio.
-    descripcion = models.TextField()  # Descripción del servicio proporcionado.
-    usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Relaciona el servicio con un usuario oferente.
-    estado = models.CharField(max_length=20, default='pendiente')  # Almacena el estado del servicio, por defecto 'pendiente'.
-    administrador = models.ForeignKey(  # Relaciona el servicio con un administrador que puede gestionar su aprobación o estado.
-        settings.AUTH_USER_MODEL, related_name='admin_servicios', null=True, blank=True, on_delete=models.SET_NULL
-    )
-    fecha_accion = models.DateTimeField(null=True, blank=True)  # Campo opcional para registrar la fecha de una acción administrativa (aprobación, rechazo).
-    imagen = models.ImageField(upload_to='imagenes_servicios/', null=True, blank=True)  # Campo para almacenar la imagen del servicio.
-    created_at = models.DateTimeField(auto_now_add=True)  # Almacena la fecha de creación del servicio, se establece automáticamente al crear el servicio.
-
-    def __str__(self):  # Define la representación en string del servicio.
-        return self.nombre  # Muestra el nombre del servicio.

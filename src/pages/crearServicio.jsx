@@ -9,6 +9,8 @@ const CrearServicio = () => {
     const [correo, setCorreo] = useState('');
     const [redesSociales, setRedesSociales] = useState('');
     const [descripcion, setDescripcion] = useState('');
+    const [telefono, setTelefono] = useState(''); // Nuevo estado para el teléfono
+    const [precio, setPrecio] = useState(''); // Nuevo estado para el precio
     const [imagen, setImagen] = useState(null); // Estado para la imagen
     const [mensaje, setMensaje] = useState('');
     const [servicios, setServicios] = useState([]);
@@ -44,6 +46,8 @@ const CrearServicio = () => {
         formData.append('correo', correo);
         formData.append('redes_sociales', redesSociales);
         formData.append('descripcion', descripcion);
+        formData.append('telefono', telefono); // Añadir teléfono al FormData
+        formData.append('precio', precio); // Añadir precio al FormData
         if (imagen) {
             formData.append('imagen', imagen); // Adjuntar la imagen al FormData
         }
@@ -53,7 +57,6 @@ const CrearServicio = () => {
 
             if (editMode) {
                 const url = `${import.meta.env.VITE_MIS_SERVICIOS_URL}${editServicioId}/`;
-                // No es necesario guardar la respuesta de axios si no la vamos a usar
                 await axios.put(url, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
@@ -76,6 +79,8 @@ const CrearServicio = () => {
             setCorreo('');
             setRedesSociales('');
             setDescripcion('');
+            setTelefono(''); // Limpiar el estado del teléfono
+            setPrecio(''); // Limpiar el estado del precio
             setImagen(null); // Limpiar el estado de la imagen
         } catch (error) {
             setMensaje('Error al crear o actualizar el servicio: ' + (error.response?.data?.error || 'Error desconocido.'));
@@ -88,6 +93,8 @@ const CrearServicio = () => {
         setCorreo(servicio.correo);
         setRedesSociales(servicio.redes_sociales);
         setDescripcion(servicio.descripcion);
+        setTelefono(servicio.telefono); // Cargar el teléfono al estado
+        setPrecio(servicio.precio); // Cargar el precio al estado
         setEditServicioId(servicio.id);
         setEditMode(true);
     };
@@ -132,6 +139,8 @@ const CrearServicio = () => {
         setCorreo('');
         setRedesSociales('');
         setDescripcion('');
+        setTelefono('');
+        setPrecio('');
         setImagen(null);
         setEditMode(false);
     };
@@ -181,6 +190,8 @@ const CrearServicio = () => {
                     <input type="email" value={correo} onChange={(e) => setCorreo(e.target.value)} placeholder="Correo" required />
                     <input type="text" value={redesSociales} onChange={(e) => setRedesSociales(e.target.value)} placeholder="Redes Sociales" />
                     <textarea value={descripcion} onChange={(e) => setDescripcion(e.target.value)} placeholder="Descripción" required />
+                    <input type="tel" value={telefono} onChange={(e) => setTelefono(e.target.value)} placeholder="Teléfono" required /> {/* Campo de teléfono */}
+                    <input type="number" value={precio} onChange={(e) => setPrecio(e.target.value)} placeholder="Precio" required /> {/* Campo de precio */}
                     <input type="file" onChange={handleFileChange} accept="image/*" />
                     <button type="submit">{editMode ? 'Actualizar Servicio' : 'Crear Servicio'}</button>
                     {editMode && <button type="button" onClick={handleCreateNew}>Crear Nuevo Servicio</button>}
@@ -189,44 +200,57 @@ const CrearServicio = () => {
             </div>
 
             <div className="services">
-                {servicios.length === 0 ? (
-                    <p>No tienes servicios creados.</p>
-                ) : (
-                    servicios.map(servicio => (
-                        <div key={servicio.id} 
-                            className={`service-card ${expandedServicio === servicio.id ? 'expanded' : ''}`}
-                            onClick={() => toggleExpand(servicio.id)}
-                        >
-                            <h3>{servicio.nombre}</h3>
-                            <p>{servicio.descripcion}</p>
-                            
-                            {expandedServicio !== servicio.id && (
-                                <div className="card-buttons">
-                                    <button className="reenviar" onClick={(e) => { e.stopPropagation(); handleReenviar(servicio.id); }}>
-                                    <i className="bi bi-send-fill"></i></button>
-                                    <button className="editar" onClick={(e) => { e.stopPropagation(); handleEdit(servicio); }}> 
-                                    <i className="bi bi-pencil-fill"></i></button>
-                                    <button className="borrar" onClick={(e) => { e.stopPropagation(); confirmDelete(servicio.id); }}> 
-                                    <i className="bi bi-trash-fill"></i></button>
-                                </div>
-                            )}
-                            
-                            {expandedServicio === servicio.id && (
-                                <div>
-                                    <button className="close-button" onClick={(e) => { e.stopPropagation(); toggleExpand(null); }}>X</button>
-                                </div>
-                            )}
-                        </div>
-                    ))
+    {servicios.length === 0 ? (
+        <p>No tienes servicios creados.</p>
+    ) : (
+        servicios.map(servicio => (
+            <div key={servicio.id} 
+                className={`service-card ${expandedServicio === servicio.id ? 'expanded' : ''}`}
+                onClick={() => toggleExpand(servicio.id)}
+            >
+                <h3>{servicio.nombre}</h3>
+                <p>{servicio.descripcion}</p>
+                
+                {expandedServicio !== servicio.id && (
+                    <div className="card-buttons">
+                        <button className="reenviar" onClick={(e) => { e.stopPropagation(); handleReenviar(servicio.id); }}>
+                        <i className="bi bi-send-fill"></i></button>
+                        <button className="editar" onClick={(e) => { e.stopPropagation(); handleEdit(servicio); }}> 
+                        <i className="bi bi-pencil-fill"></i></button>
+                        <button className="borrar" onClick={(e) => { e.stopPropagation(); confirmDelete(servicio.id); }}> 
+                        <i className="bi bi-trash-fill"></i></button>
+                    </div>
+                )}
+                
+                {expandedServicio === servicio.id && (
+                    <>
+                        <p>Correo: {servicio.correo}</p>
+                        <p>Redes Sociales: {servicio.redes_sociales}</p>
+                        <p>Teléfono: {servicio.telefono}</p>
+                        <p>Precio: {servicio.precio}</p>
+                        {servicio.imagen && (
+                            <img 
+                                src={`${import.meta.env.VITE_BACKEND_URL}${servicio.imagen}`} 
+                                alt={`Imagen de ${servicio.nombre}`} 
+                                className="service-image" 
+                                onError={() => console.error(`Error al cargar la imagen: ${servicio.imagen}`)} 
+                            />
+                        )}
+                    </>
                 )}
             </div>
+        ))
+    )}
+</div>
 
-            <ConfirmModal 
-                show={showModal}
-                message={actionType === 'delete' ? "¿Estás seguro de que quieres eliminar este servicio?" : "¿Estás seguro de que quieres actualizar este servicio?"}
-                onConfirm={handleConfirmAction} 
-                onCancel={() => setShowModal(false)} 
-            />
+            {showModal && (
+                <ConfirmModal 
+                    show={showModal} 
+                    onHide={() => setShowModal(false)} 
+                    onConfirm={handleConfirmAction} 
+                    message={actionType === 'delete' ? '¿Estás seguro de que deseas eliminar este servicio?' : '¿Deseas guardar los cambios?'}
+                />
+            )}
         </div>
     );
 };

@@ -60,7 +60,8 @@ const ListarServicios = () => {
                             <div className="service-extra-details">
                                 <p>Correo: {servicio.correo}</p>
                                 <p>Redes Sociales: {servicio.redes_sociales}</p>
-                                <p>Valoración: {servicio.valoracion}</p>
+                                <p>Teléfono: {servicio.telefono}</p>
+                                <p>Precio: $ {servicio.precio}</p>
                                 {/* Aquí puedes agregar las imágenes u otros detalles */}
                             </div>
                         )}
