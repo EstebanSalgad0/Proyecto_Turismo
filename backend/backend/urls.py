@@ -15,10 +15,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin  # Importa el módulo admin de Django, que permite gestionar el panel de administración de la aplicación.
-from django.urls import path  # Importa la función path para definir rutas URL en la aplicación.
+from django.urls import path, include  # Importa la función path para definir rutas URL en la aplicación.
 from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework.routers import DefaultRouter
+from maps_location.views import LugarTuristicoViewSet
+
+# Crea el enrutador
+router = DefaultRouter()
+router.register(r'lugares', LugarTuristicoViewSet, basename='lugar')
 # Importa las vistas necesarias desde el módulo accounts.views
 from accounts.views import (
     CustomAuthToken,
@@ -41,6 +47,7 @@ from services.views import (
 )
 
 urlpatterns = [
+    path('api/', include(router.urls)),
     path('admin/', admin.site.urls),  # Ruta para acceder al panel de administración de Django.
     path('api/login/', CustomAuthToken.as_view(), name='login'),  # Ruta para el inicio de sesión utilizando el token de autenticación personalizada.
     path('api/register/', RegisterView.as_view(), name='register'),  # Ruta para el registro de nuevos usuarios.

@@ -41,7 +41,8 @@ INSTALLED_APPS = [  # Lista de aplicaciones instaladas en el proyecto Django.
     'django.contrib.messages',  # Gestión de mensajes (notificaciones) en Django.
     'django.contrib.staticfiles',  # Manejo de archivos estáticos (CSS, JavaScript, imágenes).
     'accounts',  # La aplicación personalizada para gestionar cuentas de usuario.
-    'services',  # La aplicación personalizada para gestionar cuentas de usuario.
+    'services',  # La aplicación personalizada para gestionar los servicios.
+    'maps_location',  # La aplicación personalizada para gestionar lat y longitud de mapas.
     'rest_framework',  # Necesario para usar Django REST Framework, que permite construir APIs RESTful.
     'rest_framework.authtoken',  # Para autenticar usuarios utilizando tokens en Django REST Framework.
     'corsheaders',  # Middleware para gestionar CORS (Cross-Origin Resource Sharing).
