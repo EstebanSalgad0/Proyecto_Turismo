@@ -5,8 +5,7 @@ from django.contrib.auth import authenticate  # Importa la función authenticate
 from rest_framework import status  # Importa los códigos de estado HTTP de Django REST Framework.
 from rest_framework.views import APIView  # Importa la clase base APIView para crear vistas basadas en API.
 from django.contrib.auth import get_user_model  # Obtiene el modelo de usuario personalizado configurado en el proyecto.
-from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated  # Importa permisos: acceso para cualquier usuario, solo admins o usuarios autenticados.
-from django.core.mail import send_mail, EmailMultiAlternatives, EmailMessage  # Importa funciones para enviar correos electrónicos.
+from django.core.mail import EmailMultiAlternatives, EmailMessage  # Importa funciones para enviar correos electrónicos.
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode  # Funciones que codifican y decodifican datos en base64 de manera segura.
 from django.utils.encoding import force_bytes, force_str  # Funciones para convertir datos a bytes o strings.
 from django.template.loader import render_to_string  # Importa render_to_string para renderizar plantillas HTML a cadenas de texto.
@@ -15,14 +14,11 @@ from django.contrib.sites.shortcuts import get_current_site  # Obtiene el sitio 
 from django.contrib.auth.tokens import default_token_generator  # Importa el generador de tokens predeterminado para autenticación de usuarios.
 from django.urls import reverse  # Importa reverse para obtener URLs en base a sus nombres en el sistema de rutas.
 from django.shortcuts import render, get_object_or_404, redirect  # Importa funciones para manejar respuestas y vistas.
-from .models import CustomUser, SolicitudOferente, Servicio  # Importa modelos de la app.
-from .serializers import UserSerializer, ServicioSerializer  # Importa serializadores para los modelos.
+from .models import CustomUser  # Importa modelos de la app.
 from .utils import verify_captcha  # Importa la función verify_captcha para verificar captchas.
-from django.utils import timezone  # Importa timezone para manejar fechas y horas con soporte de zona horaria.
-from django.http import HttpResponse, JsonResponse  # Importa clases para respuestas HTTP.
+from django.http import JsonResponse  # Importa clases para respuestas HTTP.
 import csv  # Importa csv para manejar archivos CSV.
 from io import StringIO  # Importa StringIO para operaciones de manejo de strings en memoria.
-from rest_framework.parsers import MultiPartParser, FormParser
 from django.db import transaction
 
 class CustomAuthToken(ObtainAuthToken):
@@ -405,174 +401,4 @@ def password_reset_confirm_view(request, uidb64, token):
 
 def password_reset_success_view(request):
     return render(request, 'accounts/password_reset_success.html')
-    
-        
-class SolicitudOferenteView(APIView):
-    def post(self, request):
-        email = request.data.get('email')  # Obtiene el email de la solicitud.
-        password = request.data.get('password')  # Obtiene la contraseña de la solicitud.
-        servicio = request.data.get('servicio')  # Obtiene el nombre del servicio en la solicitud.
-        
-        try:
-            user = CustomUser.objects.get(email=email)  # Busca al usuario por email.
-            if user.check_password(password):  # Verifica la contraseña proporcionada.
-                # Crea una solicitud para que el usuario se convierta en oferente.
-                solicitud = SolicitudOferente.objects.create(user=user, servicio=servicio)
-                solicitud.save()  # Guarda la solicitud en la base de datos.
-                return Response({'success': True, 'mensaje': 'Solicitud enviada correctamente'}, status=status.HTTP_200_OK)
-            return Response({'error': 'Contraseña incorrecta'}, status=status.HTTP_400_BAD_REQUEST)  # Error si la contraseña es incorrecta.
-        except CustomUser.DoesNotExist:
-            return Response({'error': 'Usuario no encontrado'}, status=status.HTTP_404_NOT_FOUND)  # Error si el usuario no existe.
-
-
-class ManejarSolicitudOferenteView(APIView):  # Define una vista para manejar solicitudes de oferentes, heredando de APIView.
-    permission_classes = [IsAdminUser]  # Solo los administradores pueden acceder a esta vista.
-
-    def post(self, request, solicitud_id):  # Maneja las solicitudes POST para aceptar o rechazar una solicitud de oferente.
-        try:
-            solicitud = SolicitudOferente.objects.get(id=solicitud_id)  # Busca la solicitud por su ID.
-            accion = request.data.get('accion')  # Obtiene la acción ('aceptar' o 'rechazar') de los datos de la solicitud.
-
-            if accion == 'aceptar':  # Verifica si la acción solicitada es 'aceptar'.
-                # Cambia el rol del usuario a 'oferente' y acepta la solicitud.
-                solicitud.user.role = 'oferente'  # Cambia el rol del usuario relacionado con la solicitud a 'oferente'.
-                solicitud.user.save()  # Guarda los cambios en el modelo del usuario.
-                solicitud.estado = 'aceptada'  # Actualiza el estado de la solicitud a 'aceptada'.
-                solicitud.save()  # Guarda los cambios en el modelo de la solicitud.
-                return Response({'success': True, 'mensaje': 'Solicitud aceptada'}, status=status.HTTP_200_OK)  # Devuelve una respuesta de éxito.
-
-            elif accion == 'rechazar':  # Verifica si la acción solicitada es 'rechazar'.
-                # Rechaza la solicitud.
-                solicitud.estado = 'rechazada'  # Actualiza el estado de la solicitud a 'rechazada'.
-                solicitud.save()  # Guarda los cambios en el modelo de la solicitud.
-                return Response({'success': True, 'mensaje': 'Solicitud rechazada'}, status=status.HTTP_200_OK)  # Devuelve una respuesta de éxito.
-
-            return Response({'error': 'Acción no válida'}, status=status.HTTP_400_BAD_REQUEST)  # Si la acción no es válida, devuelve un error con estado 400.
-
-        except SolicitudOferente.DoesNotExist:  # Captura la excepción si la solicitud no se encuentra.
-            return Response({'error': 'Solicitud no encontrada'}, status=status.HTTP_404_NOT_FOUND)  # Devuelve un error 404 si la solicitud no existe.
-
-        
-class ListarSolicitudesView(APIView):
-    permission_classes = [IsAdminUser]  # Solo los administradores pueden acceder a esta vista.
-
-    def get(self, request):
-        # Obtiene todas las solicitudes y devuelve una lista con su información.
-        solicitudes = SolicitudOferente.objects.all()
-        data = [{'id': solicitud.id, 'user': solicitud.user.email, 'servicio': solicitud.servicio, 'estado': solicitud.estado} for solicitud in solicitudes]
-        return Response(data, status=status.HTTP_200_OK)  # Devuelve la lista de solicitudes.
-
-    
-class CrearServicioView(APIView):
-    permission_classes = [IsAuthenticated]
-    parser_classes = [MultiPartParser, FormParser]  # Permitir la carga de archivos
-
-    def post(self, request):
-        serializer = ServicioSerializer(data=request.data)
-        if serializer.is_valid():
-            servicio = serializer.save(usuario=request.user, estado='pendiente')
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-class ListarServiciosView(APIView):  # Define una vista basada en clase usando APIView de Django REST Framework.
-    def get(self, request):  # Define el método HTTP GET para manejar solicitudes GET.
-        servicios = Servicio.objects.all()  # Consulta todos los objetos del modelo Servicio en la base de datos.
-        serializer = ServicioSerializer(servicios, many=True)  # Serializa los objetos de servicio en una lista (many=True).
-        return Response(serializer.data)  # Devuelve la lista de servicios serializados en una respuesta HTTP.
-
-
-class ManejarServiciosView(APIView):
-    permission_classes = [IsAuthenticated]  # Solo usuarios autenticados pueden manejar servicios.
-
-    def get(self, request):
-        # Obtiene todos los servicios con estado 'pendiente'.
-        servicios = Servicio.objects.filter(estado='pendiente')
-        serializer = ServicioSerializer(servicios, many=True)  # Serializa los servicios.
-        return Response(serializer.data)  # Devuelve los servicios pendientes.
-    
-    def get(self, request):
-        # Obtiene todos los servicios, independientemente de su estado.
-        servicios = Servicio.objects.all()
-        serializer = ServicioSerializer(servicios, many=True)  # Serializa los servicios.
-        return Response(serializer.data)  # Devuelve todos los servicios.
-
-    def post(self, request, servicio_id):
-        # Acepta o rechaza un servicio según el ID y la acción proporcionada.
-        try:
-            servicio = Servicio.objects.get(id=servicio_id)  # Busca el servicio por ID.
-            accion = request.data.get('accion')  # 'aceptar' o 'rechazar'.
-
-            if accion == 'aceptar':
-                # Cambia el estado del servicio a 'aceptado'.
-                servicio.estado = 'aceptado'
-                servicio.fecha_accion = timezone.now()  # Registra la fecha de la acción
-                servicio.save()
-                return Response({'success': True, 'mensaje': 'Servicio aceptado'}, status=status.HTTP_200_OK)
-            elif accion == 'rechazar':
-                # Cambia el estado del servicio a 'rechazado'.
-                servicio.estado = 'rechazado'
-                servicio.fecha_accion = timezone.now()  # Registra la fecha de la acción
-                servicio.save()
-                return Response({'success': True, 'mensaje': 'Servicio rechazado'}, status=status.HTTP_200_OK)
-            else:
-                return Response({'error': 'Acción no válida'}, status=status.HTTP_400_BAD_REQUEST)  # Error si la acción no es válida.
-        except Servicio.DoesNotExist:
-            return Response({'error': 'Servicio no encontrado'}, status=status.HTTP_404_NOT_FOUND)  # Error si el servicio no existe.
-
-
-class ListarServiciosAceptadosView(APIView):
-    def get(self, request):
-        # Obtiene todos los servicios aceptados.
-        servicios = Servicio.objects.filter(estado='aceptado')
-        serializer = ServicioSerializer(servicios, many=True)  # Serializa los servicios.
-        return Response(serializer.data)  # Devuelve los servicios aceptados.
-
-class MisServiciosView(APIView):  # Define una vista para manejar los servicios del usuario, heredando de APIView.
-    permission_classes = [IsAuthenticated]  # Requiere que el usuario esté autenticado para acceder a esta vista.
-
-    def get(self, request):  # Maneja las solicitudes GET para obtener los servicios del usuario autenticado.
-        servicios = Servicio.objects.filter(usuario=request.user)  # Filtra los servicios del usuario actual.
-        serializer = ServicioSerializer(servicios, many=True)  # Serializa los servicios obtenidos.
-        return Response(serializer.data)  # Devuelve la respuesta con los datos serializados.
-
-    def put(self, request, servicio_id):  # Maneja las solicitudes PUT para actualizar un servicio específico.
-        try:
-            servicio = Servicio.objects.get(id=servicio_id, usuario=request.user)  # Intenta obtener el servicio que se va a actualizar.
-            serializer = ServicioSerializer(servicio, data=request.data)  # Crea un serializador con los datos proporcionados.
-            if serializer.is_valid():  # Verifica si los datos del serializador son válidos.
-                serializer.save()  # Guarda los cambios en la base de datos.
-                return Response(serializer.data)  # Devuelve la respuesta con los datos del servicio actualizado.
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)  # Si hay errores en los datos, devuelve el error con estado 400.
-        except Servicio.DoesNotExist:  # Captura la excepción si el servicio no se encuentra.
-            return Response({'error': 'Servicio no encontrado'}, status=status.HTTP_404_NOT_FOUND)  # Devuelve un error 404 si el servicio no existe.
-
-    def delete(self, request, servicio_id):  # Maneja las solicitudes DELETE para eliminar un servicio específico.
-        try:
-            servicio = Servicio.objects.get(id=servicio_id, usuario=request.user)  # Intenta obtener el servicio que se va a eliminar.
-            servicio.delete()  # Elimina el servicio de la base de datos.
-            return Response({'mensaje': 'Servicio eliminado correctamente'}, status=status.HTTP_200_OK)  # Devuelve un mensaje de éxito.
-        except Servicio.DoesNotExist:  # Captura la excepción si el servicio no se encuentra.
-            return Response({'error': 'Servicio no encontrado'}, status=status.HTTP_404_NOT_FOUND)  # Devuelve un error 404 si el servicio no existe.
-
-    def post(self, request, servicio_id):  # Maneja las solicitudes POST para realizar acciones sobre un servicio específico.
-        accion = request.data.get('accion')  # Obtiene la acción a realizar desde los datos de la solicitud.
-
-        try:
-            servicio = Servicio.objects.get(id=servicio_id, usuario=request.user)  # Intenta obtener el servicio que se va a modificar.
-
-            if accion == 'reenviar':  # Verifica si la acción solicitada es 'reenviar'.
-                if servicio.estado == 'aceptado':  # Verifica si el estado del servicio es 'aceptado'.
-                    return Response({'error': 'No se puede reenviar un servicio que ya ha sido aceptado.'}, status=status.HTTP_400_BAD_REQUEST)
-                    # Si el servicio ya ha sido aceptado, devuelve un error indicando que no se puede reenviar.
-
-                # Cambia el estado a 'pendiente' y permite que el administrador lo revise nuevamente
-                servicio.estado = 'pendiente'  # Actualiza el estado del servicio a 'pendiente'.
-                servicio.save()  # Guarda los cambios en la base de datos.
-                return Response({'mensaje': 'Servicio reenviado correctamente.'}, status=status.HTTP_200_OK)  # Devuelve un mensaje de éxito.
-
-            return Response({'error': 'Acción no válida.'}, status=status.HTTP_400_BAD_REQUEST)  # Si la acción no es válida, devuelve un error 400.
-
-        except Servicio.DoesNotExist:  # Captura la excepción si el servicio no se encuentra.
-            return Response({'error': 'Servicio no encontrado'}, status=status.HTTP_404_NOT_FOUND)  # Devuelve un error 404 si el servicio no existe.
 

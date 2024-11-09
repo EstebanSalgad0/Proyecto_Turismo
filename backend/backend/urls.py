@@ -15,23 +15,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin  # Importa el módulo admin de Django, que permite gestionar el panel de administración de la aplicación.
-from django.urls import path  # Importa la función path para definir rutas URL en la aplicación.
+from django.urls import path, include  # Importa la función path para definir rutas URL en la aplicación.
 from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework.routers import DefaultRouter
+from maps_location.views import LugarTuristicoViewSet
+
+# Crea el enrutador
+router = DefaultRouter()
+router.register(r'lugares', LugarTuristicoViewSet, basename='lugar')
 # Importa las vistas necesarias desde el módulo accounts.views
 from accounts.views import (
     CustomAuthToken,
     RegisterView,
     ActivateView,
-    SolicitudOferenteView,
-    ManejarSolicitudOferenteView,
-    ListarSolicitudesView,
-    CrearServicioView,
-    ListarServiciosView,
-    ManejarServiciosView,
-    ListarServiciosAceptadosView,
-    MisServiciosView,
     ArtesanoFormView,
     BienesServiciosFormView,
     CabanasFormView,
@@ -40,15 +38,21 @@ from accounts.views import (
     password_reset_success_view
 )
 
+from services.views import (
+    CrearServicioView,
+    ListarServiciosView,
+    ManejarServiciosView,
+    ListarServiciosAceptadosView,
+    MisServiciosView
+)
+
 urlpatterns = [
+    path('api/', include(router.urls)),
     path('admin/', admin.site.urls),  # Ruta para acceder al panel de administración de Django.
     path('api/login/', CustomAuthToken.as_view(), name='login'),  # Ruta para el inicio de sesión utilizando el token de autenticación personalizada.
     path('api/register/', RegisterView.as_view(), name='register'),  # Ruta para el registro de nuevos usuarios.
     path('activate/<uidb64>/<token>/', ActivateView.as_view(), name='activate'),
     path('activation_success/', TemplateView.as_view(template_name='accounts/activation_success.html'), name='activation_success'),
-    path('api/solicitar_oferente/', SolicitudOferenteView.as_view(), name='solicitar_oferente'),  # Ruta para que los usuarios soliciten convertirse en oferentes.
-    path('api/manejar_solicitud/<int:solicitud_id>/', ManejarSolicitudOferenteView.as_view(), name='manejar_solicitud'),  # Ruta para manejar la aceptación o rechazo de una solicitud de oferente.
-    path('api/solicitudes/', ListarSolicitudesView.as_view(), name='listar_solicitudes'),  # Ruta para listar todas las solicitudes de oferentes.
     path('api/crear_servicio/', CrearServicioView.as_view(), name='crear_servicio'),  # Ruta para crear un nuevo servicio.
     path('api/servicios/', ListarServiciosView.as_view(), name='listar_servicios'),  # Ruta para listar todos los servicios disponibles.
     path('api/manejar_servicios/', ManejarServiciosView.as_view(), name='listar_servicios_pendientes'),  # Ruta para manejar servicios pendientes.
