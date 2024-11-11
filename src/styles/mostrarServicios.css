@@ -1,9 +1,3 @@
-/* Contenedor general de los servicios */
-.services-list-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
 
 /* Título de la lista de servicios */
 .services-title {
@@ -13,88 +7,61 @@
     font-size: 24px;
     font-weight: bold;
 }
-
-/* Grid para mostrar las tarjetas */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
-    gap: 20px; /* Espacio entre las tarjetas */
+.TipoOferente{
+    font-size: 16px;
+    color: #757575;
 }
-
-/* Estilo básico de las tarjetas de servicio */
-.service-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column; /* Mantiene el contenido en columnas */
-    justify-content: space-between; /* Asegura que los botones estén en la parte inferior */
-    height: auto; /* Ajusta la altura según el contenido */
-    min-height: 220px; /* Establece una altura mínima para las tarjetas */
-    max-height: 300px; /* Establece una altura máxima para las tarjetas */
-    overflow: hidden; /* Evita que el contenido sobrepase el límite */
+.services-list-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
-
-/* Estilo de la tarjeta expandida */
-.service-card-expanded {
-    position: fixed;
-    top: 50%; /* Centra verticalmente */
-    left: 50%; /* Centra horizontalmente */
-    transform: translate(-50%, -50%); /* Ajusta la posición para que el centro sea el medio de la pantalla */
-    width: 90%; /* Ocupa el 90% del ancho de la pantalla */
-    max-width: 1200px; /* Establece un ancho máximo mayor */
-    height: 80%; /* Ocupa el 80% del alto de la pantalla */
-    max-height: 90vh; /* Limita la altura máxima al 90% de la altura de la ventana */
-    background-color: white;
-    z-index: 1000;
-    padding: 40px;
-    border-radius: 10px; /* Bordes redondeados para un efecto visual atractivo */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Sombra para dar la sensación de "flotar" */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow-y: auto;
+.services-list{
+    margin-top: 100px;
 }
-
-/* Nombre del servicio (título de la tarjeta) */
-.service-name {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-/* Descripción del servicio */
-.service-description {
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-/* Detalles adicionales cuando la tarjeta está expandida */
-.service-extra-details {
-    margin-top: 10px;
+.TipoOferente {
     font-size: 14px;
     color: #555;
+    margin-bottom: 5px;
 }
 
-/* Botón cerrar en la tarjeta expandida */
-.close-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: #f44336;
-    color: white;
-    border: none;
-    padding: 10px;
-    font-size: 18px;
-    border-radius: 50%;
-    cursor: pointer;
-}
+/* Estilos para pantallas móviles */
+@media (max-width: 480px) {
+    /* Título de la lista de servicios */
+    .services-title {
+        text-align: center;
+        color: #4B67AE;
+        margin-top: 100px; /* Espacio más pequeño para móviles */
+        font-size: 20px; /* Tamaño de fuente reducido */
+        font-weight: bold;
+    }
+    .service-title {
+        margin: 0 0 5px;
+    }
 
-.close-button:hover {
-    background-color: #d32f2f;
+    /* Texto para el tipo de oferente */
+    .TipoOferente {
+        font-size: 12px; /* Tamaño de fuente más pequeño */
+        color: #757575;
+        margin-bottom: 10px;
+    }
+
+    /* Contenedor de la lista de servicios */
+    .services-list-container {
+        max-width: 100%; /* Ocupa el ancho completo en móviles */
+        margin: 0 auto;
+        padding: 10px; /* Reduce el padding para móviles */
+    }
+
+    /* Margen superior de la lista de servicios */
+    .services-list {
+        margin-top: 50px; /* Reduce el margen superior en móviles */
+    }
+
+    /* Ajuste adicional para el tipo de oferente */
+    .TipoOferente {
+        font-size: 12px; /* Fuente más pequeña */
+        color: #555;
+        margin-bottom: 8px;
+    }
 }

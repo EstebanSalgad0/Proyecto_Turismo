@@ -50,41 +50,54 @@ const AdminPanel = () => {
   return (
     <div className="admin-panel-container">
       <Header/>
-      <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-    <h1>Panel de Administración de Oferentes</h1>
+    <div className='admin-panel'>
+      <h5>Oferentes de Servicios</h5>
+      <h1>Panel de Administración de Oferentes</h1>
 
-    {/* Manejar solicitudes */}
-    <div className="admin-section">
-      <h2>Manejar Solicitudes de Oferentes</h2>
-      {mensajeSolicitudes && <p className="admin-message">{mensajeSolicitudes}</p>}
-      <table className="admin-table">
-        <thead>
-          <tr>
-            <th>Email</th>
-            <th>Servicio</th>
-            <th>Estado</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {solicitudes.map((solicitud) => (
-            <tr key={solicitud.id}>
-              <td>{solicitud.user}</td>
-              <td>{solicitud.servicio}</td>
-              <td>{solicitud.estado}</td>
-              <td>
-                <button className="accept" onClick={() => manejarSolicitud(solicitud.id, 'aceptar')} disabled={solicitud.estado !== 'pendiente'}>Aceptar</button>
-                <button className="reject" onClick={() => manejarSolicitud(solicitud.id, 'rechazar')} disabled={solicitud.estado !== 'pendiente'}>Rechazar</button>
-              </td>
+      {/* Manejar solicitudes */}
+      <div className="admin-section">
+
+        {mensajeSolicitudes && <p className="admin-message">{mensajeSolicitudes}</p>}
+        <table className="admin-table">
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>Servicio y Categorias</th>
+              <th>Estado</th>
+              <th>Administración de solicitudes</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {solicitudes.map((solicitud) => (
+              <tr key={solicitud.id}>
+                <td>{solicitud.user}</td>
+                <td className='thh'>{solicitud.servicio}</td>
+                <td className='thh'>{solicitud.estado}</td>
+                <td>
+                  <div className="admin-buttons">
+                    <button
+                      className="accept"
+                      onClick={() => manejarSolicitud(solicitud.id, 'aceptar')}
+                      disabled={solicitud.estado !== 'pendiente'}
+                    >
+                      Aceptar
+                    </button>
+                    <button
+                      className="reject"
+                      onClick={() => manejarSolicitud(solicitud.id, 'rechazar')}
+                      disabled={solicitud.estado !== 'pendiente'}
+                    >
+                      Rechazar
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
+    
   </div>
 
   );

@@ -78,11 +78,12 @@
 
 /* Aquí se configuran las imágenes de fondo */
 .help-item .help-image {
-  width: 60px;
-  height: 60px;
+  width: 60px;           /* Asegura que el ancho y alto sean iguales para un círculo perfecto */
+  height: 60px;          /* Ajusta el tamaño según tus necesidades */
   background-size: cover; /* Asegura que la imagen cubra el área sin deformarse */
   background-position: center; /* Centra la imagen dentro del div */
-  border-radius: 50%; /* Hace la imagen redonda */
+  border-radius: 50%;    /* Hace que la imagen sea redonda */
+  overflow: hidden; 
 }
 
 /* Diferentes clases para cada imagen */
@@ -129,33 +130,17 @@
   background-color: #ccc;
   margin: 40px 0; /* Espaciado para que coincida con otras secciones */
 }
-/* Estilos para la sección social en pantallas medianas */
-@media (max-width: 1048px) {
-  .social-section1 {
-    width: 100vw;
-    padding: 40px 20px; /* Ajusta el padding para pantallas medianas */
-    background-color: #f8f9fa; /* Color claro de fondo */
-  }
-
-  .social-content1 {
-    text-align: center; /* Alinea todo el texto al centro */
-    margin-bottom: 20px;
-    max-width: 900px; /* Ajusta el ancho máximo del contenido */
-    margin-left: auto;
-    margin-right: auto;
-    color: #4B67AE; /* Color de texto */
-  }
-
-  .social-icons1 {
-    font-size: 2rem; /* Tamaño de los íconos */
-    display: flex;
-    justify-content: center; /* Centra los íconos */
-    gap: 20px; /* Espacio entre íconos */
-  }
-}
 
 /* Estilos para la sección social en pantallas pequeñas */
 @media (max-width: 768px) {
+  .help-options{
+    width: 300px;
+    align-items: start;
+  }
+
+  .help-item{
+    align-items: center;
+  }
   .social-section1 {
     width: 100vw;
     padding: 30px 10px; /* Menor padding en pantallas pequeñas */
@@ -176,6 +161,12 @@
     display: flex;
     justify-content: center;
     gap: 15px; /* Menor espacio entre íconos */
+  }
+  .help-item .help-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 20%;
+    overflow: hidden; 
   }
 }
 

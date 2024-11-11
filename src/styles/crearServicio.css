@@ -1,4 +1,30 @@
 /* Contenedor principal */
+
+.service-title {
+    font-size: 20px;
+    margin: 10px 0 5px; /* Espacio entre la imagen y el título */
+    text-align: start;
+}
+
+.ser-descripcion  {
+    font-size: 14px;
+    color: #757575;
+    text-align: start;
+    margin-bottom: 10px; /* Espacio entre la descripción y los botones */
+}
+
+.Costo{
+    font-size: 14px;
+    color: #4B67AE;
+}
+
+.service-image {
+    width: 100%;
+    height: auto;
+    max-height: 100%; /* Limita la altura máxima al tamaño del contenedor */
+    object-fit: cover; /* Escala y recorta la imagen para llenar el contenedor */
+    border-radius: 8px; /* Aplica el mismo radio de borde para consistencia */
+}
 .container {
     display: flex;
     justify-content: space-between;
@@ -9,21 +35,191 @@
 }
 
 /* Sidebar para crear servicios */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque */
+    z-index: 998; /* Debe estar debajo del sidebar */
+}
+
 .sidebar {
-    width: 50%; 
-    background-color: #f4f4f4;
+    background-color: white;
     padding: 20px;
+    border-radius: 10px;
+    width: 482px; /* Ajusta el ancho según sea necesario */
+    max-width: 90%;
+    max-height: 80vh;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra la sidebar en pantalla */
+    height: auto; /* Ajusta la altura automáticamente */
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+}
+
+.sidebar .close-button,
+.service-list-sidebar .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.sidebar .close-button p,
+.service-list-sidebar .close-button p {
+    top: 10px;
+    right: 10px;
+    color: #4B67AE;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    position: absolute; /* Asegúrate de que esté posicionado */
+}
+
+.sidebar .close-button:hover,
+.service-list-sidebar .close-button:hover {
+    color: black;
+    background: none;
+}
+
+.sidebar-img{
+    width: 36px;
+    height: 40px;
+}
+
+.sidebar h1 {
+    font-size: 24px;
+    color: #4B67AE;
+    text-align: center;
+    margin-bottom: 5px;
+    font-weight: bold;
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.sidebar h3{
+    font-size: 14px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.sidebar p {
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Estilo de los campos de entrada */
+.sidebar input[type="text"],
+.sidebar input[type="email"],
+.sidebar textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    margin-bottom: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.sidebar input[type="file"]{
+    width: 100%;
+    height: 20vh;
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+}
+
+.sidebar .file-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    border: 2px dashed #ccc;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 20px; 
-    margin-right: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    cursor: pointer;
+}
+
+/* Estilo del botón de aceptar */
+.sidebar button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #4B67AE;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar button[type="submit"]:hover {
+    background-color: #3a54a0;
+}
+
+/* Estilo del botón de cerrar (X) */
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #888;
+}
+
+.close-button:hover {
+    color: #4B67AE;
+}
+
+/* Estilo del campo de descripción */
+.sidebar textarea {
+    height: 80px;
+    resize: none;
+}
+
+/* Texto de ayuda para la carga de archivos */
+.sidebar .file-upload small {
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
 }
 
 .sidebar form {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    width: 60%;
+}
+
+.sidebar form label{
+    font-size: 14px;
+    color: black;
 }
 
 .sidebar input, .sidebar textarea {
@@ -34,51 +230,34 @@
     border-radius: 4px;
 }
 
-.sidebar button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #2e70e7;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
 .sidebar button:hover {
     background-color: #1c4db7;
 }
 
-.sidebar p {
-    color: #d9534f;
-    font-size: 14px;
-}
-
 /* Sección de servicios usando Grid */
 .services {
-    width: 100%; /* Ocupa todo el ancho disponible */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajusta el número de columnas según el espacio disponible */
-    gap: 20px; /* Espacio entre las tarjetas */
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    justify-items: center; /* Centra las cards en su columna */
 }
 
 /* Tarjeta de servicio */
 .service-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: #D9D9D9;
     border-radius: 8px;
-    padding: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     display: flex;
-    flex-direction: column; /* Mantiene el contenido en columnas */
-    justify-content: space-between; /* Asegura que los botones estén en la parte inferior */
-    height: auto; /* Ajusta la altura según el contenido */
-    min-height: 220px; /* Establece una altura mínima para las tarjetas */
-    max-height: 300px; /* Establece una altura máxima para las tarjetas */
-    overflow: hidden; /* Evita que el contenido sobrepase el límite */
+    flex-direction: column;
+    justify-content: space-between;
+    height: 200px;
+    width: 270px;
+    overflow: hidden;
+    
 }
-
 /* Botones dentro de las tarjetas */
 .service-card .card-buttons {
     display: flex;
@@ -86,6 +265,7 @@
     gap: 5px;
     align-items: center;
     margin-top: auto; /* Asegura que los botones estén al final de la tarjeta */
+
 }
 
 .service-card button {
@@ -96,6 +276,7 @@
     background-color: #f4f4f4;
     cursor: pointer;
     transition: background-color 0.3s ease; /* Animación suave */
+    display: none;
 }
 
 /* Botón reenviar */
@@ -130,56 +311,16 @@
     justify-content: center;
     align-items: center;
     overflow-y: auto;
+    flex-direction: row-reverse; /* Imagen a la derecha */
+    
 }
-
-/* Botón de reenviar (verde) */
-.service-card .reenviar {
-    background-color: #4CAF50; /* Verde */
-    color: white;
-    border: none;
-    padding: 6px 10px;
-    font-size: 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Animación suave */
+/* Estilo de la imagen en la tarjeta cerrada */
+.service-card.closed .gallery-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
 }
-
-.service-card .reenviar:hover {
-    background-color: #388E3C; /* Verde oscuro en hover */
-}
-
-/* Botón de editar (amarillo) */
-.service-card .editar {
-    background-color: #FFEB3B; /* Amarillo */
-    color: black;
-    border: none;
-    padding: 6px 10px;
-    font-size: 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Animación suave */
-}
-
-.service-card .editar:hover {
-    background-color: #FBC02D; /* Amarillo más oscuro en hover */
-}
-
-/* Botón de borrar (rojo) */
-.service-card .borrar {
-    background-color: #f44336; /* Rojo */
-    color: white;
-    border: none;
-    padding: 6px 10px;
-    font-size: 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Animación suave */
-}
-
-.service-card .borrar:hover {
-    background-color: #d32f2f; /* Rojo más oscuro en hover */
-}
-
 
 /* Botón cerrar en la tarjeta expandida */
 .close-button {
@@ -196,4 +337,458 @@
 
 .close-button:hover {
     background-color: #4B67AE;
+}
+
+.profile-container {
+    align-items: center;
+    width: 100%;
+}
+
+/* Contenedor para centrar el avatar */
+.avatar-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Espacio entre el avatar y las cards */
+}
+
+/* Estilos del avatar */
+.avatar-ser {
+    width: 80px;
+    height: 80px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.avatar-text-ser {
+    font-size: 36px;
+    color: #4B67AE;
+    font-weight: bold;
+}
+
+/* Estilos para el nombre completo debajo del avatar */
+.FullName {
+    font-size: 36px;
+    color: #4B67AE;
+    font-weight: bold;
+    text-align: center;
+}
+
+.TipoRol{
+    font-size: 14px;
+    color: #757575;
+    text-align: center;
+    
+}
+
+.Contador{
+    color: #4B67AE;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.ButtonsCRUD{
+    display: flex;
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 30px; /* Espacio entre los botones */
+}
+
+.ButtonsCRUD button{
+    background-color: #4B67AE;
+    color: white;
+    border: none;
+    border-radius: 24px; /* Borde redondeado */
+    padding: 5px 15px; /* Espacio interno uniforme */
+    font-weight: 500;
+    cursor: pointer;
+    width: 140px; /* Ancho fijo */
+    height: 49px; /* Alto fijo */
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 0 50px;
+}
+
+.ButtonsCRUD button h5{
+    font-size: 14px;
+    margin: 0; /* Elimina el margen de h5 para que esté centrado perfectamente */
+    padding: 0;
+}
+
+.file-upload-container {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #7a7a7a;
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+    transition: border-color 0.3s ease;
+}
+
+.file-upload-container.drag-active {
+    border-color: #4B67AE;
+}
+
+.file-upload-input {
+    display: none; /* Oculta el campo de archivo real */
+}
+
+.file-upload-label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.file-upload-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px  #ccc;
+    border-radius: 4px;
+}
+
+.file-upload-icon {
+    font-size: 24px;
+    color: #a0a0a0;
+    margin-bottom: 10px;
+}
+
+.file-upload-instructions {
+    font-size: 12px;
+    color: #a0a0a0;
+    margin-top: 10px;
+}
+
+.service-list-sidebar {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    max-width: 90%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.service-item {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: white;
+    color: black;
+    border: 1px solid grey;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.service-item:hover {
+    background-color: #3b5297;
+    color: white;
+}
+
+.service-list-sidebar h3 {
+    font-size: 20px;
+    color: #3b5297;
+    font-weight: bold;
+}
+/* Contenedor del título y el botón */
+.title-and-reenviar {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre el título y el botón */
+}
+
+.DownCard {
+    position: relative; /* Necesario para posicionar el botón de reenviar */
+    padding-top: 10px; /* Ajuste si necesitas espacio adicional para el botón */
+}
+
+/* Estilos para el botón de reenviar */
+.reenviar {
+    position: absolute;
+    top: 10px; /* Espacio desde la parte superior */
+    right: 10px; /* Espacio desde la parte derecha */
+    background-color: #4B67AE; /* Color de fondo */
+    color: white; /* Color del ícono o texto */
+    border: none;
+    border-radius: 50%; /* Forma redonda */
+    width: 30px; /* Tamaño del botón */
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Animación de hover */
+    font-size: 14px; /* Tamaño del ícono */
+    z-index: 10; /* Asegura que el botón esté encima de otros elementos */
+}
+
+.reenviar:hover {
+    background-color: #3A539B; /* Color de fondo al hacer hover */
+}
+
+.service-card .service-image.full-image {
+    width: 100%; /* Imagen en tamaño completo cuando la tarjeta está cerrada */
+    height: auto;
+    border-radius: 10px;
+}
+
+.service-card .service-image {
+    width: 45%; /* Imagen ocupa 45% del contenedor */
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.service-details {
+    width: 50%; /* Detalles ocupan 50% del contenedor */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #333; /* Alineado al estilo de tu página */
+    font-family: 'Roboto', sans-serif;
+}
+
+.service-details h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    color: #4B67AE; /* Color principal */
+}
+
+.service-details p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+.service-details .service-contact,
+.service-details .service-email,
+.service-details .service-price {
+    font-weight: bold;
+}
+
+.service-card.expanded .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: #4B67AE;
+    cursor: pointer;
+    display: block; /* Asegúrate de que el botón esté visible */
+}
+
+/*por si se añade el agregar mas imagenes*/
+.service-card.expanded .image-gallery {
+    display: grid;
+    gap: 10px;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    padding: 10px;
+    align-items: center;
+    justify-items: center;
+    margin-top: 10px;
+    max-width: 400px; 
+}
+
+
+.gallery-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px; /* Bordes redondeados para cada imagen */
+    object-fit: cover; /* Asegura que la imagen se ajuste sin distorsionarse */
+    max-height: 350px; /* Limita la altura máxima de cada imagen */
+}
+
+.service-card.expanded .service-header {
+    display: flex;
+    justify-content: space-between; /* Separa el título y el botón de cerrar */
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px; /* Ajusta este padding según quieras acercarlo o alejarlo */
+    position: absolute;
+    top: 20px; /* Controla la altura desde el borde superior de la tarjeta */
+    left: 0;
+    right: 0;
+}
+
+.service-card.expanded .service-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+    flex: 1; /* Hace que el título ocupe el espacio restante */
+}
+
+.service-card.expanded .service-details p {
+    margin: 0;
+    line-height: 1.5;
+    align-items: center;
+}
+
+.service-card.expanded .service-details strong {
+    font-weight: bold;
+    margin-right: 8px; /* Espacio entre el título en negritas y el contenido */
+}
+
+.service-card.expanded .service-details span {
+    font-weight: normal; /* Texto normal para el contenido después de strong */
+}
+
+/* Responsividad para pantallas de hasta 786px */
+@media (max-width: 786px) {
+    .service-container {
+        justify-content: center;
+        text-align: center;
+        width: 80%;
+    }
+
+    /* Ajustes para la tarjeta de servicio */
+    .service-card {
+        height: auto; /* Ajusta la altura automáticamente */
+        margin-bottom: 5px;
+    }
+
+    /* Ajustes para el contenido de la tarjeta de servicio expandida */
+    .service-card.expanded {
+        width: 90%; /* Ocupa el 90% del ancho de la pantalla */
+        height: 85vh; /* Ajusta la altura al 85% de la pantalla */
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start; /* Alinea los elementos al inicio de la tarjeta */
+    }
+
+    /* Ajustes para el título dentro de la tarjeta expandida */
+    .service-card.expanded .service-title {
+        font-size: 20px;
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Ajustes para la imagen dentro de la tarjeta expandida */
+    .service-card.expanded .service-image {
+        width: 100%; /* Imagen ocupa el ancho completo */
+        height: 250px; /* Altura fija en dispositivos pequeños */
+        border-radius: 8px;
+        margin-bottom: 10px; /* Espacio entre la imagen y la descripción */
+    }
+
+    /* Ajustes para el detalle del servicio */
+    .service-card.expanded .service-details {
+        width: 100%; /* Ocupa el ancho completo en dispositivos pequeños */
+        font-size: 14px;
+        margin-top: 10px; /* Espacio entre la imagen y la descripción */
+        text-align: left;
+    }
+
+    /* Ajustes para el sidebar */
+    .sidebar {
+        width: 90%; /* Ancho más pequeño en pantallas pequeñas */
+        max-height: 75vh; /* Altura máxima más pequeña */
+    }
+
+    /* Ajustes de imagen en el sidebar */
+    .sidebar-img {
+        width: 30px;
+        height: 34px;
+    }
+
+    /* Ajustes para el contenedor del avatar */
+    .avatar-container {
+        margin-bottom: 10px; /* Menor espacio entre el avatar y el resto */
+    }
+
+    .avatar-ser {
+        width: 60px;
+        height: 60px;
+    }
+
+    .avatar-text-ser {
+        font-size: 30px;
+    }
+
+    .FullName {
+        font-size: 28px;
+    }
+
+    .TipoRol, .Contador {
+        font-size: 12px;
+    }
+
+    /* Ajustes para el botón de cerrar en tarjetas */
+    .close-button {
+        top: 5px;
+        right: 5px;
+        font-size: 18px;
+    }
+
+    /* Ajustes para el contenedor de carga de archivos */
+    .file-upload-container {
+        height: 150px;
+        font-size: 12px;
+    }
+
+    /* Ajustes para la galería de imágenes en tarjetas expandidas */
+    .service-card.expanded .image-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        margin-top: 55px;
+        max-width: 300px; /* Ajuste de ancho máximo para pantallas pequeñas */
+    }
+
+    /* Ajustes para el botón de reenviar en tarjetas */
+    .reenviar {
+        width: 25px;
+        height: 25px;
+        font-size: 12px;
+        text-align: end;
+        justify-content: end;
+        display: flex;
+    }
+
+    .sidebar p {
+        font-size: 10px;
+    }
+
+    .DownCard {
+        width: 100%;
+        justify-content: center;
+        text-align: start;
+    }
+
+    .service-card.closed .gallery-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
 }

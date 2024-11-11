@@ -7,13 +7,15 @@ const AdminPanel = () => {
   // Estado para servicios
   const [servicios, setServicios] = useState([]);
   const [mensajeServicios, setMensajeServicios] = useState('');
+  const [viewedServices, setViewedServices] = useState({});
+  const [selectedService, setSelectedService] = useState(null); // Estado para el servicio seleccionado
 
   const token = localStorage.getItem('token'); // Obtener el token del almacenamiento local
 
   // Fetch de servicios pendientes
   const fetchServicios = useCallback(async () => {
     try {
-      const response = await axios.get(import.meta.env.VITE_SERVICIOS_URL, { // Cambia aquí
+      const response = await axios.get(import.meta.env.VITE_SERVICIOS_URL, {
         headers: {
           'Authorization': `Token ${token}`,
         }
@@ -22,8 +24,7 @@ const AdminPanel = () => {
     } catch (error) {
       console.error('Error al obtener servicios:', error);
     }
-  },  [token]); // Se ejecuta cada vez que el token cambia
-
+  }, [token]); // Se ejecuta cada vez que el token cambia
 
   // useEffect para obtener servicios al cargar la página
   useEffect(() => {
@@ -34,60 +35,117 @@ const AdminPanel = () => {
   const handleServiceAction = async (servicioId, accion) => {
     try {
       const url = `${import.meta.env.VITE_SERVICIOS_URL}${servicioId}/`;
-      // No es necesario guardar response si no lo vamos a usar
       await axios.post(url, { accion }, {
         headers: {
           'Authorization': `Token ${token}`
         }
       });
-      setMensajeServicios(`Servicio ${accion} con éxito.`); // Mensaje de éxito
+      setMensajeServicios(`Servicio ${accion} con éxito.`);
       fetchServicios(); // Refresca la lista de servicios
     } catch (error) {
-      setMensajeServicios(`Error al ${accion} el servicio.`); // Mensaje de error
+      setMensajeServicios(`Error al ${accion} el servicio.`);
       console.error(`Error al manejar el servicio:`, error);
     }
   };
 
+  const toggleView = (id) => {
+    setViewedServices((prevState) => ({
+      ...prevState,
+      [id]: !prevState[id],
+    }));
+    setSelectedService(servicios.find(servicio => servicio.id === id)); // Establece el servicio seleccionado
+  };
+
+  const closeModal = () => {
+    setSelectedService(null);
+  };
+
+  const isViewed = (id) => !!viewedServices[id];
+
   return (
     <div className="admin-panel-container">
       <Header/>
-      <br></br>
-      <h1>Panel de Administración de Servicios</h1>
+      <div className='admin-panel'>
+        <h5>Oferentes de Servicios</h5>
+        <h1>Panel de Administración de Servicios</h1>
 
-      {/* Manejar servicios */}
-      <div className="admin-section">
-        <h2>Servicios</h2>
-        {mensajeServicios && <p className="admin-message">{mensajeServicios}</p>}
-        {servicios.length === 0 ? (
-          <p>No hay servicios disponibles.</p>
-        ) : (
-          <table className="admin-table">
-            <thead>
-              <tr>
-                <th>Nombre del Servicio</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              {servicios.map(servicio => (
-                <tr key={servicio.id}>
-                  <td>{servicio.nombre}</td>
-                  <td>{servicio.estado}</td>
-                  <td>
-                    <button className="accept" onClick={() => handleServiceAction(servicio.id, 'aceptar')} disabled={servicio.estado !== 'pendiente'}>
-                      Aceptar
-                    </button>
-                    <button className="reject" onClick={() => handleServiceAction(servicio.id, 'rechazar')} disabled={servicio.estado !== 'pendiente'}>
-                      Rechazar
-                    </button>
-                  </td>
+        {/* Manejar servicios */}
+        <div className="admin-section">
+          {mensajeServicios && <p className="admin-message">{mensajeServicios}</p>}
+          {servicios.length === 0 ? (
+            <p>No hay servicios disponibles.</p>
+          ) : (
+            <table className="admin-table">
+              <thead>
+                <tr>
+                  <th>Nombre del Servicio</th>
+                  <th>Categoría</th>
+                  <th>Estado</th>
+                  <th>Administración de solicitudes</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
+              </thead>
+              <tbody>
+                {servicios.map((servicio) => (
+                  <tr key={servicio.id}>
+                    <td>{servicio.nombre}</td>
+                    <td className='thh'>{servicio.categoria || 'No disponible'}</td>
+                    <td className='thh'>{servicio.estado}</td>
+                    <td>
+                      <div className="admin-buttons">
+                        <button
+                          className="accept"
+                          onClick={() => handleServiceAction(servicio.id, 'aceptar')}
+                          disabled={servicio.estado !== 'pendiente'}
+                        >
+                          Aceptar
+                        </button>
+                        <button
+                          className="reject"
+                          onClick={() => handleServiceAction(servicio.id, 'rechazar')}
+                          disabled={servicio.estado !== 'pendiente'}
+                        >
+                          Rechazar
+                        </button>
+                        <button
+                          className="view-toggle"
+                          onClick={() => toggleView(servicio.id)}
+                        >
+                         <i className="bi bi-eye"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+        </div>
       </div>
+      
+      {/* Modal para mostrar detalles del servicio en formato de tarjeta */}
+      {selectedService && (
+        <div className="modal-overlay">
+          <div className="modal-card">
+            <div className='cerrar'>
+              <button className="close-modal" onClick={closeModal}>X</button>
+            </div>
+            
+            <div className="modal-details">
+              <h2>{selectedService.nombre}</h2>
+              <p><strong>Categoría:</strong> {selectedService.categoria || 'No disponible'}</p>
+              <p><strong>Estado:</strong> {selectedService.estado}</p>
+              <p><strong>Descripción:</strong> {selectedService.descripcion}</p>
+              <p><strong>Correo:</strong> {selectedService.correo}</p>
+              <p><strong>Redes Sociales:</strong> {selectedService.redes_sociales}</p>
+            </div>
+            <img
+              src={`${import.meta.env.VITE_BACKEND_URL}${selectedService.imagen}`}
+              alt={`Imagen de ${selectedService.nombre}`}
+              className="modal-image"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
