@@ -21,7 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework.routers import DefaultRouter
 from maps_location.views import LugarTuristicoViewSet
-
+from accounts.views import UserDetailsView
 # Crea el enrutador
 router = DefaultRouter()
 router.register(r'lugares', LugarTuristicoViewSet, basename='lugar')
@@ -67,6 +67,7 @@ urlpatterns = [
     path('api/password_reset/', RequestPasswordResetView.as_view(), name='password_reset_request'),
     path('api/password_reset_confirm/<uidb64>/<token>/', password_reset_confirm_view, name='password_reset_confirm'),
     path('password-reset-success/', password_reset_success_view, name='password_reset_success'),
+    path('user/details/', UserDetailsView.as_view(), name='user_details'),
 ]
 
 # Solo para el entorno de desarrollo: sirve archivos de medios

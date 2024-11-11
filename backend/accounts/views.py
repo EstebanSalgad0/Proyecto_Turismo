@@ -20,6 +20,8 @@ from django.http import JsonResponse  # Importa clases para respuestas HTTP.
 import csv  # Importa csv para manejar archivos CSV.
 from io import StringIO  # Importa StringIO para operaciones de manejo de strings en memoria.
 from django.db import transaction
+from rest_framework.permissions import IsAuthenticated
+from .serializers import UserSerializer
 
 class CustomAuthToken(ObtainAuthToken):
     def post(self, request, *args, **kwargs):
@@ -401,4 +403,13 @@ def password_reset_confirm_view(request, uidb64, token):
 
 def password_reset_success_view(request):
     return render(request, 'accounts/password_reset_success.html')
+
+
+class UserDetailsView(APIView):
+    permission_classes = [IsAuthenticated]  # Asegúrate de que el usuario esté autenticado
+
+    def get(self, request):
+        user = request.user  # Obtiene el usuario actualmente autenticado
+        serializer = UserSerializer(user)  # Serializa el objeto usuario
+        return Response(serializer.data)  # Devuelve la respuesta con los datos del usuario
 

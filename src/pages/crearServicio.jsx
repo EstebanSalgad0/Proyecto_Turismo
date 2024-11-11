@@ -6,9 +6,11 @@ import Header from '../components/Header';
 
 const CrearServicio = () => {
     const [nombre, setNombre] = useState('');
-    const [correo, setCorreo] = useState('');
     const [redesSociales, setRedesSociales] = useState('');
+    const [userTipoOferente, setUserTipoOferente] = useState('');
+    const [precio, setPrecio] = useState(''); // Nuevo estado para el precio
     const [descripcion, setDescripcion] = useState('');
+    const [telefono, setTelefono] = useState('');
     const [imagen, setImagen] = useState(null); // Estado para la imagen
     const [mensaje, setMensaje] = useState('');
     const [servicios, setServicios] = useState([]);
@@ -22,6 +24,30 @@ const CrearServicio = () => {
     const [showSidebar, setShowSidebar] = useState(false); 
     const [dragActive, setDragActive] = useState(false); // Estado para el arrastre
     const [showServiceListSidebar, setShowServiceListSidebar] = useState(false);
+
+    const [userRole, setUserRole] = useState(''); // Estado para el rol del usuario
+
+    useEffect(() => {
+        const fetchUserDetails = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                // Llama a tu endpoint de usuario para obtener los detalles
+                const response = await axios.get(import.meta.env.VITE_USER_DETAILS_URL, {
+                    headers: {
+                        'Authorization': `Token ${token}`
+                    }
+                });
+                // Desestructura la respuesta para obtener el nombre completo y tipo_oferente
+                const { first_name, last_name, tipo_oferente } = response.data;
+                setUserName(first_name+' '+last_name); // Asigna el nombre completo del usuario
+                setUserTipoOferente(tipo_oferente); // Asigna el tipo de oferente
+            } catch (error) {
+                console.error('Error al obtener los detalles del usuario:', error);
+            }
+        };
+    
+        fetchUserDetails();
+    }, []);
 
     const fetchServicios = async () => {
         try {
@@ -37,10 +63,7 @@ const CrearServicio = () => {
         }
     };
 
-    useEffect(() => {
-        const nameFromDatabase = 'P'; // Puedes obtener esto de tu backend o autenticación
-        setUserName(nameFromDatabase);
-      }, []);
+    
 
     const getInitial = (name) => {
         return name ? name.charAt(0).toUpperCase() : '';
@@ -92,11 +115,25 @@ const CrearServicio = () => {
         }
     };
 
+    const transformTipoOferente = (tipoOferente) => {
+        switch (tipoOferente) {
+            case 'bienesServicios':
+                return 'Bienes y Servicios';
+            case 'artesano': 
+                return 'Artesano';
+                case 'cabanas': 
+                return 'Cabañas';
+            default:
+                return tipoOferente; // Devuelve el valor original si no se encuentra una coincidencia
+        }
+    };
+
     const handleCreateNew = () => {
         setNombre('');
-        setCorreo('');
         setRedesSociales('');
         setDescripcion('');
+        setTelefono('');
+        setPrecio('');
         setImagen(null);
         setEditMode(false);
     };
@@ -135,9 +172,10 @@ const CrearServicio = () => {
             setEditServicioId(null);
         }
         setNombre('');
-        setCorreo('');
-        setRedesSociales('');
+        setRedesSociales('')
         setDescripcion('');
+        setTelefono('');
+        setPrecio('');
         setImagen(null);
         setShowSidebar(!showSidebar);
     };
@@ -167,9 +205,10 @@ const CrearServicio = () => {
 
     const handleServiceClick = (servicio) => {
         setNombre(servicio.nombre);
-        setCorreo(servicio.correo);
         setRedesSociales(servicio.redes_sociales);
         setDescripcion(servicio.descripcion);
+        setTelefono(servicio.telefono);
+        setPrecio(servicio.precio);
         setEditServicioId(servicio.id);
         setShowServiceListSidebar(false); // Cierra la lista de servicios
         setShowSidebar(true); // Abre la barra lateral de edición
@@ -186,9 +225,12 @@ const CrearServicio = () => {
         e.preventDefault();
         const formData = new FormData();
         formData.append('nombre', nombre);
-        formData.append('correo', correo);
         formData.append('redes_sociales', redesSociales);
         formData.append('descripcion', descripcion);
+        formData.append('telefono', telefono);
+        formData.append('precio', precio);
+
+
         if (imagen) {
             formData.append('imagen', imagen);
         }
@@ -218,9 +260,10 @@ const CrearServicio = () => {
             fetchServicios();
             setEditMode(false);
             setNombre('');
-            setCorreo('');
             setRedesSociales('');
             setDescripcion('');
+            setTelefono('');
+            setPrecio('');
             setImagen(null);
             setShowSidebar(false); // Cerrar sidebar tras envío exitoso
     
@@ -243,8 +286,8 @@ const CrearServicio = () => {
                         <span className="avatar-text-ser">{getInitial(userName)}</span>
                     </div>
                 </div>
-                <div className='FullName'>Aquí va el nombre</div>
-                <div className='TipoRol'>Aquí va el rol</div>
+                <div className='FullName'>{userName || 'Nombre no disponible'}</div>
+                <div className='TipoRol'>{transformTipoOferente(userTipoOferente) || 'Rol no disponible'}</div>
                 <div className='Contador'>Servicios creados: </div>
     
                 <div className='ButtonsCRUD'>
@@ -329,18 +372,28 @@ const CrearServicio = () => {
                                     </label>
                                 </div>
     
-                                <label>Contacto o Fono</label>
+                                <label>Redes Sociales</label>
                                 <textarea
                                     type="text"
                                     value={redesSociales}
                                     onChange={(e) => setRedesSociales(e.target.value)}
-                                    placeholder="Contacto o Fono"
+                                    placeholder="Escriba sus redes sociales"
                                 />
-    
-                                <label>Valor</label>
+
+                                <label>Teléfono</label>
                                 <input
                                     type="text"
-                                    placeholder="Valor del Servicio"
+                                    value={telefono}
+                                    onChange={(e) => setTelefono(e.target.value)}
+                                    placeholder="Escriba su numero de telefono"
+                                />
+    
+                                <label>Precio</label>
+                                <input
+                                    type="text"
+                                    value={precio}
+                                    onChange={(e) => setPrecio(e.target.value)}
+                                    placeholder="Precio del Servicio"
                                 />
     
                                 <button type="submit">{editMode ? 'Actualizar Servicio' : 'Crear Servicio'}</button>
@@ -391,7 +444,7 @@ const CrearServicio = () => {
                                             </p>
 
                                             <div className="service-contact">
-                                                <strong>Contacto:</strong> 
+                                                <strong>Redes sociales:</strong> 
                                                 <span 
                                                     dangerouslySetInnerHTML={{
                                                         __html: servicio.redes_sociales.replace(/\n/g, '<br />')
@@ -399,10 +452,10 @@ const CrearServicio = () => {
                                                 />
                                             </div>
                                             <p className="service-email">
-                                                <strong>Correo:</strong> <span>{servicio.correo || 'No disponible'}</span>
+                                                <strong>Teléfono:</strong> <span>{servicio.telefono || 'No disponible'}</span>
                                             </p>
                                             <p className="service-price">
-                                                <strong>Valor:</strong> <span>{servicio.valor || 'No disponible'}</span>
+                                                <strong>Precio:</strong> <span>${servicio.precio || 'No disponible'}</span>
                                             </p>
                                         </div>                                    
                                     )}
@@ -419,7 +472,7 @@ const CrearServicio = () => {
                                     </button>
                                     <h3 className="service-title">{servicio.nombre}</h3>
                                     <h4 className='ser-descripcion'>{servicio.descripcion}</h4>
-                                    <h5 className='Costo'>$$$</h5>
+                                    <h5 className='Costo'>$ {servicio.precio}</h5>
                                 </div>
                             </div>
                         ))

@@ -11,6 +11,10 @@ const ListarServicios = () => {
         const fetchServicios = async () => {
             try {
                 const response = await axios.get(import.meta.env.VITE_MOSTRAR_SERVICIOS_URL);
+                
+                // Agregar console.log para inspeccionar la respuesta
+                console.log('Servicios recibidos:', response.data);
+
                 setServicios(response.data);
             } catch (error) {
                 console.error('Error al obtener los servicios:', error);
@@ -20,13 +24,27 @@ const ListarServicios = () => {
         fetchServicios();
     }, []);
 
+    // Función para transformar el tipo de oferente
+const transformTipoOferente = (tipoOferente) => {
+    switch (tipoOferente) {
+        case 'bienesServicios':
+            return 'Bienes y Servicios';
+        case 'artesano': 
+            return 'Artesano';
+        case 'cabanas': 
+            return 'Cabañas';
+        default:
+            return tipoOferente; // Devuelve el valor original si no se encuentra una coincidencia
+    }
+};
+
     const toggleExpand = (id) => {
         setExpandedServicio(expandedServicio === id ? null : id); // Alterna el estado de expansión
     };
 
     return (
         <div className="services-list-container">
-            <Header/>
+            <Header />
             <div className='services-list'>
                 <h1 className="services-title">Servicios Disponibles</h1>
                 <div className="services">
@@ -42,9 +60,7 @@ const ListarServicios = () => {
                                     {expandedServicio === servicio.id && (
                                         <div className="service-header">
                                             <h1 className="service-title">{servicio.nombre}</h1>
-                                            
                                         </div>
-                                        
                                     )}
                                     <button className="close-button" onClick={(e) => { e.stopPropagation(); toggleExpand(null); }}>
                                         <p>X</p>
@@ -70,7 +86,7 @@ const ListarServicios = () => {
                                             </p>
 
                                             <div className="service-contact">
-                                                <strong>Contacto:</strong> 
+                                                <strong>Redes Sociales:</strong> 
                                                 <span 
                                                     dangerouslySetInnerHTML={{
                                                         __html: servicio.redes_sociales.replace(/\n/g, '<br />')
@@ -78,24 +94,26 @@ const ListarServicios = () => {
                                                 />
                                             </div>
                                             <p className="service-email">
-                                                <strong>Correo:</strong> <span>{servicio.correo || 'No disponible'}</span>
+                                                <strong>Teléfono:</strong> <span>{servicio.telefono || 'No disponible'}</span>
                                             </p>
                                             <p className="service-price">
-                                                <strong>Valor:</strong> <span>{servicio.valor || 'No disponible'}</span>
+                                                <strong>Precio:</strong> <span>${servicio.precio || 'No disponible'}</span>
+                                            </p>
+                                            <p className="service-price">
+                                                <strong>Oferente:</strong> <span>{servicio.tipo_oferente || 'No disponible'}</span>
                                             </p>
                                         </div>                                    
                                     )}
                                 </div>
                                 <div className='DownCard'>
                                     <h3 className="service-title">{servicio.nombre}</h3>
-                                    <h5 className='TipoOferente'>{servicio.tipo_oferente || 'Tipo no disponible'}</h5>
+                                    <h5 className='TipoOferente'>{transformTipoOferente(servicio.tipo_oferente) || 'Tipo no disponible'}</h5>
                                 </div>
                             </div>
                         ))
                     )}
                 </div>
             </div>
-            
         </div>
     );
 };
