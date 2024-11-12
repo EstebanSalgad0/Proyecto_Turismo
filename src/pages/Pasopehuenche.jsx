@@ -8,10 +8,9 @@ import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
 
 const Pasopehuenche = () => {
-
-  const lat = -35.98341667;
-  const lng = -70.40005556;
-  const [isFirstMap, setIsFirstMap] = useState(true); // Estado para alternar entre los mapas
+  const [lat, setLat] = useState(null);
+  const [lng, setLng] = useState(null);
+  const [isFirstMap, setIsFirstMap] = useState(true);
 
   const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
   const totalSlides = 4; // Número total de slides
@@ -22,6 +21,15 @@ const Pasopehuenche = () => {
     if (savedLanguage && savedLanguage !== i18n.language) {
       i18n.changeLanguage(savedLanguage); // Cambiar el idioma si es necesario
     }
+
+    // Fetch data from the Django API
+    fetch('http://localhost:8000/api/lugares/buscar/?nombre=paso_pehuenche') // Cambia el nombre por el lugar turístico que necesites
+      .then(response => response.json())
+      .then(data => {
+        setLat(data.latitud);
+        setLng(data.longitud);
+      })
+      .catch(error => console.error('Error fetching location data:', error));
   }, [i18n]); // Añadir el estado del idioma como dependencia
 
   // Función para manejar las flechas
@@ -66,7 +74,7 @@ const Pasopehuenche = () => {
         {/* Map Section */}
         <section className="map-section">
           {isFirstMap ? (
-            <LeafletMap latitud={lat} longitud={lng}/>
+            <LeafletMap latitud={lat} longitud={lng} />
           ) : (
             <iframe
               src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
