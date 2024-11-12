@@ -20,7 +20,7 @@ const CrearServicio = () => {
     const [showModal, setShowModal] = useState(false);
     const [deleteServiceId, setDeleteServiceId] = useState(null);
     const [actionType, setActionType] = useState('');
-    const [userName, setUserName] = useState('');
+    const [userName, setUserName] = useState();
     const [showSidebar, setShowSidebar] = useState(false); 
     const [dragActive, setDragActive] = useState(false); // Estado para el arrastre
     const [showServiceListSidebar, setShowServiceListSidebar] = useState(false);
@@ -39,7 +39,7 @@ const CrearServicio = () => {
                 });
                 // Desestructura la respuesta para obtener el nombre completo y tipo_oferente
                 const { first_name, last_name, tipo_oferente } = response.data;
-                setUserName(first_name+' '+last_name); // Asigna el nombre completo del usuario
+                setUserName(first_name && last_name ? `${first_name} ${last_name}` : 'Administrador de Servicios'); // Asigna nombre o 'A'
                 setUserTipoOferente(tipo_oferente); // Asigna el tipo de oferente
             } catch (error) {
                 console.error('Error al obtener los detalles del usuario:', error);
