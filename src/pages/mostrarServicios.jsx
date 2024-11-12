@@ -97,7 +97,7 @@ const transformTipoOferente = (tipoOferente) => {
                                                 <strong>Teléfono:</strong> <span>{servicio.telefono || 'No disponible'}</span>
                                             </p>
                                             <p className="service-price">
-                                                <strong>Precio:</strong> <span>${servicio.precio || 'No disponible'}</span>
+                                                <strong>Precio:</strong> <span>${servicio.precio ? Math.round(servicio.precio) : 'No disponible'}</span>
                                             </p>
                                             <p className="service-price">
                                                 <strong>Oferente:</strong> <span>{transformTipoOferente(servicio.tipo_oferente) || 'No disponible'}</span>

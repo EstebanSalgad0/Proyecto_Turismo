@@ -391,8 +391,8 @@ const CrearServicio = () => {
                                 <label>Precio</label>
                                 <input
                                     type="text"
-                                    value={precio}
-                                    onChange={(e) => setPrecio(e.target.value)}
+                                    value={precio ? Math.floor(precio) : ''}
+                                    onChange={(e) => setPrecio(e.target.value.replace(/\D/g, ''))} // Solo permitir números
                                     placeholder="Precio del Servicio"
                                 />
     
@@ -455,7 +455,7 @@ const CrearServicio = () => {
                                                 <strong>Teléfono:</strong> <span>{servicio.telefono || 'No disponible'}</span>
                                             </p>
                                             <p className="service-price">
-                                                <strong>Precio:</strong> <span>${servicio.precio || 'No disponible'}</span>
+                                            <strong>Precio:</strong><span>$ {servicio.precio ? Math.round(servicio.precio) : 'No disponible'}</span>
                                             </p>
                                         </div>                                    
                                     )}
@@ -472,7 +472,7 @@ const CrearServicio = () => {
                                     </button>
                                     <h3 className="service-title">{servicio.nombre}</h3>
                                     <h4 className='ser-descripcion'>{servicio.descripcion}</h4>
-                                    <h5 className='Costo'>$ {servicio.precio}</h5>
+                                    <h5 className='Costo'>$ {servicio.precio ? Math.round(servicio.precio) : 'No disponible'}</h5>
                                 </div>
                             </div>
                         ))
