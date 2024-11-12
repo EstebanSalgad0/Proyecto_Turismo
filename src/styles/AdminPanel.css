@@ -5,9 +5,17 @@
     padding: 20px;
 }
 
+.admin-panel{
+    margin-top: 170px;
+}
+
+.admin-panel h5{
+    color: #757575;
+    font-size: 16px;
+}
+
 /* Encabezado principal */
 .admin-panel-container h1 {
-    text-align: center;
     color: #4B67AE;
     font-weight: bold;
     font-size: 28px;
@@ -17,12 +25,6 @@
 /* Contenedor de las secciones */
 .admin-section {
     margin-bottom: 40px;
-}
-
-/* Título de la sección */
-.admin-section h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
 }
 
 /* Mensaje de éxito o error */
@@ -43,11 +45,15 @@
 .admin-table td {
     padding: 10px 15px;
     text-align: left;
-    border: 1px solid #ddd;
+
+}
+
+.thh{
+    color: #757575;
 }
 
 .admin-table th {
-    background-color: #f4f4f4;
+
     font-weight: bold;
 }
 
@@ -72,34 +78,172 @@
 
 /* Botón de aceptar (verde) */
 .admin-table button.accept {
-    background-color: #4CAF50;
+    background-color: #4B67AE;
     color: white;
 }
 
 .admin-table button.accept:hover {
-    background-color: #45a049;
+    background-color: #4B67AE;
 }
 
 /* Botón de rechazar (rojo) */
 .admin-table button.reject {
-    background-color: #f44336;
+    background-color: #4B67AE;
     color: white;
 }
 
 .admin-table button.reject:hover {
-    background-color: #d32f2f;
+    background-color: #4B67AE;
 }
 
 /* Botón deshabilitado */
 .admin-table button:disabled {
-    background-color: #cccccc;
+    background-color: #bbb;
     cursor: not-allowed;
+    color: white;
 }
 
-/* Responsive design */
+/* Contenedor de los botones */
+.admin-buttons {
+    display: flex;
+    gap: 20px; /* Espacio entre los botones */
+    margin-top: 10px; /* Espacio superior entre el título y los botones */
+}
+
+.admin-buttons .view-toggle{
+    background-color: #4B67AE;
+    width: 20%;
+    height: auto;
+    border: solid 1px #757575; 
+}
+.admin-buttons .view-toggle i{
+    color: white;
+
+    font-weight: bold;
+}
+
+
+  /* Estilo para ambos botones */
+.admin-buttons button {
+    background-color: #4B67AE; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de la fuente */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a puntero */
+    width: 120px; /* Ancho uniforme para ambos botones */
+    transition: background-color 0.3s ease; /* Transición suave en el color de fondo */
+}
+  
+.admin-buttons .accept:hover {
+    background-color: #3a5291; /* Color más oscuro al hacer hover */
+}
+  
+.admin-buttons .reject:hover {
+    background-color: #d9534f; /* Color más oscuro al hacer hover */
+}
+  
+/* Deshabilitar botones */
+.admin-buttons button:disabled {
+    background-color: #bbb; /* Color de fondo deshabilitado */
+    cursor: not-allowed; /* Cursor de no permitido */
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+  
+.modal-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh; /* Limita la altura del modal */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    position: relative;
+    text-align: center;
+    overflow-y: auto; /* Habilita el scroll vertical cuando es necesario */
+}
+
+.cerrar{
+    margin-bottom: 20px;
+}
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    color: #4B67AE;
+    font-weight: bold;
+}
+  
+.modal-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+  
+.modal-details {
+    text-align: left;
+}
+  
+.modal-details h2 {
+    margin: 0 0 10px;
+}
+  
+.modal-details p {
+    margin: 5px 0;
+    color: #333;
+} 
+  
+/* Responsive design for tablets and mobile */
 @media (max-width: 768px) {
+    /* Ajusta el contenedor principal para móviles */
+    .admin-panel-container {
+        padding: 10px;
+    }
+
+    /* Reduce el tamaño del encabezado */
+    .admin-panel-container h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .admin-panel h5 {
+        font-size: 14px;
+    }
+
+    /* Ajusta el padding en la tabla y reduce el tamaño de fuente */
     .admin-table th, .admin-table td {
         padding: 8px;
         font-size: 14px;
+    }
+
+    /* Disposición en bloque para los botones en la tabla para que queden uno encima del otro */
+    .admin-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .admin-buttons button {
+        width: 100%; /* Asegura que los botones ocupen el ancho completo */
+        font-size: 14px; /* Ajusta el tamaño de fuente en botones */
     }
 }

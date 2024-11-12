@@ -14,9 +14,10 @@ class CrearServicioView(APIView):
     parser_classes = [MultiPartParser, FormParser]  # Permitir la carga de archivos
 
     def post(self, request):
+        tipo_oferente = request.user.tipo_oferente
         serializer = ServicioSerializer(data=request.data)
         if serializer.is_valid():
-            servicio = serializer.save(usuario=request.user, estado='pendiente')
+            servicio = serializer.save(usuario=request.user, tipo_oferente=tipo_oferente, estado='pendiente')
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
