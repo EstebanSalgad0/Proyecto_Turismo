@@ -124,7 +124,7 @@ const CrearServicio = () => {
                 case 'cabanas': 
                 return 'Cabañas';
             default:
-                return tipoOferente; // Devuelve el valor original si no se encuentra una coincidencia
+                return 'Administrador'; // Devuelve el valor original si no se encuentra una coincidencia
         }
     };
 

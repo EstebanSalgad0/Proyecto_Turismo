@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';  // Importar useNavigate para redirigir
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../styles/Header.css?v=3.2';
+import ConfirmModal from './ModalDelete';  // Asegúrate de importar el modal correctamente
 import './i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
 
@@ -11,6 +12,7 @@ const Header = () => {
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false); // Estado para "Servicios"
   const [activeSubMenu, setActiveSubMenu] = useState(null);
   const [showHeader, setShowHeader] = useState(true);
+  const [showLogoutModal, setShowLogoutModal] = useState(false); // Estado para mostrar el modal de confirmación
   const [lastScrollY, setLastScrollY] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false); // Estado para el menú hamburguesa
   const [darkMode, setDarkMode] = useState(false); // Estado para modo oscuro
@@ -166,6 +168,16 @@ const Header = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('userRole');  // Limpiar el rol del usuario en localStorage
     navigate('/login');
+  };
+
+  // Función para abrir el modal de confirmación
+  const confirmLogout = () => {
+    setShowLogoutModal(true);
+  };
+
+  // Función para cancelar el cierre de sesión
+  const cancelLogout = () => {
+    setShowLogoutModal(false);
   };
 
   const toggleDropdownIcons = () => {
@@ -392,9 +404,17 @@ const Header = () => {
           </div>
 
           {(role === 'admin' || role === 'oferente' || role === 'turista') && (
-            <button onClick={handleLogout} className="btn-blue2">
-              <img src="src/assets/img/logout.png" alt="Logout" className="icon-image4" />
-            </button>
+            <>
+            <button onClick={confirmLogout} className="btn-blue2">
+            <img src="src/assets/img/logout.png" alt="Logout" className="icon-image4" />
+          </button>
+          <ConfirmModal
+      show={showLogoutModal}
+      message="¿Está seguro de que desea cerrar sesión?"
+      onConfirm={handleLogout}  // Cerrar sesión si confirma
+      onCancel={cancelLogout}   // Cerrar el modal si cancela
+    />
+  </>    
           )}
 
           {!(role === 'admin' || role === 'oferente' || role === 'turista') && (
@@ -407,6 +427,8 @@ const Header = () => {
         </div>
       </div>
     </header>
+
+    
   );
 };
 
