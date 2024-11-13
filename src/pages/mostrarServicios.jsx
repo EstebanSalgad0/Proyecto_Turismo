@@ -34,7 +34,7 @@ const transformTipoOferente = (tipoOferente) => {
         case 'cabanas': 
             return 'Cabañas';
         default:
-            return tipoOferente; // Devuelve el valor original si no se encuentra una coincidencia
+            return 'Administrador'; // Devuelve el valor original si no se encuentra una coincidencia
     }
 };
 
@@ -97,10 +97,10 @@ const transformTipoOferente = (tipoOferente) => {
                                                 <strong>Teléfono:</strong> <span>{servicio.telefono || 'No disponible'}</span>
                                             </p>
                                             <p className="service-price">
-                                                <strong>Precio:</strong> <span>${servicio.precio || 'No disponible'}</span>
+                                                <strong>Precio:</strong> <span>${servicio.precio ? Math.round(servicio.precio) : 'No disponible'}</span>
                                             </p>
                                             <p className="service-price">
-                                                <strong>Oferente:</strong> <span>{servicio.tipo_oferente || 'No disponible'}</span>
+                                                <strong>Oferente:</strong> <span>{transformTipoOferente(servicio.tipo_oferente) || 'No disponible'}</span>
                                             </p>
                                         </div>                                    
                                     )}

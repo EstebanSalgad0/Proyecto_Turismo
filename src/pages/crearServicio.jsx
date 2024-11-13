@@ -20,7 +20,7 @@ const CrearServicio = () => {
     const [showModal, setShowModal] = useState(false);
     const [deleteServiceId, setDeleteServiceId] = useState(null);
     const [actionType, setActionType] = useState('');
-    const [userName, setUserName] = useState('');
+    const [userName, setUserName] = useState();
     const [showSidebar, setShowSidebar] = useState(false); 
     const [dragActive, setDragActive] = useState(false); // Estado para el arrastre
     const [showServiceListSidebar, setShowServiceListSidebar] = useState(false);
@@ -39,7 +39,7 @@ const CrearServicio = () => {
                 });
                 // Desestructura la respuesta para obtener el nombre completo y tipo_oferente
                 const { first_name, last_name, tipo_oferente } = response.data;
-                setUserName(first_name+' '+last_name); // Asigna el nombre completo del usuario
+                setUserName(first_name && last_name ? `${first_name} ${last_name}` : 'Administrador de Servicios'); // Asigna nombre o 'A'
                 setUserTipoOferente(tipo_oferente); // Asigna el tipo de oferente
             } catch (error) {
                 console.error('Error al obtener los detalles del usuario:', error);
@@ -124,7 +124,7 @@ const CrearServicio = () => {
                 case 'cabanas': 
                 return 'Cabañas';
             default:
-                return tipoOferente; // Devuelve el valor original si no se encuentra una coincidencia
+                return 'Administrador'; // Devuelve el valor original si no se encuentra una coincidencia
         }
     };
 
@@ -391,8 +391,8 @@ const CrearServicio = () => {
                                 <label>Precio</label>
                                 <input
                                     type="text"
-                                    value={precio}
-                                    onChange={(e) => setPrecio(e.target.value)}
+                                    value={precio ? Math.floor(precio) : ''}
+                                    onChange={(e) => setPrecio(e.target.value.replace(/\D/g, ''))} // Solo permitir números
                                     placeholder="Precio del Servicio"
                                 />
     
@@ -455,7 +455,7 @@ const CrearServicio = () => {
                                                 <strong>Teléfono:</strong> <span>{servicio.telefono || 'No disponible'}</span>
                                             </p>
                                             <p className="service-price">
-                                                <strong>Precio:</strong> <span>${servicio.precio || 'No disponible'}</span>
+                                            <strong>Precio:</strong><span>$ {servicio.precio ? Math.round(servicio.precio) : 'No disponible'}</span>
                                             </p>
                                         </div>                                    
                                     )}
@@ -472,7 +472,7 @@ const CrearServicio = () => {
                                     </button>
                                     <h3 className="service-title">{servicio.nombre}</h3>
                                     <h4 className='ser-descripcion'>{servicio.descripcion}</h4>
-                                    <h5 className='Costo'>$ {servicio.precio}</h5>
+                                    <h5 className='Costo'>$ {servicio.precio ? Math.round(servicio.precio) : 'No disponible'}</h5>
                                 </div>
                             </div>
                         ))
