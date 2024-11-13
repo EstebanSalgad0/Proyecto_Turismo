@@ -25,6 +25,19 @@ const AdminPanel = () => {
     }
 };
 
+const transformCategoria = (tipoOferente) => {
+  switch (tipoOferente) {
+      case 'bienesServicios':
+          return 'Servicios';
+      case 'artesano': 
+          return 'Artesanias';
+          case 'cabanas': 
+          return 'Cabañas';
+      default:
+          return 'Servicios'; // Devuelve el valor original si no se encuentra una coincidencia
+  }
+};
+
   // Fetch de servicios pendientes
   const fetchServicios = useCallback(async () => {
     try {
@@ -101,7 +114,7 @@ const AdminPanel = () => {
                 {servicios.map((servicio) => (
                   <tr key={servicio.id}>
                     <td>{servicio.nombre}</td>
-                    <td className='thh'>{servicio.categoria || 'No disponible'}</td>
+                    <td className='thh'>{transformCategoria(servicio.tipo_oferente) || 'No disponible'}</td>
                     <td className='thh'>{servicio.estado}</td>
                     <td>
                       <div className="admin-buttons">

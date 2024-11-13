@@ -12,6 +12,7 @@ const CrearServicio = () => {
     const [descripcion, setDescripcion] = useState('');
     const [telefono, setTelefono] = useState('');
     const [imagen, setImagen] = useState(null); // Estado para la imagen
+    const [imagenPreview, setImagenPreview] = useState(null); // Estado para la vista previa de la imagen
     const [mensaje, setMensaje] = useState('');
     const [servicios, setServicios] = useState([]);
     const [editMode, setEditMode] = useState(false);
@@ -138,8 +139,17 @@ const CrearServicio = () => {
         setEditMode(false);
     };
 
+    // Actualización: Manejo de archivos
     const handleFileChange = (e) => {
-        setImagen(e.target.files[0]); // Manejar el archivo de imagen seleccionado
+        const file = e.target.files[0];
+        if (file) {
+            setImagen(file); // Guardamos el archivo original para el backend
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImagenPreview(reader.result); // Guardamos la URL base64 solo para la vista previa
+            };
+            reader.readAsDataURL(file); // Leer el archivo como base64 para la vista previa
+        }
     };
 
     const toggleExpand = (id) => {
@@ -180,6 +190,7 @@ const CrearServicio = () => {
         setShowSidebar(!showSidebar);
     };
 
+    // Actualización: Manejo del arrastre
     const handleDragOver = (e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -196,10 +207,15 @@ const CrearServicio = () => {
         e.preventDefault();
         e.stopPropagation();
         setDragActive(false);
-    
+
         if (e.dataTransfer.files && e.dataTransfer.files[0]) {
             const file = e.dataTransfer.files[0];
-            setImagen(file); // Actualiza la imagen con el archivo arrastrado
+            setImagen(file); // Guardamos el archivo original para el backend
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImagenPreview(reader.result); // Guardamos la URL base64 solo para la vista previa
+            };
+            reader.readAsDataURL(file); // Leer el archivo como base64 para la vista previa
         }
     };
 
@@ -349,28 +365,37 @@ const CrearServicio = () => {
                                     required
                                 />
     
-                                <label>Agrega una Imagen</label>
-                                <div
-                                    className={`file-upload-container ${dragActive ? 'drag-active' : ''}`}
-                                    onDragOver={handleDragOver}
-                                    onDragLeave={handleDragLeave}
-                                    onDrop={handleDrop}
-                                >
-                                    <input
-                                        type="file"
-                                        onChange={handleFileChange}
-                                        accept="image/*"
-                                        id="file-upload"
-                                        className="file-upload-input"
-                                    />
-                                    <label htmlFor="file-upload" className="file-upload-label">
-                                        <div className="file-upload-content">
-                                            <span className="file-upload-icon">↑</span>
-                                            <p>Elige un archivo o arrástralo y colócalo aquí</p>
-                                            <p className="file-upload-instructions">Recomendamos usar archivos .jpg de alta calidad con un tamaño inferior a 20 MB.</p>
-                                        </div>
-                                    </label>
-                                </div>
+    <label>Agrega una Imagen</label>
+            <div
+                className={`file-upload-container ${dragActive ? 'drag-active' : ''}`}
+                onDragOver={handleDragOver}
+                onDragLeave={handleDragLeave}
+                onDrop={handleDrop}
+            >
+                <input
+                    type="file"
+                    onChange={handleFileChange}
+                    accept="image/*"
+                    id="file-upload"
+                    className="file-upload-input"
+                    style={{ display: 'none' }} // Ocultar el input real
+                />
+                <label htmlFor="file-upload" className="file-upload-label">
+                    <div className="file-upload-content">
+                        {imagen ? (
+                            // Mostrar vista previa de la imagen si hay una
+                            <img src={imagenPreview} alt="Vista previa" className="file-upload-preview" style={{ maxWidth: '100%', maxHeight: '300px' }} />
+                        ) : (
+                            // Mostrar contenido por defecto si no hay imagen
+                            <>
+                                <span className="file-upload-icon">↑</span>
+                                <p>Elige un archivo o arrástralo y colócalo aquí</p>
+                                <p className="file-upload-instructions">Recomendamos usar archivos .jpg de alta calidad con un tamaño inferior a 20 MB.</p>
+                            </>
+                        )}
+                    </div>
+                </label>
+            </div>
     
                                 <label>Redes Sociales</label>
                                 <textarea
