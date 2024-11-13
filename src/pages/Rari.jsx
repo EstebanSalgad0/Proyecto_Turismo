@@ -58,8 +58,8 @@ const Rari = () => {
         </div>
       </div>
 
-      <div className='info-section1'>
-        <section className='map-section'>
+      <div className="info-section1">
+        <section className="map-section">
           {lat && lng && isFirstMap ? (
             <LeafletMap latitud={lat} longitud={lng} />
           ) : (
@@ -72,13 +72,14 @@ const Rari = () => {
             ></iframe>
           )}
         </section>
-        {/* Existing info section */}
-        <section className="info-section">
+
+        {/* Existing Content Section */}
+        <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
           <p>{t('ColbunBeauty')}</p>
-          <div className='button-group'>
-            <button className="btn-blue" onClick={()=>window.open("#", "_blank")}>
+          <div className="button-group">
+            <button className="btn-blue" onClick={() => window.open("https://maps.app.goo.gl/GZSD4dNAL8uKZx1N6", "_blank")}>
               {t('Discover')}
             </button>
             <button className="btn-blue2" onClick={toggleMap}>
@@ -86,7 +87,7 @@ const Rari = () => {
             </button>
           </div>
         </section>
-      </div>      
+      </div>    
       <section className="carousel-section1">
         <div className="carousel-header1">
           <h5>{t('Admire')}</h5>

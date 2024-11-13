@@ -36,6 +36,8 @@ const Panimavida = () => {
       .then( data => {
         setLat( data.latitud );
         setLng( data.longitud );
+        console.log("latitud = " + data.latitud);
+        console.log("longitud = " + data.longitud);
       })
       .catch(error => console.error('Error fetching location data: ', error));
   }, [i18n]);
@@ -65,24 +67,24 @@ const Panimavida = () => {
               width="100%"
               height="1200"
               allowFullScreen=""
-              loading="Lazy"
+              loading="lazy"
             ></iframe>
           )}
         </section>
 
-        {/*Existing content section*/}
+        {/* Existing Content Section */}
         <section className="info-content">
-            <h5>{t('UnforgettablePlaces')}</h5>
-            <h1>{t('Remember')}</h1>
-            <p>{t('ColbunBeauty')}</p>
-            <div className="button-group">
-              <button className="btn-blue" onClick={() => window.open("#", "_blank")}>
-                {t('Discover')}
-              </button>
-              <button className="btn-blue2" onClick={toggleMap}>
-                <i className="bi bi-geo-alt"></i>
-              </button>
-            </div>
+          <h5>{t('UnforgettablePlaces')}</h5>
+          <h1>{t('Remember')}</h1>
+          <p>{t('ColbunBeauty')}</p>
+          <div className="button-group">
+            <button className="btn-blue" onClick={() => window.open("https://maps.app.goo.gl/GZSD4dNAL8uKZx1N6", "_blank")}>
+              {t('Discover')}
+            </button>
+            <button className="btn-blue2" onClick={toggleMap}>
+              <i className="bi bi-geo-alt"></i>
+            </button>
+          </div>
         </section>
       </div>
       <section className="carousel-section1">
