@@ -12,6 +12,19 @@ const AdminPanel = () => {
 
   const token = localStorage.getItem('token'); // Obtener el token del almacenamiento local
 
+  const transformTipoOferente = (tipoOferente) => {
+    switch (tipoOferente) {
+        case 'bienesServicios':
+            return 'Bienes y Servicios';
+        case 'artesano': 
+            return 'Artesano';
+            case 'cabanas': 
+            return 'Cabañas';
+        default:
+            return 'Administrador'; // Devuelve el valor original si no se encuentra una coincidencia
+    }
+};
+
   // Fetch de servicios pendientes
   const fetchServicios = useCallback(async () => {
     try {
@@ -132,10 +145,10 @@ const AdminPanel = () => {
             
             <div className="modal-details">
               <h2>{selectedService.nombre}</h2>
-              <p><strong>Categoría:</strong> {selectedService.categoria || 'No disponible'}</p>
+              <p><strong>Oferente:</strong> {transformTipoOferente(selectedService.tipo_oferente) || 'Rol no disponible'}</p>
               <p><strong>Estado:</strong> {selectedService.estado}</p>
               <p><strong>Descripción:</strong> {selectedService.descripcion}</p>
-              <p><strong>Correo:</strong> {selectedService.correo}</p>
+              <p><strong>Teléfono:</strong> {selectedService.telefono}</p>
               <p><strong>Redes Sociales:</strong> {selectedService.redes_sociales}</p>
             </div>
             <img
