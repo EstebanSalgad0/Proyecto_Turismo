@@ -226,10 +226,19 @@ const CrearServicio = () => {
         setTelefono(servicio.telefono);
         setPrecio(servicio.precio);
         setEditServicioId(servicio.id);
+        // Verificar si la imagen existe y construir la URL
+    if (servicio.imagen) {
+        const imagenUrl = `${import.meta.env.VITE_BACKEND_URL}${servicio.imagen}`;
+        setImagenPreview(imagenUrl); // Usar la URL completa para la vista previa
+        setImagen(imagenUrl); // Mantener la imagen en el estado
+    } else {
+        setImagenPreview(null); // Limpiar la vista previa si no hay imagen
+        setImagen(null); // Limpiar el estado de la imagen
+    }
         setShowServiceListSidebar(false); // Cierra la lista de servicios
         setShowSidebar(true); // Abre la barra lateral de edición
         setEditMode(true); // Activa el modo de edición
-    };
+        };
     const handleNameChange = (e) => {
         const inputName = e.target.value;
         if (inputName.length <= 25) {
@@ -245,11 +254,11 @@ const CrearServicio = () => {
         formData.append('descripcion', descripcion);
         formData.append('telefono', telefono);
         formData.append('precio', precio);
-
-
-        if (imagen) {
-            formData.append('imagen', imagen);
+        // Solo agregar la imagen al formData si es un archivo nuevo
+        if (imagen && typeof imagen !== 'string') {
+        formData.append('imagen', imagen);  // Solo añadir si es un archivo de imagen nuevo
         }
+
     
         try {
             const token = localStorage.getItem('token');
