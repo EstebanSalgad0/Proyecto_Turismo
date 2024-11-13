@@ -546,8 +546,30 @@
     z-index: 10; /* Asegura que el botón esté encima de otros elementos */
 }
 
+.delete {
+    position: absolute;
+    top: 10px; /* Espacio desde la parte superior */
+    right: 45px; /* Espacio desde la parte derecha */
+    background-color: #e13232; /* Color de fondo */
+    color: white; /* Color del ícono o texto */
+    border: none;
+    border-radius: 50%; /* Forma redonda */
+    width: 30px; /* Tamaño del botón */
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Animación de hover */
+    font-size: 14px; /* Tamaño del ícono */
+    z-index: 10; /* Asegura que el botón esté encima de otros elementos */
+}
+
 .reenviar:hover {
     background-color: #3A539B; /* Color de fondo al hacer hover */
+}
+.delete:hover {
+    background-color: #8e2e2e; /* Color de fondo al hacer hover */
 }
 
 .service-card .service-image.full-image {
@@ -766,6 +788,16 @@
 
     /* Ajustes para el botón de reenviar en tarjetas */
     .reenviar {
+        width: 25px;
+        height: 25px;
+        font-size: 12px;
+        text-align: end;
+        justify-content: end;
+        display: flex;
+    }
+
+    /* Ajustes para el botón de reenviar en tarjetas */
+    .delete {
         width: 25px;
         height: 25px;
         font-size: 12px;

@@ -504,6 +504,15 @@ const CrearServicio = () => {
                                     >
                                         <i className="bi bi-send-fill"></i>
                                     </button>
+                                    <button 
+                                        className="delete" 
+                                        onClick={(e) => { 
+                                            e.stopPropagation(); 
+                                            confirmDelete(servicio.id); 
+                                        }}
+                                    >
+                                        <i className="bi bi-trash"></i>
+                                    </button>
                                     <h3 className="service-title">{servicio.nombre}</h3>
                                     <h4 className='ser-descripcion'>{servicio.descripcion}</h4>
                                     <h5 className='Costo'>$ {servicio.precio ? Math.round(servicio.precio) : 'No disponible'}</h5>
