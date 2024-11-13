@@ -632,11 +632,6 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
 }
 
-/* Efecto hover */
-.service-card.expanded .expanded-gallery-image1:hover {
-    transform: scale(1.1);
-}
-
 /* Estilos cuando hay una sola imagen */
 .service-card.expanded .expanded-gallery1.single-image {
     grid-template-columns: 1fr; /* Una sola columna para una imagen */
