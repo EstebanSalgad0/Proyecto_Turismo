@@ -613,6 +613,63 @@
     font-weight: bold;
 }
 
+/* Contenedor de la galería expandida */
+.expanded-gallery1 {
+    display: grid;
+    gap: 20px; /* Espacio entre las imágenes */
+    margin-left: auto; /* Desplaza el contenido hacia la derecha */
+    margin-top: 40px;
+    padding: 20px;
+    justify-items: center; /* Alinea las imágenes en el centro */
+    grid-template-columns: repeat(2, minmax(250px, 1fr)); /* Hace que las imágenes se ajusten */
+    max-width: 500px; /* Controla el tamaño máximo */
+}
+
+/* Estilos de cada imagen */
+.expanded-gallery-image1 {
+    height: 70%;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+/* Efecto hover */
+.expanded-gallery-image1:hover {
+    transform: scale(1.1);
+}
+
+/* Estilos cuando hay una sola imagen */
+.expanded-gallery1.single-image {
+    grid-template-columns: 1fr; /* Una sola columna para una imagen */
+}
+
+/* Estilos para dos imágenes */
+.expanded-gallery1.two-images {
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+}
+
+/* Estilos para tres imágenes */
+.expanded-gallery1.three-images {
+    grid-template-columns: repeat(2, 1fr); /* Tres columnas */
+}
+
+/* Ajuste para pantallas grandes */
+@media (min-width: 1024px) {
+    .expanded-gallery1 {
+        max-width: 1000px;
+    }
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+    .expanded-gallery1 {
+        grid-template-columns: 1fr; /* En pantallas pequeñas, apilan todas las imágenes */
+    }
+}
+
 .service-card.expanded .close-button {
     position: absolute;
     top: 10px;
@@ -630,8 +687,8 @@
 .service-card.expanded .image-gallery {
     display: grid;
     gap: 10px;
-    width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    width: 0%;
+    grid-template-columns: repeat(auto-fit, minmax(0px, 1fr));
     padding: 10px;
     align-items: center;
     justify-items: center;
@@ -717,12 +774,7 @@
     }
 
     /* Ajustes para la imagen dentro de la tarjeta expandida */
-    .service-card.expanded .service-image {
-        width: 100%; /* Imagen ocupa el ancho completo */
-        height: 250px; /* Altura fija en dispositivos pequeños */
-        border-radius: 8px;
-        margin-bottom: 10px; /* Espacio entre la imagen y la descripción */
-    }
+
 
     /* Ajustes para el detalle del servicio */
     .service-card.expanded .service-details {
@@ -779,12 +831,7 @@
         font-size: 12px;
     }
 
-    /* Ajustes para la galería de imágenes en tarjetas expandidas */
-    .service-card.expanded .image-gallery {
-        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-        margin-top: 55px;
-        max-width: 300px; /* Ajuste de ancho máximo para pantallas pequeñas */
-    }
+  
 
     /* Ajustes para el botón de reenviar en tarjetas */
     .reenviar {

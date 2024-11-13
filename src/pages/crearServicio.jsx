@@ -13,6 +13,12 @@ const CrearServicio = () => {
     const [telefono, setTelefono] = useState('');
     const [imagen, setImagen] = useState(null); // Estado para la imagen
     const [imagenPreview, setImagenPreview] = useState(null); // Estado para la vista previa de la imagen
+    const [imagen2, setImagen2] = useState(null); // Estado para la imagen
+    const [imagenPreview2, setImagenPreview2] = useState(null); // Estado para la vista previa de la imagen
+    const [imagen3, setImagen3] = useState(null); // Estado para la imagen
+    const [imagenPreview3, setImagenPreview3] = useState(null); // Estado para la vista previa de la imagen
+    const [imagen4, setImagen4] = useState(null); // Estado para la imagen
+    const [imagenPreview4, setImagenPreview4] = useState(null); // Estado para la vista previa de la imagen
     const [mensaje, setMensaje] = useState('');
     const [servicios, setServicios] = useState([]);
     const [editMode, setEditMode] = useState(false);
@@ -24,6 +30,9 @@ const CrearServicio = () => {
     const [userName, setUserName] = useState();
     const [showSidebar, setShowSidebar] = useState(false); 
     const [dragActive, setDragActive] = useState(false); // Estado para el arrastre
+    const [dragActive2, setDragActive2] = useState(false); // Estado para el arrastre
+    const [dragActive3, setDragActive3] = useState(false); // Estado para el arrastre
+    const [dragActive4, setDragActive4] = useState(false); // Estado para el arrastre
     const [showServiceListSidebar, setShowServiceListSidebar] = useState(false);
 
     const [userRole, setUserRole] = useState(''); // Estado para el rol del usuario
@@ -136,6 +145,9 @@ const CrearServicio = () => {
         setTelefono('');
         setPrecio('');
         setImagen(null);
+        setImagen2(null);
+        setImagen3(null);
+        setImagen4(null);
         setEditMode(false);
     };
 
@@ -147,6 +159,45 @@ const CrearServicio = () => {
             const reader = new FileReader();
             reader.onloadend = () => {
                 setImagenPreview(reader.result); // Guardamos la URL base64 solo para la vista previa
+            };
+            reader.readAsDataURL(file); // Leer el archivo como base64 para la vista previa
+        }
+    };
+
+    // Actualización: Manejo de archivos
+    const handleFileChange2 = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setImagen2(file); // Guardamos el archivo original para el backend
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImagenPreview2(reader.result); // Guardamos la URL base64 solo para la vista previa
+            };
+            reader.readAsDataURL(file); // Leer el archivo como base64 para la vista previa
+        }
+    };
+
+    // Actualización: Manejo de archivos
+    const handleFileChange3 = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setImagen3(file); // Guardamos el archivo original para el backend
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImagenPreview3(reader.result); // Guardamos la URL base64 solo para la vista previa
+            };
+            reader.readAsDataURL(file); // Leer el archivo como base64 para la vista previa
+        }
+    };
+
+    // Actualización: Manejo de archivos
+    const handleFileChange4 = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setImagen4(file); // Guardamos el archivo original para el backend
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImagenPreview4(reader.result); // Guardamos la URL base64 solo para la vista previa
             };
             reader.readAsDataURL(file); // Leer el archivo como base64 para la vista previa
         }
@@ -187,6 +238,9 @@ const CrearServicio = () => {
         setTelefono('');
         setPrecio('');
         setImagen(null);
+        setImagen2(null);
+        setImagen3(null);
+        setImagen4(null);
         setShowSidebar(!showSidebar);
     };
 
@@ -219,6 +273,93 @@ const CrearServicio = () => {
         }
     };
 
+    // Actualización: Manejo del arrastre
+    const handleDragOver2 = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setDragActive2(true);
+    };
+    
+    const handleDragLeave2 = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setDragActive2(false);
+    };
+    
+    const handleDrop2 = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setDragActive2(false);
+
+        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+            const file = e.dataTransfer.files[0];
+            setImagen(file); // Guardamos el archivo original para el backend
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImagenPreview(reader.result); // Guardamos la URL base64 solo para la vista previa
+            };
+            reader.readAsDataURL(file); // Leer el archivo como base64 para la vista previa
+        }
+    };
+
+    // Actualización: Manejo del arrastre
+    const handleDragOver3 = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setDragActive3(true);
+    };
+    
+    const handleDragLeave3 = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setDragActive3(false);
+    };
+    
+    const handleDrop3 = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setDragActive3(false);
+
+        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+            const file = e.dataTransfer.files[0];
+            setImagen(file); // Guardamos el archivo original para el backend
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImagenPreview(reader.result); // Guardamos la URL base64 solo para la vista previa
+            };
+            reader.readAsDataURL(file); // Leer el archivo como base64 para la vista previa
+        }
+    };
+
+    // Actualización: Manejo del arrastre
+    const handleDragOver4 = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setDragActive4(true);
+    };
+    
+    const handleDragLeave4 = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setDragActive4(false);
+    };
+    
+    const handleDrop4 = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setDragActive4(false);
+
+        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+            const file = e.dataTransfer.files[0];
+            setImagen(file); // Guardamos el archivo original para el backend
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImagenPreview(reader.result); // Guardamos la URL base64 solo para la vista previa
+            };
+            reader.readAsDataURL(file); // Leer el archivo como base64 para la vista previa
+        }
+    };
+
     const handleServiceClick = (servicio) => {
         setNombre(servicio.nombre);
         setRedesSociales(servicio.redes_sociales);
@@ -235,10 +376,41 @@ const CrearServicio = () => {
         setImagenPreview(null); // Limpiar la vista previa si no hay imagen
         setImagen(null); // Limpiar el estado de la imagen
     }
+
+    // Verificar si la imagen existe y construir la URL
+    if (servicio.imagen2) {
+        const imagenUrl = `${import.meta.env.VITE_BACKEND_URL}${servicio.imagen2}`;
+        setImagenPreview2(imagenUrl); // Usar la URL completa para la vista previa
+        setImagen2(imagenUrl); // Mantener la imagen en el estado
+    } else {
+        setImagenPreview2(null); // Limpiar la vista previa si no hay imagen
+        setImagen2(null); // Limpiar el estado de la imagen
+    }
+
+    // Verificar si la imagen existe y construir la URL
+    if (servicio.imagen3) {
+        const imagenUrl = `${import.meta.env.VITE_BACKEND_URL}${servicio.imagen3}`;
+        setImagenPreview3(imagenUrl); // Usar la URL completa para la vista previa
+        setImagen3(imagenUrl); // Mantener la imagen en el estado
+    } else {
+        setImagenPreview3(null); // Limpiar la vista previa si no hay imagen
+        setImagen3(null); // Limpiar el estado de la imagen
+    }
+
+    // Verificar si la imagen existe y construir la URL
+    if (servicio.imagen4) {
+        const imagenUrl = `${import.meta.env.VITE_BACKEND_URL}${servicio.imagen4}`;
+        setImagenPreview4(imagenUrl); // Usar la URL completa para la vista previa
+        setImagen4(imagenUrl); // Mantener la imagen en el estado
+    } else {
+        setImagenPreview4(null); // Limpiar la vista previa si no hay imagen
+        setImagen4(null); // Limpiar el estado de la imagen
+    }
         setShowServiceListSidebar(false); // Cierra la lista de servicios
         setShowSidebar(true); // Abre la barra lateral de edición
         setEditMode(true); // Activa el modo de edición
         };
+        
     const handleNameChange = (e) => {
         const inputName = e.target.value;
         if (inputName.length <= 25) {
@@ -258,6 +430,15 @@ const CrearServicio = () => {
         if (imagen && typeof imagen !== 'string') {
         formData.append('imagen', imagen);  // Solo añadir si es un archivo de imagen nuevo
         }
+        if (imagen2 && typeof imagen2 !== 'string') {
+            formData.append('imagen2', imagen2);  // Solo añadir si es un archivo de imagen nuevo
+            }
+            if (imagen3 && typeof imagen3 !== 'string') {
+                formData.append('imagen3', imagen3);  // Solo añadir si es un archivo de imagen nuevo
+                }
+                if (imagen4 && typeof imagen4 !== 'string') {
+                    formData.append('imagen4', imagen4);  // Solo añadir si es un archivo de imagen nuevo
+                    }
 
     
         try {
@@ -290,6 +471,9 @@ const CrearServicio = () => {
             setTelefono('');
             setPrecio('');
             setImagen(null);
+            setImagen2(null);
+            setImagen3(null);
+            setImagen4(null);
             setShowSidebar(false); // Cerrar sidebar tras envío exitoso
     
             // Limpiar mensaje de éxito después de 3 segundos
@@ -405,6 +589,99 @@ const CrearServicio = () => {
                     </div>
                 </label>
             </div>
+            <label>Agrega una Imagen</label>
+            <div
+                className={`file-upload-container ${dragActive2 ? 'drag-active' : ''}`}
+                onDragOver={handleDragOver2}
+                onDragLeave={handleDragLeave2}
+                onDrop={handleDrop2}
+            >
+                <input
+                    type="file"
+                    onChange={handleFileChange2}
+                    accept="image/*"
+                    id="file-upload2"
+                    className="file-upload-input"
+                    style={{ display: 'none' }} // Ocultar el input real
+                />
+                <label htmlFor="file-upload2" className="file-upload-label">
+                    <div className="file-upload-content">
+                        {imagen2 ? (
+                            // Mostrar vista previa de la imagen si hay una
+                            <img src={imagenPreview2} alt="Vista previa" className="file-upload-preview2" style={{ maxWidth: '100%', maxHeight: '300px' }} />
+                        ) : (
+                            // Mostrar contenido por defecto si no hay imagen
+                            <>
+                                <span className="file-upload-icon">↑</span>
+                                <p>Elige un archivo o arrástralo y colócalo aquí</p>
+                                <p className="file-upload-instructions">Recomendamos usar archivos .jpg de alta calidad con un tamaño inferior a 20 MB.</p>
+                            </>
+                        )}
+                    </div>
+                </label>
+            </div>
+            <label>Agrega una Imagen</label>
+            <div
+                className={`file-upload-container ${dragActive3 ? 'drag-active' : ''}`}
+                onDragOver={handleDragOver3}
+                onDragLeave={handleDragLeave3}
+                onDrop={handleDrop3}
+            >
+                <input
+                    type="file"
+                    onChange={handleFileChange3}
+                    accept="image/*"
+                    id="file-upload3"
+                    className="file-upload-input"
+                    style={{ display: 'none' }} // Ocultar el input real
+                />
+                <label htmlFor="file-upload3" className="file-upload-label">
+                    <div className="file-upload-content">
+                        {imagen3 ? (
+                            // Mostrar vista previa de la imagen si hay una
+                            <img src={imagenPreview3} alt="Vista previa" className="file-upload-preview3" style={{ maxWidth: '100%', maxHeight: '300px' }} />
+                        ) : (
+                            // Mostrar contenido por defecto si no hay imagen
+                            <>
+                                <span className="file-upload-icon">↑</span>
+                                <p>Elige un archivo o arrástralo y colócalo aquí</p>
+                                <p className="file-upload-instructions">Recomendamos usar archivos .jpg de alta calidad con un tamaño inferior a 20 MB.</p>
+                            </>
+                        )}
+                    </div>
+                </label>
+            </div>
+            <label>Agrega una Imagen</label>
+            <div
+                className={`file-upload-container ${dragActive4 ? 'drag-active' : ''}`}
+                onDragOver={handleDragOver4}
+                onDragLeave={handleDragLeave4}
+                onDrop={handleDrop4}
+            >
+                <input
+                    type="file"
+                    onChange={handleFileChange4}
+                    accept="image/*"
+                    id="file-upload4"
+                    className="file-upload-input"
+                    style={{ display: 'none' }} // Ocultar el input real
+                />
+                <label htmlFor="file-upload4" className="file-upload-label">
+                    <div className="file-upload-content">
+                        {imagen4 ? (
+                            // Mostrar vista previa de la imagen si hay una
+                            <img src={imagenPreview4} alt="Vista previa" className="file-upload-preview4" style={{ maxWidth: '100%', maxHeight: '300px' }} />
+                        ) : (
+                            // Mostrar contenido por defecto si no hay imagen
+                            <>
+                                <span className="file-upload-icon">↑</span>
+                                <p>Elige un archivo o arrástralo y colócalo aquí</p>
+                                <p className="file-upload-instructions">Recomendamos usar archivos .jpg de alta calidad con un tamaño inferior a 20 MB.</p>
+                            </>
+                        )}
+                    </div>
+                </label>
+            </div>
     
                                 <label>Redes Sociales</label>
                                 <textarea
@@ -470,6 +747,51 @@ const CrearServicio = () => {
                                             <p>No hay imágenes disponibles</p>
                                         )}
                                     </div>
+
+                                    {expandedServicio === servicio.id && (
+    <div 
+        className={`expanded-gallery1 ${
+            servicio.imagen && !servicio.imagen2 && !servicio.imagen3 && !servicio.imagen4 ? 'single-image' :
+            servicio.imagen && servicio.imagen2 && !servicio.imagen3 && !servicio.imagen4 ? 'two-images' :
+            servicio.imagen && servicio.imagen2 && servicio.imagen3 && !servicio.imagen4 ? 'three-images' :
+            'four-images'
+        }`}
+    >
+        {/* Fila de imágenes */}
+        {servicio.imagen && (
+            <img 
+                src={`${import.meta.env.VITE_BACKEND_URL}${servicio.imagen}`} 
+                alt={`Imagen 1 de ${servicio.nombre}`} 
+                className="expanded-gallery-image1"
+                onError={() => console.error(`Error al cargar la imagen: ${servicio.imagen}`)}
+            />
+        )}
+        {servicio.imagen2 && (
+            <img 
+                src={`${import.meta.env.VITE_BACKEND_URL}${servicio.imagen2}`} 
+                alt={`Imagen 2 de ${servicio.nombre}`} 
+                className="expanded-gallery-image1"
+                onError={() => console.error(`Error al cargar la imagen: ${servicio.imagen2}`)}
+            />
+        )}
+        {servicio.imagen3 && (
+            <img 
+                src={`${import.meta.env.VITE_BACKEND_URL}${servicio.imagen3}`} 
+                alt={`Imagen 3 de ${servicio.nombre}`} 
+                className="expanded-gallery-image1"
+                onError={() => console.error(`Error al cargar la imagen: ${servicio.imagen3}`)}
+            />
+        )}
+        {servicio.imagen4 && (
+            <img 
+                src={`${import.meta.env.VITE_BACKEND_URL}${servicio.imagen4}`} 
+                alt={`Imagen 4 de ${servicio.nombre}`} 
+                className="expanded-gallery-image1"
+                onError={() => console.error(`Error al cargar la imagen: ${servicio.imagen4}`)}
+            />
+        )}
+    </div>
+)}
     
                                     {expandedServicio === servicio.id && (
                                         <div className="service-details">
