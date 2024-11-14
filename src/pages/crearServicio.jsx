@@ -691,7 +691,7 @@ const CrearServicio = () => {
                                     placeholder="Escriba sus redes sociales"
                                 />
 
-                                <label>Teléfono</label>
+                                <label>Contacto</label>
                                 <input
                                     type="text"
                                     value={telefono}
@@ -699,7 +699,7 @@ const CrearServicio = () => {
                                     placeholder="Escriba su numero de telefono"
                                 />
     
-                                <label>Precio</label>
+                                <label>Valor</label>
                                 <input
                                     type="text"
                                     value={precio ? Math.floor(precio) : ''}
@@ -808,10 +808,10 @@ const CrearServicio = () => {
                                                 />
                                             </div>
                                             <p className="service-email">
-                                                <strong>Teléfono:</strong> <span>{servicio.telefono || 'No disponible'}</span>
+                                                <strong>Contacto:</strong> <span>{servicio.telefono || 'No disponible'}</span>
                                             </p>
                                             <p className="service-price">
-                                            <strong>Precio:</strong><span>$ {servicio.precio ? Math.round(servicio.precio) : 'No disponible'}</span>
+                                            <strong>Valor:</strong><span>$ {servicio.precio ? Math.round(servicio.precio) : 'No disponible'}</span>
                                             </p>
                                         </div>                                    
                                     )}
