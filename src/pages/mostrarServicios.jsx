@@ -54,7 +54,7 @@ const transformTipoOferente = (tipoOferente) => {
                         servicios.map(servicio => (
                             <div key={servicio.id} className="service-container">
                                 <div 
-                                    className={`service-card ${expandedServicio === servicio.id ? 'expanded' : 'closed'}`}
+                                    className={`service-card ${expandedServicio === servicio.id ? 'expanded2' : 'closed'}`}
                                     onClick={() => toggleExpand(servicio.id)}
                                 >
                                     {expandedServicio === servicio.id && (
@@ -80,30 +80,83 @@ const transformTipoOferente = (tipoOferente) => {
                                     </div>
     
                                     {expandedServicio === servicio.id && (
-                                        <div className="service-details">
-                                            <p className="service-description">
-                                                <strong>Descripción:</strong> <span>{servicio.descripcion}</span>
-                                            </p>
+    <div className="service-details">
+        {/* Contenedor de los campos de texto */}
+        <div className="service-text">
+            <p className="service-description">
+                <strong>Descripción:</strong> <span>{servicio.descripcion}</span>
+            </p>
 
-                                            <div className="service-contact">
-                                                <strong>Redes Sociales:</strong> 
-                                                <span 
-                                                    dangerouslySetInnerHTML={{
-                                                        __html: servicio.redes_sociales.replace(/\n/g, '<br />')
-                                                    }}
-                                                />
-                                            </div>
-                                            <p className="service-email">
-                                                <strong>Teléfono:</strong> <span>{servicio.telefono || 'No disponible'}</span>
-                                            </p>
-                                            <p className="service-price">
-                                                <strong>Precio:</strong> <span>${servicio.precio ? Math.round(servicio.precio) : 'No disponible'}</span>
-                                            </p>
-                                            <p className="service-price">
-                                                <strong>Oferente:</strong> <span>{transformTipoOferente(servicio.tipo_oferente) || 'No disponible'}</span>
-                                            </p>
-                                        </div>                                    
-                                    )}
+            <div className="service-contact">
+                <strong>Redes Sociales:</strong> 
+                <span 
+                    dangerouslySetInnerHTML={{
+                        __html: servicio.redes_sociales.replace(/\n/g, '<br />')
+                    }}
+                />
+            </div>
+            <p className="service-email">
+                <strong>Teléfono:</strong> <span>{servicio.telefono || 'No disponible'}</span>
+            </p>
+            <p className="service-price">
+                <strong>Precio:</strong> <span>${servicio.precio ? Math.round(servicio.precio) : 'No disponible'}</span>
+            </p>
+            <p className="service-price">
+                <strong>Oferente:</strong> <span>{transformTipoOferente(servicio.tipo_oferente) || 'No disponible'}</span>
+            </p>
+        </div>
+
+        {/* Contenedor de la galería de imágenes */}
+        <div 
+            className={`expanded-gallery1 ${
+                servicio.imagen && servicio.imagen2 && servicio.imagen3 && servicio.imagen4
+                    ? 'four-images'
+                    : servicio.imagen && servicio.imagen2 && servicio.imagen3
+                    ? 'three-images'
+                    : servicio.imagen && servicio.imagen2
+                    ? 'two-images'
+                    : 'single-image'
+            }`}
+        >
+            {servicio.imagen && (
+                <img 
+                    src={`${import.meta.env.VITE_BACKEND_URL}${servicio.imagen}`} 
+                    alt={`Imagen de ${servicio.nombre}`} 
+                    className="expanded-gallery-image1" 
+                    onError={() => console.error(`Error al cargar la imagen: ${servicio.imagen}`)} 
+                />
+            )}
+            {servicio.imagen2 && (
+                <img 
+                    src={`${import.meta.env.VITE_BACKEND_URL}${servicio.imagen2}`} 
+                    alt={`Imagen 2 de ${servicio.nombre}`} 
+                    className="expanded-gallery-image1" 
+                    onError={() => console.error(`Error al cargar la imagen: ${servicio.imagen2}`)} 
+                />
+            )}
+            {servicio.imagen3 && (
+                <img 
+                    src={`${import.meta.env.VITE_BACKEND_URL}${servicio.imagen3}`} 
+                    alt={`Imagen 3 de ${servicio.nombre}`} 
+                    className="expanded-gallery-image1" 
+                    onError={() => console.error(`Error al cargar la imagen: ${servicio.imagen3}`)} 
+                />
+            )}
+            {servicio.imagen4 && (
+                <img 
+                    src={`${import.meta.env.VITE_BACKEND_URL}${servicio.imagen4}`} 
+                    alt={`Imagen 4 de ${servicio.nombre}`} 
+                    className="expanded-gallery-image1" 
+                    onError={() => console.error(`Error al cargar la imagen: ${servicio.imagen4}`)} 
+                />
+            )}
+            {/* Si no hay imágenes disponibles */}
+            {!servicio.imagen && !servicio.imagen2 && !servicio.imagen3 && !servicio.imagen4 && (
+                <p>No hay imágenes disponibles</p>
+            )}
+        </div>
+    </div>
+)}
                                 </div>
                                 <div className='DownCard'>
                                     <h3 className="service-title">{servicio.nombre}</h3>
