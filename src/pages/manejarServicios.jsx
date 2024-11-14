@@ -158,7 +158,13 @@ const transformCategoria = (tipoOferente) => {
             
             <div className="modal-details">
               <h2>{selectedService.nombre}</h2>
-              <p><strong>Oferente:</strong> {transformTipoOferente(selectedService.tipo_oferente) || 'Rol no disponible'}</p>
+              <p>
+                <strong>Oferente:</strong> 
+                {selectedService.first_name && selectedService.last_name 
+                ? ` ${selectedService.first_name} ${selectedService.last_name}` 
+                : ' Administrador de Servicios'}
+              </p>
+              <p><strong>Tipo Oferente:</strong> {transformTipoOferente(selectedService.tipo_oferente) || 'Rol no disponible'}</p>
               <p><strong>Estado:</strong> {selectedService.estado}</p>
               <p><strong>Descripción:</strong> {selectedService.descripcion}</p>
               <p><strong>Teléfono:</strong> {selectedService.telefono}</p>
