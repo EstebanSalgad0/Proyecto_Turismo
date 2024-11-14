@@ -9,7 +9,7 @@ const ConfirmModal = ({ show, message, onConfirm, onCancel }) => {
   return (
     <div className="modal-backdrop">
       <div className="modal-content">
-        <h2>{message}</h2>
+        <h2 className='text'>{message}</h2>
         <div className="modal-buttons">
           <button className="modal-button confirm" onClick={onConfirm}>Sí</button>
           <button className="modal-button cancel" onClick={onCancel}>No</button>
