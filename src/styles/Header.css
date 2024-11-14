@@ -34,8 +34,8 @@
 .dropdown-menu1 {
   position: absolute;
   top: 100%;
-  left: -380px;
-  right: 34px;
+  left: -232px;
+  right: 24px;
   background-color: white;
   list-style: none;
   padding: 10px 0;
@@ -154,7 +154,7 @@
   border: none;
   padding: 5px;
   font-size: 14px;
-  flex-grow: 1; /* Hace que el input ocupe el espacio disponible */
+  width: 180px;
   outline: none;
 }
 
