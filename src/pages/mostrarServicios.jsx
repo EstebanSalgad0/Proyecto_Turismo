@@ -59,7 +59,7 @@ const transformTipoOferente = (tipoOferente) => {
                                 >
                                     {expandedServicio === servicio.id && (
                                         <div className="service-header">
-                                            <h1 className="service-title">{servicio.nombre}</h1>
+                                            <h1 className="service-title1">{servicio.nombre}</h1>
                                         </div>
                                     )}
                                     <button className="close-button" onClick={(e) => { e.stopPropagation(); toggleExpand(null); }}>

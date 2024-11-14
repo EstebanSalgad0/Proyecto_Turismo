@@ -86,9 +86,9 @@
     justify-items: center; /* Centra los elementos de texto en su columna */
 }
 /* Contenedor de los detalles del texto */
-.service-card.expanded2 .service-title {
+.service-card.expanded2 .service-title1 {
     margin-top: 80px; /* Solo se aplica al texto */
-    width: 40%;
+    margin-left: -590px;
     height: 600px;
     max-width: 1200px;
     justify-items: center; /* Centra los elementos de texto en su columna */
