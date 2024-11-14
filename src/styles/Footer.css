@@ -18,7 +18,7 @@
 
 .footer-logo {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Alinea las imágenes en columna */
   align-items: flex-start; /* Alinea los logos a la izquierda */
   gap: 20px; /* Espacio entre los logos */
   margin-left: 0; /* Mueve el contenedor más cerca del borde izquierdo */
@@ -44,7 +44,6 @@
 .logo-3 {
   background-image: url('../assets/img/Footer/marcaColbun.png') !important;
 }
-
 
 .footer-column {
   display: flex;
@@ -86,11 +85,13 @@
 
   .footer-column {
     flex-basis: 100%; /* Cada columna ocupa todo el ancho en pantallas pequeñas */
+    order: 1;
   }
 
   .footer-logo {
-    flex-direction: row; /* Coloca los logos en fila en pantallas pequeñas */
+    flex-direction: column; /* Mantiene los logos en columna también en pantallas pequeñas */
     justify-content: flex-start; /* Alinea los logos a la izquierda */
+    order: 2;
   }
 }
 
