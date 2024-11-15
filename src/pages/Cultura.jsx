@@ -5,8 +5,12 @@ import '../styles/Cultura.css?v=1.6' // Estilos específicos para el componente
 import Header from '../components/Header';
 import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
+import LeafletMap from '../components/LeafletMap';
 
 const Elmelado = () => {
+  const [latPetro, setLatPetro] = useState(null);
+  const [lngPetro, setLngPetro] = useState(null);
+  const [isFirstMapPetro, setIsFirstMapPetro] = useState(true);
 
   const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
   const totalSlides = 4; // Número total de slides
@@ -17,8 +21,16 @@ const Elmelado = () => {
     if (savedLanguage && savedLanguage !== i18n.language) {
       i18n.changeLanguage(savedLanguage); // Cambiar el idioma si es necesario
     }
+    
+    // Fetch data from the Django API (Petroglifos)
+    fetch('http://localhost:8000/api/lugares/buscar/?nombre=petroglifos') // Cambia el nombre por el lugar turístico que necesites
+    .then(response => response.json())
+    .then(data => {
+      setLatPetro(data.latitud);
+      setLngPetro(data.longitud);
+    })
+    .catch(error => console.error('Error fetching location data:', error));
   }, [i18n]); // Añadir el estado del idioma como dependencia
-
 
   // Función para manejar las flechas
   const nextSlide = () => {
@@ -38,6 +50,10 @@ const Elmelado = () => {
     return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
   }, []);
 
+  const toggleMapPetro = () => {
+    setIsFirstMapPetro(!isFirstMapPetro);
+  };
+
   return (
     <div className="index-container">
       {/* Navbar */}
@@ -52,14 +68,36 @@ const Elmelado = () => {
         </div>
       </div>
 
-      <section className="info-section">
-        <div className="info-content">
+      <div className="info-section1">
+        <section className="map-section">
+          {latPetro && lngPetro && isFirstMapPetro ? (
+            <LeafletMap latitud={latPetro} longitud={lngPetro} mapId={"petroglifosMap"} />
+          ) : (
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
+              width="100%"
+              height="1200"
+              allowFullScreen=""
+              loading="lazy"
+            ></iframe>
+          )}
+        </section>
+
+        {/* Existing Content Section */}
+        <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
           <p>{t('ColbunBeauty')}</p>
-          <button className="btn-blue">{t('Discover')}</button>
-        </div>
-      </section>
+          <div className="button-group">
+            <button className="btn-blue" onClick={() => window.open("https://maps.app.goo.gl/GZSD4dNAL8uKZx1N6", "_blank")}>
+              {t('Discover')}
+            </button>
+            <button className="btn-blue2" onClick={toggleMapPetro}>
+              <i className="bi bi-geo-alt"></i>
+            </button>
+          </div>
+        </section>
+      </div>
             
       {/* Carousel Section */}
       <section className="carousel-section1">
