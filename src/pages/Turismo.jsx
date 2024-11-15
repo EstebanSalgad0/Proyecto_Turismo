@@ -21,8 +21,6 @@ const Zoit = () => {
     <div className="index-container">
       {/* Navbar */}
       <Header/>
-
-
       {/* Carousel Section */}
       <section className="carousel-section">
         <div className="carousel-header">
@@ -34,31 +32,26 @@ const Zoit = () => {
         </div>
         <br></br>
         <h5>{t('AdventureTime')}</h5>
-                <br></br><br></br><br></br>
-                <div className="carousel-subheader">
-            <h2>{t('Contact1')}</h2>
+        <br></br><br></br><br></br>
+        <div className="carousel-subheader">
+          <h2>{t('Contact1')}</h2>
+        </div>
+        <br></br><br></br>
+        <div className="contact-section">
+          <div className="contact-item">
+            <h3>WhatsApp</h3>
+            <p>+569 9458 0453</p>
           </div>
-          <br></br><br></br>
-
-        
-
-          <div className="contact-section">
-  <div className="contact-item">
-    <h3>WhatsApp</h3>
-    <p>+569 9458 0453</p>
-  </div>
-  <div className="contact-item">
-    <h3>{t('WriteUs')}</h3>
-    <p>turismoatiende@sernatur.cl</p>
-  </div>
-  <div className="contact-item">
-    <h3>Call Center</h3>
-    <p>600 600 60 66</p>
-  </div>
-</div>
-        
+          <div className="contact-item">
+            <h3>{t('WriteUs')}</h3>
+            <p>turismoatiende@sernatur.cl</p>
+          </div>
+          <div className="contact-item">
+            <h3>Call Center</h3>
+            <p>600 600 60 66</p>
+          </div>
+        </div>
       </section>
-      
     </div>
   );
 };

@@ -61,7 +61,7 @@ const Colbunalto = () => {
       <div className="info-section1">
         <section className="map-section">
           {lat && lng && isFirstMap ? (
-            <LeafletMap latitud={lat} longitud={lng} />
+            <LeafletMap latitud={lat} longitud={lng} mapId="colbunAltoMap" />
           ) : (
             <iframe
               src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"

@@ -4,7 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import 'leaflet-routing-machine';
 
 // eslint-disable-next-line react/prop-types
-const LeafletMap = ({ latitud, longitud }) => {
+const LeafletMap = ({ latitud, longitud, mapId }) => {
   const mapRef = useRef(null);
   const targetCoords = [latitud, longitud];
   let userMarker;
@@ -19,7 +19,7 @@ const LeafletMap = ({ latitud, longitud }) => {
 
   useEffect(() => {
     if (!mapRef.current) {
-      const map = L.map('map', { zoomControl: false }).setView(targetCoords, 13);
+      const map = L.map(mapId, { zoomControl: false }).setView(targetCoords, 13);
       mapRef.current = map;
 
       L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -158,7 +158,7 @@ const LeafletMap = ({ latitud, longitud }) => {
 
   return (
     <div>
-      <div id="map" />
+      <div className={"map"} id={mapId} />
     </div>
   );
 };
