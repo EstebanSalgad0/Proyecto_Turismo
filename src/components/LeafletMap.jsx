@@ -158,7 +158,7 @@ const LeafletMap = ({ latitud, longitud, mapId }) => {
 
   return (
     <div>
-      <div className={"map"} id={mapId} />
+      <div className={"generalMap"} id={mapId} />
     </div>
   );
 };
