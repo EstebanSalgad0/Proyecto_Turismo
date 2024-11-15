@@ -32,7 +32,6 @@
   margin-bottom: 20px; /* Espaciado inferior */
 }
 
-
 .wrapper-is {
   width: 420px;
   background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
@@ -62,7 +61,6 @@
   text-align: left; 
 }
 
-
 .input-box-is input {
   width: 100%;
   background: transparent;
@@ -90,7 +88,6 @@
   color: #4B67AE;
   pointer-events: none;
 }
-
 
 .remember-forgot {
   display: flex;

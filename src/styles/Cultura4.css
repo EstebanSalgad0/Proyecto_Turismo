@@ -68,28 +68,28 @@
 /* Ajustes para pantallas móviles */
 @media (max-width: 768px) {
   .hero40, .hero41, .hero42, .hero43 {
-      padding: 20px;
-      min-height: 65vh;
-      text-align: center;
+    padding: 20px;
+    min-height: 65vh;
+    text-align: center;
   }
 
   .hero-content40, .hero-content41, .hero-content42, .hero-content43 {
-      margin-top: 60px;
-      margin-left: 0;
-      align-items: center;
+    margin-top: 60px;
+    margin-left: 0;
+    align-items: center;
   }
 
   .hero40 h1, .hero41 h1, .hero42 h1, .hero43 h1 {
-      font-size: 2rem;
-      margin-bottom: 20px;
+    font-size: 2rem;
+    margin-bottom: 20px;
   }
 
   .hero40 h4, .hero41 h4, .hero42 h4, .hero43 h4 {
-      font-size: 0.9rem;
-      line-height: 1.5;
-      margin-top: 20px;
-      margin-bottom: 20px;
-      width: 100%;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
   }
 }
 

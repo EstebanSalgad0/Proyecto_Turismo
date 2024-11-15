@@ -7,7 +7,6 @@
   flex-direction: column;
 }
 
-
 /* Responsividad: Ajusta las columnas para pantallas más pequeñas */
 @media (max-width: 768px) {
   .logo {

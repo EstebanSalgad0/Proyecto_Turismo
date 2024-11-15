@@ -95,36 +95,37 @@
 
 @media (max-width: 768px) {
   .index-container {
-      width: 100vw;
-      padding: 0;
-      margin: 0 auto;
+    width: 100vw;
+    padding: 0;
+    margin: 0 auto;
   }
 
   .hero12 {
-      width: 100vw;
-      margin: 0;
-      padding: 20px;
-      background-size: cover !important;
-      background-position: center !important;
-      min-height: 65vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    width: 100vw;
+    margin: 0;
+    padding: 20px;
+    background-size: cover !important;
+    background-position: center !important;
+    min-height: 65vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
+
   .hero-content12 {
-      margin-top: 60px;
-      margin-left: 15px;
-      align-items: start;
+    margin-top: 60px;
+    margin-left: 15px;
+    align-items: start;
   }
 
   .hero12 h1 {
-      font-size: 2rem;
-      margin-bottom: 40px;
+    font-size: 2rem;
+    margin-bottom: 40px;
   }
 
   .hero12 h5 {
-      font-size: 1rem;
+    font-size: 1rem;
   }
 
   .hero12 h4 {
@@ -136,81 +137,81 @@
   }
 
   .map-section {
-      width: 100vw;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .map-section iframe {
-      width: 90vw;
-      height: 600px;
-      border: 3px solid #4B67AE;
-      border-radius: 10px;
+    width: 90vw;
+    height: 600px;
+    border: 3px solid #4B67AE;
+    border-radius: 10px;
   }
 
   .carousel-container1 {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      gap: 10px;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 10px;
   }
 
   .carousel-container1 .carousel-card1 {
-      flex: 0 0 80%;
-      scroll-snap-align: center;
-      margin: 0 10px;
-      width: 200px;
-      max-width: 300px;
+    flex: 0 0 80%;
+    scroll-snap-align: center;
+    margin: 0 10px;
+    width: 200px;
+    max-width: 300px;
   }
 
   .carousel-nav {
-      display: none;
+    display: none;
   }
 
   .carousel-section1 {
-      margin-bottom: 30px;
+    margin-bottom: 30px;
   }
 
   .carousel-header1 {
-      flex-direction: column;
-      align-items: flex-start;
-      margin-bottom: 20px;
-      margin-left: -20px;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    margin-left: -20px;
   }
 }
 
 @media (max-width: 480px) {
   .carousel-container1 {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      gap: 10px;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 10px;
   }
 
   .carousel-container1 .carousel-card1 {
-      flex: 0 0 80%;
-      scroll-snap-align: center;
-      margin: 0 10px;
-      width: 200px;
-      max-width: 300px;
+    flex: 0 0 80%;
+    scroll-snap-align: center;
+    margin: 0 10px;
+    width: 200px;
+    max-width: 300px;
   }
 
   .carousel-nav {
-      display: none;
+    display: none;
   }
 
   .carousel-section1 {
-      margin-bottom: 30px;
+    margin-bottom: 30px;
   }
 
   .carousel-header1 {
-      flex-direction: column;
-      align-items: flex-start;
-      margin-bottom: 20px;
-      margin-left: -20px;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    margin-left: -20px;
   }
 }
 

@@ -6,6 +6,7 @@
   min-height: 100vh;
   flex-direction: column;
 }
+
 .hero5 {
   background-image: url("../assets/img/Losbellotos.png") !important;  /* Aquí va la ruta de tu imagen */
   background-size: cover !important;

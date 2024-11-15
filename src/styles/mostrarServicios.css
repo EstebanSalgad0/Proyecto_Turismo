@@ -1,233 +1,230 @@
-
 .service-card.expanded2 .service-title {
-    font-size: 30px;
-    font-weight: bold;
-    margin-right: 20px;
-    text-align: center;
-     /* Hace que el título ocupe el espacio restante */
+  font-size: 30px;
+  font-weight: bold;
+  margin-right: 20px;
+  text-align: center;
+  /* Hace que el título ocupe el espacio restante */
 }
 .TipoOferente{
-    font-size: 16px;
-    color: #757575;
+  font-size: 16px;
+  color: #757575;
 }
 
 body.dark-mode .TipoOferente{
-    font-size: 16px;
-    color: #dddbdb;
+  font-size: 16px;
+  color: #dddbdb;
 }
+
 .services-list-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 .services-list{
-    margin-top: 100px;
+  margin-top: 100px;
 }
+
 .TipoOferente {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 5px;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
 }
 
 /* Tarjeta de servicio */
 .service-card {
-    background-color: #D9D9D9;
-    border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 200px;
-    width: 270px;
-    overflow: hidden;
-    
+  background-color: #D9D9D9;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 200px;
+  width: 270px;
+  overflow: hidden;
 }
 
 /* Expansión de la tarjeta */
 .service-card.expanded2 {
-    position: fixed;
-    top: 50%; /* Centra verticalmente */
-    left: 50%; /* Centra horizontalmente */
-    transform: translate(-50%, -50%); /* Ajusta la posición para que el centro sea el medio de la pantalla */
-    width: 90%; /* Ocupa el 90% del ancho de la pantalla */
-    max-width: 1200px; /* Establece un ancho máximo mayor */
-    height: 80%; /* Ocupa el 80% del alto de la pantalla */
-    max-height: 90vh; /* Limita la altura máxima al 90% de la altura de la ventana */
-    background-color: white;
-    z-index: 1000;
-    padding: 40px;
-    border-radius: 10px; /* Bordes redondeados para un efecto visual atractivo */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Sombra para dar la sensación de "flotar" */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow-y: auto;
-    flex-direction: row-reverse; /* Imagen a la derecha */
-    
+  position: fixed;
+  top: 50%; /* Centra verticalmente */
+  left: 50%; /* Centra horizontalmente */
+  transform: translate(-50%, -50%); /* Ajusta la posición para que el centro sea el medio de la pantalla */
+  width: 90%; /* Ocupa el 90% del ancho de la pantalla */
+  max-width: 1200px; /* Establece un ancho máximo mayor */
+  height: 80%; /* Ocupa el 80% del alto de la pantalla */
+  max-height: 90vh; /* Limita la altura máxima al 90% de la altura de la ventana */
+  background-color: white;
+  z-index: 1000;
+  padding: 40px;
+  border-radius: 10px; /* Bordes redondeados para un efecto visual atractivo */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Sombra para dar la sensación de "flotar" */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  flex-direction: row-reverse; /* Imagen a la derecha */
 }
 
 /* Contenedor de los detalles del texto */
 .service-card.expanded2 .service-details {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-    gap: 20px;
-    margin-top: 40px; /* Solo se aplica al texto */
-    width: 100%;
-    max-width: 1200px;
-    justify-items: center; /* Centra los elementos de texto en su columna */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 20px;
+  margin-top: 40px; /* Solo se aplica al texto */
+  width: 100%;
+  max-width: 1200px;
+  justify-items: center; /* Centra los elementos de texto en su columna */
 }
 
 /* Contenedor de los detalles del texto */
 .service-card.expanded2 .service-text {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-    gap: 0px;
-    margin-top: 80px; /* Solo se aplica al texto */
-    width: 40%;
-    height: 200px;
-    max-width: 1200px;
-    justify-items: center; /* Centra los elementos de texto en su columna */
-}
-/* Contenedor de los detalles del texto */
-.service-card.expanded2 .service-title1 {
-    margin-top: 80px; /* Solo se aplica al texto */
-    margin-left: -590px;
-    height: 600px;
-    max-width: 1200px;
-    justify-items: center; /* Centra los elementos de texto en su columna */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 0px;
+  margin-top: 80px; /* Solo se aplica al texto */
+  width: 40%;
+  height: 200px;
+  max-width: 1200px;
+  justify-items: center; /* Centra los elementos de texto en su columna */
 }
 
+/* Contenedor de los detalles del texto */
+.service-card.expanded2 .service-title1 {
+  margin-top: 80px; /* Solo se aplica al texto */
+  margin-left: -590px;
+  height: 600px;
+  max-width: 1200px;
+  justify-items: center; /* Centra los elementos de texto en su columna */
+}
 
 /* Contenedor de las imágenes */
 .service-card.expanded2 .expanded-gallery1 {
-    position: right;
-    float: right; /* Hace que las imágenes floten hacia la derecha */
-    margin-left: 400px; /* Asegura un pequeño margen entre las imágenes y los textos */
-    width: 600px;
-    box-sizing: border-box;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Acomoda las imágenes */
-    gap: 10px;
+  position: right;
+  float: right; /* Hace que las imágenes floten hacia la derecha */
+  margin-left: 400px; /* Asegura un pequeño margen entre las imágenes y los textos */
+  width: 600px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Acomoda las imágenes */
+  gap: 10px;
 }
-
-
 
 /* Estilos cuando hay una sola imagen */
 .service-card.expanded2 .expanded-gallery1.single-image {
-    grid-template-columns: 1fr; /* Una sola columna para una imagen */
+  grid-template-columns: 1fr; /* Una sola columna para una imagen */
 }
 
 .service-card.expanded2 .expanded-gallery1.single-image .expanded-gallery-image1 {
-    height: 350px;
-    width: 100%;
+  height: 350px;
+  width: 100%;
 }
 
 /* Estilos para dos imágenes */
 .service-card.expanded2 .expanded-gallery1.two-images {
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas */
 }
 
 .service-card.expanded2 .expanded-gallery1.two-images .expanded-gallery-image1 {
-    height: 350px;
-    width: 100%;
+  height: 350px;
+  width: 100%;
 }
 
 /* Estilos para tres imágenes */
 .service-card.expanded2 .expanded-gallery1.three-images {
-    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas */
 }
 
 .service-card.expanded2 .expanded-gallery1.three-images .expanded-gallery-image1 {
-    height: 300px;
-    width: 100%;
+  height: 300px;
+  width: 100%;
 }
 
 /* Estilos para cuatro imágenes */
 .service-card.expanded2 .expanded-gallery1.four-images {
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas para cuatro imágenes */
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas para cuatro imágenes */
 }
 
 .service-card.expanded2 .expanded-gallery1.four-images .expanded-gallery-image1 {
-    height: 200px;
-    width: 400px;
+  height: 200px;
+  width: 400px;
 }
 
 /* Ajuste para pantallas grandes */
 @media (min-width: 1024px) {
-    .service-card.expanded .expanded-gallery1 {
-        max-width: 1200px;
-    }
+  .service-card.expanded .expanded-gallery1 {
+    max-width: 1200px;
+  }
 }
 
 /* Ajuste para pantallas pequeñas */
 @media (max-width: 768px) {
-    .service-card.expanded {
-        overflow: visible; /* Permite que el contenido crezca en pantallas pequeñas */
-    }
-    .service-card.expanded .service-details,
-    .service-card.expanded .expanded-gallery1 {
-        float: none; /* Elimina el float en pantallas pequeñas */
-        width: 100%; /* Asegura que ambos bloques ocupen el 100% del ancho */
-    }
-    .service-card.expanded .expanded-gallery1 {
-        grid-template-columns: 1fr; /* Apila todas las imágenes en una columna */
-    }
-    .service-card.expanded .expanded-gallery-image1 {
-        width: 100%;
-        height: auto;
-    }
+  .service-card.expanded {
+    overflow: visible; /* Permite que el contenido crezca en pantallas pequeñas */
+  }
+  .service-card.expanded .service-details,
+  .service-card.expanded .expanded-gallery1 {
+    float: none; /* Elimina el float en pantallas pequeñas */
+    width: 100%; /* Asegura que ambos bloques ocupen el 100% del ancho */
+  }
+  .service-card.expanded .expanded-gallery1 {
+    grid-template-columns: 1fr; /* Apila todas las imágenes en una columna */
+  }
+  .service-card.expanded .expanded-gallery-image1 {
+    width: 100%;
+    height: auto;
+  }
 }
 
 /* Ajuste para pantallas pequeñas */
 @media (max-width: 768px) {
-    .service-card.expanded .expanded-gallery1 {
-        grid-template-columns: 1fr; /* En pantallas pequeñas, apilan todas las imágenes */
-    }
-    .service-card.expanded .expanded-gallery-image1 {
-        width: 100%;
-        height: auto;
-    }
+  .service-card.expanded .expanded-gallery1 {
+    grid-template-columns: 1fr; /* En pantallas pequeñas, apilan todas las imágenes */
+  }
+  .service-card.expanded .expanded-gallery-image1 {
+    width: 100%;
+    height: auto;
+  }
 }
 
 /* Estilos para pantallas móviles */
 @media (max-width: 480px) {
-    /* Título de la lista de servicios */
-    .services-title {
-        text-align: center;
-        color: #4B67AE;
-        margin-top: 100px; /* Espacio más pequeño para móviles */
-        font-size: 20px; /* Tamaño de fuente reducido */
-        font-weight: bold;
-    }
-    .service-title {
-        margin: 0 0 5px;
-    }
+  /* Título de la lista de servicios */
+  .services-title {
+    text-align: center;
+    color: #4B67AE;
+    margin-top: 100px; /* Espacio más pequeño para móviles */
+    font-size: 20px; /* Tamaño de fuente reducido */
+    font-weight: bold;
+  }
+  .service-title {
+    margin: 0 0 5px;
+  }
 
-    /* Texto para el tipo de oferente */
-    .TipoOferente {
-        font-size: 12px; /* Tamaño de fuente más pequeño */
-        color: #757575;
-        margin-bottom: 10px;
-    }
+  /* Texto para el tipo de oferente */
+  .TipoOferente {
+    font-size: 12px; /* Tamaño de fuente más pequeño */
+    color: #757575;
+    margin-bottom: 10px;
+  }
 
-    /* Contenedor de la lista de servicios */
-    .services-list-container {
-        max-width: 100%; /* Ocupa el ancho completo en móviles */
-        margin: 0 auto;
-        padding: 10px; /* Reduce el padding para móviles */
-    }
+  /* Contenedor de la lista de servicios */
+  .services-list-container {
+    max-width: 100%; /* Ocupa el ancho completo en móviles */
+    margin: 0 auto;
+    padding: 10px; /* Reduce el padding para móviles */
+  }
 
-    /* Margen superior de la lista de servicios */
-    .services-list {
-        margin-top: 50px; /* Reduce el margen superior en móviles */
-    }
+  /* Margen superior de la lista de servicios */
+  .services-list {
+    margin-top: 50px; /* Reduce el margen superior en móviles */
+  }
 
-    /* Ajuste adicional para el tipo de oferente */
-    .TipoOferente {
-        font-size: 12px; /* Fuente más pequeña */
-        color: #555;
-        margin-bottom: 8px;
-    }
+  /* Ajuste adicional para el tipo de oferente */
+  .TipoOferente {
+    font-size: 12px; /* Fuente más pequeña */
+    color: #555;
+    margin-bottom: 8px;
+  }
 }

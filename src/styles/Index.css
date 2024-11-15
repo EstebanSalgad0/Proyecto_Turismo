@@ -13,7 +13,6 @@
   margin-left: 5px;
 }
 
-
 .hero2 {
   position: relative;
   background-size: cover !important;
@@ -222,7 +221,6 @@
   position: relative; /* Necesario para que las flechas estén bien posicionadas */
 }
 
-
 /* Sección de Comunidad */
 .community-section1 {
   background-image: url('../assets/img/image2.png'); /* Ruta de la imagen de fondo */
@@ -241,7 +239,6 @@
   position: relative;
   min-height: 100vh; /* Esto asegura que la sección ocupe al menos la altura de la ventana si el contenido es corto */
 }
-
 
 .community-content1 {
   max-width: 1000px;
@@ -346,6 +343,7 @@
   vertical-align: middle; /* Para alinearlo con la imagen */
   position: relative;
 }
+
 /* Sección de Lugares inolvidables */
 .info-section1 {
   background-color: #e0e0e0; /* Color gris claro temporal para el mapa */
@@ -358,7 +356,6 @@
   box-sizing: border-box;
   min-height: 100vh; /* Si quieres un mínimo de altura que ocupe toda la ventana */
 }
-
 
 .info-content1 {
   background-color: white;
@@ -549,7 +546,7 @@
   .carousel-section1 {
     margin-bottom: 30px;
   }
-  
+
   .carousel-header1 {
     flex-direction: column;
     align-items: flex-start;
@@ -683,7 +680,6 @@
     width: 200px; /* Ajusta el ancho según lo necesites */
     max-width: 300px; /* Define un ancho máximo para limitar el tamaño */
   }
-  
 
   .carousel-card1 img {
     width: 100%;
@@ -693,11 +689,11 @@
   .carousel-nav {
     display: none;
   }
-  
+
   .carousel-section1 {
     margin-bottom: 30px;
   }
-  
+
   .carousel-header1 {
     flex-direction: column;
     align-items: flex-start;
