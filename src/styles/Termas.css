@@ -49,6 +49,28 @@
   margin-bottom: 5px;
 }
 
+/* Styling for the map section */
+.map-section {
+  flex: 1;
+  margin-right: 10px;
+  height: 650px;
+  position: relative; /* Necesario para el posicionamiento absoluto */
+}
+
+/* Optional adjustments for the map iframe */
+.map-section iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+/* Estilo para el contenedor del mapa */
+.generalMap {
+  height: 650px; /* Ajusta la altura según necesites */
+  position: relative;
+  z-index: 0;
+}
+
 /* Ajustes para pantallas móviles */
 @media (max-width: 768px) {
   .hero17 {
@@ -74,6 +96,35 @@
     margin-top: 20px;
     margin-bottom: 20px;
     width: 100%;
+  }
+
+  .map-section {
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .generalMap {
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+    height: 600px; /* Ajusta la altura para móviles */
+    border: 3px solid #4B67AE; /* Añade un borde azul alrededor del mapa */
+    border-radius: 10px; /* Opcional: redondea las esquinas */
+  }
+  
+  .map-section iframe {
+    width: 90vw;
+    height: 600px; /* Ajusta la altura para móviles */
+    border: 3px solid #4B67AE; /* Añade un borde azul alrededor del mapa */
+    border-radius: 10px; /* Opcional: redondea las esquinas */
   }
 
   .carousel-container1 {
