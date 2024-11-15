@@ -1,9 +1,15 @@
-.service-card.expanded2 .service-title {
+.service-card.expanded2 .service-title1 {
   font-size: 30px;
   font-weight: bold;
-  margin-right: 20px;
   text-align: center;
-  /* Hace que el título ocupe el espacio restante */
+  position: absolute; /* Saca el título del flujo normal */
+  top: 20px; /* Ajusta la distancia desde la parte superior del modal */
+  left: 50%; /* Centra el título horizontalmente */
+  transform: translateX(-50%); /* Centra el contenido correctamente */
+  width: 100%; /* Asegura que el título ocupe todo el ancho disponible */
+  margin-right: 0; /* Elimina márgenes que puedan interferir */
+  z-index: 2000; /* Asegura que el título se superponga a otros elementos */
+  margin-top: 30px;
 }
 .TipoOferente{
   font-size: 16px;
@@ -92,11 +98,9 @@ body.dark-mode .TipoOferente{
 
 /* Contenedor de los detalles del texto */
 .service-card.expanded2 .service-title1 {
-  margin-top: 80px; /* Solo se aplica al texto */
-  margin-left: -590px;
-  height: 600px;
+  position: absolute;
   max-width: 1200px;
-  justify-items: center; /* Centra los elementos de texto en su columna */
+  justify-items: flex-start; /* Centra los elementos de texto en su columna */
 }
 
 /* Contenedor de las imágenes */
@@ -149,6 +153,12 @@ body.dark-mode .TipoOferente{
 .service-card.expanded2 .expanded-gallery1.four-images .expanded-gallery-image1 {
   height: 200px;
   width: 400px;
+}
+
+.service-details .service-contact1,
+.service-details .service-email1,
+.service-details .service-price1 {
+  font-style: normal;
 }
 
 /* Ajuste para pantallas grandes */

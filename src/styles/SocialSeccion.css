@@ -135,6 +135,7 @@
 @media (max-width: 768px) {
   .help-options{
     width: 300px;
+    margin-left: 25px;
     align-items: start;
   }
 
@@ -192,6 +193,15 @@
     display: flex;
     justify-content: center;
     gap: 10px; /* Menor espacio entre íconos */
+  }
+
+  .social-icons2 {
+    font-size: 2rem;
+    color: #4B67AE; /* Azul oscuro */
+    transition: color 0.3s ease; /* Añade una transición suave al color */
+    display: flex;
+    justify-content: center; /* Alinea los iconos a la izquierda */
+    gap: 20px;
   }
 }
 

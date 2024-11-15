@@ -261,7 +261,7 @@
   border: none; /* Sin bordes */
   font-size: 16px;
   font-weight: bold;
-  margin: 0px 0px 0px 80px;
+  margin: 0px 10px 0px 80px;
   cursor: pointer; /* Muestra el cursor de enlace al pasar por el botón */
   padding: 10px 0; /* Añade un poco de padding para que sea clicable */
   min-width: 100px; /* Ajusta según el ancho requerido para ambos idiomas */
@@ -294,7 +294,8 @@
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 0;
+  left: 30px;
+  right: -40px;
   background-color: white;
   list-style: none;
   padding: 10px 0;

@@ -87,7 +87,7 @@ const transformTipoOferente = (tipoOferente) => {
                 <strong>Descripción:</strong> <span>{servicio.descripcion}</span>
             </p>
 
-            <div className="service-contact">
+            <div className="service-contact1">
                 <strong>Redes Sociales:</strong> 
                 <span 
                     dangerouslySetInnerHTML={{
@@ -95,13 +95,13 @@ const transformTipoOferente = (tipoOferente) => {
                     }}
                 />
             </div>
-            <p className="service-email">
+            <p className="service-email1">
                 <strong>Contacto:</strong> <span>{servicio.telefono || 'No disponible'}</span>
             </p>
-            <p className="service-price">
+            <p className="service-price1">
                 <strong>Valor:</strong> <span>${servicio.precio ? Math.round(servicio.precio) : 'No disponible'}</span>
             </p>
-            <p className="service-price">
+            <p className="service-price1">
                 <strong>Oferente:</strong> <span>{transformTipoOferente(servicio.tipo_oferente) || 'No disponible'}</span>
             </p>
         </div>
