@@ -6,6 +6,13 @@
     text-align: start;
 }
 
+body.dark-mode .service-title {
+    color: white;
+    font-size: 20px;
+    margin: 10px 0 5px; /* Espacio entre la imagen y el título */
+    text-align: start;
+}
+
 .ser-descripcion  {
     font-size: 14px;
     color: #757575;
@@ -13,9 +20,18 @@
     margin-bottom: 10px; /* Espacio entre la descripción y los botones */
 }
 
+body.dark-mode .ser-descripcion  {
+    color: #ffffff;
+}
+
 .Costo{
     font-size: 14px;
     color: #4B67AE;
+}
+
+body.dark-mode .Costo{
+    font-size: 14px;
+    color: #ffffff;
 }
 
 .service-image {
@@ -363,6 +379,11 @@
     margin-bottom: 10px;
 }
 
+/* Estilos del avatar */
+body.dark-mode .avatar-ser {
+    background-color: #ffffff;
+}
+
 .avatar-text-ser {
     font-size: 36px;
     color: #4B67AE;
@@ -377,9 +398,20 @@
     text-align: center;
 }
 
+body.dark-mode .FullName {
+    color: #ffffff;
+}
+
 .TipoRol{
     font-size: 14px;
     color: #757575;
+    text-align: center;
+    
+}
+
+body.dark-mode .TipoRol{
+    font-size: 14px;
+    color: #ffffff;
     text-align: center;
     
 }
@@ -389,6 +421,10 @@
     font-size: 16px;
     text-align: center;
     font-weight: bold;
+}
+
+body.dark-mode .Contador{
+    color: #ffffff;
 }
 
 .ButtonsCRUD{
@@ -412,6 +448,11 @@
     align-items: center;
     justify-content: center;
     margin: 5px 0 50px;
+}
+
+body.dark-mode .ButtonsCRUD button{
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
 }
 
 .ButtonsCRUD button h5{

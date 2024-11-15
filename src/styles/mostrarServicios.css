@@ -10,6 +10,11 @@
     font-size: 16px;
     color: #757575;
 }
+
+body.dark-mode .TipoOferente{
+    font-size: 16px;
+    color: #dddbdb;
+}
 .services-list-container {
     max-width: 1200px;
     margin: 0 auto;
