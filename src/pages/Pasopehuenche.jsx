@@ -6,15 +6,36 @@ import LeafletMap from '../components/LeafletMap';
 import Header from '../components/Header';
 import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
+import useCarousel from '../components/useCarousel';
+
+// Importa las imágenes
+import img1 from '../assets/img/PXL_20240927_102434354.jpg';
+import img2 from '../assets/img/Cultural.png';
+import img3 from '../assets/img/Parque.png';
+import img4 from '../assets/img/PXL_20240927_112617725.jpg';
+import img5 from '../assets/img/PXL_20240927_112819235.jpg';
+import img6 from '../assets/img/PXL_20240927_120450869.jpg';
+import img7 from '../assets/img/PXL_20240927_114154883.jpg';
+import img8 from '../assets/img/PXL_20240927_102434354.jpg';
 
 const Pasopehuenche = () => {
   const [lat, setLat] = useState(null);
   const [lng, setLng] = useState(null);
   const [isFirstMap, setIsFirstMap] = useState(true);
 
-  const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
-  const totalSlides = 4; // Número total de slides
+  const { currentSlide, nextSlide, prevSlide } = useCarousel(4);
   const { t, i18n } = useTranslation(); // Hook para usar traducciones
+
+  const slideNames = [
+    { name: 'VizcachazViewpoint', image: img1 },
+    { name: 'NationalPark', image: img2 },
+    { name: 'CavesBellotos', image: img3 },
+    { name: 'Reservoir', image: img4 },
+    { name: 'LakeColbun', image: img5 },
+    { name: 'HillViewpoint', image: img6 },
+    { name: 'ToroWaterfall', image: img7 },
+    { name: 'AnotherLocation', image: img8 }
+  ];
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem('language'); // Obtener el idioma guardado
@@ -32,23 +53,7 @@ const Pasopehuenche = () => {
       .catch(error => console.error('Error fetching location data:', error));
   }, [i18n]); // Añadir el estado del idioma como dependencia
 
-  // Función para manejar las flechas
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides); // Si llega al final, vuelve al inicio
-  };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides); // Si está en la primera, va a la última
-  };
-
-  // Desliza automáticamente cada 10 segundos
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 10000);
-
-    return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
-  }, []);
   
     // Función para alternar entre los mapas
     // To Apply
@@ -100,7 +105,6 @@ const Pasopehuenche = () => {
           </div>
         </section>
       </div>
-      {/* Carousel Section */}
       <section className="carousel-section1">
         <div className="carousel-header1">
           <h5>{t('Admire')}</h5>
@@ -112,38 +116,20 @@ const Pasopehuenche = () => {
 
         {/* Carrusel de imágenes */}
         <div className="carousel-container1">
-          {/* Cards del carrusel */}
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('VizcachazViewpoint')}</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('NationalPark')}</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('CavesBellotos')}</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('Reservoir')}</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('Test1')}</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('Test2')}</p>
-          </div>
-          <div className="carousel-card1" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            <div className="carousel-image1"></div>
-            <p>{t('Test3')}</p>
-          </div>
+          {slideNames.map((slide, index) => (
+            <div
+              key={index}
+              className="carousel-card1"
+              style={{
+                transform: `translateX(-${currentSlide * (window.innerWidth <= 768 ? 113 : 130)}%)`
+              }}
+            >
+              <img src={slide.image} alt={t(slide.name)} className="carousel-image1" />
+              <p>{t(slide.name)}</p>
+            </div>
+          ))}
         </div>
 
-        {/* Flechas de control */}
         <button className="carousel-control1 prev" onClick={prevSlide}>&#10094;</button>
         <button className="carousel-control1 next" onClick={nextSlide}>&#10095;</button>
       </section>

@@ -32,7 +32,7 @@ const useCarousel = (initialTotalSlides) => {
 
   // Desliza automáticamente cada 10 segundos
   useEffect(() => {
-    const interval = setInterval(nextSlide, 10000);
+    const interval = setInterval(nextSlide, 2000);
     return () => clearInterval(interval);
   }, [nextSlide]);
 

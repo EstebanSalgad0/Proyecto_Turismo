@@ -8,6 +8,16 @@ import '../components/i18n';
 import { useTranslation } from 'react-i18next';
 import useCarousel from '../components/useCarousel';
 
+// Importa las imágenes
+import img1 from '../assets/img/PXL_20240927_102434354.jpg';
+import img2 from '../assets/img/Cultural.png';
+import img3 from '../assets/img/Parque.png';
+import img4 from '../assets/img/PXL_20240927_112617725.jpg';
+import img5 from '../assets/img/PXL_20240927_112819235.jpg';
+import img6 from '../assets/img/PXL_20240927_120450869.jpg';
+import img7 from '../assets/img/PXL_20240927_114154883.jpg';
+import img8 from '../assets/img/PXL_20240927_102434354.jpg';
+
 const Elmelado = () => {
   const [lat, setLat] = useState(null);
   const [lng, setLng] = useState(null);
@@ -15,16 +25,15 @@ const Elmelado = () => {
   const { currentSlide, nextSlide, prevSlide } = useCarousel(4);
   const { t, i18n } = useTranslation();
 
-  // Nombres de las tarjetas
   const slideNames = [
-    'VizcachazViewpoint',
-    'NationalPark',
-    'CavesBellotos',
-    'Reservoir',
-    'LakeColbun',
-    'HillViewpoint',
-    'ToroWaterfall',
-    'AnotherLocation'
+    { name: 'VizcachazViewpoint', image: img1 },
+    { name: 'NationalPark', image: img2 },
+    { name: 'CavesBellotos', image: img3 },
+    { name: 'Reservoir', image: img4 },
+    { name: 'LakeColbun', image: img5 },
+    { name: 'HillViewpoint', image: img6 },
+    { name: 'ToroWaterfall', image: img7 },
+    { name: 'AnotherLocation', image: img8 }
   ];
 
   useEffect(() => {
@@ -99,8 +108,9 @@ const Elmelado = () => {
           </div>
         </div>
 
+        {/* Carrusel de imágenes */}
         <div className="carousel-container1">
-          {slideNames.map((slideName, index) => (
+          {slideNames.map((slide, index) => (
             <div
               key={index}
               className="carousel-card1"
@@ -108,8 +118,8 @@ const Elmelado = () => {
                 transform: `translateX(-${currentSlide * (window.innerWidth <= 768 ? 113 : 130)}%)`
               }}
             >
-              <div className="carousel-image1"></div>
-              <p>{t(slideName)}</p>
+              <img src={slide.image} alt={t(slide.name)} className="carousel-image1" />
+              <p>{t(slide.name)}</p>
             </div>
           ))}
         </div>
