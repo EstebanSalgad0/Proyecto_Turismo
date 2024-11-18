@@ -187,7 +187,7 @@ i18n.use(initReactI18next).init({
         "QualifyServices": "¿Calificar Servicios?",
         "ManageRequests": "Administrar Solicitudes Oferentes",
         "ManageServices": "Administrar Solicitudes Servicios",
-        "ColbunTitle": "CONVIERTE A COLBÚN EN TU PRÓXIMA AVENTURA",
+        "ColbunTitle": "¡CONVIERTE A COLBÚN EN TU PRÓXIMA AVENTURA!",
         "SubtitleMessage": "TE DAMOS LA BIENVENIDA A LA COMUNA",
         "WatchNow": "Ver Ahora",
         "NaturalBeauty": "Belleza Natural",
