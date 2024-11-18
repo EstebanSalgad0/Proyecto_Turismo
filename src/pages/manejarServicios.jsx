@@ -167,17 +167,54 @@ const transformCategoria = (tipoOferente) => {
               <p><strong>Tipo Oferente:</strong> {transformTipoOferente(selectedService.tipo_oferente) || 'Rol no disponible'}</p>
               <p><strong>Estado:</strong> {selectedService.estado}</p>
               <p><strong>Descripción:</strong> {selectedService.descripcion}</p>
-              <p><strong>Teléfono:</strong> {selectedService.telefono}</p>
+              <p><strong>Contacto:</strong> {selectedService.telefono}</p>
               <p><strong>Redes Sociales:</strong> {selectedService.redes_sociales}</p>
             </div>
-            <img
-              src={`${import.meta.env.VITE_BACKEND_URL}${selectedService.imagen}`}
-              alt={`Imagen de ${selectedService.nombre}`}
-              className="modal-image"
-            />
-          </div>
+            {/* Galería de imágenes */}
+      <div className="image-gallery2">
+      <div class="image-wrapper">
+        {selectedService.imagen && (
+          <img 
+            src={`${import.meta.env.VITE_BACKEND_URL}${selectedService.imagen}`} 
+            alt={`Imagen de ${selectedService.nombre}`} 
+            className="gallery-image2" 
+          />
+        )}
         </div>
-      )}
+        <div class="image-wrapper">
+        {selectedService.imagen2 && (
+          <img 
+            src={`${import.meta.env.VITE_BACKEND_URL}${selectedService.imagen2}`} 
+            alt={`Imagen 2 de ${selectedService.nombre}`} 
+            className="gallery-image2" 
+          />
+        )}
+        </div>
+        <div class="image-wrapper">
+        {selectedService.imagen3 && (
+          <img 
+            src={`${import.meta.env.VITE_BACKEND_URL}${selectedService.imagen3}`} 
+            alt={`Imagen 3 de ${selectedService.nombre}`} 
+            className="gallery-image2" 
+          />
+        )}
+        </div>
+        <div class="image-wrapper">
+        {selectedService.imagen4 && (
+          <img 
+            src={`${import.meta.env.VITE_BACKEND_URL}${selectedService.imagen4}`} 
+            alt={`Imagen 4 de ${selectedService.nombre}`} 
+            className="gallery-image2" 
+          />
+        )}
+        </div>
+        {!selectedService.imagen && !selectedService.imagen2 && !selectedService.imagen3 && !selectedService.imagen4 && (
+          <p>No hay imágenes disponibles</p>
+        )}
+      </div>
+    </div>
+  </div>
+)}
     </div>
   );
 };
