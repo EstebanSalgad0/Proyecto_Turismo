@@ -298,7 +298,7 @@ const Header = () => {
             <button className="Hacer"> {/* Usamos la misma clase "Hacer" para que el estilo sea el mismo */}
             {t('Services')}
             </button>
-            <img src="src/assets/img/flecha.png" alt="flecha" className="arrow-icon" />
+            <img src="src/assets/img/flecha.png" alt="flecha" className="arrow-icon2" />
         </div>
           {servicesDropdownOpen && (
             <ul className="dropdown-menu">

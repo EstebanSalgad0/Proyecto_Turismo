@@ -122,6 +122,13 @@
   filter: brightness(0) invert(1); /* Cambia el color a blanco */
 }
 
+.arrow-icon2 {
+  margin-left: -6px; /* Espacio entre el botón y la flecha */
+  width: 16px; /* Ajusta el tamaño de la flecha */
+  height: auto;
+  filter: brightness(0) invert(1); /* Cambia el color a blanco */
+}
+
 .navbar-icons-right .navbar-logout {
   margin-right: -15px;
 }
