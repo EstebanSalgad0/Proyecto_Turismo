@@ -172,42 +172,50 @@ const transformCategoria = (tipoOferente) => {
             </div>
             {/* Galería de imágenes */}
       <div className="image-gallery2">
-      <div class="image-wrapper">
-        {selectedService.imagen && (
-          <img 
-            src={`${import.meta.env.VITE_BACKEND_URL}${selectedService.imagen}`} 
-            alt={`Imagen de ${selectedService.nombre}`} 
-            className="gallery-image2" 
-          />
-        )}
-        </div>
-        <div class="image-wrapper">
-        {selectedService.imagen2 && (
-          <img 
-            src={`${import.meta.env.VITE_BACKEND_URL}${selectedService.imagen2}`} 
-            alt={`Imagen 2 de ${selectedService.nombre}`} 
-            className="gallery-image2" 
-          />
-        )}
-        </div>
-        <div class="image-wrapper">
-        {selectedService.imagen3 && (
-          <img 
-            src={`${import.meta.env.VITE_BACKEND_URL}${selectedService.imagen3}`} 
-            alt={`Imagen 3 de ${selectedService.nombre}`} 
-            className="gallery-image2" 
-          />
-        )}
-        </div>
-        <div class="image-wrapper">
-        {selectedService.imagen4 && (
-          <img 
-            src={`${import.meta.env.VITE_BACKEND_URL}${selectedService.imagen4}`} 
-            alt={`Imagen 4 de ${selectedService.nombre}`} 
-            className="gallery-image2" 
-          />
-        )}
-        </div>
+      <div className="image-wrapper">
+    {selectedService.imagen ? (
+      <img 
+        src={`${import.meta.env.VITE_BACKEND_URL}${selectedService.imagen}`} 
+        alt={`Imagen de ${selectedService.nombre}`} 
+        className="gallery-image2" 
+      />
+    ) : (
+      <p className="no-images-message">No hay imagen</p>
+    )}
+  </div>
+        <div className="image-wrapper">
+    {selectedService.imagen2 ? (
+      <img 
+        src={`${import.meta.env.VITE_BACKEND_URL}${selectedService.imagen2}`} 
+        alt={`Imagen 2 de ${selectedService.nombre}`} 
+        className="gallery-image2" 
+      />
+    ) : (
+      <p className="no-images-message">No hay imagen</p>
+    )}
+  </div>
+        <div className="image-wrapper">
+    {selectedService.imagen3 ? (
+      <img 
+        src={`${import.meta.env.VITE_BACKEND_URL}${selectedService.imagen3}`} 
+        alt={`Imagen 3 de ${selectedService.nombre}`} 
+        className="gallery-image2" 
+      />
+    ) : (
+      <p className="no-images-message">No hay imagen</p>
+    )}
+  </div>
+        <div className="image-wrapper">
+    {selectedService.imagen4 ? (
+      <img 
+        src={`${import.meta.env.VITE_BACKEND_URL}${selectedService.imagen4}`} 
+        alt={`Imagen 4 de ${selectedService.nombre}`} 
+        className="gallery-image2" 
+      />
+    ) : (
+      <p className="no-images-message">No hay imagen</p>
+    )}
+  </div>
         {!selectedService.imagen && !selectedService.imagen2 && !selectedService.imagen3 && !selectedService.imagen4 && (
           <p>No hay imágenes disponibles</p>
         )}

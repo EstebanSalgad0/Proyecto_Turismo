@@ -206,6 +206,15 @@
   align-items: center;
 }
 
+/* Estilo para el mensaje cuando no hay imágenes */
+.no-images-message {
+  grid-column: span 2; /* Ocupar ambas columnas */
+  text-align: center; 
+  font-size: 16px;
+  color: #666;
+  margin: 70px 0;
+}
+
 .image-wrapper {
   width: 100%; /* Se adapta al tamaño de la columna */
   aspect-ratio: 5/4;
