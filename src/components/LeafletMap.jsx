@@ -5,7 +5,7 @@ import 'leaflet-routing-machine';
 
 // eslint-disable-next-line react/prop-types
 const LeafletMap = ({ latitud, longitud, mapId, googleMapUrl }) => {
-  const mapRef = useRef(null);
+  const mapRef = useRef(null); // Referencia para almacenar el mapa
   const targetCoords = [latitud, longitud];
   let userMarker;
   let userCoords;
@@ -18,17 +18,21 @@ const LeafletMap = ({ latitud, longitud, mapId, googleMapUrl }) => {
   };
 
   useEffect(() => {
+    // Verificamos si el mapa no ha sido inicializado aún
     if (!mapRef.current) {
       const map = L.map(mapId, { zoomControl: false }).setView(targetCoords, 13);
       mapRef.current = map;
 
+      // Cargar capa de OpenStreetMap
       L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }).addTo(map);
 
+      // Agregar controles de zoom
       L.control.zoom({ position: 'bottomleft' }).addTo(map);
 
+      // Información de distancia y tiempo
       const infoControl = L.control({ position: 'topright' });
       infoControl.onAdd = function () {
         this._div = L.DomUtil.create('div', 'info');
@@ -106,9 +110,12 @@ const LeafletMap = ({ latitud, longitud, mapId, googleMapUrl }) => {
       }
 
       function error() {
-        map.remove(); // Elimina el mapa Leaflet en caso de error
-        mapRef.current = null;
-        // Cargar el iframe predeterminado
+        // En caso de error, eliminar el mapa Leaflet y cargar el iframe de Google Maps
+        if (mapRef.current) {
+          mapRef.current.remove();
+          mapRef.current = null;
+        }
+        // Cargar el iframe de Google Maps
         document.getElementById(mapId).innerHTML = `
           <iframe
             src="${googleMapUrl}"
@@ -119,7 +126,7 @@ const LeafletMap = ({ latitud, longitud, mapId, googleMapUrl }) => {
           ></iframe>`;
       }
 
-      // Add Google Maps control
+      // Agregar control de Google Maps
       L.Control.GoogleMaps = L.Control.extend({
         onAdd: function () {
           const container = L.DomUtil.create('div', 'leaflet-control-google-maps');
@@ -133,7 +140,7 @@ const LeafletMap = ({ latitud, longitud, mapId, googleMapUrl }) => {
       }
       L.control.googleMaps({ position: 'bottomright' }).addTo(map);
 
-      // Add transport controls
+      // Agregar controles de transporte
       L.Control.TransportControls = L.Control.extend({
         onAdd: function () {
           const container = L.DomUtil.create('div', 'transport-controls');
@@ -142,12 +149,9 @@ const LeafletMap = ({ latitud, longitud, mapId, googleMapUrl }) => {
             <button id="bicycleButton">Bicicleta</button>
             <button id="footButton">A pie</button>
           `;
-
-          // Agregar eventos a los botones
           container.querySelector('#carButton').onclick = () => setTransport('car');
           container.querySelector('#bicycleButton').onclick = () => setTransport('bicycle');
           container.querySelector('#footButton').onclick = () => setTransport('foot');
-
           return container;
         }
       });
@@ -155,15 +159,16 @@ const LeafletMap = ({ latitud, longitud, mapId, googleMapUrl }) => {
         return new L.Control.TransportControls(opts);
       }
       L.control.transportControls({ position: 'topright' }).addTo(map);
-    }
 
-    return () => {
-      if (mapRef.current) {
-        mapRef.current.remove();
-        mapRef.current = null;
-      }
-    };
-  }, [googleMapUrl]);
+      // Limpieza al desmontar el componente
+      return () => {
+        if (mapRef.current) {
+          mapRef.current.remove(); // Elimina el mapa Leaflet
+          mapRef.current = null; // Limpia la referencia
+        }
+      };
+    }
+  }, [googleMapUrl]); // Dependencia para el caso cuando cambie la URL de Google Map
 
   return (
     <div>

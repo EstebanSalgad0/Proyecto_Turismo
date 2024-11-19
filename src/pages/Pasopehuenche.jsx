@@ -26,6 +26,9 @@ const Pasopehuenche = () => {
   const { currentSlide, nextSlide, prevSlide } = useCarousel(4);
   const { t, i18n } = useTranslation(); // Hook para usar traducciones
 
+  const googleMapUrl =
+    "https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d1108478.6717723121!2d-71.32518061235452!3d-35.73772205635922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m5!1s0x96701f913862b461%3A0xf2ad86477ad16bdb!2sPaso%20Pehuenche%2C%20San%20Clemente!3m2!1d-35.9833333!2d-70.39999999999999!5e0!3m2!1ses-419!2scl!4v1732029936487!5m2!1ses-419!2scl";
+
   const slideNames = [
     { name: 'VizcachazViewpoint', image: img1 },
     { name: 'NationalPark', image: img2 },
@@ -78,7 +81,7 @@ const Pasopehuenche = () => {
       <div className="info-section1">
         <section className="map-section">
           {lat && lng && isFirstMap ? (
-            <LeafletMap latitud={lat} longitud={lng} mapId={"pehuencheMap"} />
+            <LeafletMap latitud={lat} longitud={lng} mapId={"pehuencheMap"} googleMapUrl={googleMapUrl}/>
           ) : (
             <iframe
               src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
