@@ -4,7 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import 'leaflet-routing-machine';
 
 // eslint-disable-next-line react/prop-types
-const LeafletMap = ({ latitud, longitud, mapId }) => {
+const LeafletMap = ({ latitud, longitud, mapId, googleMapUrl }) => {
   const mapRef = useRef(null);
   const targetCoords = [latitud, longitud];
   let userMarker;
@@ -105,9 +105,18 @@ const LeafletMap = ({ latitud, longitud, mapId }) => {
         }
       }
 
-      // Error handling for geolocation
-      function error(err) {
-        alert(err.code === 1 ? "Por favor permite el acceso a tu ubicación" : "No pudimos encontrar tu ubicación");
+      function error() {
+        map.remove(); // Elimina el mapa Leaflet en caso de error
+        mapRef.current = null;
+        // Cargar el iframe predeterminado
+        document.getElementById(mapId).innerHTML = `
+          <iframe
+            src="${googleMapUrl}"
+            width="100%"
+            height="100%"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>`;
       }
 
       // Add Google Maps control
@@ -154,7 +163,7 @@ const LeafletMap = ({ latitud, longitud, mapId }) => {
         mapRef.current = null;
       }
     };
-  }, []);
+  }, [googleMapUrl]);
 
   return (
     <div>
