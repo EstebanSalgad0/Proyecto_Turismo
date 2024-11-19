@@ -65,17 +65,17 @@ const Index = () => {
       <Header />
       {/* Hero Section */}
       <div className="hero2">
-        <iframe
-          ref={videoRef}
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/QCvh0Lwfmww?autoplay=1&mute=1&loop=1&playlist=QCvh0Lwfmww&vq=hd720"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        ></iframe>
+      <iframe
+        ref={videoRef}
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/7l3B_AjYnhI?autoplay=1&mute=1&loop=1&playlist=7l3B_AjYnhI&vq=hd1080"
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+      ></iframe>
         <div className="hero-content2">
           <h1>{t('ColbunTitle')}</h1>
           <h2>{t('SubtitleMessage')}</h2>
