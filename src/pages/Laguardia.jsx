@@ -67,7 +67,7 @@ const Laguardia = () => {
             <LeafletMap latitud={lat} longitud={lng} mapId="guardiaMap" googleMapUrl={googleMapUrl}/>
           ) : (
             <iframe
-              src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
+              src="https://www.google.com/maps/embed?pb=!4v1732042702600!6m8!1m7!1sCAoSLEFGMVFpcE9kZ3J3dS1ZYWtzMHdWZTZkbk83OExTX0pub18yVGJrQVhmTFEx!2m2!1d-35.69768000058234!2d-71.29296326328173!3f276.30112808442595!4f-1.1043939604081032!5f0.7820865974627469"
               width="100%"
               height="1200"
               allowFullScreen=""
@@ -82,7 +82,7 @@ const Laguardia = () => {
           <h1>{t('Remember')}</h1>
           <p>{t('ColbunBeauty')}</p>
           <div className="button-group">
-            <button className="btn-blue" onClick={() => window.open("https://maps.app.goo.gl/GZSD4dNAL8uKZx1N6", "_blank")}>
+            <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732042702600!6m8!1m7!1sCAoSLEFGMVFpcE9kZ3J3dS1ZYWtzMHdWZTZkbk83OExTX0pub18yVGJrQVhmTFEx!2m2!1d-35.69768000058234!2d-71.29296326328173!3f276.30112808442595!4f-1.1043939604081032!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
             </button>
             <button className="btn-blue2" onClick={toggleMap}>

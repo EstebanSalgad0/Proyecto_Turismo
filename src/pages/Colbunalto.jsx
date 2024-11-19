@@ -68,7 +68,7 @@ const Colbunalto = () => {
             <LeafletMap latitud={lat} longitud={lng} mapId="colbunAltoMap" googleMapUrl={googleMapUrl}/>
           ) : (
             <iframe
-              src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
+              src="https://www.google.com/maps/embed?pb=!4v1732042470056!6m8!1m7!1sCAoSLEFGMVFpcE93WGlUUlZSdkYwR2xoenFpdUFMbDZ4TUdFemkwRmhXd0dHUkVT!2m2!1d-35.72389261564005!2d-71.2123527910019!3f349.7109854124092!4f0.6778411991338089!5f0.7820865974627469"
               width="100%"
               height="1200"
               allowFullScreen=""
@@ -83,7 +83,7 @@ const Colbunalto = () => {
           <h1>{t('Remember')}</h1>
           <p>{t('ColbunBeauty')}</p>
           <div className="button-group">
-            <button className="btn-blue" onClick={() => window.open("https://maps.app.goo.gl/GZSD4dNAL8uKZx1N6", "_blank")}>
+            <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732042470056!6m8!1m7!1sCAoSLEFGMVFpcE93WGlUUlZSdkYwR2xoenFpdUFMbDZ4TUdFemkwRmhXd0dHUkVT!2m2!1d-35.72389261564005!2d-71.2123527910019!3f349.7109854124092!4f0.6778411991338089!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
             </button>
             <button className="btn-blue2" onClick={toggleMap}>

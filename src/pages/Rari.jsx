@@ -68,7 +68,7 @@ const Rari = () => {
             <LeafletMap latitud={lat} longitud={lng} mapId={"rariMap"} googleMapUrl={googleMapUrl}/>
           ) : (
             <iframe
-              src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
+              src="https://www.google.com/maps/embed?pb=!4v1732043192964!6m8!1m7!1sCAoSLEFGMVFpcE91NzZEUU1RZUxrcnhTWFNIRGRadzlFNDdHX3FkcmFyUXYyaWQw!2m2!1d-35.76248929902175!2d-71.41764832208362!3f35.73071622634859!4f2.4484483329164277!5f0.7820865974627469"
               width="100%"
               height="1200"
               allowFullScreen=""
@@ -83,7 +83,7 @@ const Rari = () => {
           <h1>{t('Remember')}</h1>
           <p>{t('ColbunBeauty')}</p>
           <div className="button-group">
-            <button className="btn-blue" onClick={() => window.open("https://maps.app.goo.gl/GZSD4dNAL8uKZx1N6", "_blank")}>
+            <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732043192964!6m8!1m7!1sCAoSLEFGMVFpcE91NzZEUU1RZUxrcnhTWFNIRGRadzlFNDdHX3FkcmFyUXYyaWQw!2m2!1d-35.76248929902175!2d-71.41764832208362!3f35.73071622634859!4f2.4484483329164277!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
             </button>
             <button className="btn-blue2" onClick={toggleMap}>

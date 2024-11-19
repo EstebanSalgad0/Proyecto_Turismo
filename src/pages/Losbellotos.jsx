@@ -69,7 +69,7 @@ const Losbellotos = () => {
             <LeafletMap latitud={lat} longitud={lng} mapId={"bellotosMap"} googleMapUrl={googleMapUrl}/>
           ) : (
             <iframe
-              src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
+              src="https://www.google.com/maps/embed?pb=!4v1732043442764!6m8!1m7!1sCAoSLEFGMVFpcE8zRy1Ub3I3d1JTcDlnQ2l6ZVBFNFEyX21ickZZZm5vQzZjdTQy!2m2!1d-35.86444467397325!2d-71.09083558371711!3f56.09048807938566!4f20.45590779080709!5f0.7820865974627469"
               width="100%"
               height="1200"
               allowFullScreen=""
@@ -84,7 +84,7 @@ const Losbellotos = () => {
           <h1>{t('Remember')}</h1>
           <p>{t('ColbunBeauty')}</p>
           <div className="button-group">
-            <button className="btn-blue" onClick={() => window.open("#", "_blank")}>
+            <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732043442764!6m8!1m7!1sCAoSLEFGMVFpcE8zRy1Ub3I3d1JTcDlnQ2l6ZVBFNFEyX21ickZZZm5vQzZjdTQy!2m2!1d-35.86444467397325!2d-71.09083558371711!3f56.09048807938566!4f20.45590779080709!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
             </button>
             <button className="btn-blue2" onClick={toggleMap}>

@@ -68,7 +68,7 @@ const Quinamavida = () => {
             <LeafletMap latitud={lat} longitud={lng} mapId={"quinamavidaMap"} googleMapUrl={googleMapUrl}/>
           ) : (
             <iframe
-              src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
+              src="https://www.google.com/maps/embed?pb=!4v1732043286189!6m8!1m7!1slcNofbsvmNo6DQdaglL1aA!2m2!1d-35.7809104160917!2d-71.4367943729324!3f149.63006009283788!4f-4.269530508287573!5f0.7820865974627469"
               width="100%"
               height="1200"
               allowFullScreen=""
@@ -83,7 +83,7 @@ const Quinamavida = () => {
           <h1>{t('Remember')}</h1>
           <p>{t('ColbunBeauty')}</p>
           <div className="button-group">
-            <button className="btn-blue" onClick={() => window.open("https://maps.app.goo.gl/GZSD4dNAL8uKZx1N6", "_blank")}>
+            <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732043286189!6m8!1m7!1slcNofbsvmNo6DQdaglL1aA!2m2!1d-35.7809104160917!2d-71.4367943729324!3f149.63006009283788!4f-4.269530508287573!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
             </button>
             <button className="btn-blue2" onClick={toggleMap}>

@@ -69,7 +69,7 @@ const Balnearios = () => {
             <LeafletMap latitud={lat} longitud={lng} mapId={"balnearioMap"} googleMapUrl={googleMapUrl}/>
           ) : (
             <iframe
-              src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
+              src="https://www.google.com/maps/embed?pb=!4v1732043529164!6m8!1m7!1sCAoSLEFGMVFpcE5oVTk1NFBqLWJ1R2tRZWhVYVJiSmlkWVpsZ3oxZFFyZlBZWXAt!2m2!1d-35.71966647033331!2d-71.40597379063568!3f128.18017555666262!4f0.4051283386041433!5f0.4000000000000002"
               width="100%"
               height="1200"
               allowFullScreen=""
@@ -84,7 +84,7 @@ const Balnearios = () => {
           <h1>{t('Remember')}</h1>
           <p>{t('ColbunBeauty')}</p>
           <div className="button-group">
-            <button className="btn-blue" onClick={() => window.open("https://maps.app.goo.gl/GZSD4dNAL8uKZx1N6", "_blank")}>
+            <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732043529164!6m8!1m7!1sCAoSLEFGMVFpcE5oVTk1NFBqLWJ1R2tRZWhVYVJiSmlkWVpsZ3oxZFFyZlBZWXAt!2m2!1d-35.71966647033331!2d-71.40597379063568!3f128.18017555666262!4f0.4051283386041433!5f0.4000000000000002", "_blank")}>
               {t('Discover')}
             </button>
             <button className="btn-blue2" onClick={toggleMap}>

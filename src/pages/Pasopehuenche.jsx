@@ -84,7 +84,7 @@ const Pasopehuenche = () => {
             <LeafletMap latitud={lat} longitud={lng} mapId={"pehuencheMap"} googleMapUrl={googleMapUrl}/>
           ) : (
             <iframe
-              src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
+              src="https://www.google.com/maps/embed?pb=!4v1732042052500!6m8!1m7!1sCAoSLEFGMVFpcFA2T05WMFdOakE5TEJqQzFfcWFIWEpQTElBUWE3MEJWMGUtZl9G!2m2!1d-35.98140279183212!2d-70.39538364127658!3f211.50117874263907!4f-7.133985422908111!5f0.7820865974627469"
               width="100%"
               height="1200"
               allowFullScreen=""
@@ -99,7 +99,7 @@ const Pasopehuenche = () => {
           <h1>{t('Remember')}</h1>
           <p>{t('ColbunBeauty')}</p>
           <div className="button-group">
-            <button className="btn-blue" onClick={() => window.open("https://maps.app.goo.gl/GZSD4dNAL8uKZx1N6", "_blank")}>
+            <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732042052500!6m8!1m7!1sCAoSLEFGMVFpcFA2T05WMFdOakE5TEJqQzFfcWFIWEpQTElBUWE3MEJWMGUtZl9G!2m2!1d-35.98140279183212!2d-70.39538364127658!3f211.50117874263907!4f-7.133985422908111!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
             </button>
             <button className="btn-blue2" onClick={toggleMap}>
