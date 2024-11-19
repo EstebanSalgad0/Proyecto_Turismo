@@ -13,11 +13,17 @@ const Parque = () => {
   const [latParque, setLatParque] = useState(null);
   const [lngParque, setLngParque] = useState(null);
   const [isFirstMapParque, setIsFirstMapParque] = useState(true);
+
+  const googleMapUrl =
+    "https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d414371.98836577515!2d-71.50037627847176!3d-35.76846930086965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m3!3m2!1d-35.9732392!2d-70.97871119999999!5e0!3m2!1ses-419!2scl!4v1732052411676!5m2!1ses-419!2scl";
   
   // Mapa Cavernas los bellotos
   const [latCavernas, setLatCavernas] = useState(null);
   const [lngCavernas, setLngCavernas] = useState(null);
   const [isFirstMapCavernas, setIsFirstMapCavernas] = useState(true);
+
+  const googleMapUrl2 =
+    "https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d828615.5593044015!2d-71.94269390211225!3d-35.780791715560255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m3!3m2!1d-35.8577431!2d-71.10464329999999!5e0!3m2!1ses-419!2scl!4v1732052453221!5m2!1ses-419!2scl";
 
   const { t, i18n } = useTranslation();
   const { currentSlide, nextSlide, prevSlide } = useCarousel(0); // Configurado para 7 slides
@@ -84,7 +90,7 @@ const Parque = () => {
       <div className="info-section1">
         <section className="map-section">
           {latParque && lngParque && isFirstMapParque ? (
-            <LeafletMap latitud={latParque} longitud={lngParque} mapId={"parqueMap"} />
+            <LeafletMap latitud={latParque} longitud={lngParque} mapId={"parqueMap"} googleMapUrl={googleMapUrl}/>
           ) : (
             <iframe
               src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
@@ -125,7 +131,7 @@ const Parque = () => {
       <div className="info-section1">
         <section className="map-section">
           {latCavernas && lngCavernas && isFirstMapCavernas ? (
-            <LeafletMap latitud={latCavernas} longitud={lngCavernas} mapId={"cavernasMap"} />
+            <LeafletMap latitud={latCavernas} longitud={lngCavernas} mapId={"cavernasMap"} googleMapUrl={googleMapUrl2}/>
           ) : (
             <iframe
               src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"

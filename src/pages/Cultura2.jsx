@@ -14,20 +14,32 @@ const Cultura4 = () => {
   const [lngPetro, setLngPetro] = useState(null);
   const [isFirstMapPetro, setIsFirstMapPetro] = useState(true);
 
+  const googleMapUrl =
+    "https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d1658111.1269950196!2d-72.22615492767746!3d-35.7385553963293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e0!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m3!3m2!1d-36.0169348!2d-70.5541559!5e0!3m2!1ses-419!2scl!4v1732049917856!5m2!1ses-419!2scl";
+
   // Mapa La Guardia
   const [latGuardia, setLatGuardia] = useState(null);
   const [lngGuardia, setLngGuardia] = useState(null);
   const [isFirstMapGuardia, setIsFirstMapGuardia] = useState(true);
+
+  const googleMapUrl2 =
+    "https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d120004.68519754826!2d-71.44335669065765!3d-35.68717631831008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m3!3m2!1d-35.688274!2d-71.28830409999999!5e0!3m2!1ses-419!2scl!4v1732039606757!5m2!1ses-419!2scl";
 
   // Mapa Tren Chico
   const [latTren, setLatTren] = useState(null);
   const [lngTren, setLngTren] = useState(null);
   const [isFirstMapTren, setIsFirstMapTren] = useState(true);
 
+  const googleMapUrl3 =
+    "https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d3294762.618956662!2d-74.42648521608298!3d-36.250627455393094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m3!3m2!1d-36.7911632!2d-71.7516368!5e0!3m2!1ses-419!2scl!4v1732050565016!5m2!1ses-419!2scl";
+
   // Mapa Molino de los Tilos
   const [latMolino, setLatMolino] = useState(null);
   const [lngMolino, setLngMolino] = useState(null);
   const [isFirstMapMolino, setIsFirstMapMolino] = useState(true);
+
+  const googleMapUrl4 =
+    "https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d103693.67701366192!2d-71.49153136419426!3d-35.69109853387289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m3!3m2!1d-35.6818929!2d-71.4038092!5e0!3m2!1ses-419!2scl!4v1732050624646!5m2!1ses-419!2scl";
 
   const { t, i18n } = useTranslation();
   const { currentSlide, nextSlide, prevSlide } = useCarousel(4); // Configurado para 7 slides
@@ -122,7 +134,7 @@ const Cultura4 = () => {
       <div className="info-section1">
         <section className="map-section">
           {latPetro && lngPetro && isFirstMapPetro ? (
-            <LeafletMap latitud={latPetro} longitud={lngPetro} mapId={"petroglifoMap"} />
+            <LeafletMap latitud={latPetro} longitud={lngPetro} mapId={"petroglifoMap"} googleMapUrl={googleMapUrl}/>
           ) : (
             <iframe
               src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
@@ -163,7 +175,7 @@ const Cultura4 = () => {
       <div className="info-section1">
         <section className="map-section">
           {latGuardia && lngGuardia && isFirstMapGuardia ? (
-            <LeafletMap latitud={latGuardia} longitud={lngGuardia} mapId={"guardiaMap"} />
+            <LeafletMap latitud={latGuardia} longitud={lngGuardia} mapId={"guardiaMap"} googleMapUrl={googleMapUrl2}/>
           ) : (
             <iframe
               src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
@@ -204,7 +216,7 @@ const Cultura4 = () => {
       <div className="info-section1">
         <section className="map-section">
           {latTren && lngTren && isFirstMapTren ? (
-            <LeafletMap latitud={latTren} longitud={lngTren} mapId={"trenChicoMap"} />
+            <LeafletMap latitud={latTren} longitud={lngTren} mapId={"trenChicoMap"} googleMapUrl={googleMapUrl3}/>
           ) : (
             <iframe
               src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
@@ -245,7 +257,7 @@ const Cultura4 = () => {
       <div className="info-section1">
         <section className="map-section">
           {latMolino && lngMolino && isFirstMapMolino ? (
-            <LeafletMap latitud={latMolino} longitud={lngMolino} mapId={"molinoMap"} />
+            <LeafletMap latitud={latMolino} longitud={lngMolino} mapId={"molinoMap"} googleMapUrl={googleMapUrl4}/>
           ) : (
             <iframe
               src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"

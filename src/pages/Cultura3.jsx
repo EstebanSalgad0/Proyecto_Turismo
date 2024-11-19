@@ -12,18 +12,30 @@ const Cultura4 = () => {
   const [latIglesia, setLatIglesia] = useState(null);
   const [lngIglesia, setLngIglesia] = useState(null);
   const [isFirstMapIglesia, setIsFirstMapIglesia] = useState(true);
+
+  const googleMapUrl =
+    "https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d207285.37809092423!2d-71.57947266533611!3d-35.730300051173366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m3!3m2!1d-35.761504099999996!2d-71.41799379999999!5e0!3m2!1ses-419!2scl!4v1732051094001!5m2!1ses-419!2scl";
   
   const [latTacitas, setLatTacitas] = useState(null);
   const [lngTacitas, setLngTacitas] = useState(null);
   const [isFirstMapTacitas, setIsFirstMapTacitas] = useState(true);
+
+  const googleMapUrl2 =
+    "https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d831064.5579931617!2d-71.83234775489971!3d-35.545157854255024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m3!3m2!1d-35.4600602!2d-71.0259233!5e0!3m2!1ses-419!2scl!4v1732051154975!5m2!1ses-419!2scl";
   
   const [latEmbotelladora, setLatEmbotelladora] = useState(null);
   const [lngEmbotelladora, setLngEmbotelladora] = useState(null);
   const [isFirstMapEmbotelladora, setIsFirstMapEmbotelladora] = useState(true);
+
+  const googleMapUrl3 =
+    "https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d414474.59265016724!2d-71.75846483849399!3d-35.74877068000064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m3!3m2!1d-35.7958315!2d-71.4308266!5e0!3m2!1ses-419!2scl!4v1732051204327!5m2!1ses-419!2scl";
   
   const [latEstacion, setLatEstacion] = useState(null);
   const [lngEstacion, setLngEstacion] = useState(null);
   const [isFirstMapEstacion, setIsFirstMapEstacion] = useState(true);
+
+  const googleMapUrl4 =
+    "https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d12960.184829085068!2d-71.421741535658!3d-35.70048051624543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m3!3m2!1d-35.702401!2d-71.4080235!5e0!3m2!1ses-419!2scl!4v1732051252280!5m2!1ses-419!2scl";
 
   const { t, i18n } = useTranslation();
   const { currentSlide, nextSlide, prevSlide } = useCarousel(0); // Configurado para 7 slides
@@ -115,7 +127,7 @@ const Cultura4 = () => {
       <div className="info-section1">
         <section className="map-section">
           {latIglesia && lngIglesia && isFirstMapIglesia ? (
-            <LeafletMap latitud={latIglesia} longitud={lngIglesia} mapId={"iglesiaMap"} />
+            <LeafletMap latitud={latIglesia} longitud={lngIglesia} mapId={"iglesiaMap"} googleMapUrl={googleMapUrl}/>
           ) : (
             <iframe
               src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
@@ -156,7 +168,7 @@ const Cultura4 = () => {
       <div className="info-section1">
         <section className="map-section">
           {latTacitas && lngTacitas && isFirstMapTacitas ? (
-            <LeafletMap latitud={latTacitas} longitud={lngTacitas} mapId={"tacitasMap"} />
+            <LeafletMap latitud={latTacitas} longitud={lngTacitas} mapId={"tacitasMap"} googleMapUrl={googleMapUrl2}/>
           ) : (
             <iframe
               src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
@@ -197,7 +209,7 @@ const Cultura4 = () => {
       <div className="info-section1">
         <section className="map-section">
           {latEmbotelladora && lngEmbotelladora && isFirstMapEmbotelladora ? (
-            <LeafletMap latitud={latEmbotelladora} longitud={lngEmbotelladora} mapId={"embotelladoraMap"} />
+            <LeafletMap latitud={latEmbotelladora} longitud={lngEmbotelladora} mapId={"embotelladoraMap"} googleMapUrl={googleMapUrl3}/>
           ) : (
             <iframe
               src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
@@ -238,7 +250,7 @@ const Cultura4 = () => {
       <div className="info-section1">
         <section className="map-section">
           {latEstacion && lngEstacion && isFirstMapEstacion ? (
-            <LeafletMap latitud={latEstacion} longitud={lngEstacion} mapId={"estacionMap"} />
+            <LeafletMap latitud={latEstacion} longitud={lngEstacion} mapId={"estacionMap"} googleMapUrl={googleMapUrl4}/>
           ) : (
             <iframe
               src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"

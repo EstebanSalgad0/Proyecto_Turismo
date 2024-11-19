@@ -12,6 +12,9 @@ const Elmelado = () => {
   const [lngPetro, setLngPetro] = useState(null);
   const [isFirstMapPetro, setIsFirstMapPetro] = useState(true);
 
+  const googleMapUrl =
+    "https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d1658340.8925965272!2d-72.40156019292971!3d-35.72752058936435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e0!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m3!3m2!1d-35.9444181!2d-70.5867937!5e0!3m2!1ses-419!2scl!4v1732051946531!5m2!1ses-419!2scl";
+
   const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
   const totalSlides = 4; // Número total de slides
   const { t, i18n } = useTranslation(); // Hook para usar traducciones
@@ -71,7 +74,7 @@ const Elmelado = () => {
       <div className="info-section1">
         <section className="map-section">
           {latPetro && lngPetro && isFirstMapPetro ? (
-            <LeafletMap latitud={latPetro} longitud={lngPetro} mapId={"petroglifosMap"} />
+            <LeafletMap latitud={latPetro} longitud={lngPetro} mapId={"petroglifosMap"} googleMapUrl={googleMapUrl}/>
           ) : (
             <iframe
               src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"

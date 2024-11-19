@@ -13,11 +13,17 @@ const Termas = () => {
   const [latTermas, setLatTermas] = useState(null);
   const [lngTermas, setLngTermas] = useState(null);
   const [isFirstMapTermas, setIsFirstMapTermas] = useState(true);
+
+  const googleMapUrl =
+    "https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d207285.59423382708!2d-71.57971686533725!3d-35.73021700110752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m3!3m2!1d-35.7620407!2d-71.4205389!5e0!3m2!1ses-419!2scl!4v1732052571517!5m2!1ses-419!2scl";
   
   // Mapa Embalse Machicura
   const [latEmbalse, setLatEmbalse] = useState(null);
   const [lngEmbalse, setLngEmbalse] = useState(null);
   const [isFirstMapEmbalse, setIsFirstMapEmbalse] = useState(true);
+
+  const googleMapUrl2 =
+    "https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d103668.64366818257!2d-71.48513399411713!3d-35.710349798223056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m3!3m2!1d-35.717444199999996!2d-71.3920626!5e0!3m2!1ses-419!2scl!4v1732052648526!5m2!1ses-419!2scl";
 
   const { t, i18n } = useTranslation();
   const { currentSlide, nextSlide, prevSlide } = useCarousel(0); // Configurado para 7 slides
@@ -47,7 +53,7 @@ const Termas = () => {
     .catch(error => console.error('Error fetching location data:', error));
     
     // Fetch data from the Django API (Emblase Machicura)
-    fetch('http://localhost:8000/api/lugares/buscar/?nombre=emblase_machicura') // Cambia el nombre por el lugar turístico que necesites
+    fetch('http://localhost:8000/api/lugares/buscar/?nombre=embalse_machicura') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatEmbalse(data.latitud);
@@ -84,7 +90,7 @@ const Termas = () => {
       <div className="info-section1">
         <section className="map-section">
           {latTermas && lngTermas && isFirstMapTermas ? (
-            <LeafletMap latitud={latTermas} longitud={lngTermas} mapId={"termasMap"} />
+            <LeafletMap latitud={latTermas} longitud={lngTermas} mapId={"termasMap"} googleMapUrl={googleMapUrl}/>
           ) : (
             <iframe
               src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
@@ -125,7 +131,7 @@ const Termas = () => {
       <div className="info-section1">
         <section className="map-section">
           {latEmbalse && lngEmbalse && isFirstMapEmbalse ? (
-            <LeafletMap latitud={latEmbalse} longitud={lngEmbalse} mapId={"embalseMap"} />
+            <LeafletMap latitud={latEmbalse} longitud={lngEmbalse} mapId={"embalseMap"} googleMapUrl={googleMapUrl2}/>
           ) : (
             <iframe
               src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
