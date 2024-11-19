@@ -15,6 +15,10 @@ const Colbunalto = () => {
 
   const { t, i18n } = useTranslation();
   const { currentSlide, nextSlide, prevSlide } = useCarousel(4); // Usa el hook personalizado
+
+  const googleMapUrl =
+    "https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d554767.6211775456!2d-71.6912542124028!3d-35.66175589940838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m5!1s0x966581b5fd9bce4f%3A0x8e04ff3ffb883b8c!2zQ29sYsO6biBBbHRvLCBDb2xiw7pu!3m2!1d-35.75!2d-71.216667!5e0!3m2!1ses-419!2scl!4v1732037184335!5m2!1ses-419!2scl";
+
   const slideNames = [
     'VizcachazViewpoint',
     'NationalPark',
@@ -61,7 +65,7 @@ const Colbunalto = () => {
       <div className="info-section1">
         <section className="map-section">
           {lat && lng && isFirstMap ? (
-            <LeafletMap latitud={lat} longitud={lng} mapId="colbunAltoMap" />
+            <LeafletMap latitud={lat} longitud={lng} mapId="colbunAltoMap" googleMapUrl={googleMapUrl}/>
           ) : (
             <iframe
               src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"

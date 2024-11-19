@@ -26,7 +26,7 @@ const Elmelado = () => {
   const { t, i18n } = useTranslation();
 
   const googleMapUrl =
-    "https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d673822.8165754281!2d-71.70210830790413!3d-35.844849613022994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m5!1s0x966f841b12452945%3A0xa7cb35f95d7c2f15!2zTWVsYWRvLCBDb2xiw7pu!3m2!1d-35.857031899999996!2d-71.0536742!5e0!3m2!1ses-419!2scl!4v1731985243323!5m2!1ses-419!2scl";
+    "https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d207241.15508265555!2d-71.33553558812292!3d-35.74728864211042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m5!1s0x966f841b12452945%3A0xa7cb35f95d7c2f15!2zTWVsYWRvLCBDb2xiw7pu!3m2!1d-35.857031899999996!2d-71.0536742!5e0!3m2!1ses-419!2scl!4v1732036798598!5m2!1ses-419!2scl";
 
   const slideNames = [
     { name: 'VizcachazViewpoint', image: img1 },

@@ -15,6 +15,10 @@ const Quinamavida = () => {
 
   const { t, i18n } = useTranslation();
   const { currentSlide, nextSlide, prevSlide } = useCarousel(4); // Usa el hook personalizado
+
+  const googleMapUrl =
+    "https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d205293.56872335708!2d-71.52744053384428!3d-35.761485992399045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m5!1s0x96658903b60f2c5b%3A0xb3f5c4cd49a39b24!2sQuinamavida%2C%20Colb%C3%BAn!3m2!1d-35.783299899999996!2d-71.4333!5e0!3m2!1ses-419!2scl!4v1732040579669!5m2!1ses-419!2scl";
+
   const slideNames = [
     'VizcachazViewpoint',
     'NationalPark',
@@ -61,7 +65,7 @@ const Quinamavida = () => {
       <div className="info-section1">
         <section className="map-section">
           {lat && lng && isFirstMap ? (
-            <LeafletMap latitud={lat} longitud={lng} mapId={"quinamavidaMap"} />
+            <LeafletMap latitud={lat} longitud={lng} mapId={"quinamavidaMap"} googleMapUrl={googleMapUrl}/>
           ) : (
             <iframe
               src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
