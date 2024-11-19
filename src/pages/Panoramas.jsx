@@ -55,7 +55,23 @@ const Panoramas = () => {
       <br></br><br></br>
       <div className="calendar-container">
         <iframe
-          src="https://calendar.google.com/calendar/embed?src=es.cl%23holiday%40group.v.calendar.google.com&ctz=UTC"
+          src="https://calendar.google.com/calendar/embed?src=vcolbun%40gmail.com&ctz=America%2FSantiago"
+          style={{ border: 0 }}
+          width="100%"
+          height="100%"
+          scrolling="no"
+          title="Feriados de chile / Chilean holidays"
+        />
+      </div>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <div className="calendar-container">
+        <iframe
+          src="https://calendar.google.com/calendar/embed?src=es-419.cl%23holiday%40group.v.calendar.google.com&ctz=America%2FSantiago"
           style={{ border: 0 }}
           width="100%"
           height="100%"
