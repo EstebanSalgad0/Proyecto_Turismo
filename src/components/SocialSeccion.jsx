@@ -14,13 +14,13 @@ const SocialSeccion = () => {
             <p><strong>{t('Visit')}</strong>{t('Tag')}<strong>#VisitaColbun</strong>.</p>
             <h3>{t('Find')}</h3>
             <div className="social-icons2">
-          <a href="https://web.facebook.com/p/Municipalidad-de-Colb%C3%BAn-100064570487351/?locale=es_LA&_rdc=1&_rdr" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/profile.php?id=61557453073534&mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer">
             <i className="bi bi-facebook"></i>
           </a>
-          <a href="https://www.instagram.com/municipalidad_colbun/?hl=es" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/visitacolbun/?hl=es-la" target="_blank" rel="noopener noreferrer">
             <i className="bi bi-instagram"></i>
           </a>
-          <a href="https://www.youtube.com/@municipalidadcolbun9532" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.youtube.com/channel/UCrMAsIB1z59odXF2FTmHz-A" target="_blank" rel="noopener noreferrer">
             <i className="bi bi-youtube"></i>
           </a>
         </div>
