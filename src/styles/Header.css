@@ -36,9 +36,9 @@
 
 .dropdown-menu1 {
   position: absolute;
-  top: 100%;
-  left: -232px;
-  right: 24px;
+  top: 90%;
+  left: -238px;
+  right: 30px;
   background-color: white;
   list-style: none;
   padding: 10px 0;
@@ -69,9 +69,9 @@
 }
 
 .icon-image4 {
-  margin-right: -10px;
+  margin-right: 10px;
   filter: invert(1);
-  width: 40px; /* Cambia el tamaño a tu preferencia */
+  width: 30px; /* Cambia el tamaño a tu preferencia */
   height: 30px; /* Cambia el tamaño a tu preferencia */
 }
 
@@ -144,12 +144,12 @@
   display: flex;
   align-items: center;
   position: absolute; /* Hace que la barra de búsqueda sea flotante */
-  top: 50%; /* Centra la barra de búsqueda verticalmente en el header */
+  top: 40%; /* Centra la barra de búsqueda verticalmente en el header */
   transform: translateY(-50%); /* Ajuste para centrar verticalmente */
   right: 0; /* Alinea la barra de búsqueda hacia la derecha */
   background-color: white; /* Fondo blanco para la barra de búsqueda */
   border-radius: 5px;
-  margin-right: 25px;
+  margin-right: 30px;
   padding: 5px 10px; /* Padding adicional para mayor separación */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
   z-index: 1000; /* Asegura que esté por encima de otros elementos */
@@ -579,6 +579,16 @@ a {
     font-size: 24px;
     cursor: pointer;
   }
+
+  .dropdown-menu1 {
+    left: -238px;
+    right: 36px;
+  }
+
+  /* Estilo para la barra de búsqueda desplegable dentro de navbar-icons-right */
+.navbar-icons-right .search-bar {
+  margin-right: 36px;
+}
 
   .language-label1 {
     display: none;
