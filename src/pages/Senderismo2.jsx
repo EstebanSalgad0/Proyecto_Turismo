@@ -120,7 +120,9 @@ const Senderismo = () => {
         <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
+          <br></br>
           <p>{t('ColbunBeauty')}</p>
+          <br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://maps.app.goo.gl/GZSD4dNAL8uKZx1N6", "_blank")}>
               {t('Discover')}
@@ -161,7 +163,9 @@ const Senderismo = () => {
         <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
+          <br></br>
           <p>{t('ColbunBeauty')}</p>
+          <br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://maps.app.goo.gl/GZSD4dNAL8uKZx1N6", "_blank")}>
               {t('Discover')}

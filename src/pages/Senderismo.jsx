@@ -126,7 +126,9 @@ const Senderismo = () => {
         <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
+          <br></br>
           <p>{t('ColbunBeauty')}</p>
+          <br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732110297817!6m8!1m7!1sCAoSLEFGMVFpcFA4Zk80N19wY3psbTY0MGgyNjVpNXlCd1pJR01naDJ0akxmQTBJ!2m2!1d-36.05978151025838!2d-70.81083712126821!3f168.911036017422!4f11.091912792122699!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
@@ -167,7 +169,9 @@ const Senderismo = () => {
         <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
+          <br></br>
           <p>{t('ColbunBeauty')}</p>
+          <br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732110383451!6m8!1m7!1sCAoSLEFGMVFpcFAzYnk2WUktQU16SjdxMUpKZ2ZuelBESHJpQXdmUkh1Y1FldUds!2m2!1d-35.65339698099861!2d-71.2527705018546!3f257.3353789313492!4f0.9891328586699615!5f0.7820865974627469", "_blank")}>
               {t('Discover')}

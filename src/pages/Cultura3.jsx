@@ -143,7 +143,9 @@ const Cultura4 = () => {
         <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
+          <br></br>
           <p>{t('ColbunBeauty')}</p>
+          <br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732109399271!6m8!1m7!1sCAoSLEFGMVFpcE1mWm1ZaEVPR0J2UzNDdEp6eG5XbWdrNVdnY0xFRjVnYVNrWkIx!2m2!1d-35.76163928343502!2d-71.4180072564887!3f15.488554708121086!4f15.982022480642627!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
@@ -184,7 +186,9 @@ const Cultura4 = () => {
         <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
+          <br></br>
           <p>{t('ColbunBeauty')}</p>
+          <br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732109556127!6m8!1m7!1sCAoSLEFGMVFpcE56UWM1MzBVbGtLNzZfeENaOGlWdGRXR3hnVGhsLW1hZDRTdEhL!2m2!1d-35.46290131511326!2d-71.02792057320109!3f134.6911769236427!4f-7.712833426459028!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
@@ -225,7 +229,9 @@ const Cultura4 = () => {
         <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
+          <br></br>
           <p>{t('ColbunBeauty')}</p>
+          <br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732109619684!6m8!1m7!1sDWCbWPwHQLb--hU05-ycOQ!2m2!1d-35.79536237939999!2d-71.42839862393754!3f73.80310833759117!4f-1.8577525390781773!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
@@ -266,7 +272,9 @@ const Cultura4 = () => {
         <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
+          <br></br>
           <p>{t('ColbunBeauty')}</p>
+          <br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732109774394!6m8!1m7!1sCAoSLEFGMVFpcFB5NHdsb3k2UDZ2LVladGZ6dFY0MFZURUNaSE9ISEpLQThQMmhi!2m2!1d-36.79345542530866!2d-71.74740462332323!3f39.93564425123765!4f2.4770250145362525!5f0.7820865974627469", "_blank")}>
               {t('Discover')}

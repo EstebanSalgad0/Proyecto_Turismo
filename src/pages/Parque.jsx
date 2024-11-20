@@ -106,7 +106,9 @@ const Parque = () => {
         <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
+          <br></br>
           <p>{t('ColbunBeauty')}</p>
+          <br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732110474401!6m8!1m7!1sCAoSLEFGMVFpcFBUZnI4YmdRSGU2NS1QaW5TNkhTOHotTmRiUnZFNGVhNktvczdr!2m2!1d-35.972158419846!2d-70.97984180199266!3f12.44909734021195!4f-0.46061438048621994!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
@@ -147,7 +149,9 @@ const Parque = () => {
         <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
+          <br></br>
           <p>{t('ColbunBeauty')}</p>
+          <br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732110530473!6m8!1m7!1sCAoSLEFGMVFpcFB4WmN2YzdwZkJveWdHMExEb0pXemc1N3pUakpzVkdYaGNWM1Rq!2m2!1d-35.86711438704836!2d-71.10167798481488!3f50.39907268022614!4f15.795228398432457!5f0.7820865974627469", "_blank")}>
               {t('Discover')}

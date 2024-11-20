@@ -150,7 +150,9 @@ const Cultura4 = () => {
         <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
+          <br></br>
           <p>{t('ColbunBeauty')}</p>
+          <br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732109856360!6m8!1m7!1sCAoSLEFGMVFpcE9JNzVEUzRjM2JqRlpOR01SNDhWYnNTd1E0Q0w4TGhad1pzWXVz!2m2!1d-35.76205581836644!2d-71.41807121598933!3f114.49191794425955!4f0.8264159919051792!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
@@ -191,7 +193,9 @@ const Cultura4 = () => {
         <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
+          <br></br>
           <p>{t('ColbunBeauty')}</p>
+          <br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732109976050!6m8!1m7!1sCAoSLEFGMVFpcE1JR0xTYXIxMnlhRUU5dmhSbThOMmRIejJrRXhMWG0zTzdlVW5J!2m2!1d-35.76229748808326!2d-71.41611645995395!3f86.46720390517066!4f-0.46435508906901646!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
@@ -232,7 +236,9 @@ const Cultura4 = () => {
         <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
+          <br></br>
           <p>{t('ColbunBeauty')}</p>
+          <br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732110040297!6m8!1m7!1sCAoSLEFGMVFpcE5GUFltYV9vVFlLOG1iTnV5Z2VCLTItaGRhNXF5eDZSUjNwNjA2!2m2!1d-35.76681201040139!2d-71.41481823590898!3f2.539690930697418!4f-1.2518759291061201!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
