@@ -83,7 +83,9 @@ const Rabones = () => {
         <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
+          <br></br>
           <p>{t('ColbunBeauty')}</p>
+          <br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732043359109!6m8!1m7!1s-c3ADSuAH6cJYoyj7c21PQ!2m2!1d-35.83621722591162!2d-71.33593823221791!3f163.04109134767413!4f-0.697718780300093!5f0.7820865974627469", "_blank")}>
               {t('Discover')}

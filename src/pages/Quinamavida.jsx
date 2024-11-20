@@ -81,7 +81,9 @@ const Quinamavida = () => {
         <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
+          <br></br>
           <p>{t('ColbunBeauty')}</p>
+          <br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732043286189!6m8!1m7!1slcNofbsvmNo6DQdaglL1aA!2m2!1d-35.7809104160917!2d-71.4367943729324!3f149.63006009283788!4f-4.269530508287573!5f0.7820865974627469", "_blank")}>
               {t('Discover')}

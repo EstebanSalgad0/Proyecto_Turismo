@@ -81,7 +81,9 @@ const Losboldos = () => {
         <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
+          <br></br>
           <p>{t('ColbunBeauty')}</p>
+          <br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732042933321!6m8!1m7!1sCAoSLEFGMVFpcE1OSWxLSnNYNElLaTJPQmNxbkl3bEdJTTNGRVRUZC1ZbmdteFVD!2m2!1d-35.6993725570952!2d-71.38486855534453!3f166.60736220677663!4f6.49275544898525!5f0.7820865974627469", "_blank")}>
               {t('Discover')}

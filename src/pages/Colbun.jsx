@@ -91,7 +91,9 @@ const Colbun = () => {
         <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
+          <br></br>
           <p>{t('ColbunBeauty')}</p>
+          <br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732042310648!6m8!1m7!1sCAoSLEFGMVFpcE9kV1dxM3UtNXZFaV9MRGptanlNa2RpWFk0SXdiTHRPdUpST1Q3!2m2!1d-35.70207739286842!2d-71.40825538377578!3f200.07091212077665!4f2.224486747264166!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
