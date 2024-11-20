@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 .index-container {
   display: flex;
   justify-content: center;
@@ -33,16 +35,19 @@
 }
 
 .hero100 h5 {
+  font-family: "Roboto", sans-serif;
   font-size: 1rem;
   margin-bottom: 5px;
 }
 
 .hero100 h1 {
+  font-family: "Roboto", sans-serif;
   font-size: 3rem;
   margin-bottom: 40px;
 }
 
 .hero100 h4 {
+  font-family: "Roboto", sans-serif;
   margin-top: 150px;
   width: 690px;
   font-size: 1rem;
@@ -58,6 +63,7 @@
 }
 
 .carousel-header2 h5 {
+  font-family: "Roboto", sans-serif;
   color: #6c757d;
   margin: 0;
   font-size: 1rem;
@@ -73,6 +79,7 @@
 }
 
 .carousel-subheader2 h1 {
+  font-family: "Roboto", sans-serif;
   font-size: 3rem;
   color: #4B67AE;
   font-weight: bold;
