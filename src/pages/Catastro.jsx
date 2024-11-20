@@ -50,7 +50,6 @@ const Zoit = () => {
         <br></br>
         <br></br>
         <div className="carousel-subheader">
-            <h2>[Insertar Instrucciones Video Corto]</h2>
           </div>
           <br></br>
           <div className="carousel-header">

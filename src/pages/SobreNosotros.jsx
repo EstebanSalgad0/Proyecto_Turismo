@@ -41,7 +41,7 @@ const Zoit = () => {
         <h5>{t('CultureXD')}</h5>
                 <br></br>
                 <div className="carousel-subheader">
-            <h2>{t('Tourism')}</h2>
+            <h2>{t('Turism')}</h2>
           </div>
           <br></br><br></br>
         <h5>{t('CultureXD1')}</h5>
