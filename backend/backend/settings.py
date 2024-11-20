@@ -107,9 +107,16 @@ RECAPTCHA_SECRET_KEY = os.getenv('RECAPTCHA_SECRET_KEY') # Aqui busca en las var
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {  # Define la configuración de la base de datos predeterminada. 
-        'ENGINE': 'django.db.backends.sqlite3', # En este caso, se está usando SQLite, que es una base de datos ligera
-        'NAME': BASE_DIR / 'db.sqlite3', # Define el nombre y la ubicación del archivo de la base de datos.
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',  # Utiliza el backend para MySQL/MariaDB
+        'NAME': os.getenv('DB_NAME', 'nombre_base_datos'),  # Nombre de tu base de datos
+        'USER': os.getenv('DB_USER', 'usuario'),  # Usuario de tu base de datos
+        'PASSWORD': os.getenv('DB_PASSWORD', 'contraseña'),  # Contraseña del usuario
+        'HOST': os.getenv('DB_HOST', '127.0.0.1'),  # Dirección del servidor de base de datos
+        'PORT': os.getenv('DB_PORT', '3306'),  # Puerto de MariaDB (por defecto, 3306)
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  # Configuración recomendada para evitar problemas de compatibilidad
+        },
     }
 }
 
