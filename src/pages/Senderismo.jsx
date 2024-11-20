@@ -12,11 +12,17 @@ const Senderismo = () => {
   const [latVolcan, setLatVolcan] = useState(null);
   const [lngVolcan, setLngVolcan] = useState(null);
   const [isFirstMapVolcan, setIsFirstMapVolcan] = useState(true);
+
+  const googleMapUrl =
+    "https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d413971.11391985946!2d-71.46280600587505!3d-35.84534178897498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e0!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m3!3m2!1d-35.913409!2d-71.0026809!5e0!3m2!1ses-419!2scl!4v1732052240789!5m2!1ses-419!2scl";
   
   // Mapa Mirador las Vizcachas
   const [latMirador, setLatMirador] = useState(null);
   const [lngMirador, setLngMirador] = useState(null);
   const [isFirstMapMirador, setIsFirstMapMirador] = useState(true);
+
+  const googleMapUrl2 =
+    "https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d414489.83046261565!2d-71.70909133865408!3d-35.745844425838605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m3!3m2!1d-35.810394699999996!2d-71.3405238!5e0!3m2!1ses-419!2scl!4v1732052282568!5m2!1ses-419!2scl";
 
   const [currentSlide, setCurrentSlide] = useState(0); // Estado para el slide actual
   const { t, i18n } = useTranslation(); // Hook para usar traducciones
@@ -104,7 +110,7 @@ const Senderismo = () => {
       <div className="info-section1">
         <section className="map-section">
           {latVolcan && lngVolcan && isFirstMapVolcan ? (
-            <LeafletMap latitud={latVolcan} longitud={lngVolcan} mapId={"volcanMap"} />
+            <LeafletMap latitud={latVolcan} longitud={lngVolcan} mapId={"volcanMap"} googleMapUrl={googleMapUrl}/>
           ) : (
             <iframe
               src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
@@ -145,7 +151,7 @@ const Senderismo = () => {
       <div className="info-section1">
         <section className="map-section">
           {latMirador && lngMirador && isFirstMapMirador ? (
-            <LeafletMap latitud={latMirador} longitud={lngMirador} mapId={"miradorMap"} />
+            <LeafletMap latitud={latMirador} longitud={lngMirador} mapId={"miradorMap"} googleMapUrl={googleMapUrl2}/>
           ) : (
             <iframe
               src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"

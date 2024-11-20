@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 /* Aplica este estilo solo al contenedor principal de Index */
 .index-container {
   display: flex;
@@ -61,11 +63,12 @@
 .hero-content2 {
   position: relative; /* Mantén el contenido por encima del iframe y la capa negra */
   margin-top: 100px;
-  margin-right: 600px;
+  margin-right: 750px;
   align-items: start;
 }
 
 .hero2 h1 {
+  font-family: "Roboto Condensed", sans-serif;
   font-size: 3rem; /* Ajusta el tamaño del texto principal */
   font-weight: bold;
   margin-bottom: 10px; /* Espaciado entre las líneas de texto */
@@ -77,6 +80,7 @@
 }
 
 .hero2 button {
+  font-family: "Roboto", sans-serif;
   background-color: #3f51b5; /* Color de fondo del botón */
   color: white;
   border: none;
@@ -103,6 +107,7 @@
 
 /* Ajustes de la cabecera del carrusel */
 .carousel-header1 {
+  font-family: "Roboto", sans-serif;
   display: flex;
   flex-direction: column; /* Alinea los elementos verticalmente */
   align-items: flex-start; /* Alinea a la izquierda */
@@ -110,12 +115,14 @@
 }
 
 .carousel-header1 h5 {
+  font-family: "Roboto", sans-serif;
   color: #6c757d; /* Color gris */
   margin: 0;
   font-size: 1rem;
 }
 
 .carousel-subheader1 {
+  font-family: "Roboto", sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -124,6 +131,7 @@
 }
 
 .carousel-subheader1 h2 {
+  font-family: "Roboto", sans-serif;
   font-size: 2rem;
   color: #4B67AE;
   font-weight: bold;
@@ -131,6 +139,7 @@
 }
 
 .carousel-subheader1 a {
+  font-family: "Roboto", sans-serif;
   color: #4B67AE;
   text-decoration: none;
   font-size: 1rem;
@@ -140,16 +149,19 @@
 }
 
 .carousel-subheader1 a span {
+  font-family: "Roboto", sans-serif;
   margin-left: 5px;
 }
 
 .carousel-container1 {
+  font-family: "Roboto", sans-serif;
   display: flex;
   gap: 20px; /* Espacio entre las tarjetas */
   padding-bottom: 10px;
 }
 
 .carousel-card1 {
+  font-family: "Roboto", sans-serif;
   flex: 1;
   min-width: 250px; /* Tamaño mínimo de las tarjetas */
   height: 380px; /* Altura de las tarjetas */
@@ -169,6 +181,7 @@
 }
 
 .carousel-card1 p {
+  font-family: "Roboto", sans-serif;
   font-size: 1.1rem;
   color: #000;
   margin: 0;
@@ -247,17 +260,20 @@
 }
 
 .community-content1 h1 {
+  font-family: "Roboto", sans-serif;
   font-size: 4rem; /* Aumenta el tamaño del texto del título */
   margin-bottom: 20px;
   font-weight: bold;
 }
 
 .community-content1 p {
+  font-family: "Roboto", sans-serif;
   font-size: 1.2rem;
   margin-bottom: 30px;
 }
 
 .btn-blue {
+  font-family: "Roboto", sans-serif;
   background-color: #4B67AE;
   margin-right: 1rem;
   color: white;
@@ -316,6 +332,7 @@
 
 /* Existing content */
 .info-content1 {
+  font-family: "Roboto", sans-serif;
   flex: 1;
   background-color: #f9f9f9;
   padding: 20px;
@@ -329,6 +346,7 @@
 }
 
 .language-label {
+  font-family: "Roboto", sans-serif;
   margin-bottom: -1px; /* Ajusta el valor según sea necesario */
   margin-right: -1px;
   display: inline-block;
@@ -337,6 +355,7 @@
 }
 
 .language-label1 {
+  font-family: "Roboto", sans-serif;
   margin-bottom: -1px; /* Ajusta el valor según sea necesario */
   margin-right: 4px;
   display: inline-block;
@@ -346,6 +365,7 @@
 
 /* Sección de Lugares inolvidables */
 .info-section1 {
+  font-family: "Roboto", sans-serif;
   background-color: #e0e0e0; /* Color gris claro temporal para el mapa */
   width: 100vw;
   height: auto; /* Ajusta la altura automáticamente según el contenido */
@@ -358,6 +378,7 @@
 }
 
 .info-content1 {
+  font-family: "Roboto", sans-serif;
   background-color: white;
   max-width: 400px; /* Tamaño del cuadro blanco */
   padding: 30px;
@@ -367,12 +388,14 @@
 }
 
 .info-content h5 {
+  font-family: "Roboto", sans-serif;
   font-size: 1rem;
   color: #6c757d; /* Color gris para el subtítulo */
   margin-bottom: 10px;
 }
 
 .info-content h1 {
+  font-family: "Roboto", sans-serif;
   font-size: 2rem;
   color: #4B67AE;
   font-weight: bold;
@@ -380,12 +403,14 @@
 }
 
 .info-content p {
+  font-family: "Roboto", sans-serif;
   font-size: 1.1rem;
   color: #333;
   margin-bottom: 30px;
 }
 
 .btn-blue {
+  font-family: "Roboto", sans-serif;
   background-color: #4B67AE;
   color: white;
   padding: 15px 30px;

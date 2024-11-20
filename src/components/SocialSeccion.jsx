@@ -9,9 +9,9 @@ const SocialSeccion = () => {
 
   return (
     <section className="social-section1">
-        <div className="social-content1">
+        <div className="social-content2">
             <h2>{t('Destination')}</h2>
-            <p><strong>{t('Visit')}</strong>{t('Tag')}<strong>#VisitaColbun</strong>.</p>
+            <p><strong className='strong1'>{t('Visit')}</strong>{t('Tag')}<strong className='strong1'>#VisitaColbun</strong>.</p>
             <h3>{t('Find')}</h3>
             <div className="social-icons2">
           <a href="https://www.facebook.com/profile.php?id=61557453073534&mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer">

@@ -25,6 +25,10 @@ const Colbun = () => {
   
   const { t, i18n } = useTranslation();
   const { currentSlide, nextSlide, prevSlide } = useCarousel(4); // Usa el hook personalizado
+
+  const googleMapUrl =
+    "https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d207723.66152519247!2d-71.70529132972516!3d-35.56154988942582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x9665c6a2ac07d07d%3A0x265657feafdac8b8!2sTalca%2C%20Maule%2C%20Chile!3m2!1d-35.4231882!2d-71.6496958!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!5e0!3m2!1ses-419!2scl!4v1732036047424!5m2!1ses-419!2scl";
+
   const slideNames = [
     { name: 'VizcachazViewpoint', image: img1 },
     { name: 'NationalPark', image: img2 },
@@ -71,10 +75,10 @@ const Colbun = () => {
       <div className="info-section1">
         <section className="map-section">
           {lat && lng && isFirstMap ? (
-            <LeafletMap latitud={lat} longitud={lng} mapId={"colbunMap"} />
+            <LeafletMap latitud={lat} longitud={lng} mapId={"colbunMap"} googleMapUrl={googleMapUrl}/>
           ) : (
             <iframe
-              src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
+              src="https://www.google.com/maps/embed?pb=!4v1732042310648!6m8!1m7!1sCAoSLEFGMVFpcE9kV1dxM3UtNXZFaV9MRGptanlNa2RpWFk0SXdiTHRPdUpST1Q3!2m2!1d-35.70207739286842!2d-71.40825538377578!3f200.07091212077665!4f2.224486747264166!5f0.7820865974627469"
               width="100%"
               height="1200"
               allowFullScreen=""
@@ -89,7 +93,7 @@ const Colbun = () => {
           <h1>{t('Remember')}</h1>
           <p>{t('ColbunBeauty')}</p>
           <div className="button-group">
-            <button className="btn-blue" onClick={() => window.open("#", "_blank")}>
+            <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732042310648!6m8!1m7!1sCAoSLEFGMVFpcE9kV1dxM3UtNXZFaV9MRGptanlNa2RpWFk0SXdiTHRPdUpST1Q3!2m2!1d-35.70207739286842!2d-71.40825538377578!3f200.07091212077665!4f2.224486747264166!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
             </button>
             <button className="btn-blue2" onClick={toggleMap}>
