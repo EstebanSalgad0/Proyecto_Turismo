@@ -130,7 +130,7 @@ const Cultura4 = () => {
             <LeafletMap latitud={latIglesia} longitud={lngIglesia} mapId={"iglesiaMap"} googleMapUrl={googleMapUrl}/>
           ) : (
             <iframe
-              src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
+              src="https://www.google.com/maps/embed?pb=!4v1732109399271!6m8!1m7!1sCAoSLEFGMVFpcE1mWm1ZaEVPR0J2UzNDdEp6eG5XbWdrNVdnY0xFRjVnYVNrWkIx!2m2!1d-35.76163928343502!2d-71.4180072564887!3f15.488554708121086!4f15.982022480642627!5f0.7820865974627469"
               width="100%"
               height="1200"
               allowFullScreen=""
@@ -145,7 +145,7 @@ const Cultura4 = () => {
           <h1>{t('Remember')}</h1>
           <p>{t('ColbunBeauty')}</p>
           <div className="button-group">
-            <button className="btn-blue" onClick={() => window.open("https://maps.app.goo.gl/GZSD4dNAL8uKZx1N6", "_blank")}>
+            <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732109399271!6m8!1m7!1sCAoSLEFGMVFpcE1mWm1ZaEVPR0J2UzNDdEp6eG5XbWdrNVdnY0xFRjVnYVNrWkIx!2m2!1d-35.76163928343502!2d-71.4180072564887!3f15.488554708121086!4f15.982022480642627!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
             </button>
             <button className="btn-blue2" onClick={toggleMapIglesia}>
@@ -171,7 +171,7 @@ const Cultura4 = () => {
             <LeafletMap latitud={latTacitas} longitud={lngTacitas} mapId={"tacitasMap"} googleMapUrl={googleMapUrl2}/>
           ) : (
             <iframe
-              src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
+              src="https://www.google.com/maps/embed?pb=!4v1732109556127!6m8!1m7!1sCAoSLEFGMVFpcE56UWM1MzBVbGtLNzZfeENaOGlWdGRXR3hnVGhsLW1hZDRTdEhL!2m2!1d-35.46290131511326!2d-71.02792057320109!3f134.6911769236427!4f-7.712833426459028!5f0.7820865974627469"
               width="100%"
               height="1200"
               allowFullScreen=""
@@ -186,7 +186,7 @@ const Cultura4 = () => {
           <h1>{t('Remember')}</h1>
           <p>{t('ColbunBeauty')}</p>
           <div className="button-group">
-            <button className="btn-blue" onClick={() => window.open("https://maps.app.goo.gl/GZSD4dNAL8uKZx1N6", "_blank")}>
+            <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732109556127!6m8!1m7!1sCAoSLEFGMVFpcE56UWM1MzBVbGtLNzZfeENaOGlWdGRXR3hnVGhsLW1hZDRTdEhL!2m2!1d-35.46290131511326!2d-71.02792057320109!3f134.6911769236427!4f-7.712833426459028!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
             </button>
             <button className="btn-blue2" onClick={toggleMapTacitas}>
@@ -212,7 +212,7 @@ const Cultura4 = () => {
             <LeafletMap latitud={latEmbotelladora} longitud={lngEmbotelladora} mapId={"embotelladoraMap"} googleMapUrl={googleMapUrl3}/>
           ) : (
             <iframe
-              src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
+              src="https://www.google.com/maps/embed?pb=!4v1732109619684!6m8!1m7!1sDWCbWPwHQLb--hU05-ycOQ!2m2!1d-35.79536237939999!2d-71.42839862393754!3f73.80310833759117!4f-1.8577525390781773!5f0.7820865974627469"
               width="100%"
               height="1200"
               allowFullScreen=""
@@ -227,7 +227,7 @@ const Cultura4 = () => {
           <h1>{t('Remember')}</h1>
           <p>{t('ColbunBeauty')}</p>
           <div className="button-group">
-            <button className="btn-blue" onClick={() => window.open("https://maps.app.goo.gl/GZSD4dNAL8uKZx1N6", "_blank")}>
+            <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732109619684!6m8!1m7!1sDWCbWPwHQLb--hU05-ycOQ!2m2!1d-35.79536237939999!2d-71.42839862393754!3f73.80310833759117!4f-1.8577525390781773!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
             </button>
             <button className="btn-blue2" onClick={toggleMapEmbotelladora}>
@@ -253,7 +253,7 @@ const Cultura4 = () => {
             <LeafletMap latitud={latEstacion} longitud={lngEstacion} mapId={"estacionMap"} googleMapUrl={googleMapUrl4}/>
           ) : (
             <iframe
-              src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
+              src="https://www.google.com/maps/embed?pb=!4v1732109774394!6m8!1m7!1sCAoSLEFGMVFpcFB5NHdsb3k2UDZ2LVladGZ6dFY0MFZURUNaSE9ISEpLQThQMmhi!2m2!1d-36.79345542530866!2d-71.74740462332323!3f39.93564425123765!4f2.4770250145362525!5f0.7820865974627469"
               width="100%"
               height="1200"
               allowFullScreen=""
@@ -268,7 +268,7 @@ const Cultura4 = () => {
           <h1>{t('Remember')}</h1>
           <p>{t('ColbunBeauty')}</p>
           <div className="button-group">
-            <button className="btn-blue" onClick={() => window.open("https://maps.app.goo.gl/GZSD4dNAL8uKZx1N6", "_blank")}>
+            <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732109774394!6m8!1m7!1sCAoSLEFGMVFpcFB5NHdsb3k2UDZ2LVladGZ6dFY0MFZURUNaSE9ISEpLQThQMmhi!2m2!1d-36.79345542530866!2d-71.74740462332323!3f39.93564425123765!4f2.4770250145362525!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
             </button>
             <button className="btn-blue2" onClick={toggleMapEstacion}>

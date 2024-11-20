@@ -113,7 +113,7 @@ const Senderismo = () => {
             <LeafletMap latitud={latVolcan} longitud={lngVolcan} mapId={"volcanMap"} googleMapUrl={googleMapUrl}/>
           ) : (
             <iframe
-              src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
+              src="https://www.google.com/maps/embed?pb=!4v1732110297817!6m8!1m7!1sCAoSLEFGMVFpcFA4Zk80N19wY3psbTY0MGgyNjVpNXlCd1pJR01naDJ0akxmQTBJ!2m2!1d-36.05978151025838!2d-70.81083712126821!3f168.911036017422!4f11.091912792122699!5f0.7820865974627469"
               width="100%"
               height="1200"
               allowFullScreen=""
@@ -128,7 +128,7 @@ const Senderismo = () => {
           <h1>{t('Remember')}</h1>
           <p>{t('ColbunBeauty')}</p>
           <div className="button-group">
-            <button className="btn-blue" onClick={() => window.open("https://maps.app.goo.gl/GZSD4dNAL8uKZx1N6", "_blank")}>
+            <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732110297817!6m8!1m7!1sCAoSLEFGMVFpcFA4Zk80N19wY3psbTY0MGgyNjVpNXlCd1pJR01naDJ0akxmQTBJ!2m2!1d-36.05978151025838!2d-70.81083712126821!3f168.911036017422!4f11.091912792122699!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
             </button>
             <button className="btn-blue2" onClick={toggleMapVolcan}>
@@ -154,7 +154,7 @@ const Senderismo = () => {
             <LeafletMap latitud={latMirador} longitud={lngMirador} mapId={"miradorMap"} googleMapUrl={googleMapUrl2}/>
           ) : (
             <iframe
-              src="https://www.google.com/maps/embed?pb=!4v1729508776865!6m8!1m7!1sCAoSLEFGMVFpcE52eG9fOUs1ZkRac2VzYnNNQ3hsYnBpOWFOdnJpcUFUU0VSazhv!2m2!1d-35.87360339666832!2d-71.11635919023739!3f166.054998459084!4f12.54037435121353!5f0.7820865974627469"
+              src="https://www.google.com/maps/embed?pb=!4v1732110383451!6m8!1m7!1sCAoSLEFGMVFpcFAzYnk2WUktQU16SjdxMUpKZ2ZuelBESHJpQXdmUkh1Y1FldUds!2m2!1d-35.65339698099861!2d-71.2527705018546!3f257.3353789313492!4f0.9891328586699615!5f0.7820865974627469"
               width="100%"
               height="1200"
               allowFullScreen=""
@@ -169,7 +169,7 @@ const Senderismo = () => {
           <h1>{t('Remember')}</h1>
           <p>{t('ColbunBeauty')}</p>
           <div className="button-group">
-            <button className="btn-blue" onClick={() => window.open("https://maps.app.goo.gl/GZSD4dNAL8uKZx1N6", "_blank")}>
+            <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732110383451!6m8!1m7!1sCAoSLEFGMVFpcFAzYnk2WUktQU16SjdxMUpKZ2ZuelBESHJpQXdmUkh1Y1FldUds!2m2!1d-35.65339698099861!2d-71.2527705018546!3f257.3353789313492!4f0.9891328586699615!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
             </button>
             <button className="btn-blue2" onClick={toggleMapMirador}>
