@@ -46,7 +46,9 @@ const transformTipoOferente = (tipoOferente) => {
         <div className="services-list-container">
             <Header />
             <div className='services-list'>
+                <br></br>
                 <h1 className="services-title">Servicios Disponibles</h1>
+                <br></br>
                 <div className="services">
                     {servicios.length === 0 ? (
                         <p>No tienes servicios creados.</p>

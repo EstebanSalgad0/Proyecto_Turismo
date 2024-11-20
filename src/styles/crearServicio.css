@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 /* Contenedor principal */
 
 .service-title {
+  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   margin: 10px 0 5px; /* Espacio entre la imagen y el título */
   text-align: start;
@@ -14,6 +17,7 @@ body.dark-mode .service-title {
 }
 
 .ser-descripcion  {
+  font-family: 'Roboto', sans-serif;
   font-size: 14px;
   color: #757575;
   text-align: start;
@@ -131,6 +135,7 @@ body.dark-mode .Costo{
 }
 
 .sidebar h3{
+  font-family: 'Roboto', sans-serif;
   font-size: 14px;
   margin: 10px 0;
   text-align: center;
@@ -144,6 +149,7 @@ body.dark-mode .sidebar h3{
 }
 
 .sidebar p {
+  font-family: 'Roboto', sans-serif;
   font-size: 14px;
   color: #555;
   text-align: center;
@@ -223,6 +229,7 @@ body.dark-mode .sidebar h3{
 
 /* Estilo del campo de descripción */
 .sidebar textarea {
+  font-family: 'Roboto', sans-serif;
   height: 80px;
   resize: none;
 }
@@ -242,11 +249,13 @@ body.dark-mode .sidebar h3{
 }
 
 .sidebar form label{
+  font-family: 'Roboto', sans-serif;
   font-size: 14px;
   color: black;
 }
 
 .sidebar input, .sidebar textarea {
+  font-family: 'Roboto', sans-serif;
   width: 100%;
   padding: 10px;
   font-size: 16px;
@@ -399,6 +408,7 @@ body.dark-mode .avatar-ser {
 
 /* Estilos para el nombre completo debajo del avatar */
 .FullName {
+  font-family: 'Roboto', sans-serif;
   font-size: 36px;
   color: #4B67AE;
   font-weight: bold;
@@ -410,6 +420,7 @@ body.dark-mode .FullName {
 }
 
 .TipoRol{
+  font-family: 'Roboto', sans-serif;
   font-size: 14px;
   color: #757575;
   text-align: center;
@@ -422,6 +433,7 @@ body.dark-mode .TipoRol{
 }
 
 .Contador{
+  font-family: 'Roboto', sans-serif;
   color: #4B67AE;
   font-size: 16px;
   text-align: center;
@@ -784,6 +796,7 @@ body.dark-mode .ButtonsCRUD button{
 }
 
 .service-card.expanded .service-title {
+  font-family: 'Roboto', sans-serif;
   font-size: 30px;
   font-weight: bold;
   margin: 0;
@@ -792,17 +805,20 @@ body.dark-mode .ButtonsCRUD button{
 }
 
 .service-card.expanded .service-details p {
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   line-height: 1.5;
   align-items: center;
 }
 
 .service-card.expanded .service-details strong {
+  font-family: 'Roboto', sans-serif;
   font-weight: bold;
   margin-right: 8px; /* Espacio entre el título en negritas y el contenido */
 }
 
 .service-card.expanded .service-details span {
+  font-family: 'Roboto', sans-serif;
   font-weight: normal; /* Texto normal para el contenido después de strong */
 }
 
