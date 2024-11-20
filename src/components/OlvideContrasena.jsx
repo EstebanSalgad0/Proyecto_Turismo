@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'boxicons/css/boxicons.min.css';
-import "../styles/InicioSesion.css";
+import Header from '../components/Header';
+import '../styles/PasswordReset.css';
 
 const PasswordReset = () => {
   const [email, setEmail] = useState('');
@@ -11,17 +10,15 @@ const PasswordReset = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const captchaKEY = import.meta.env.VITE_CAPTCHA_KEY;
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const loadRecaptcha = () => {
       const script = document.createElement('script');
       script.src = `https://www.google.com/recaptcha/api.js?render=${captchaKEY}`;
       script.async = true;
-      script.onload = () => {
-        console.log('reCAPTCHA script loaded');
-      };
       document.body.appendChild(script);
     };
-
     loadRecaptcha();
   }, [captchaKEY]);
 
@@ -37,59 +34,51 @@ const PasswordReset = () => {
 
     try {
       const captchaToken = await window.grecaptcha.execute(captchaKEY, { action: 'password_reset' });
-
       const response = await axios.post(import.meta.env.VITE_RESET_PASSWORD_URL, {
-        email: email,
+        email,
         captcha: captchaToken,
       });
 
       if (response.status === 200) {
         setSuccessMessage('Se ha enviado un correo para restablecer la contraseña.');
         setErrorMessage('');
+        // Redirigir a otra vista después de 2 segundos
+        setTimeout(() => navigate('/RestablecerExito'), 2000);
       }
     } catch (error) {
-      const errorMsg = error.response && error.response.data.error ? error.response.data.error : 'Error al procesar la solicitud. Verifique el correo electrónico e intente de nuevo.';
+      const errorMsg = error.response?.data?.error || 'Error al procesar la solicitud. Verifique el correo electrónico e intente de nuevo.';
       setErrorMessage(errorMsg);
       setSuccessMessage('');
     }
   };
 
   return (
-    <div className="inicio-sesion-container">
-      <div className="wrapper-is">
-        <form onSubmit={handleSubmit}>
-          <div className='Logo'></div>
+    <div className="wrapper-is2">
+      <Header/>
+      <form onSubmit={handleSubmit}>
+        <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+        <h1 className='uwu'>Restablecer contraseña</h1>
+        <p className='owo'>¿Cuál es tu correo electrónico?</p>
 
-          <h1>Recupere su cuenta mediante su correo electrónico</h1>
+        {errorMessage && <div className="alert2 alert-danger">{errorMessage}</div>}
+        {successMessage && <div className="alert2 alert-success">{successMessage}</div>}
 
-          {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
-          {successMessage && <div className="alert alert-success">{successMessage}</div>}
-
-          <div className="input-box-is">
-            <label>Correo electrónico</label>
-            <div className='input-box-email'>
-              <input 
-                type="email" 
-                value={email} 
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="visitacolbun@turismo.cl" 
-                required 
-              />
-              <i className='bx bx-user'></i>
-            </div>
+        <div className="input-box-is2">
+          <label className='xd'>Correo electrónico</label>
+          <div className="input-box-email2">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Escribe tu correo"
+              required
+            />
           </div>
+        </div>
 
-          <button type="submit" className="btn-is">Enviar Correo</button>
-
-          <div className="remember-forgot1">
-            <Link to="/login">¿Recordaste tu contraseña? Regresar</Link>
-          </div>
-
-          <div className="register-link">
-            <p>¿Aún no estás en Turismo y Cultura? <Link to="/registrarse">Regístrate</Link></p>
-          </div>
-        </form>
-      </div>
+        <button type="submit" className="btn-is2">Enviar correo electrónico de restablecimiento</button>
+      </form>
+      <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
     </div>
   );
 };

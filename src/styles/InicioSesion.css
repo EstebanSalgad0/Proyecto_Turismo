@@ -2,7 +2,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .inicio-sesion-container {
@@ -103,6 +103,7 @@
 }
 
 .remember-forgot a {
+  margin-left: 15px;
   text-decoration: none;
 }
 

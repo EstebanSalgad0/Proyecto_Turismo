@@ -6,6 +6,7 @@ import Titulo from './pages/Index'; // Importa el componente Index
 import ElMelado from './pages/Elmelado'; // Importa el componente ElMelado
 import Pasopehuenche from './pages/Pasopehuenche';
 import Colbunalto from './pages/Colbunalto';
+import RestablecerExito from './components/RestablecerExito';
 import Colbun from './pages/Colbun';
 import Laguardia from './pages/Laguardia';
 import Losboldos from './pages/Losboldos';
@@ -58,6 +59,7 @@ const App = () => {
         <Route path="/Index" element={<Titulo />} />
         <Route path="/ElMelado" element={<ElMelado />} /> {/* Nueva ruta para ElMelado */}
         <Route path="/Paso-pehuenche" element={<Pasopehuenche/>} />
+        <Route path="/RestablecerExito" element={<RestablecerExito/>} />
         <Route path="/Colbun-alto" element={<Colbunalto/>} />
         <Route path="/Colbun" element={<Colbun/>} />
         <Route path="/La-Guardia" element={<Laguardia/>} />
