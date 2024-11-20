@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 /* Aplica este estilo solo al contenedor principal de Index */
 .index-container {
   display: flex;
@@ -32,16 +34,19 @@
 }
 
 .hero0 h5 {
+  font-family: "Roboto", sans-serif;
   font-size: 1rem; /* Ajusta el tamaño del texto principal */
   margin-bottom: 5px; /* Espaciado entre las líneas de texto */
 }
 
 .hero0 h1 {
+  font-family: "Roboto", sans-serif;
   font-size: 3rem;
   margin-bottom: 40px; /* Espaciado entre el subtítulo y el botón */
 }
 
 .hero0 h4 {
+  font-family: "Roboto", sans-serif;
   margin-top: 150px;
   width: 690px;
   height: 297px;
