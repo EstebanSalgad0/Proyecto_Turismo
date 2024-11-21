@@ -43,7 +43,7 @@ const PasswordReset = () => {
         setSuccessMessage('Se ha enviado un correo para restablecer la contraseña.');
         setErrorMessage('');
         // Redirigir a otra vista después de 2 segundos
-        setTimeout(() => navigate('/RestablecerExito'), 2000);
+        setTimeout(() => navigate('/RestablecerExito'), 400);
       }
     } catch (error) {
       const errorMsg = error.response?.data?.error || 'Error al procesar la solicitud. Verifique el correo electrónico e intente de nuevo.';
