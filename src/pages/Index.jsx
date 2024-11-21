@@ -78,7 +78,6 @@ const Index = () => {
       ></iframe>
         <div className="hero-content2">
           <h1>{t('ColbunTitle')}</h1>
-          <h1>{t('ColbunTitle2')}</h1>
           <h1>{t('SubtitleMessage')}</h1>
           <br></br>
           <br></br>
