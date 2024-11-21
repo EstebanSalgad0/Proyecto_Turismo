@@ -7,6 +7,58 @@
   flex-direction: column;
 }
 
+
+/* Styling for the map section */
+.map-section {
+  flex: 1;
+  margin-right: 10px;
+  height: 650px;
+}
+
+/* Existing content */
+.info-content2 {
+  font-family: "Roboto", sans-serif;
+  flex: 1;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+/* Sección de Lugares inolvidables */
+.info-section2 {
+  font-family: "Roboto", sans-serif;
+  background-color: #f8f9fa; /* Color gris claro temporal para el mapa */
+  width: 100vw;
+  height: auto; /* Ajusta la altura automáticamente según el contenido */
+  display: flex;
+  justify-content: flex-end; /* Alinea el contenido a la derecha */
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  min-height: 100vh; /* Si quieres un mínimo de altura que ocupe toda la ventana */
+}
+/* Optional adjustments for the map iframe */
+.map-section iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+/* Estilo para el contenedor del mapa */
+#Off1Map {
+  height: 650px; /* Ajusta la altura según necesites */
+  width: 1600px;
+  position: relative;
+  z-index: 0;
+}
+
+/* Estilo para el contenedor del mapa */
+#Off2Map {
+  height: 650px; /* Ajusta la altura según necesites */
+  width: 1600px;
+  position: relative;
+  z-index: 0;
+}
+
 .hero {
   background-image: url("../assets/img/image.png") !important; /* Aquí va la ruta de tu imagen */
   background-size: cover;

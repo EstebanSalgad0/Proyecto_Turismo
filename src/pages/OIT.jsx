@@ -72,7 +72,7 @@ const Zoit = () => {
         <div className="carousel-subheader">
             <h1>{t('Tourist8')}</h1>
         </div>
-        <div className="info-section1">
+        <div className="info-section2">
           <section className="map-section">
             {latOff1 && lngOff1 ? (
               <LeafletMap latitud={latOff1} longitud={lngOff1} mapId={"Off1Map"} googleMapUrl={googleMapUrlOff1}/>
@@ -87,7 +87,7 @@ const Zoit = () => {
             )}
           </section>
         </div>
-        <div className="info-section1">
+        <div className="info-section2">
           <section className="map-section">
             {latOff2 && lngOff2 ? (
               <LeafletMap latitud={latOff2} longitud={lngOff2} mapId={"Off2Map"} googleMapUrl={googleMapUrlOff2}/>
@@ -102,34 +102,6 @@ const Zoit = () => {
             )}
           </section>
         </div>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
         <br></br>
         <div className="carousel-subheader">
           <h2>{t('Contact1')}</h2>
