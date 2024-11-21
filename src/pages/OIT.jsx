@@ -11,12 +11,12 @@ const Zoit = () => {
   // Coordenadas mapa 1
   const [latOff1, setLatOff1] = useState(null);
   const [lngOff1, setLngOff1] = useState(null);
-  const googleMapUrlOff1 = "";
+  const googleMapUrlOff1 = "https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d19031.199618275852!2d-71.42691824685197!3d-35.69855558589736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m3!3m2!1d-35.701705!2d-71.40802599999999!5e0!3m2!1ses-419!2scl!4v1732148634055!5m2!1ses-419!2scl";
 
   // Coordenadas mapa 2
   const [latOff2, setLatOff2] = useState(null);
   const [lngOff2, setLngOff2] = useState(null);
-  const googleMapUrlOff2 = "";
+  const googleMapUrlOff2 = "https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d168739.661849181!2d-71.62050216939608!3d-35.710942719059005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m3!3m2!1d-35.763318!2d-71.419848!5e0!3m2!1ses-419!2scl!4v1732148689613!5m2!1ses-419!2scl";
 
   const { t, i18n } = useTranslation(); // Hook para usar traducciones
 
