@@ -277,15 +277,15 @@ class RegisterView(APIView):
             # Determinar el enlace de activación según el tipo de oferente
             if tipo_oferente == 'artesano':
                 verification_link = reverse('activar_artesano', kwargs={'uidb64': uid, 'token': token})
-                subject = 'Activa tu cuenta como Artesano/a en Turismo Colbún'
+                subject = '🙌🏻 Confirma tu correo electrónico'
                 template_name = 'accounts/activation_email_artesano.html'
             elif tipo_oferente == 'bienesServicios':
                 verification_link = reverse('activar_bienes', kwargs={'uidb64': uid, 'token': token})
-                subject = 'Activa tu cuenta de Bienes y Servicios en Turismo Colbún'
+                subject = '🙌🏻 Confirma tu correo electrónico'
                 template_name = 'accounts/activation_email_bienes.html'
             elif tipo_oferente == 'cabanas':
                 verification_link = reverse('activar_cabanas', kwargs={'uidb64': uid, 'token': token})
-                subject = 'Activa tu cuenta de Cabañas en Turismo Colbún'
+                subject = '🙌🏻 Confirma tu correo electrónico'
                 template_name = 'accounts/activation_email_cabanas.html'
             else:
                 return Response({'error': 'Tipo de oferente no válido.'}, status=status.HTTP_400_BAD_REQUEST)
@@ -364,7 +364,7 @@ class RequestPasswordResetView(APIView):
 
             # Enviar correo en formato HTML
             email_message = EmailMessage(
-                subject="Restablecimiento de Contraseña",
+                subject="Restablece tu contraseña en Visita Colbún 🌾",
                 body=email_html,
                 from_email="mueca@mueblescaracol.cl",
                 to=[user.email]
