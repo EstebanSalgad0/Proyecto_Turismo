@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    font-feature-settings: 'liga' off, 'clig' off;
+    color: #757575;
+}
+
+.frame {
+    display: flex;
+    flex-direction: column;
+    width: 640px;
+    height: 867px;
+    flex-shrink: 0;
+    /* opacity: 0.4; */
+    background: var(--Fondo-Correos, #C0DBE7);
+    align-items: center;
+}
+
+.logos {
+    display: flex;
+    width: 544px;
+    justify-content: center;
+    align-items: center;
+    gap: 426px;
+}
+
+.image {
+    width: 544px;
+    height: 115px;
+    flex-shrink: 0;
+    border-radius: 0px 0px 8px 8px;
+    background: url(nicanor_colinanco00026.png) lightgray 50% / cover no-repeat;
+}
+
+.main {
+    display: flex;
+    width: 544px;
+    padding: 40px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    border-radius: 0px 0px 8px 8px;
+    background: var(--Color-Secundario, #FFF);
+}
+
+h1 {
+    align-self: stretch;
+    color: var(--Color-Complementario, #222);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.text1 {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+}
+
+.iniciarbtn {
+    display: flex;
+    padding: 16px 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;border-radius: 8px;
+    background: var(--Color-Primario, #4B67AE);
+    color: var(--Color-Secundario, #FFF);
+    font-family: "SF Pro Display", Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 150% */
+    letter-spacing: 0.32px;
+}
+
+.ignore {
+    margin-top: 2em;
+    display: flex;
+    width: 544px;
+    padding: 24px 40px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 0px 0px 8px 8px;
+    background: var(--Color-Secundario, #FFF);
+}
+
+.text2 {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 24px */
+}
+
+.light {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.desuscribirse {
+    display: flex;
+    width: 544px;
+    padding: 24px 48px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.text3 {
+    width: 544px;
+    flex-shrink: 0;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 21px */
+}
+
+.mail {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+}
+
+.bold {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+}
