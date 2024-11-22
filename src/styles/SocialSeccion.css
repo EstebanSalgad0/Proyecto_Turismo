@@ -160,12 +160,11 @@ strong {
   background-color: #ccc;
   margin: 40px 0; /* Espaciado para que coincida con otras secciones */
 }
-
 /* Estilos para la sección social en pantallas pequeñas */
 @media (max-width: 768px) {
   .help-options{
     width: 300px;
-    margin-left: 25px;
+    margin-left: 190px;
     align-items: start;
   }
 
@@ -193,6 +192,14 @@ strong {
     justify-content: center;
     gap: 15px; /* Menor espacio entre íconos */
   }
+  .social-icons2 {
+    font-family: "Roboto", sans-serif;
+    font-size: 2rem;
+    color: #4B67AE; /* Azul oscuro */
+    transition: color 0.3s ease; /* Añade una transición suave al color */
+    display: flex;
+    justify-content: center; /* Alinea los iconos a la izquierda */
+  }
   .help-item .help-image {
     width: 50px;
     height: 50px;
@@ -203,6 +210,11 @@ strong {
 
 /* Estilos para la sección social en pantallas muy pequeñas (móviles) */
 @media (max-width: 480px) {
+  .help-options{
+    width: 300px;
+    margin-left: 25px;
+    align-items: start;
+  }
   .social-section1 {
     width: 100vw;
     padding: 20px 5px; /* Padding más pequeño para pantallas móviles */
