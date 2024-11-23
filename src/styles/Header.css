@@ -43,7 +43,7 @@
   font-family: "Roboto", sans-serif;
   position: absolute;
   top: 90%;
-  left: -238px;
+  left: -220px;
   right: 30px;
   background-color: white;
   list-style: none;
@@ -161,7 +161,7 @@
   padding: 5px 10px; /* Padding adicional para mayor separación */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
   z-index: 1000; /* Asegura que esté por encima de otros elementos */
-  width: 230px; /* Ancho de la barra de búsqueda, ajusta según sea necesario */
+  width: 200px; /* Ancho de la barra de búsqueda, ajusta según sea necesario */
 }
 
 /* Estilo para el campo de entrada de la barra de búsqueda */
@@ -176,10 +176,11 @@
 .navbar-icons-right .navbar-search button {
   background: none;
   border: none;
-  font-size: 20px;
+  font-size: 10px;
   color: #4B67AE; /* Color del ícono de enviar */
   cursor: pointer;
   margin-right: -14px;
+  margin-left: -14px;
 }
 
 /* Estilo para el botón de enviar dentro de la barra de búsqueda */
@@ -187,6 +188,7 @@
   background: none;
   border: none;
   font-size: 20px;
+  margin-left: -30px;
   color: #4B67AE; /* Color del ícono de enviar */
   cursor: pointer;
 }
@@ -268,7 +270,7 @@
   flex-grow: 1;
   justify-content: space-between;
   padding-right: 20px; /* Ajusta el margen derecho del menú para mayor separación */
-  margin-left: 50px; /* Acerca "¿A dónde ir?" a la izquierda */
+  margin-left: -20px; /* Acerca "¿A dónde ir?" a la izquierda */
 }
 
 /* Estilos para los botones que se ven como enlaces (invisibles pero funcionales) */
@@ -354,6 +356,16 @@
   padding: 10px;
 }
 
+.language-label1 {
+  margin-left: -20px;
+  margin-right: 20px;
+}
+
+.language-label{
+  margin-left: -20px;
+  margin-right: 20px;
+}
+
 .dropdown-menu > li:hover .dropdown-submenu {
   display: block; /* Muestra el submenú al pasar el mouse */
 }
@@ -392,12 +404,41 @@ a {
 }
 
 @media (max-width: 1400px) {
+
+  .navbar-icons-right .search-bar {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    right: 0;
+    background-color: white;
+    border-radius: 5px;
+    margin-right: 60px;
+    padding: 5px 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 200px;
+}
   .navbar1 {
     padding: 20px 10px; /* Reducción de padding en pantallas medianas */
   }
 
   .navbar-links1 {
     margin-left: 0px; /* Reduce el margen izquierdo en pantallas medianas */
+  }
+
+  .dropdown-menu1 {
+    font-family: "Roboto", sans-serif;
+    position: absolute;
+    top: 90%;
+    left: -224px;
+    right: 60px;
+    background-color: white;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    display: block;
   }
 
   .navbar-links1 button {
@@ -419,6 +460,35 @@ a {
     cursor: pointer;
   }
 
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: -10px;
+    right: -20px;
+    background-color: white;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    display: block;
+  }
+  
+  .dropdown-menu li {
+    padding: 10px 20px;
+  }
+  
+  .dropdown-menu li a {
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+  }
+  
+  .dropdown-menu > li {
+    padding: 10px;
+    cursor: pointer;
+    position: relative; /* Añadido para que el submenú sea relativo a su padre */
+  }
+
   .language-label1 {
     display: none;
   }
@@ -437,7 +507,7 @@ a {
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 50px;
+    top: 90px;
     right: -10;
     background-color: #4B67AE;
     padding: 10px;
@@ -470,7 +540,7 @@ a {
   .navbar-icons-right .navbar-search {
     position: relative;
     margin-top: 10px;
-    margin-left: 7px;
+    margin-left: 28px;
   }
 
   .navbar-icons-right .navbar-auth{
@@ -479,6 +549,19 @@ a {
 }
 
 @media (max-width: 840px) {
+  .navbar-icons-right .icons-container.show {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    right: -10;
+    background-color: #4B67AE;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border: 2px solid lightcyan;
+}
   .navbar1 {
     padding: 10px 10px; /* Reducción de padding en pantallas medianas */
   }
@@ -497,6 +580,34 @@ a {
 
 /* Estilos para pantallas pequeñas (móviles) */
 @media (max-width: 768px) {
+  .dropdown-menu {
+    position: absolute;
+    top: 10%;
+    left: 30px;
+    right: -40px;
+    background-color: white;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    display: block;
+  }
+  
+  .dropdown-menu li {
+    padding: 10px 20px;
+  }
+  
+  .dropdown-menu li a {
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+  }
+  
+  .dropdown-menu > li {
+    padding: 10px;
+    cursor: pointer;
+    position: relative; /* Añadido para que el submenú sea relativo a su padre */
+  }
 .navbar1 {
   padding: 10px 10px;
 }
@@ -610,6 +721,7 @@ a {
   font-size: 20px;
   color: #4B67AE; /* Color del ícono de enviar */
   cursor: pointer;
+  margin-left: 3px;
   margin-right: -14px;
   margin-top: 100px;
 }
