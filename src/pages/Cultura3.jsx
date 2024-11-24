@@ -37,6 +37,22 @@ const Cultura4 = () => {
   const googleMapUrl4 =
     "https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d12960.184829085068!2d-71.421741535658!3d-35.70048051624543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m3!3m2!1d-35.702401!2d-71.4080235!5e0!3m2!1ses-419!2scl!4v1732051252280!5m2!1ses-419!2scl";
 
+    // Mapa Termas de Panimavida
+  const [latTermasP, setLatTermasP] = useState(null);
+  const [lngTermasP, setLngTermasP] = useState(null);
+  const [isFirstMapTermasP, setIsFirstMapTermasP] = useState(true);
+
+  const googleMapUrl5 =
+    "https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d207284.75008986876!2d-71.57971686533293!3d-35.730541351364614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m3!3m2!1d-35.7627686!2d-71.4179164!5e0!3m2!1ses-419!2scl!4v1732051571815!5m2!1ses-419!2scl";
+  
+  // Mapa Poza de la Mona
+  const [latPoza, setLatPoza] = useState(null);
+  const [lngPoza, setLngPoza] = useState(null);
+  const [isFirstMapPoza, setIsFirstMapPoza] = useState(true);
+
+  const googleMapUrl6 =
+    "https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d829420.5304898885!2d-71.82992031945923!3d-35.703489096462825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m3!3m2!1d-35.8415825!2d-70.9725874!5e0!3m2!1ses-419!2scl!4v1732051621200!5m2!1ses-419!2scl";
+
   const { t, i18n } = useTranslation();
   const { currentSlide, nextSlide, prevSlide } = useCarousel(0); // Configurado para 7 slides
   const slideNames = [
@@ -79,6 +95,24 @@ const Cultura4 = () => {
     .then(data => {
       setLatEmbotelladora(data.latitud);
       setLngEmbotelladora(data.longitud);
+    })
+    .catch(error => console.error('Error fetching location data:', error));
+
+    // Fetch data from the Django API (Termas de Panimavida)
+    fetch('http://localhost:8000/api/lugares/buscar/?nombre=termas_panimavida') // Cambia el nombre por el lugar turístico que necesites
+    .then(response => response.json())
+    .then(data => {
+      setLatTermasP(data.latitud);
+      setLngTermasP(data.longitud);
+    })
+    .catch(error => console.error('Error fetching location data:', error));
+    
+    // Fetch data from the Django API (Poza de la Mona)
+    fetch('http://localhost:8000/api/lugares/buscar/?nombre=poza_mona') // Cambia el nombre por el lugar turístico que necesites
+    .then(response => response.json())
+    .then(data => {
+      setLatPoza(data.latitud);
+      setLngPoza(data.longitud);
     })
     .catch(error => console.error('Error fetching location data:', error));
     
@@ -157,92 +191,6 @@ const Cultura4 = () => {
         </section>
       </div>
 
-      {/* Hero Section 2 */}
-      <div className="hero31">
-        <div className="hero-content31">
-          <h5>{t('Culture')}</h5>
-          <h1>Las Tacitas</h1>
-          <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</h4>
-        </div>
-      </div>
-
-      {/* Las Tacitas */}
-      <div className="info-section1">
-        <section className="map-section">
-          {latTacitas && lngTacitas && isFirstMapTacitas ? (
-            <LeafletMap latitud={latTacitas} longitud={lngTacitas} mapId={"tacitasMap"} googleMapUrl={googleMapUrl2}/>
-          ) : (
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!4v1732109556127!6m8!1m7!1sCAoSLEFGMVFpcE56UWM1MzBVbGtLNzZfeENaOGlWdGRXR3hnVGhsLW1hZDRTdEhL!2m2!1d-35.46290131511326!2d-71.02792057320109!3f134.6911769236427!4f-7.712833426459028!5f0.7820865974627469"
-              width="100%"
-              height="1200"
-              allowFullScreen=""
-              loading="lazy"
-            ></iframe>
-          )}
-        </section>
-
-        {/* Existing Content Section */}
-        <section className="info-content">
-          <h5>{t('UnforgettablePlaces')}</h5>
-          <h1>{t('Remember')}</h1>
-          <br></br>
-          <p>{t('ColbunBeauty')}</p>
-          <br></br>
-          <div className="button-group">
-            <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732109556127!6m8!1m7!1sCAoSLEFGMVFpcE56UWM1MzBVbGtLNzZfeENaOGlWdGRXR3hnVGhsLW1hZDRTdEhL!2m2!1d-35.46290131511326!2d-71.02792057320109!3f134.6911769236427!4f-7.712833426459028!5f0.7820865974627469", "_blank")}>
-              {t('Discover')}
-            </button>
-            <button className="btn-blue2" onClick={toggleMapTacitas}>
-              <i className="bi bi-geo-alt"></i>
-            </button>
-          </div>
-        </section>
-      </div>
-
-      {/* Hero Section 3 */}
-      <div className="hero32">
-        <div className="hero-content32">
-          <h5>{t('Culture')}</h5>
-          <h1>{t('Bottling')}</h1>
-          <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</h4>
-        </div>
-      </div>
-
-      {/* Embotelladora */}
-      <div className="info-section1">
-        <section className="map-section">
-          {latEmbotelladora && lngEmbotelladora && isFirstMapEmbotelladora ? (
-            <LeafletMap latitud={latEmbotelladora} longitud={lngEmbotelladora} mapId={"embotelladoraMap"} googleMapUrl={googleMapUrl3}/>
-          ) : (
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!4v1732109619684!6m8!1m7!1sDWCbWPwHQLb--hU05-ycOQ!2m2!1d-35.79536237939999!2d-71.42839862393754!3f73.80310833759117!4f-1.8577525390781773!5f0.7820865974627469"
-              width="100%"
-              height="1200"
-              allowFullScreen=""
-              loading="lazy"
-            ></iframe>
-          )}
-        </section>
-
-        {/* Existing Content Section */}
-        <section className="info-content">
-          <h5>{t('UnforgettablePlaces')}</h5>
-          <h1>{t('Remember')}</h1>
-          <br></br>
-          <p>{t('ColbunBeauty')}</p>
-          <br></br>
-          <div className="button-group">
-            <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732109619684!6m8!1m7!1sDWCbWPwHQLb--hU05-ycOQ!2m2!1d-35.79536237939999!2d-71.42839862393754!3f73.80310833759117!4f-1.8577525390781773!5f0.7820865974627469", "_blank")}>
-              {t('Discover')}
-            </button>
-            <button className="btn-blue2" onClick={toggleMapEmbotelladora}>
-              <i className="bi bi-geo-alt"></i>
-            </button>
-          </div>
-        </section>
-      </div>
-
       {/* Hero Section 4 */}
       <div className="hero33">
         <div className="hero-content33">
@@ -280,6 +228,92 @@ const Cultura4 = () => {
               {t('Discover')}
             </button>
             <button className="btn-blue2" onClick={toggleMapEstacion}>
+              <i className="bi bi-geo-alt"></i>
+            </button>
+          </div>
+        </section>
+      </div>
+
+      {/* Hero Section 2 */}
+      <div className="hero31">
+        <div className="hero-content31">
+        <h5>{t('Culture')}</h5>
+          <h1>{t('Springs')}</h1>
+          <h4>{t('TermasPanimavidaInfo')}</h4>
+        </div>
+      </div>
+
+      {/* Termas Panimavida */}
+      <div className="info-section1">
+        <section className="map-section">
+          {latTermasP && lngTermasP && isFirstMapTermasP ? (
+            <LeafletMap latitud={latTermasP} longitud={lngTermasP} mapId={"termasPMap"} googleMapUrl={googleMapUrl5}/>
+          ) : (
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!4v1732109856360!6m8!1m7!1sCAoSLEFGMVFpcE9JNzVEUzRjM2JqRlpOR01SNDhWYnNTd1E0Q0w4TGhad1pzWXVz!2m2!1d-35.76205581836644!2d-71.41807121598933!3f114.49191794425955!4f0.8264159919051792!5f0.7820865974627469"
+              width="100%"
+              height="1200"
+              allowFullScreen=""
+              loading="lazy"
+            ></iframe>
+          )}
+        </section>
+
+        {/* Existing Content Section */}
+        <section className="info-content">
+          <h5>{t('UnforgettablePlaces')}</h5>
+          <h1>{t('Remember')}</h1>
+          <br></br><br></br><br></br>
+          <p>{t('TermasPanimavidaRemember')}</p>
+          <br></br><br></br>
+          <div className="button-group">
+            <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732109856360!6m8!1m7!1sCAoSLEFGMVFpcE9JNzVEUzRjM2JqRlpOR01SNDhWYnNTd1E0Q0w4TGhad1pzWXVz!2m2!1d-35.76205581836644!2d-71.41807121598933!3f114.49191794425955!4f0.8264159919051792!5f0.7820865974627469", "_blank")}>
+              {t('Discover')}
+            </button>
+            <button className="btn-blue2" onClick={toggleMapTacitas}>
+              <i className="bi bi-geo-alt"></i>
+            </button>
+          </div>
+        </section>
+      </div>
+
+      {/* Hero Section 3 */}
+      <div className="hero32">
+        <div className="hero-content32">
+          <h5>{t('Culture')}</h5>
+          <h1>{t('PozaMona')}</h1>
+          <h4>{t('LaPozaMonaInfo')}</h4>
+        </div>
+      </div>
+
+      {/* Poza de la Mona */}
+      <div className="info-section1">
+        <section className="map-section">
+          {latPoza && lngPoza && isFirstMapPoza ? (
+            <LeafletMap latitud={latPoza} longitud={lngPoza} mapId={"pozaMap"} googleMapUrl={googleMapUrl6}/>
+          ) : (
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!4v1732109976050!6m8!1m7!1sCAoSLEFGMVFpcE1JR0xTYXIxMnlhRUU5dmhSbThOMmRIejJrRXhMWG0zTzdlVW5J!2m2!1d-35.76229748808326!2d-71.41611645995395!3f86.46720390517066!4f-0.46435508906901646!5f0.7820865974627469"
+              width="100%"
+              height="1200"
+              allowFullScreen=""
+              loading="lazy"
+            ></iframe>
+          )}
+        </section>
+
+        {/* Existing Content Section */}
+        <section className="info-content">
+          <h5>{t('UnforgettablePlaces')}</h5>
+          <h1>{t('Remember')}</h1>
+          <br></br><br></br><br></br><br></br><br></br><br></br>
+          <p>{t('PozaMonaInfo')}</p>
+          <br></br><br></br><br></br><br></br>
+          <div className="button-group">
+            <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732109619684!6m8!1m7!1sDWCbWPwHQLb--hU05-ycOQ!2m2!1d-35.79536237939999!2d-71.42839862393754!3f73.80310833759117!4f-1.8577525390781773!5f0.7820865974627469", "_blank")}>
+              {t('Discover')}
+            </button>
+            <button className="btn-blue2" onClick={toggleMapEmbotelladora}>
               <i className="bi bi-geo-alt"></i>
             </button>
           </div>
