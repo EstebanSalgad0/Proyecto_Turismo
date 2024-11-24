@@ -119,7 +119,7 @@ const Cultura4 = () => {
         <div className="hero-content30">
           <h5>{t('Culture')}</h5>
           <h1>{t('Church')}</h1>
-          <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</h4>
+          <h4>{t('ChurchInfo')}</h4>
         </div>
       </div>
 
@@ -143,9 +143,9 @@ const Cultura4 = () => {
         <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
-          <br></br>
-          <p>{t('ColbunBeauty')}</p>
-          <br></br>
+          <br></br><br></br><br></br><br></br>
+          <p>{t('ChurchRemember')}</p>
+          <br></br><br></br><br></br><br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732109399271!6m8!1m7!1sCAoSLEFGMVFpcE1mWm1ZaEVPR0J2UzNDdEp6eG5XbWdrNVdnY0xFRjVnYVNrWkIx!2m2!1d-35.76163928343502!2d-71.4180072564887!3f15.488554708121086!4f15.982022480642627!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
@@ -248,7 +248,7 @@ const Cultura4 = () => {
         <div className="hero-content33">
           <h5>{t('Culture')}</h5>
           <h1>{t('Train1')}</h1>
-          <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</h4>
+          <h4>{t('Train1Info')}</h4>
         </div>
       </div>
 
@@ -272,9 +272,9 @@ const Cultura4 = () => {
         <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
-          <br></br>
-          <p>{t('ColbunBeauty')}</p>
-          <br></br>
+          <br></br><br></br><br></br>
+          <p>{t('Train1Remember')}</p>
+          <br></br><br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732109774394!6m8!1m7!1sCAoSLEFGMVFpcFB5NHdsb3k2UDZ2LVladGZ6dFY0MFZURUNaSE9ISEpLQThQMmhi!2m2!1d-36.79345542530866!2d-71.74740462332323!3f39.93564425123765!4f2.4770250145362525!5f0.7820865974627469", "_blank")}>
               {t('Discover')}

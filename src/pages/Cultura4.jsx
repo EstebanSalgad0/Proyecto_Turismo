@@ -126,7 +126,7 @@ const Cultura4 = () => {
         <div className="hero-content40">
           <h5>{t('Culture')}</h5>
           <h1>{t('Springs')}</h1>
-          <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</h4>
+          <h4>{t('TermasPanimavidaInfo')}</h4>
         </div>
       </div>
 
@@ -150,9 +150,9 @@ const Cultura4 = () => {
         <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
-          <br></br>
-          <p>{t('ColbunBeauty')}</p>
-          <br></br>
+          <br></br><br></br><br></br>
+          <p>{t('TermasPanimavidaRemember')}</p>
+          <br></br><br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732109856360!6m8!1m7!1sCAoSLEFGMVFpcE9JNzVEUzRjM2JqRlpOR01SNDhWYnNTd1E0Q0w4TGhad1pzWXVz!2m2!1d-35.76205581836644!2d-71.41807121598933!3f114.49191794425955!4f0.8264159919051792!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
