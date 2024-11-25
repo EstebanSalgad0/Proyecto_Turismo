@@ -126,7 +126,7 @@ const Cultura4 = () => {
         <div className="hero-content5">
           <h5>{t('Culture')}</h5>
           <h1>{t('Petroglyphs')}</h1>
-          <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</h4>
+          <h4>{t('PetroglifosInfo')}</h4>
         </div>
       </div>
 
@@ -151,7 +151,7 @@ const Cultura4 = () => {
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
           <br></br>
-          <p>{t('ColbunBeauty')}</p>
+          <p>{t('PetroglyphsRemember')}</p>
           <br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732108627035!6m8!1m7!1sCAoSLEFGMVFpcE9hVjlsRWNwajFhN3RwV3JINDZpVloxakV6X3J1ajdUZ3hNbmVa!2m2!1d-36.17887916381087!2d-70.99122647538593!3f316.26834801075836!4f4.343650540943628!5f0.7820865974627469", "_blank")}>
@@ -169,7 +169,7 @@ const Cultura4 = () => {
         <div className="hero-content25">
           <h5>{t('Culture')}</h5>
           <h1>La Guardia</h1>
-          <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</h4>
+          <h4>{t('GuardiaInfo')}</h4>
         </div>
       </div>
 
@@ -193,9 +193,9 @@ const Cultura4 = () => {
         <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
-          <br></br>
-          <p>{t('ColbunBeauty')}</p>
-          <br></br>
+          <br></br><br></br><br></br>
+          <p>{t('GuardiaRemember')}</p>
+          <br></br><br></br><br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732108744245!6m8!1m7!1sCAoSLEFGMVFpcFBSdUw3MVJDbFBPZmxWOVo5WkF1d1J4b3lIaEo0MzVySTF5aTJW!2m2!1d-35.72588483261625!2d-71.17014471318163!3f28.858550920051414!4f-2.6888395352959833!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
@@ -212,7 +212,7 @@ const Cultura4 = () => {
         <div className="hero-content26">
           <h5>{t('Culture')}</h5>
           <h1>{t('Train')}</h1>
-          <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</h4>
+          <h4>{t('TrainInfo')}</h4>
         </div>
       </div>
 
@@ -236,9 +236,9 @@ const Cultura4 = () => {
         <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
-          <br></br>
-          <p>{t('ColbunBeauty')}</p>
-          <br></br>
+          <br></br><br></br><br></br><br></br>
+          <p>{t('TrainRemember')}</p>
+          <br></br><br></br><br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732108941575!6m8!1m7!1sCAoSLEFGMVFpcFB5NHdsb3k2UDZ2LVladGZ6dFY0MFZURUNaSE9ISEpLQThQMmhi!2m2!1d-36.79345542530866!2d-71.74740462332323!3f293.4261803724048!4f8.974302220732682!5f0.7820865974627469", "_blank")}>
               {t('Discover')}
@@ -255,7 +255,7 @@ const Cultura4 = () => {
         <div className="hero-content27">
           <h5>{t('Culture')}</h5>
           <h1>Molino de los Tilos</h1>
-          <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</h4>
+          <h4>{t('MolinoTilosInfo')}</h4>
         </div>
       </div>
 
@@ -279,9 +279,9 @@ const Cultura4 = () => {
         <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
-          <br></br>
-          <p>{t('ColbunBeauty')}</p>
-          <br></br>
+          <br></br><br></br><br></br>
+          <p>{t('MolinoTilosRemember')}</p>
+          <br></br><br></br><br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732109063190!6m8!1m7!1s_pyOOxhO13cmjhPllzP5GA!2m2!1d-35.6825945070972!2d-71.40388705891255!3f43.35102145107044!4f25.196117320913544!5f0.7820865974627469", "_blank")}>
               {t('Discover')}

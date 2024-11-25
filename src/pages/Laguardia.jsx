@@ -80,9 +80,9 @@ const Laguardia = () => {
         <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
-          <br></br>
-          <p>{t('ColbunBeauty')}</p>
-          <br></br>
+          <br></br><br></br><br></br>
+          <p>{t('GuardiaRemember')}</p>
+          <br></br><br></br><br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732042702600!6m8!1m7!1sCAoSLEFGMVFpcE9kZ3J3dS1ZYWtzMHdWZTZkbk83OExTX0pub18yVGJrQVhmTFEx!2m2!1d-35.69768000058234!2d-71.29296326328173!3f276.30112808442595!4f-1.1043939604081032!5f0.7820865974627469", "_blank")}>
               {t('Discover')}

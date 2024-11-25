@@ -43,7 +43,7 @@
   font-family: "Roboto", sans-serif;
   position: absolute;
   top: 90%;
-  left: -238px;
+  left: -220px;
   right: 30px;
   background-color: white;
   list-style: none;
@@ -161,7 +161,7 @@
   padding: 5px 10px; /* Padding adicional para mayor separación */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
   z-index: 1000; /* Asegura que esté por encima de otros elementos */
-  width: 230px; /* Ancho de la barra de búsqueda, ajusta según sea necesario */
+  width: 200px; /* Ancho de la barra de búsqueda, ajusta según sea necesario */
 }
 
 /* Estilo para el campo de entrada de la barra de búsqueda */
@@ -176,10 +176,11 @@
 .navbar-icons-right .navbar-search button {
   background: none;
   border: none;
-  font-size: 20px;
+  font-size: 10px;
   color: #4B67AE; /* Color del ícono de enviar */
   cursor: pointer;
   margin-right: -14px;
+  margin-left: -14px;
 }
 
 /* Estilo para el botón de enviar dentro de la barra de búsqueda */
@@ -187,6 +188,7 @@
   background: none;
   border: none;
   font-size: 20px;
+  margin-left: -30px;
   color: #4B67AE; /* Color del ícono de enviar */
   cursor: pointer;
 }
@@ -268,7 +270,7 @@
   flex-grow: 1;
   justify-content: space-between;
   padding-right: 20px; /* Ajusta el margen derecho del menú para mayor separación */
-  margin-left: 50px; /* Acerca "¿A dónde ir?" a la izquierda */
+  margin-left: -20px; /* Acerca "¿A dónde ir?" a la izquierda */
 }
 
 /* Estilos para los botones que se ven como enlaces (invisibles pero funcionales) */
@@ -354,6 +356,16 @@
   padding: 10px;
 }
 
+.language-label1 {
+  margin-left: -20px;
+  margin-right: 20px;
+}
+
+.language-label{
+  margin-left: -20px;
+  margin-right: 20px;
+}
+
 .dropdown-menu > li:hover .dropdown-submenu {
   display: block; /* Muestra el submenú al pasar el mouse */
 }
@@ -391,198 +403,53 @@ a {
   gap: 10px; /* Espacio entre los iconos */
 }
 
-@media (max-width: 1048px) {
-  .navbar1 {
-    padding: 10px 10px; /* Reducción de padding en pantallas medianas */
-  }
+@media (max-width: 1400px) {
 
-  .navbar-links1 {
-    margin-left: 0px; /* Reduce el margen izquierdo en pantallas medianas */
-  }
-
-  .navbar-links1 button {
-    font-size: 14px; /* Disminuye el tamaño de la fuente */
-    padding: 10px; /* Menos padding */
-  }
-}
-
-@media (max-width: 840px) {
-  .navbar1 {
-    padding: 10px 10px; /* Reducción de padding en pantallas medianas */
-  }
-
-  .navbar-links1 {
-    margin-left: 0px; /* Reduce el margen izquierdo en pantallas medianas */
-  }
-
-  .navbar-links1 button {
-    font-size: 14px; /* Disminuye el tamaño de la fuente */
-    padding: 10px; /* Menos padding */
-    margin: 0 5px; /* Reduce el margen entre botones */
-  }
-}
-
-/* Estilos para pantallas pequeñas (móviles) */
-@media (max-width: 768px) {
-  .navbar1 {
-    padding: 8px 10px;
-  }
-
-  /* Alinea los íconos de búsqueda, modo oscuro, y cerrar sesión a la derecha */
-  .navbar-icons-right
-  .navbar-auth,
-  .navbar-search,
-  .dark-mode-toggle,
-  .btn-blue2 {
+  .navbar-icons-right .search-bar {
     display: flex;
-    margin-right: auto;
     align-items: center;
-  }
-
-  /* Estilos específicos para los botones de búsqueda, modo oscuro, y logout */
-  .navbar-icons-right
-  .language-label
-  .language-label1,
-  .navbar-search button,
-  .dark-mode-toggle button,
-  .navbar-auth button {
-    font-family: "Roboto", sans-serif;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
-  /* Ajuste opcional para asegurar que cada ícono esté alineado correctamente */
-  .navbar-icons-right
-  .navbar-search i,
-  .icon-image7,
-  .icon-image2, /* Modo oscuro icono */
-  .icon-image3, /* Sol o luna icono */
-  .icon-image4, /* Logout icono */
-  .icon-image6,
-  .icon-image5 { /* Login icono */
-    margin-left: auto; /* Espacio mínimo entre los iconos */
-    width: 30px;
-    height: 30px;
-    margin-right: 5px;
-  }
-
-  .navbar-icons-right .icon-image3{
-    display: none;
-  }
-
-  .navbar-icons-right .dark-mode-toggle button {
-    outline: none !important;
-    box-shadow: none !important;
-    border: none !important;
-  }
-
-  .navbar-links1 button {
-    font-size: 12px; /* Ajusta el tamaño de la fuente */
-    margin: 0 5px; /* Reduce el margen entre botones */
-    padding: 5px 8px; /* Menos padding */
-  }
-
-  .header-left .navbar-toggle {
-    display: block; /* Mostrar el botón hamburguesa */
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    right: 0;
+    background-color: white;
+    border-radius: 5px;
+    margin-right: 60px;
+    padding: 5px 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 200px;
+}
+  .navbar1 {
+    padding: 20px 10px; /* Reducción de padding en pantallas medianas */
   }
 
   .navbar-links1 {
-    display: none; /* Ocultar los enlaces en móviles */
-    flex-direction: column;
-    background-color: #4B67AE;
+    margin-left: 0px; /* Reduce el margen izquierdo en pantallas medianas */
+  }
+
+  .dropdown-menu1 {
+    font-family: "Roboto", sans-serif;
     position: absolute;
-    top: 60px;
-    left: 0;
-    width: 37%;
-    z-index: 999;
-    align-items: flex-start;
-    flex-wrap: wrap; /* Permite que los elementos se ajusten en una nueva línea si es necesario */
-    justify-content: space-around; /* Distribuye equitativamente los botones */
-    margin-left: 40px; /* Elimina el margen en pantallas pequeñas */
-    border: 2px solid lightcyan;
-    border-radius: 5px;
-  }
-
-  .navbar-links1.active {
-    display: flex; /* Mostrar el menú cuando está activo */
-  }
-
-  .navbar1 {
-    justify-content: space-between;
-  }
-
-  .navbar-auth {
-    display: none; /* Opcional: ocultar la parte de autenticación en móviles */
-  }
-
-  /* Ajuste del Menú Desplegable en Pantallas Pequeñas */
-  .dropdown-menu {
-    width: 50vw;
-    left: 100%;
-    right: 0;
-  }
-
-
-  .dropdown-submenu {
-    position: relative;
-    left: 0;
-    top: 0;
-    width: 100%;
-    background-color: #4B67AE;
-    padding-left: 15px;
-  }
-
-  .dropdown-menu li {
-    font-size: 1.0rem;
-    text-align: left;
-    width: 100%;
-    padding: 3px;
-    margin: 1px;
-  }
-
-  .dropdown-menu li ul {
-    font-size: 1.0rem;
-    text-align: left;
-    width: 100%;
-    padding: 3px;
-    margin: 1px;
+    top: 90%;
+    left: -224px;
+    right: 60px;
     background-color: white;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    display: block;
   }
 
-  .dropdown-menu li ul {
-    border: 1px solid black;
+  .navbar-links1 button {
+    font-size: 14px; /* Disminuye el tamaño de la fuente */
+    padding: 10px; /* Menos padding */
+    margin: 0 5px; /* Reduce el margen entre botones */
   }
-
-
-  .header-left .header-icon{
-    margin: auto;
-  }
-
-  .header-left{
-    margin-left: 0;
-  }
-
-  .navbar-toggle {
-    font-size: 24px; /* Tamaño del ícono */
-    color: white; /* Color del ícono de hamburguesa */
-    background: transparent; /* Fondo transparente */
-    border: none; /* Sin borde */
-    cursor: pointer; /* Cambia el cursor al de un enlace */
-    margin-left: -10px;
-  }
-
-  .navbar-icons-right .navbar-auth{
-    margin-left: 0;
-  }
-}
-
-/* Ocultar iconos individuales en pantallas de 480px o menos */
-@media (max-width: 480px) {
   .navbar-icons-right .icons-container {
     display: none; /* Oculta el contenedor de iconos por defecto en pantallas pequeñas */
   }
-
+  
   /* Mostrar el botón caret-down en pantallas pequeñas */
   .navbar-toggle-icons {
     display: block;
@@ -593,15 +460,34 @@ a {
     cursor: pointer;
   }
 
-  .dropdown-menu1 {
-    left: -238px;
-    right: 36px;
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: -10px;
+    right: -20px;
+    background-color: white;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    display: block;
   }
-
-  /* Estilo para la barra de búsqueda desplegable dentro de navbar-icons-right */
-.navbar-icons-right .search-bar {
-  margin-right: 36px;
-}
+  
+  .dropdown-menu li {
+    padding: 10px 20px;
+  }
+  
+  .dropdown-menu li a {
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+  }
+  
+  .dropdown-menu > li {
+    padding: 10px;
+    cursor: pointer;
+    position: relative; /* Añadido para que el submenú sea relativo a su padre */
+  }
 
   .language-label1 {
     display: none;
@@ -621,7 +507,7 @@ a {
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 50px;
+    top: 90px;
     right: -10;
     background-color: #4B67AE;
     padding: 10px;
@@ -654,191 +540,626 @@ a {
   .navbar-icons-right .navbar-search {
     position: relative;
     margin-top: 10px;
-    margin-left: 7px;
+    margin-left: 28px;
+  }
+
+  .navbar-icons-right .navbar-auth{
+    margin: 5px 0px; 
   }
 }
 
-/* Modo Oscuro */
-body.dark-mode {
-  background-color: #555;
-  color: #e0e0e0;
+@media (max-width: 840px) {
+  .navbar-icons-right .icons-container.show {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    right: -10;
+    background-color: #4B67AE;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border: 2px solid lightcyan;
+}
+  .navbar1 {
+    padding: 10px 10px; /* Reducción de padding en pantallas medianas */
+  }
+
+  .navbar-links1 {
+    margin-left: 0px; /* Reduce el margen izquierdo en pantallas medianas */
+  }
+
+  .navbar-links1 button {
+    font-size: 14px; /* Disminuye el tamaño de la fuente */
+    padding: 10px; /* Menos padding */
+    margin: 0 5px; /* Reduce el margen entre botones */
+  }
 }
 
-body.dark-mode .navbar1 {
-  background-color: #333;
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  .dropdown-menu {
+    position: absolute;
+    top: 10%;
+    left: 30px;
+    right: -40px;
+    background-color: white;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    display: block;
+  }
+  
+  .dropdown-menu li {
+    padding: 10px 20px;
+  }
+  
+  .dropdown-menu li a {
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+  }
+  
+  .dropdown-menu > li {
+    padding: 10px;
+    cursor: pointer;
+    position: relative; /* Añadido para que el submenú sea relativo a su padre */
+  }
+.navbar1 {
+  padding: 10px 10px;
 }
 
-body.dark-mode .btn-blue {
-  background-color: #555;
-}
 
-body.dark-mode .carousel-card1 {
-  background-color: #2c2c2c;
-}
-
-body.dark-mode .hero2::before {
-  background: rgba(0, 0, 0, 0.459); /* Capa negra semitransparente */
-}
-
-body.dark-mode .hero2 button {
-  background-color: #525563; /* Color de fondo del botón */
-  color: white;
-}
-
-body.dark-mode .hero2 button:hover {
-  background-color: #3b3d45; /* Color de fondo del botón */
-}
-
-body.dark-mode .carousel-subheader1 h2 {
-  color: #ffffff;
-}
-
-body.dark-mode .carousel-subheader1 a {
-  color: #ffffff;
-}
-
-body.dark-mode .carousel-card1 p {
-  color: #ffffff;
-}
-
-body.dark-mode .carousel-header1 h5 {
-  color: #ffffff; /* Color gris */
-  margin: 0;
-  font-size: 1rem;
-}
-
-/* Fondo oscuro para la sección community en modo oscuro */
-body.dark-mode .community-section1::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.411); /* Capa oscura semitransparente */
-  z-index: 1; /* Capa por encima del fondo pero debajo del contenido */
-}
-
-/* Asegura que el contenido de community-section1 esté por encima de la capa oscura */
-body.dark-mode .community-content1 {
-  position: relative;
-  z-index: 2;
-}
-
-/* Sección de Lugares inolvidables */
-body.dark-mode .info-section1 {
-  background-color: #212020; /* Color gris claro temporal para el mapa */
-}
-
-body.dark-mode .info-content1 {
-  background-color: rgb(58, 58, 58);
-}
-
-body.dark-mode .info-content h5 {
-  color: #ffffff; /* Color gris para el subtítulo */
-}
-
-body.dark-mode .info-content h1 {
-  color: #ffffff;
-}
-
-body.dark-mode .info-content p {
-  color: #333;
-}
-
-body.dark-mode .btn-blue {
-  background-color: #5e5e5e;
-  color: white;
-}
-
-body.dark-mode .btn-blue:hover {
-  background-color: #333333;
-}
-
-/* Sección de redes sociales */
-body.dark-mode .social-section1 {
-  background-color: #444444; /* Color claro de fondo */
-}
-
-body.dark-mode .social-content1 {
-  color: #ffffff; /* Aplica el azul usado previamente a todo el texto */
-}
-
-body.dark-mode .social-icons1 {
-  color: #ffffff; /* Color de los iconos en azul */
-}
-
-body.dark-mode .divider {
-  background-color: #ffffff;
-}
-
-/* Sección de ayuda */
-body.dark-mode .help-item p {
-  color: #ffffff;
-}
-
-body.dark-mode .social-icons2 {
-  font-size: 2rem;
-  color: #ffffff; /* Azul oscuro */
-  transition: color 0.3s ease; /* Añade una transición suave al color */
+/* Alinea los íconos de búsqueda, modo oscuro, y cerrar sesión a la derecha */
+.navbar-icons-right
+.navbar-auth,
+.navbar-search,
+.dark-mode-toggle,
+.btn-blue2 {
   display: flex;
-  justify-content: flex-start; /* Alinea los iconos a la izquierda */
-  gap: 20px;
+  margin-right: auto;
+  align-items: center;
+  
 }
 
-body.dark-mode .social-icons2 i {
-  color: #ffffff; /* Color ligeramente más oscuro al hacer hover */
+
+/* Estilos específicos para los botones de búsqueda, modo oscuro, y logout */
+.navbar-icons-right
+.language-label1,
+.navbar-search button,
+.dark-mode-toggle button,
+.navbar-auth button {
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-body.dark-mode .social-icons2 i:hover {
-  color: #ffffff; /* Color ligeramente más oscuro al hacer hover */
+/* Ajuste opcional para asegurar que cada ícono esté alineado correctamente */
+.navbar-icons-right
+.navbar-search i,
+.icon-image7,
+.icon-image2, /* Modo oscuro icono */
+.icon-image3, /* Sol o luna icono */
+.icon-image4, /* Logout icono */
+.icon-image6,
+.icon-image5 { /* Login icono */
+  margin-left: auto; /* Espacio mínimo entre los iconos */
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
 }
 
-body.dark-mode .dropdown-menu {
+.navbar-icons-right .icon-image3{
+  display: none;
+}
+
+.navbar-icons-right .dark-mode-toggle button {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.navbar-links1 button {
+  font-size: 12px; /* Ajusta el tamaño de la fuente */
+  margin: 0 5px; /* Reduce el margen entre botones */
+  padding: 5px 8px; /* Menos padding */
+}
+
+.header-left .navbar-toggle {
+  display: block; /* Mostrar el botón hamburguesa */
+}
+
+.navbar-icons-right .navbar-search {
   position: relative;
-  display: block;
-  list-style-type: none;
-  right: -30%;
+  margin-top: -100px;
+  margin-left: 7px;
 }
 
-body.dark-mode .dropdown-menu {
+/* Estilo para la barra de búsqueda desplegable dentro de navbar-icons-right */
+.navbar-icons-right .search-bar {
+  display: flex;
+  align-items: center;
+  position: absolute; /* Hace que la barra de búsqueda sea flotante */
+  transform: translateY(70%); /* Ajuste para centrar verticalmente */
+  right: 0; /* Alinea la barra de búsqueda hacia la derecha */
+  background-color: white; /* Fondo blanco para la barra de búsqueda */
+  border-radius: 5px;
+  margin-right: 40px;
+  padding: 5px 5px; /* Padding adicional para mayor separación */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  width: 220px; /* Ancho de la barra de búsqueda, ajusta según sea necesario */
+}
+
+/* Estilo para el campo de entrada de la barra de búsqueda */
+.navbar-icons-right .search-bar input {
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  width: 175px;
+  outline: none;
+}
+.dropdown-menu1 {
+  font-family: "Roboto", sans-serif;
   position: absolute;
   top: 100%;
-  left: 0;
-  background-color: rgb(0, 0, 0);
+  left: -232px;
+  right: 42px;
+  background-color: white;
   list-style: none;
   padding: 10px 0;
   margin: 0;
   display: block;
 }
 
-body.dark-mode .dropdown-menu li a {
-  color: rgb(255, 255, 255);
+.navbar-icons-right .navbar-search button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #4B67AE; /* Color del ícono de enviar */
+  cursor: pointer;
+  margin-left: 3px;
+  margin-right: -14px;
+  margin-top: 100px;
 }
 
-body.dark-mode .dropdown-menu li {
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-  font-size: 16px;
+/* Estilo para el botón de enviar dentro de la barra de búsqueda */
+.navbar-icons-right .search-bar button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #4B67AE; /* Color del ícono de enviar */
+  cursor: pointer;
+  margin-top: 0px;
+}
+
+.navbar-icons-right .search-bar button i {
+  font-size: 20px;
+  color: #333;
+  margin-right: 10px; /* Espacio entre el ícono y el borde */
+}
+
+.navbar-links1 {
+  display: none; /* Ocultar los enlaces en móviles */
+  flex-direction: column;
+  background-color: #4B67AE;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: auto;
+  z-index: 999;
+  align-items: flex-start;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten en una nueva línea si es necesario */
+  justify-content: space-around; /* Distribuye equitativamente los botones */
+  margin-left: 40px; /* Elimina el margen en pantallas pequeñas */
+  border: 2px solid lightcyan;
+  border-radius: 5px;
+}
+
+.navbar-links1.active {
+  display: flex; /* Mostrar el menú cuando está activo */
+}
+
+.navbar1 {
+  justify-content: space-between;
+}
+
+.navbar-auth {
+  display: none; /* Opcional: ocultar la parte de autenticación en móviles */
+}
+
+/* Ajuste del Menú Desplegable en Pantallas Pequeñas */
+.dropdown-menu {
+  width: 50vw;
+  left: 100%;
+  right: 0;
+}
+
+
+.dropdown-submenu {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: #4B67AE;
+  padding-left: 15px;
+}
+
+.dropdown-menu li {
+  font-size: 1.0rem;
+  text-align: left;
+  width: 100%;
+  padding: 3px;
+  margin: 1px;
+}
+
+.dropdown-menu li ul {
+  font-size: 1.0rem;
+  text-align: left;
+  width: 100%;
+  padding: 3px;
+  margin: 1px;
+  background-color: white;
+}
+
+.dropdown-menu li ul {
+  border: 1px solid black;
+}
+
+
+.header-left .header-icon{
+  margin: auto;
+}
+
+.header-left{
+  margin-left: 0;
+}
+
+.navbar-toggle {
+  font-size: 24px; /* Tamaño del ícono */
+  color: white; /* Color del ícono de hamburguesa */
+  background: transparent; /* Fondo transparente */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Cambia el cursor al de un enlace */
+  margin-left: -10px;
+}
+.navbar-icons-right .navbar-auth{
+  margin-left: 0;
+}
+}
+
+/* Ocultar iconos individuales en pantallas de 480px o menos */
+@media (max-width: 480px) {
+.navbar-icons-right .icons-container {
+  display: none; /* Oculta el contenedor de iconos por defecto en pantallas pequeñas */
+}
+
+/* Mostrar el botón caret-down en pantallas pequeñas */
+.navbar-toggle-icons {
+  display: block;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Estilo para la barra de búsqueda desplegable dentro de navbar-icons-right */
+.navbar-icons-right .search-bar {
+  display: flex;
+  align-items: center;
+  position: absolute; /* Hace que la barra de búsqueda sea flotante */
+  transform: translateY(-50%); /* Ajuste para centrar verticalmente */
+  right: 0; /* Alinea la barra de búsqueda hacia la derecha */
+  background-color: white; /* Fondo blanco para la barra de búsqueda */
+  border-radius: 5px;
+  margin-right: 40px;
+  padding: 5px 5px; /* Padding adicional para mayor separación */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  width: 220px; /* Ancho de la barra de búsqueda, ajusta según sea necesario */
+}
+
+/* Estilo para el campo de entrada de la barra de búsqueda */
+.navbar-icons-right .search-bar input {
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  width: 175px;
+  outline: none;
+}
+.dropdown-menu1 {
+  font-family: "Roboto", sans-serif;
+  position: absolute;
+  top: 90%;
+  left: -228px;
+  right: 42px;
+  background-color: white;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
   display: block;
 }
 
+.navbar-icons-right .navbar-search button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #4B67AE; /* Color del ícono de enviar */
+  cursor: pointer;
+  margin-right: -14px;
+  margin-top: 100px;
+}
+
+/* Estilo para el botón de enviar dentro de la barra de búsqueda */
+.navbar-icons-right .search-bar button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #4B67AE; /* Color del ícono de enviar */
+  cursor: pointer;
+  margin-top: 0px;
+}
+
+.navbar-icons-right .search-bar button i {
+  font-size: 20px;
+  color: #333;
+  margin-right: 10px; /* Espacio entre el ícono y el borde */
+}
+
+.language-label1 {
+  display: none;
+}
+
+.language-label{
+  display: none;
+}
+
+.navbar-icons-right {
+  display: flex;
+  justify-content: flex-end; /* Alineación a la derecha en móviles también */
+}
+
+/* Mostrar el contenedor de iconos en columna cuando el menú desplegable está activo */
+.navbar-icons-right .icons-container.show {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50px;
+  right: -10;
+  background-color: #4B67AE;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border: 2px solid lightcyan;
+}
+
+.dropdown-menu1 li {
+  font-family: "Roboto", sans-serif;
+  padding: 5px 20px;
+}
+
+.navbar-icons-right .navbar-search button {
+  background-color: transparent;
+  border: none;
+  margin-top: -2px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+/* Espaciado entre iconos en el menú desplegable */
+.navbar-icons-right .icons-container .btn-blue2 {
+  display: flex;
+  align-items: center;
+  padding: 4px 10px;
+  color: white;
+  margin-left: 8px;
+}
+
+.navbar-icons-right .icons-container .dark-mode-toggle{
+  display: none;
+}
+
+.navbar-icons-right .navbar-search {
+  position: relative;
+  margin-top: 10px;
+  margin-left: 7px;
+}
+}
+
+
+/* Modo Oscuro */
+body.dark-mode {
+background-color: #555;
+color: #e0e0e0;
+}
+
+body.dark-mode .navbar1 {
+background-color: #333;
+}
+
+body.dark-mode .btn-blue {
+background-color: #555;
+}
+
+body.dark-mode .carousel-card1 {
+background-color: #2c2c2c;
+}
+
+body.dark-mode .hero2::before {
+background: rgba(0, 0, 0, 0.459); /* Capa negra semitransparente */
+}
+
+body.dark-mode .hero2 button {
+background-color: #525563; /* Color de fondo del botón */
+color: white;
+}
+
+body.dark-mode .hero2 button:hover {
+background-color: #3b3d45; /* Color de fondo del botón */
+}
+
+body.dark-mode .carousel-subheader1 h2 {
+color: #ffffff;
+}
+
+body.dark-mode .carousel-subheader1 a {
+color: #ffffff;
+}
+
+body.dark-mode .carousel-card1 p {
+color: #ffffff;
+}
+
+body.dark-mode .carousel-header1 h5 {
+color: #ffffff; /* Color gris */
+margin: 0;
+font-size: 1rem;
+}
+
+/* Fondo oscuro para la sección community en modo oscuro */
+body.dark-mode .community-section1::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.411); /* Capa oscura semitransparente */
+z-index: 1; /* Capa por encima del fondo pero debajo del contenido */
+}
+
+/* Asegura que el contenido de community-section1 esté por encima de la capa oscura */
+body.dark-mode .community-content1 {
+position: relative;
+z-index: 2;
+}
+
+/* Sección de Lugares inolvidables */
+body.dark-mode .info-section1 {
+background-color: #212020; /* Color gris claro temporal para el mapa */
+}
+
+body.dark-mode .info-content1 {
+background-color: rgb(58, 58, 58);
+}
+
+
+body.dark-mode .info-content h5 {
+color: #ffffff; /* Color gris para el subtítulo */
+}
+
+
+body.dark-mode .info-content h1 {
+color: #ffffff;
+}
+
+
+body.dark-mode .info-content p {
+color: #333;
+}
+
+
+body.dark-mode .btn-blue {
+background-color: #5e5e5e;
+color: white;
+}
+
+
+body.dark-mode .btn-blue:hover {
+background-color: #333333;
+}
+
+/* Sección de redes sociales */
+body.dark-mode .social-section1 {
+background-color: #444444; /* Color claro de fondo */
+}
+
+body.dark-mode .social-content1 {
+color: #ffffff; /* Aplica el azul usado previamente a todo el texto */
+}
+
+body.dark-mode .social-icons1 {
+color: #ffffff; /* Color de los iconos en azul */
+}
+
+body.dark-mode .divider {
+background-color: #ffffff;
+}
+
+/* Sección de ayuda */
+body.dark-mode .help-item p {
+color: #ffffff;
+}
+
+body.dark-mode .social-icons2 {
+font-size: 2rem;
+color: #ffffff; /* Azul oscuro */
+transition: color 0.3s ease; /* Añade una transición suave al color */
+display: flex;
+justify-content: flex-start; /* Alinea los iconos a la izquierda */
+gap: 20px;
+}
+
+body.dark-mode .social-icons2 i {
+color: #ffffff; /* Color ligeramente más oscuro al hacer hover */
+}
+
+body.dark-mode .social-icons2 i:hover {
+color: #ffffff; /* Color ligeramente más oscuro al hacer hover */
+}
+
+body.dark-mode .dropdown-menu {
+position: relative;
+display: block;
+list-style-type: none;
+right: -30%;
+}
+
+body.dark-mode .dropdown-menu {
+position: absolute;
+top: 100%;
+left: 0;
+background-color: rgb(0, 0, 0);
+list-style: none;
+padding: 10px 0;
+margin: 0;
+display: block;
+}
+
+body.dark-mode .dropdown-menu li a {
+color: rgb(255, 255, 255);
+}
+
+body.dark-mode .dropdown-menu li {
+color: rgb(255, 255, 255);
+text-decoration: none;
+font-size: 16px;
+display: block;
+}
+
 body.dark-mode .dropdown-submenu li a {
-  color: rgb(255, 255, 255);
+color: rgb(255, 255, 255);
 }
 
 body.dark-mode .dropdown-submenu li {
-  color: rgb(255, 255, 255);
-  background-color: #000000;
+color: rgb(255, 255, 255);
+background-color: #000000;
 }
 
 
 /* Estilos adicionales */
 body.dark-mode .dropdown-menu > li:hover {
-  background-color: #5e5e5e; /* Cambia el color de fondo al pasar el mouse */
+background-color: #5e5e5e; /* Cambia el color de fondo al pasar el mouse */
 }
 
 /* Estilos adicionales */
 body.dark-mode .dropdown-submenu > li:hover {
-  background-color: #5e5e5e; /* Cambia el color de fondo al pasar el mouse */
+background-color: #5e5e5e; /* Cambia el color de fondo al pasar el mouse */
 }
+
+

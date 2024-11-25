@@ -91,7 +91,6 @@ const Colbun = () => {
         <section className="info-content">
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
-          <br></br>
           <p>{t('ColbunBeauty')}</p>
           <br></br>
           <div className="button-group">

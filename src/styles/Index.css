@@ -349,7 +349,6 @@
   font-family: "Roboto", sans-serif;
   margin-bottom: -1px; /* Ajusta el valor según sea necesario */
   margin-right: -1px;
-  display: inline-block;
   vertical-align: middle; /* Para alinearlo con la imagen */
   position: relative;
 }
@@ -358,7 +357,6 @@
   font-family: "Roboto", sans-serif;
   margin-bottom: -1px; /* Ajusta el valor según sea necesario */
   margin-right: 4px;
-  display: inline-block;
   vertical-align: middle; /* Para alinearlo con la imagen */
   position: relative;
 }
@@ -427,14 +425,14 @@
 }
 
 /* Estilos para pantallas medianas */
-@media (max-width: 1048px) {
+@media (max-width: 1200px) {
   .hero2 iframe {
     position: absolute;
     top: 0;
     margin-top: -20px;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 90vh;
     object-fit: cover;
     transform-origin: center center;
     transform: scale(1.8);
@@ -503,7 +501,7 @@
   }
 
   .community-content1 h1 {
-    font-size: 2.4rem;
+    font-size: 3.5rem;
     margin-bottom: 20px;
     font-weight: bold;
   }
@@ -511,6 +509,22 @@
   .community-content1 p {
     font-size: 1.0rem;
     margin-bottom: 30px;
+  }
+
+  .info-section1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: auto;
+    background-color: white; /* Color gris claro para el mapa */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .info-content {
+    display: none; /* Oculta el contenido adicional en móviles */
   }
 }
 
@@ -552,7 +566,7 @@
 
   .carousel-card1 img {
     width: 100%;
-    height: auto;
+    height: 320px;
   }
 
   .carousel-nav {
@@ -571,7 +585,7 @@
   .carousel-section1 {
     margin-bottom: 30px;
   }
-
+  
   .carousel-header1 {
     flex-direction: column;
     align-items: flex-start;
@@ -613,7 +627,7 @@
   }
 
   .community-content1 h1 {
-    font-size: 1.5rem; /* Reduce el tamaño de fuente */
+    font-size: 2.9rem; /* Reduce el tamaño de fuente */
     margin-bottom: 15px;
     line-height: 1.2; /* Mejora la legibilidad */
   }
@@ -631,6 +645,18 @@
     text-align: center;
     margin-top: 15px;
   }
+  /* Imagenes responsivas */
+iframe {
+  max-width: 95%;
+  margin-left: 10px;
+  height: auto;
+}
+
+/* Imagenes responsivas */
+img {
+  max-width: 100%;
+  height: auto;
+}
 }
 
 /* Ajustes adicionales para móviles muy pequeños */
@@ -650,7 +676,7 @@
   }
 
   .community-content h1 {
-    font-size: 1rem;
+    font-size: 2rem;
     margin-bottom: 0;
     font-weight: bold;
   }
@@ -681,7 +707,7 @@
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: #e0e0e0; /* Color gris claro para el mapa */
+    background-color: white; /* Color gris claro para el mapa */
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -705,26 +731,40 @@
     width: 200px; /* Ajusta el ancho según lo necesites */
     max-width: 300px; /* Define un ancho máximo para limitar el tamaño */
   }
+  
 
   .carousel-card1 img {
     width: 100%;
-    height: auto;
+    height: 320px;
   }
 
   .carousel-nav {
     display: none;
   }
-
+  
   .carousel-section1 {
     margin-bottom: 30px;
   }
-
+  
   .carousel-header1 {
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 20px;
     margin-left: -20px;
   }
+
+  /* Imagenes responsivas */
+iframe {
+  max-width: 95%;
+  margin-left: 10px;
+  height: auto;
+}
+
+/* Imagenes responsivas */
+img {
+  max-width: 100%;
+  height: auto;
+}
 }
 
 /* Flexbox ajustes */
