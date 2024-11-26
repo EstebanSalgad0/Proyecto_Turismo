@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Fondo oscuro cuando el modal está activo */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Sombra negra semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Contenido del modal */
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 15px; /* Bordes más redondeados */
+  text-align: center;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidad */
+  width: 90%; /* Ancho reducido para móviles */
+  max-width: 500px; /* Tamaño máximo para que no ocupe todo el ancho en pantallas grandes */
+  margin: 0 20px; /* Añade un poco de margen en móviles */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Animación de apertura suave */
+  opacity: 1; /* Asegura que sea completamente visible */
+  transform: scale(1); /* Asegura que el modal esté en su tamaño original */
+  font-family: 'Roboto', sans-serif;
+  background-color: rgba(255, 255, 255, 0.84); /* Fondo oscuro semitransparente */
+  backdrop-filter: blur(5px); /* Efecto de desenfoque */
+}
+
+/* Animación de apertura */
+.modal-content.enter-active {
+  opacity: 0;
+  transform: scale(0.8); /* Disminuye el tamaño inicialmente */
+}
+
+/* Animación de apertura */
+.text{
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif; /* Asegura que el texto también use Roboto */
+}
+
+
+/* Animación de cierre */
+.modal-content.leave-active {
+  opacity: 0;
+  transform: scale(1.2); /* Aumenta el tamaño mientras desaparece */
+}
+
+.modal-buttons {
+  margin-top: 20px;
+}
+
+.modal-button {
+  padding: 10px 30px;
+  margin: 0 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  font-family: 'Roboto', sans-serif; /* Asegura que el texto también use Roboto */
+}
+
+/* Botón de confirmación en verde */
+.modal-button.confirm {
+  background-color: #3352a7;
+  color: white;
+}
+
+.modal-button.confirm:hover {
+  background-color: #1c2043;
+}
+
+/* Botón de cancelar en rojo */
+.modal-button.cancel {
+  background-color: #3352a7;
+  color: white;
+}
+
+.modal-button.cancel:hover {
+  background-color: #1c2043;
+}
+
+/* Responsividad para dispositivos pequeños */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%; /* Aumenta un poco el ancho en móviles para mejor usabilidad */
+    max-width: none; /* Elimina el límite de ancho para que se ajuste mejor */
+  }
+}

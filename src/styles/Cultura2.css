@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* Aplica este estilo solo al contenedor principal de Index */
+.index-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.hero5, .hero25, .hero26, .hero27 {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  color: white;
+  padding: 40px 60px;
+  box-sizing: border-box;
+  flex-direction: column;
+  position: relative;
+}
+
+.hero5 {
+  background-image: url("../assets/img/1.png") !important;
+  margin-top: 20px;
+}
+
+.hero25 {
+  background-image: url("../assets/img/guardia.png") !important;
+}
+
+.hero26 {
+  background-image: url("../assets/img/2.png") !important;
+}
+
+.hero27 {
+  background-image: url("../assets/img/3.png") !important;
+}
+
+.hero-content5, .hero-content25, .hero-content26, .hero-content27 {
+  margin-top: 100px;
+  margin-left: 50px;
+  align-items: flex-start;
+}
+
+.hero5 h5, .hero25 h5, .hero26 h5, .hero27 h5 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.hero5 h1, .hero25 h1, .hero26 h1, .hero27 h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 3rem;
+  margin-bottom: 40px;
+}
+
+.hero5 h4, .hero25 h4, .hero26 h4, .hero27 h4 {
+  font-family: "Roboto", sans-serif;
+  margin-top: 150px;
+  width: 690px;
+  height: auto;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+/* Styling for the map section */
+.map-section {
+  flex: 1;
+  margin-right: 10px;
+  height: 650px;
+  position: relative; /* Necesario para el posicionamiento absoluto */
+}
+
+/* Optional adjustments for the map iframe */
+.map-section iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+/* Estilo para el contenedor del mapa */
+.generalMap {
+  height: 650px; /* Ajusta la altura según necesites */
+  position: relative;
+  z-index: 0;
+}
+
+/* Ajustes para pantallas móviles */
+@media (max-width: 768px) {
+  .hero5, .hero25, .hero26, .hero27 {
+    padding: 20px;
+    min-height: 65vh;
+    text-align: center;
+  }
+
+  .hero-content5, .hero-content25, .hero-content26, .hero-content27 {
+    margin-top: 60px;
+    margin-left: 0;
+    align-items: center;
+  }
+
+  .hero5 h1, .hero25 h1, .hero26 h1, .hero27 h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .hero5 h4, .hero25 h4, .hero26 h4, .hero27 h4 {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .map-section {
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .generalMap {
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+    height: 600px; /* Ajusta la altura para móviles */
+    border: 3px solid #4B67AE; /* Añade un borde azul alrededor del mapa */
+    border-radius: 10px; /* Opcional: redondea las esquinas */
+  }
+  
+  .map-section iframe {
+    width: 90vw;
+    height: 600px; /* Ajusta la altura para móviles */
+    border: 3px solid #4B67AE; /* Añade un borde azul alrededor del mapa */
+    border-radius: 10px; /* Opcional: redondea las esquinas */
+  }
+
+  .carousel-container1 {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 10px;
+  }
+
+  .carousel-container1 .carousel-card1 {
+    flex: 0 0 80%;
+    scroll-snap-align: center;
+    margin: 0 10px;
+    width: 200px;
+    max-width: 300px;
+  }
+}
+
+/* Ajustes para pantallas extra pequeñas */
+@media (max-width: 480px) {
+  .hero5 h1, .hero25 h1, .hero26 h1, .hero27 h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero5 h4, .hero25 h4, .hero26 h4, .hero27 h4 {
+    font-size: 0.8rem;
+    margin-top: 10px;
+  }
+}
+
+/* Modo Oscuro */
+body.dark-mode {
+  background-color: #555;
+  color: #e0e0e0;
+}
+
+body.dark-mode .navbar {
+  background-color: #333;
+}
+
+body.dark-mode .btn-blue {
+  background-color: #555;
+}
+
+body.dark-mode .carousel-card1 {
+  background-color: #2c2c2c;
+}
+
+body.dark-mode .hero5, 
+body.dark-mode .hero25, 
+body.dark-mode .hero26, 
+body.dark-mode .hero27 {
+  background-color: rgba(0, 0, 0, 0.35); /* Fondo oscuro semi-transparente */
+  color: white;
+}
+
+body.dark-mode .carousel-subheader1 h2, 
+body.dark-mode .carousel-subheader1 a, 
+body.dark-mode .carousel-card1 p, 
+body.dark-mode .carousel-header1 h5 {
+  color: #ffffff;
+}
+
+body.dark-mode .info-section {
+  background-color: #212020;
+}
+
+body.dark-mode .info-content {
+  background-color: rgb(58, 58, 58);
+}
+
+body.dark-mode .info-content h5, 
+body.dark-mode .info-content h1, 
+body.dark-mode .info-content p {
+  color: #ffffff;
+}
+
+body.dark-mode .btn-blue {
+  background-color: #5e5e5e;
+  color: white;
+}
+
+body.dark-mode .btn-blue:hover {
+  background-color: #333333;
+}
+
+body.dark-mode .social-section {
+  background-color: #444444;
+}
+
+body.dark-mode .social-content,
+body.dark-mode .social-icons,
+body.dark-mode .divider {
+  color: #ffffff;
+}
+
+body.dark-mode .help-item p {
+  color: #ffffff;
+}
+
+/* Fondo oscuro para la sección community */
+body.dark-mode .community-section3 {
+  background-color: rgba(0, 0, 0, 0.411);
+}
+
+body.dark-mode .community-content3 {
+  position: relative;
+  z-index: 2;
+}

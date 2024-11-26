@@ -1,0 +1,781 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* Aplica este estilo solo al contenedor principal de Index */
+.index-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.button-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+}
+
+.hero2 {
+  position: relative;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: flex-start; /* Alinea los elementos a la izquierda */
+  align-items: center; /* Centra verticalmente */
+  text-align: left; /* Alinea el texto a la izquierda */
+  color: white;
+  padding: 40px 60px; /* Ajusta el padding para que no quede pegado a los bordes */
+  box-sizing: border-box;
+  flex-direction: column; /* Coloca los elementos en columna */
+  margin-top: 74px;
+  overflow: hidden; /* Asegura que el iframe no sobresalga */
+}
+
+.hero2 iframe {
+  position: absolute;
+  top: 0;
+  margin-top: -50px;
+  left: 0;
+  width: 100%;
+  height: 122%;
+  object-fit: cover;
+  transform-origin: center center;
+  transform: scale(1.5); /* Hace zoom del 150% en el iframe */
+  height: 100%; /* Opción adicional para extender el alto del iframe */
+  border: none;
+  z-index: -2; /* Coloca el iframe detrás del contenido */
+}
+
+.hero2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25); /* Capa negra semitransparente */
+  z-index: -1; /* Capa negra detrás del contenido pero sobre el video */
+}
+
+.hero-content2 {
+  position: relative; /* Mantén el contenido por encima del iframe y la capa negra */
+  margin-top: 100px;
+  margin-right: 750px;
+  align-items: start;
+}
+
+.hero2 h1 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 3rem; /* Ajusta el tamaño del texto principal */
+  font-weight: bold;
+  margin-bottom: 10px; /* Espaciado entre las líneas de texto */
+}
+
+.hero2 h2 {
+  font-size: 2rem;
+  margin-bottom: 40px; /* Espaciado entre el subtítulo y el botón */
+}
+
+.hero2 button {
+  font-family: "Roboto", sans-serif;
+  background-color: #3f51b5; /* Color de fondo del botón */
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  align-self: flex-start; /* Alinea el botón a la izquierda */
+}
+
+.hero2 button:hover {
+  background-color: #2c387e; /* Cambia el color cuando se pasa el mouse */
+}
+
+/* Estilos del Hero: ya incluidos arriba */
+
+/* Carousel Section */
+.carousel-section1 {
+  margin: 50px 0;
+  padding: 0 60px;
+  width: 100vw;
+}
+
+/* Ajustes de la cabecera del carrusel */
+.carousel-header1 {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column; /* Alinea los elementos verticalmente */
+  align-items: flex-start; /* Alinea a la izquierda */
+  margin-bottom: 20px;
+}
+
+.carousel-header1 h5 {
+  font-family: "Roboto", sans-serif;
+  color: #6c757d; /* Color gris */
+  margin: 0;
+  font-size: 1rem;
+}
+
+.carousel-subheader1 {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Asegura que "Ver más" quede alineado a la derecha */
+  margin-top: 10px;
+}
+
+.carousel-subheader1 h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 2rem;
+  color: #4B67AE;
+  font-weight: bold;
+  margin: 0;
+}
+
+.carousel-subheader1 a {
+  font-family: "Roboto", sans-serif;
+  color: #4B67AE;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-subheader1 a span {
+  font-family: "Roboto", sans-serif;
+  margin-left: 5px;
+}
+
+.carousel-container1 {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  gap: 20px; /* Espacio entre las tarjetas */
+  padding-bottom: 10px;
+}
+
+.carousel-card1 {
+  font-family: "Roboto", sans-serif;
+  flex: 1;
+  min-width: 250px; /* Tamaño mínimo de las tarjetas */
+  height: 380px; /* Altura de las tarjetas */
+  background-color: #e0e0e0; /* Color gris para las imágenes de ejemplo */
+  border-radius: 10px;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-image1 {
+  width: 100%;
+  height: 300px; /* Altura de la imagen dentro de la tarjeta */
+  background-color: #d3d3d3; /* Placeholder para la imagen */
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.carousel-card1 p {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1rem;
+  color: #000;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Flechas de control del carrusel */
+.carousel-control1 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2; /* Asegura que esté encima del contenido */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-control1.prev {
+  left: 10px;
+}
+
+.carousel-control1.next {
+  right: 10px;
+}
+
+.carousel-control:hover {
+  background-color: #4B67AE;
+}
+
+/* Ajustes de las imágenes */
+.carousel-container1 {
+  display: flex;
+  gap: 20px;
+  overflow: hidden; /* Ocultar los elementos fuera del contenedor visible */
+  position: relative;
+}
+
+.carousel-card1 {
+  flex: 0 0 300px; /* Ajusta el ancho de las tarjetas */
+  transition: transform 0.5s ease;
+}
+
+.carousel-section1 {
+  position: relative; /* Necesario para que las flechas estén bien posicionadas */
+}
+
+/* Sección de Comunidad */
+.community-section1 {
+  background-image: url('../assets/img/image2.png'); /* Ruta de la imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: auto; /* Deja que crezca según el contenido */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  color: white;
+  position: relative;
+  min-height: 100vh; /* Esto asegura que la sección ocupe al menos la altura de la ventana si el contenido es corto */
+}
+
+.community-content1 {
+  max-width: 1000px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.community-content1 h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 4rem; /* Aumenta el tamaño del texto del título */
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.community-content1 p {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.btn-blue {
+  font-family: "Roboto", sans-serif;
+  background-color: #4B67AE;
+  margin-right: 1rem;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold; /* Hace el texto del botón en negritas */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-blue:hover {
+  background-color: #3f51b5;
+}
+
+.bi-play,
+.bi-pause {
+  font-size: 1.6rem;
+}
+
+.play-button {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+}
+
+.info-section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.btn-blue2 {
+  background-color: transparent;
+  border: none;
+  font-size: 26px; /* Tamaño del ícono */
+  cursor: pointer;
+  padding: 0px;
+}
+
+.btn-blue2 i {
+  color: #007bff; /* Color del ícono */
+}
+
+.btn-blue2:hover i {
+  color: #0056b3; /* Cambio de color al hacer hover */
+}
+
+/* Styling for the map section */
+.map-section {
+  flex: 1;
+  margin-right: 10px;
+  height: 650px;
+}
+
+/* Existing content */
+.info-content1 {
+  font-family: "Roboto", sans-serif;
+  flex: 1;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+/* Optional adjustments for the map iframe */
+.map-section iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+.language-label {
+  font-family: "Roboto", sans-serif;
+  margin-bottom: -1px; /* Ajusta el valor según sea necesario */
+  margin-right: -1px;
+  vertical-align: middle; /* Para alinearlo con la imagen */
+  position: relative;
+}
+
+.language-label1 {
+  font-family: "Roboto", sans-serif;
+  margin-bottom: -1px; /* Ajusta el valor según sea necesario */
+  margin-right: 4px;
+  vertical-align: middle; /* Para alinearlo con la imagen */
+  position: relative;
+}
+
+/* Sección de Lugares inolvidables */
+.info-section1 {
+  font-family: "Roboto", sans-serif;
+  background-color: #e0e0e0; /* Color gris claro temporal para el mapa */
+  width: 100vw;
+  height: auto; /* Ajusta la altura automáticamente según el contenido */
+  display: flex;
+  justify-content: flex-end; /* Alinea el contenido a la derecha */
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  min-height: 100vh; /* Si quieres un mínimo de altura que ocupe toda la ventana */
+}
+
+.info-content1 {
+  font-family: "Roboto", sans-serif;
+  background-color: white;
+  max-width: 400px; /* Tamaño del cuadro blanco */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.info-content h5 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  color: #6c757d; /* Color gris para el subtítulo */
+  margin-bottom: 10px;
+}
+
+.info-content h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 2rem;
+  color: #4B67AE;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.info-content p {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.btn-blue {
+  font-family: "Roboto", sans-serif;
+  background-color: #4B67AE;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-blue:hover {
+  background-color: #3f51b5;
+}
+
+/* Estilos para pantallas medianas */
+@media (max-width: 1200px) {
+  .hero2 iframe {
+    position: absolute;
+    top: 0;
+    margin-top: -20px;
+    left: 0;
+    width: 100%;
+    height: 90vh;
+    object-fit: cover;
+    transform-origin: center center;
+    transform: scale(1.8);
+    border: none;
+    z-index: -2;
+  }
+
+  .hero2 {
+    position: relative;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    color: white;
+    padding: 40px 60px;
+    box-sizing: border-box;
+    flex-direction: column;
+    margin-top: 60px;
+    overflow: hidden;
+  }
+
+  .hero-content2 {
+    margin-right: 0;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero2 h1, .hero2 h2 {
+    text-align: center;
+  }
+
+  .hero2 button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  /* Sección de Comunidad */
+  .community-section1 {
+    background-image: url('../assets/img/image2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    color: white;
+    position: relative;
+  }
+
+  .community-content1 {
+    max-width: 1000px;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .community-content1 h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  .community-content1 p {
+    font-size: 1.0rem;
+    margin-bottom: 30px;
+  }
+
+  .info-section1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: auto;
+    background-color: white; /* Color gris claro para el mapa */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .info-content {
+    display: none; /* Oculta el contenido adicional en móviles */
+  }
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  .hero2 iframe {
+    position: absolute;
+    top: 0;
+    margin-top: -20px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform-origin: center center;
+    transform: scale(2.7);
+    border: none;
+    z-index: -2;
+  }
+
+  .hero2 {
+    margin-top: 50px;
+  }
+
+  .carousel-container1 {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 10px; /* Espacio entre las cards */
+  }
+  
+  .carousel-container1 .carousel-card1 {
+    flex: 0 0 80%; /* Ajusta esto para que ocupe el 80% del ancho del contenedor */
+    scroll-snap-align: center;
+    margin: 0 10px; /* Margen en los lados para crear espacio entre las cards */
+    width: 200px; /* Ajusta el ancho según lo necesites */
+    max-width: 300px; /* Define un ancho máximo para limitar el tamaño */
+  }
+  
+
+  .carousel-card1 img {
+    width: 100%;
+    height: 320px;
+  }
+
+  .carousel-nav {
+    display: none;
+  }
+
+  .help-options {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .help-item {
+    margin-bottom: 20px;
+  }
+
+  .carousel-section1 {
+    margin-bottom: 30px;
+  }
+  
+  .carousel-header1 {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    margin-left: -20px;
+  }
+
+  /* Ajustes para ocultar contenido adicional y mostrar solo el mapa en móviles */
+  .info-content {
+    display: none;
+  }
+
+  .map-section {
+    width: 100vw; /* Ocupa todo el ancho de la ventana */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .map-section iframe {
+    width: 100%; /* El iframe también ocupa todo el ancho */
+    height: 100%; /* El iframe ocupa toda la altura */
+    border: none;
+  }
+
+  .community-section1 {
+    padding: 10px;
+  }
+
+  .community-content1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .community-content1 h1 {
+    font-size: 2.9rem; /* Reduce el tamaño de fuente */
+    margin-bottom: 15px;
+    line-height: 1.2; /* Mejora la legibilidad */
+  }
+
+  .community-content1 p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    line-height: 1.5; /* Espaciado entre líneas */
+  }
+
+  .btn-blue {
+    font-size: 1rem;
+    padding: 10px 15px;
+    max-width: 90%; /* Limita el ancho del botón */
+    text-align: center;
+    margin-top: 15px;
+  }
+  /* Imagenes responsivas */
+iframe {
+  max-width: 95%;
+  margin-left: 10px;
+  height: auto;
+}
+
+/* Imagenes responsivas */
+img {
+  max-width: 100%;
+  height: auto;
+}
+}
+
+/* Ajustes adicionales para móviles muy pequeños */
+@media (max-width: 480px) {
+  .hero2 {
+    margin-top: 20px;
+    padding: 20px;
+    padding-top: 120px;
+  }
+
+  .hero2 h1 {
+    font-size: 2rem;
+  }
+
+  .hero2 h2 {
+    font-size: 1.5rem;
+  }
+
+  .community-content h1 {
+    font-size: 2rem;
+    margin-bottom: 0;
+    font-weight: bold;
+  }
+
+  .community-content p {
+    font-size: 1.0rem;
+    margin-bottom: 30px;
+  }
+
+  .hero2 iframe {
+    position: absolute;
+    top: 0;
+    margin-top: -200px;
+    left: 0;
+    width: 100%;
+    height: 150%;
+    object-fit: cover;
+    transform-origin: center center;
+    transform: scale(4);
+    border: none;
+    z-index: -2;
+  }
+
+  /* Sección de Lugares inolvidables */
+  .info-section1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: white; /* Color gris claro para el mapa */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .info-content1 {
+    display: none; /* Oculta el contenido adicional en móviles */
+  }
+
+  .carousel-container1 {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 10px; /* Espacio entre las cards */
+  }
+  
+  .carousel-container1 .carousel-card1 {
+    flex: 0 0 80%; /* Ajusta esto para que ocupe el 80% del ancho del contenedor */
+    scroll-snap-align: center;
+    margin: 0 10px; /* Margen en los lados para crear espacio entre las cards */
+    width: 200px; /* Ajusta el ancho según lo necesites */
+    max-width: 300px; /* Define un ancho máximo para limitar el tamaño */
+  }
+  
+
+  .carousel-card1 img {
+    width: 100%;
+    height: 320px;
+  }
+
+  .carousel-nav {
+    display: none;
+  }
+  
+  .carousel-section1 {
+    margin-bottom: 30px;
+  }
+  
+  .carousel-header1 {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    margin-left: -20px;
+  }
+
+  /* Imagenes responsivas */
+iframe {
+  max-width: 95%;
+  margin-left: 10px;
+  height: auto;
+}
+
+/* Imagenes responsivas */
+img {
+  max-width: 100%;
+  height: auto;
+}
+}
+
+/* Flexbox ajustes */
+.carousel-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Imagenes responsivas */
+img, iframe {
+  max-width: 100%;
+  height: auto;
+}
