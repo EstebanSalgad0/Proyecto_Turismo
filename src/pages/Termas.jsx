@@ -125,7 +125,7 @@ const Termas = () => {
         <div className="hero-content17">
           <h5>{t('Routes')}</h5>
           <h1>{t('Reservoir')}</h1>
-          <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</h4>
+          <h4>{t('EmbalseInfo')}</h4>
         </div>
       </div>
 
@@ -150,8 +150,7 @@ const Termas = () => {
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
           <br></br>
-          <p>{t('ColbunBeauty')}</p>
-          <br></br>
+          <p>{t('EmbalseRemember')}</p>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732110696921!6m8!1m7!1sCAoSLEFGMVFpcE9jM21vSlY0dlA4UDl5LVB3YjRfbElqZjhIOEhJMHpCSkZpZFJz!2m2!1d-35.71810350482917!2d-71.39611242119145!3f69.1276459279471!4f-17.004003712035995!5f0.7820865974627469", "_blank")}>
               {t('Discover')}

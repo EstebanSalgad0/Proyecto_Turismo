@@ -10,7 +10,7 @@
 }
 
 .hero10 {
-  background-image: url("../assets/img/Losbellotos.png") !important; /* Ruta de la imagen de fondo */
+  background-image: url("../assets/img/CAVERNAS_LOS_BELLOTOS.JPG") !important; /* Ruta de la imagen de fondo */
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat;
@@ -46,6 +46,51 @@
 }
 
 .hero10 h4 {
+  font-family: "Roboto", sans-serif;
+  margin-top: 150px;
+  width: 690px;
+  height: auto;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.hero1000 {
+  background-image: url("../assets/img/Parque.png") !important; /* Ruta de la imagen de fondo */
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  color: white;
+  padding: 40px 60px;
+  box-sizing: border-box;
+  flex-direction: column;
+  position: relative;
+}
+
+.hero-content1000 {
+  margin-top: 100px;
+  margin-left: 50px;
+  align-items: flex-start;
+}
+
+.hero1000 h5 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.hero1000 h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 3rem;
+  margin-bottom: 40px;
+}
+
+.hero1000 h4 {
   font-family: "Roboto", sans-serif;
   margin-top: 150px;
   width: 690px;

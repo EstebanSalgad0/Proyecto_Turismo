@@ -78,7 +78,7 @@ const Index = () => {
       ></iframe>
         <div className="hero-content2">
           <h1>{t('ColbunTitle')}</h1>
-          <h1>{t('SubtitleMessage')}</h1>
+          <h2>{t('SubtitleMessage')}</h2>
           <br></br>
           <br></br>
           <a href="https://www.youtube.com/watch?v=QCvh0Lwfmww" target="colbun" rel="municipalidad_Colbun">

@@ -55,6 +55,7 @@ const Header = () => {
     { name: "Colbún Alto", path: "/Colbun-alto" },
     { name: "Asociados", path: "/Asociados" },
     { name: "Balnearios", path: "/Balnearios" },
+    { name: "Lago Colbún", path: "/LagoColbun" },
     { name: "Petroglifos", path: "/Cultura2" },
     { name: "Iglesia de Panimavida", path: "/Cultura3" },
     { name: "Termas de Panimavida", path: "/Cultura4" },
@@ -211,6 +212,7 @@ const Header = () => {
                 <li><Link to="/Paso-pehuenche">Paso Pehuenche</Link></li>
                 <li><Link to="/Colbun">Colbún</Link></li>
                 <li><Link to="/Colbun-alto">Colbún Alto</Link></li>
+                <li><Link to="/LagoColbun">Lago Colbún</Link></li>
                 <li><Link to="/La-Guardia">La Guardia</Link></li>
                 <li><Link to="/Los-Boldos">Los Boldos</Link></li>
                 <li><Link to="/Panimavida">Panimávida</Link></li>
@@ -321,11 +323,6 @@ const Header = () => {
               <Link to="/Catastro">{t('bidder')}</Link>
             </li>
             )}
-            {(role === 'admin') && (
-            <li>
-              <Link to="/manejarSolicitudes">{t('ManageRequests')}</Link>
-           </li>
-           )}
             {(role === 'admin') && (
             <li>
               <Link to="/manejarServicios">{t('ManageServices')}</Link>

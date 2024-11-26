@@ -254,7 +254,7 @@ const Cultura4 = () => {
       <div className="hero27">
         <div className="hero-content27">
           <h5>{t('Culture')}</h5>
-          <h1>Molino de los Tilos</h1>
+          <h1>Molino Los Tilos</h1>
           <h4>{t('MolinoTilosInfo')}</h4>
         </div>
       </div>
