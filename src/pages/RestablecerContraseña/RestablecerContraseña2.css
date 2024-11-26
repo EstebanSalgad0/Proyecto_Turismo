@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    color: var(--Color-Primario, #4B67AE);
+    text-align: center;
+    font-family: Roboto, sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.div1 {
+    display: flex;
+    justify-content: center;
+}
+
+.parrafo1 {
+    width: 521px;
+    color: #000;
+    text-align: center;
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#mail {
+    color: #000;
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+}
+
+.parrafo2 {
+    color: #000;
+    text-align: center;
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#asistencia {
+    color: #000;
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+#btnRetry {
+    display: inline-flex;
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    border-radius: 24px;
+    background: var(--Color-Texto-encabezados, #757575);
+    color: var(--Color-Secundario, #FFF);
+    text-align: center;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-right: 55px;
+}
+
+#btnBack {
+    display: inline-flex;
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    border-radius: 24px;
+    background: var(--Color-Primario, #4B67AE);
+    color: var(--Color-Secundario, #FFF);
+    text-align: center;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}

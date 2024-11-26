@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    color: var(--Color-Primario, #4B67AE);
+    text-align: center;
+    font-family: Roboto, sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+p {
+    color: #000;
+    text-align: center;
+    /* Subtitulo blanco encabezados */
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#correo {
+    display: flex;
+    width: 441px;
+    height: 49px;
+    padding: 15px;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+    border-radius: 40px;
+    border: 1px solid #757575;
+    margin-bottom: 5px;
+}
+
+#button {
+    display: flex;
+    width: 441px;
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    border-radius: 24px;
+    background: #4B67AE;
+    color: #FFF;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#fields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
