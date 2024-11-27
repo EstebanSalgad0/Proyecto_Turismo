@@ -3,9 +3,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../styles/Rari.css?v=1.1';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
+import SocialSection from '../components/SocialSeccion';
 import '../components/i18n';
 import { useTranslation } from 'react-i18next';
-import useCarousel from '../components/useCarousel'; // Importa el hook personalizado
+import Carousel from '../components/carousel';
 import LeafletMap from '../components/LeafletMap';
 
 const Rari = () => { 
@@ -13,20 +15,9 @@ const Rari = () => {
   const [ lng, setLng ] = useState(null);
   const [ isFirstMap, setIsFirstMap ] = useState(true);
   const { t, i18n } = useTranslation();
-  const { currentSlide, nextSlide, prevSlide } = useCarousel(4); // Usa el hook personalizado
 
   const googleMapUrl =
     "https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d138584.6138673503!2d-71.53367680026096!3d-35.72347957336525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m5!1s0x966588e8188d3915%3A0x3653c2537dca7640!2zUmFyaSwgQ29sYsO6bg!3m2!1d-35.766779899999996!2d-71.4143879!5e0!3m2!1ses-419!2scl!4v1732040207084!5m2!1ses-419!2scl";
-
-  const slideNames = [
-    'VizcachazViewpoint',
-    'NationalPark',
-    'CavesBellotos',
-    'Reservoir',
-    'Test1',
-    'Test2',
-    'Test3'
-  ];
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem('language');
@@ -94,33 +85,9 @@ const Rari = () => {
           </div>
         </section>
       </div>    
-      <section className="carousel-section1">
-        <div className="carousel-header1">
-          <h5>{t('Admire')}</h5>
-          <div className="carousel-subheader1">
-            <h2>{t('NaturalBeauty')}</h2>
-            <a href="#">{t('ViewMore')}<span>&#8594;</span></a>
-          </div>
-        </div>
-
-        <div className="carousel-container1">
-          {slideNames.map((slideName, index) => (
-            <div
-              key={index}
-              className="carousel-card1"
-              style={{
-                transform: `translateX(-${currentSlide * (window.innerWidth <= 768 ? 113 : 130)}%)`
-              }}
-            >
-              <div className="carousel-image1"></div>
-              <p>{t(slideName)}</p>
-            </div>
-          ))}
-        </div>
-
-        <button className="carousel-control1 prev" onClick={prevSlide}>&#10094;</button>
-        <button className="carousel-control1 next" onClick={nextSlide}>&#10095;</button>
-      </section>
+      <Carousel/>
+      <SocialSection/>
+      <Footer/>
     </div>
   );
 };

@@ -69,11 +69,8 @@ strong {
   font-family: "gobCL", sans-serif;
   text-align: left;
   margin-top: 40px;
-  padding: 0 60px; /* Ajusta el padding para que coincida con otras secciones */
-  max-width: 1200px; /* Limita el ancho máximo como en otras secciones */
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 100px;
+  padding: 0 30px; /* Ajusta el padding para que coincida con otras secciones */
+  margin-bottom: 50px;
 }
 
 .help-section h2 {
@@ -93,9 +90,9 @@ strong {
 .help-item {
   font-family: "gobCL", sans-serif;
   display: flex;
+  justify-content: center;
   align-items: center; /* Alinea la imagen y el texto horizontalmente */
   gap: 15px; /* Espacio entre la imagen y el texto */
-  max-width: 300px; /* Ancho máximo para cada bloque */
 }
 
 /* Aquí se configuran las imágenes de fondo */
@@ -160,17 +157,30 @@ strong {
   background-color: #ccc;
   margin: 40px 0; /* Espaciado para que coincida con otras secciones */
 }
+
 /* Estilos para la sección social en pantallas pequeñas */
 @media (max-width: 768px) {
   .help-options{
-    width: 300px;
-    margin-left: 190px;
+    width: 100%;
     align-items: start;
+    flex-direction: column;
+  }
+
+  .help-options a{
+    margin-bottom: 20px;
+    justify-content: center;
+    width: 100%;
   }
 
   .help-item{
     align-items: center;
+    width: 100%;
   }
+
+  .help-item p{
+    width: 150px;;
+  }
+
   .social-section1 {
     width: 100vw;
     padding: 30px 10px; /* Menor padding en pantallas pequeñas */
@@ -211,9 +221,12 @@ strong {
 /* Estilos para la sección social en pantallas muy pequeñas (móviles) */
 @media (max-width: 480px) {
   .help-options{
-    width: 300px;
-    margin-left: 25px;
+    width: 100%;
     align-items: start;
+  }
+
+  .help-item {
+    margin-bottom: 20px;
   }
   .social-section1 {
     width: 100vw;

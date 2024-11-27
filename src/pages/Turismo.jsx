@@ -1,59 +1,50 @@
 import { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import '../styles/Turismo.css?v=1.5';
+import '../styles/Turismo.css'; // Asegúrate de tener este archivo para estilos específicos
 import Header from '../components/Header';
-import '../components/i18n'; // Importa el archivo de configuración
+import Footer from '../components/Footer';
+import SocialSection from '../components/SocialSeccion';
+import '../components/i18n';
 import { useTranslation } from 'react-i18next';
+import ContactSection from '../components/ContactSection'; // Importa el componente de contacto reutilizable
 
-const Zoit = () => {
-
-  const { t, i18n } = useTranslation(); // Hook para usar traducciones
+const Turismo = () => {
+  const { t, i18n } = useTranslation(); // Hook para manejar traducciones
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('language'); // Obtener el idioma guardado
+    const savedLanguage = localStorage.getItem('language'); // Obtener idioma guardado
     if (savedLanguage && savedLanguage !== i18n.language) {
-      i18n.changeLanguage(savedLanguage); // Cambiar el idioma si es necesario
+      i18n.changeLanguage(savedLanguage); // Cambiar idioma si es necesario
     }
-  }, [i18n]); // Añadir el estado del idioma como dependencia
+  }, [i18n]);
 
   return (
-    <div className="index-container">
+    <div className="turismo-container-TA">
       {/* Navbar */}
-      <Header/>
-      {/* Carousel Section */}
-      <section className="carousel-section">
-        <div className="carousel-header">
-            <br></br><br></br><br></br><br></br>
+      <Header />
+
+      {/* Sección de introducción */}
+      <section className="intro-section-TA">
+        <div className="intro-header-TA">
           <h5>{t('Turism')}</h5>
-          <div className="carousel-subheader">
+          <div className="intro-subheader-TA">
             <h1>{t('WhatToDo')}</h1>
           </div>
         </div>
-        <br></br>
-        <h5>{t('AdventureTime')}</h5>
-        <br></br><br></br><br></br>
-        <div className="carousel-subheader">
-          <h2>{t('Contact1')}</h2>
-        </div>
-        <br></br><br></br>
-        <div className="contact-section">
-          <div className="contact-item">
-            <h3>WhatsApp</h3>
-            <p>+569 9458 0453</p>
-          </div>
-          <div className="contact-item">
-            <h3>{t('WriteUs')}</h3>
-            <p>turismoatiende@sernatur.cl</p>
-          </div>
-          <div className="contact-item">
-            <h3>Call Center</h3>
-            <p>600 600 60 66</p>
-          </div>
+
+        <div className="intro-details-TA">
+          <h5>{t('AdventureTime')}</h5>
         </div>
       </section>
+
+      {/* Sección de contacto reutilizable */}
+      <ContactSection />
+      <SocialSection/>
+      <Footer />
     </div>
   );
 };
 
-export default Zoit;
+export default Turismo;
+

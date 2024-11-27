@@ -85,21 +85,6 @@
   padding: 20px;
 }
 
-/* Styling for the map section */
-.map-section {
-  flex: 1;
-  margin-right: 10px;
-  height: 650px;
-  position: relative; /* Necesario para el posicionamiento absoluto */
-}
-
-/* Optional adjustments for the map iframe */
-.map-section iframe {
-  border: none;
-  width: 100%;
-  height: 100%;
-}
-
 /* Estilo para el contenedor del mapa */
 #meladoMap {
   height: 650px; /* Ajusta la altura según necesites */

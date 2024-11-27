@@ -28,24 +28,24 @@ const SocialSeccion = () => {
 
         <hr className="divider" /> {/* Aquí está el divisor */}
 
-        <div className="help-section">
-          <h2>{t('Doubts')}<strong>{t('Help1')}</strong></h2>
-          <div className="help-options">
-          <a href="/Turismo" className="help-item">
-            <div className="help-image help-image-1"></div>
-          <p><strong>{t('Turism')}</strong><br />{t('Schedule')}</p>
-          </a>
-          <a href="/OIT" className="help-item">
-            <div className="help-image help-image-2"></div>
-          <p><strong>{t('Tourist')}</strong></p>
-          </a>
-          <a href="/Folleteria" className="help-item">
-            <div className="help-image help-image-3"></div>
-            <p><strong>{t('Brochures')}</strong></p>
-          </a>
+          <div className="help-section">
+            <h2>{t('Doubts')}<strong>{t('Help1')}</strong></h2>
+            <div className="help-options">
+              <a href="/Turismo" className="help-item">
+                <div className="help-image help-image-1"></div>
+                <p><strong>{t('Turism')}</strong><p>{t('Schedule')}</p></p>
+              </a>
+              <a href="/OIT" className="help-item">
+                <div className="help-image help-image-2"></div>
+                <p><strong>{t('Tourist')}</strong></p>
+              </a>
+              <a href="/Folleteria" className="help-item">
+                <div className="help-image help-image-3"></div>
+                <p><strong>{t('Brochures')}</strong></p>
+              </a>
+            </div>
         </div>
-        </div>
-        </section>
+    </section>
 
   );
 };

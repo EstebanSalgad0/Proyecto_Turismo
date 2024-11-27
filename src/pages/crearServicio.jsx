@@ -3,6 +3,8 @@ import axios from 'axios';
 import '../styles/crearServicio.css';
 import ConfirmModal from '../components/ModalDelete';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
+import SocialSection from '../components/SocialSeccion';
 
 const CrearServicio = () => {
     const [nombre, setNombre] = useState('');
@@ -851,7 +853,9 @@ const CrearServicio = () => {
                     onConfirm={handleConfirmAction} 
                     onCancel={() => setShowModal(false)} 
                 />
-            </div>    
+            </div> 
+            <SocialSection/>
+            <Footer/>   
         </div>
     );
 };

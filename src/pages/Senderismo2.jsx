@@ -3,9 +3,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../styles/Cultura2.css?v=1.6'; // Estilos específicos para el componente
 import Header from '../components/Header';
+import Footer from '../components/Footer';
+import SocialSection from '../components/SocialSeccion';
 import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
-import useCarousel from '../components/useCarousel'; // Hook personalizado para el carrusel
+import Carousel from '../components/carousel';
 import LeafletMap from '../components/LeafletMap';
 
 const Cultura4 = () => {
@@ -42,16 +44,6 @@ const Cultura4 = () => {
     "https://www.google.com/maps/embed?pb=!1m24!1m12!1m3!1d417455.5002037779!2d-71.78306458643056!3d-35.17230226970435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m9!3e6!4m3!3m2!1d-35.4182123!2d-71.6719209!4m3!3m2!1d-34.9285273!2d-71.3140949!5e0!3m2!1ses-419!2scl!4v1732586534439!5m2!1ses-419!2scl";
 
   const { t, i18n } = useTranslation();
-  const { currentSlide, nextSlide, prevSlide } = useCarousel(4); // Configurado para 7 slides
-  const slideNames = [
-    'VizcachazViewpoint',
-    'NationalPark',
-    'CavesBellotos',
-    'Reservoir',
-    'Test1',
-    'Test2',
-    'Test3'
-  ];
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem('language'); // Obtener el idioma guardado
@@ -293,36 +285,9 @@ const Cultura4 = () => {
         </section>
       </div>
 
-      {/* Carousel Section */}
-      <section className="carousel-section1">
-        <div className="carousel-header1">
-          <h5>{t('Admire')}</h5>
-          <div className="carousel-subheader1">
-            <h2>{t('NaturalBeauty')}</h2>
-            <a href="#">{t('ViewMore')}<span>&#8594;</span></a>
-          </div>
-        </div>
-
-        {/* Carrusel de imágenes */}
-        <div className="carousel-container1">
-          {slideNames.map((slideName, index) => (
-            <div
-              key={index}
-              className="carousel-card1"
-              style={{
-                transform: `translateX(-${currentSlide * (window.innerWidth <= 768 ? 113 : 130)}%)`
-              }}
-            >
-              <div className="carousel-image1"></div>
-              <p>{t(slideName)}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Flechas de control */}
-        <button className="carousel-control1 prev" onClick={prevSlide}>&#10094;</button>
-        <button className="carousel-control1 next" onClick={nextSlide}>&#10095;</button>
-      </section>
+      <Carousel/>
+      <SocialSection/>
+      <Footer/>
     </div>
   );
 };

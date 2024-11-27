@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles/mostrarServicios.css';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
+import SocialSection from '../components/SocialSeccion';
 
 const ListarServicios = () => {
     const [servicios, setServicios] = useState([]);
@@ -169,6 +171,8 @@ const transformTipoOferente = (tipoOferente) => {
                     )}
                 </div>
             </div>
+            <SocialSection/>
+            <Footer/>
         </div>
     );
 };

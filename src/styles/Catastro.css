@@ -1,87 +1,103 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-/* Aplica este estilo solo al contenedor principal de Index */
-.index-container {
+/* Contenedor principal */
+.cadastre-container-CZ {
+  width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
   flex-direction: column;
+  align-items: center;
+  gap: 40px; /* Espaciado entre las secciones */
+  background-color: #ffffff; /* Fondo blanco */
 }
 
-.hero {
-  background-image: url("../assets/img/image.png") !important; /* Aquí va la ruta de tu imagen */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100vw;
-  min-height: 100vh;
+/* Sección de introducción */
+.intro-section-CZ {
+  width: 100%;
+  max-width: 1200px; /* Limitar el ancho máximo */
+  text-align: left;
+  margin-top: 160px;
+  padding: 0 20px;
+}
+
+.intro-header-CZ h5 {
+   color: #757575;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.intro-subheader-CZ h1 {
+  color: #4b67ae;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.intro-details-CZ h5 {
+  font-size: 18px;
+  color: #333;
+  margin: 10px 0;
+}
+
+/* Sección de enlaces */
+.links-section-CZ {
+  text-align: center;
+  margin-top: 30px;
+  width: 100%;
+  padding: 0 8%;
+}
+
+.link-item-CZ {
+  margin-bottom: 20px;
   display: flex;
-  justify-content: flex-start; /* Alinea los elementos a la izquierda */
-  align-items: center; /* Centra verticalmente */
-  text-align: left; /* Alinea el texto a la izquierda */
-  color: white;
-  padding: 40px 60px; /* Ajusta el padding para que no quede pegado a los bordes */
-  box-sizing: border-box;
-  flex-direction: column; /* Coloca los elementos en columna */
-  margin-top: 74px;
-}
-
-h2 {
-  font-family: "Roboto", sans-serif;
-}
-
-.hero-content {
-  margin-top: 100px;
-  margin-right: 600px;
+  flex-direction: column;
   align-items: start;
 }
 
-.hero h1 {
-  font-size: 3rem; /* Ajusta el tamaño del texto principal */
+.link-item-CZ h2 {
+  font-size: 30px;
+  color: #4B67AE;
   font-weight: bold;
-  margin-bottom: 10px; /* Espaciado entre las líneas de texto */
+  margin-bottom: 5px;
 }
 
-.hero h2 {
-  font-size: 2rem;
-  margin-bottom: 40px; /* Espaciado entre el subtítulo y el botón */
+.link-item-CZ h2 a {
+  color: #4B67AE;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  margin-right: 10px;
 }
 
-.hero button {
-  background-color: #3f51b5; /* Color de fondo del botón */
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-  align-self: flex-start; /* Alinea el botón a la izquierda */
+.link-item-CZ h2 a:hover {
+  color: #2A4E90;
 }
 
-.hero button:hover {
-  background-color: #2c387e; /* Cambia el color cuando se pasa el mouse */
+.link-description-CZ {
+  font-size: 14px;
+  color: #8C8C8C;
+  margin-top: -10px;
 }
 
-/* Responsividad: Ajusta las columnas para pantallas más pequeñas */
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    align-items: flex-start;
+/* Responsividad */
+@media (max-width: 800px) {
+  .intro-section-CZ {
+    margin-top: 100px;
   }
 
-  .footer-column {
-    flex-basis: 100%; /* Cada columna ocupa todo el ancho en pantallas pequeñas */
+  .intro-header-CZ{
+    padding: 20px;
   }
 
-  .footer-logo {
-    flex-direction: row; /* Coloca los logos en fila en pantallas pequeñas */
-    justify-content: flex-start; /* Alinea los logos a la izquierda */
+  .intro-details-CZ{
+    padding: 20px;
+  }
+  
+  .intro-header-CZ h1 {
+    font-size: 28px;
   }
 
-  .logo {
-    width: 100px; /* Ajusta el tamaño de los logos en pantallas pequeñas */
-    height: auto;
+  .link-item-CZ h2 {
+    font-size: 20px;
+  }
+
+  .intro-details-CZ h5 {
+    font-size: 16px;
   }
 }

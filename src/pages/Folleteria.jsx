@@ -1,125 +1,81 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import '../styles/Folleteria.css?v=1.5';
+import '../styles/Folleteria.css'; // CSS específico para Folleteria
 import Header from '../components/Header';
-import '../components/i18n'; // Importa el archivo de configuración
+import Footer from '../components/Footer';
+import SocialSection from '../components/SocialSeccion';
+import '../components/i18n';
 import { useTranslation } from 'react-i18next';
+import LeafletMap from '../components/LeafletMap'; // Componente para mapas dinámicos
+import ContactSection from '../components/ContactSection'; // Sección de contacto reutilizable
 
-const Zoit = () => {
+const Folleteria = () => {
+  const { t, i18n } = useTranslation();
 
-  const { t, i18n } = useTranslation(); // Hook para usar traducciones
+  const [lat, setLat] = useState(null);
+  const [lng, setLng] = useState(null);
+
+  const googleMapUrl =
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093647!2d144.95565141531898!3d-37.81732797975151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf0727e84aa4eaa7a!2sFederation%20Square!5e0!3m2!1sen!2sau!4v1632999965765!5m2!1sen!2sau";
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('language'); // Obtener el idioma guardado
+    const savedLanguage = localStorage.getItem('language');
     if (savedLanguage && savedLanguage !== i18n.language) {
-      i18n.changeLanguage(savedLanguage); // Cambiar el idioma si es necesario
+      i18n.changeLanguage(savedLanguage);
     }
-  }, [i18n]); // Añadir el estado del idioma como dependencia
+
+    // Simulación de obtener coordenadas
+    fetch('http://localhost:8000/api/lugares/buscar/?nombre=mapa_folleteria')
+      .then((response) => response.json())
+      .then((data) => {
+        setLat(data.latitud || -35.699248); // Coordenadas de ejemplo
+        setLng(data.longitud || -71.4146915);
+      })
+      .catch((error) => console.error('Error fetching location data:', error));
+  }, [i18n]);
 
   return (
-    <div className="index-container">
+    <div className="folleteria-container">
       {/* Navbar */}
-      <Header/>
+      <Header />
 
-
-      {/* Carousel Section */}
-      <section className="carousel-section">
-        <div className="carousel-header">
-            <br></br><br></br><br></br><br></br>
+      {/* Sección de introducción */}
+      <section className="intro-section">
+        <div className="intro-header">
           <h5>{t('Turism')}</h5>
-          <div className="carousel-subheader">
+          <div className='intro-subheader'>
             <h1>{t('Brochures')}</h1>
           </div>
         </div>
-        <br></br><br></br>
-        <h5>{t('Tourist9')}</h5>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <div className="carousel-subheader">
-            <h2>{t('Contact1')}</h2>
-          </div>
-          <br></br><br></br>
-          <div className="contact-section">
-  <div className="contact-item">
-    <h3>WhatsApp</h3>
-    <p>+569 9458 0453</p>
-  </div>
-  <div className="contact-item">
-    <h3>{t('WriteUs')}</h3>
-    <p>turismoatiende@sernatur.cl</p>
-  </div>
-  <div className="contact-item">
-    <h3>Call Center</h3>
-    <p>600 600 60 66</p>
-  </div>
-</div>
+        <p className="intro-text">{t('Tourist9')}</p>
       </section>
+
+      {/* Sección del mapa */}
+      <section className="map-section-fo">
+        <div className="map-container">
+          <div className="map-item">
+            {lat && lng ? (
+              <LeafletMap latitud={lat} longitud={lng} mapId="MapaFolleteria" />
+            ) : (
+              <iframe
+                src={googleMapUrl}
+                width="100%"
+                height="400"
+                allowFullScreen
+                loading="lazy"
+              ></iframe>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Sección de contacto reutilizable */}
+      <ContactSection />
+      <SocialSection/>
+      <Footer/>
     </div>
   );
 };
 
-export default Zoit;
+export default Folleteria;

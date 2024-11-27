@@ -1,16 +1,68 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-/* Aplica este estilo solo al contenedor principal de Index */
-.index-container {
+/* Contenedor principal para Zoit */
+.zoit-container {
+  width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
   flex-direction: column;
+  align-items: center;
+  gap: 40px; /* Espaciado entre las secciones */
+  background-color: #ffffff; /* Fondo blanco */
 }
-h2 {
-  font-family: "Roboto", sans-serif;
+
+/* Sección de introducción */
+.zoit-intro-section {
+  width: 100%;
+  max-width: 1200px; /* Limitar el ancho máximo */
+  text-align: left;
+  margin-top: 160px;
+  padding: 0 20px;
 }
-h5 {
-  font-family: "Roboto", sans-serif;
+
+/* Encabezado de la sección */
+.zoit-intro-header h5 {
+  color: #757575;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.zoit-intro-subheader h2 {
+  color: #4b67ae;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* Detalles de la sección */
+.zoit-intro-details h5 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .zoit-intro-section {
+    margin-top: 100px;
+    padding: 0 20px;
+ }    
+  .zoit-intro-header h5 {
+    font-size: 16px;
+  }
+
+  .zoit-intro-subheader h2 {
+    font-size: 28px;
+  }
+
+  .zoit-intro-details h5 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .zoit-intro-subheader h2 {
+    font-size: 24px;
+  }
+
+  .zoit-intro-details h5 {
+    font-size: 14px;
+  }
 }

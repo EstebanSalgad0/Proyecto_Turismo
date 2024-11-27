@@ -3,35 +3,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../styles/Panoramas.css?v=1.7';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Carousel from '../components/carousel';
+import SocialSection from '../components/SocialSeccion';
 import '../components/i18n';
 import { useTranslation } from 'react-i18next';
 
 const Panoramas = () => {
   const { t, i18n } = useTranslation();
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const totalSlides = 4;
-
   useEffect(() => {
     const savedLanguage = localStorage.getItem('language');
     if (savedLanguage && savedLanguage !== i18n.language) {
       i18n.changeLanguage(savedLanguage);
     }
   }, [i18n]);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 10000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <div className="index-container">
@@ -79,35 +64,11 @@ const Panoramas = () => {
           title="Feriados de chile / Chilean holidays"
         />
       </div>
-      <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-      {/* Carousel Section */}
-      <section className="carousel-section1">
-        <div className="carousel-header1">
-          <h5>{t('Admire')}</h5>
-          <div className="carousel-subheader1">
-            <h2>{t('NaturalBeauty')}</h2>
-            <a href="#">{t('ViewMore')}<span>&#8594;</span></a>
-          </div>
-        </div>
+      <br></br><br></br><br></br><br></br>
 
-        <div className="carousel-container1">
-          {/* Carousel Cards */}
-          {['VizcachazViewpoint', 'NationalPark', 'CavesBellotos', 'Reservoir', 'Test1', 'Test2', 'Test3'].map((slide, index) => (
-            <div
-              key={index}
-              className="carousel-card1"
-              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-            >
-              <div className="carousel-image1"></div>
-              <p>{t(slide)}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Carousel Controls */}
-        <button className="carousel-control1 prev" onClick={prevSlide}>&#10094;</button>
-        <button className="carousel-control1 next" onClick={nextSlide}>&#10095;</button>
-      </section>
+      <Carousel/>
+      <SocialSection/>
+      <Footer />
     </div>
   );
 };

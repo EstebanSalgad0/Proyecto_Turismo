@@ -18,7 +18,6 @@ import Losbellotos from './pages/Losbellotos';
 import Balnearios from './pages/Balnearios';
 import Balnearios2 from './pages/Balnearios2';
 import QueHacer from './pages/QueHacer';
-import Cultura from './pages/Cultura';
 import Cultura2 from './pages/Cultura2';
 import Cultura3 from './pages/Cultura3';
 import Cultura4 from './pages/Cultura4';
@@ -39,19 +38,19 @@ import Catastro from './pages/Catastro';
 import Panoramas from './pages/Panoramas';
 import Registrarse from '../src/components/registrarse';
 import Verificacion from '../src/components/Verificacion';
-import Footer from '../src/components/Footer';
-import SocialSection from '../src/components/SocialSeccion';
 import SolicitudOferente from './pages/solicitudOferente';
 import ManejarSolicitudes from './pages/manejarSolicitudes';
 import CrearServicio from './pages/crearServicio';
 import ListarServicios from './pages/mostrarServicios';
 import ListarServiciosPendientes from './pages/manejarServicios';
 import Catastro_opiniones from './pages/Catastro_opiniones';
+import ScrollToTop from './components/scrollToTop'; 
 
 
 const App = () => {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Titulo />} />
         <Route path="/login" element={<InicioSesion />} /> {/* Nueva ruta para InicioSesion */}
@@ -73,7 +72,6 @@ const App = () => {
         <Route path="/Balneario-Machicura" element={<Balnearios/>} />
         <Route path="/LagoColbun" element={<Balnearios2/>} />
         <Route path="/QueHacer" element={<QueHacer/>} />
-        <Route path="/Cultura" element={<Cultura/>} />
         <Route path="/Cultura2" element={<Cultura2/>} />
         <Route path="/Cultura3" element={<Cultura3/>} />
         <Route path="/Cultura4" element={<Cultura4/>} />
@@ -102,9 +100,6 @@ const App = () => {
         <Route path="/Catastro_opiniones" element={<Catastro_opiniones/>} />
       </Routes>
 
-      <SocialSection />
-
-      <Footer />
     </Router>
   );
 };

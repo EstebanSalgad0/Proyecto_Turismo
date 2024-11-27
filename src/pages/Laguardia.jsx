@@ -3,10 +3,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../styles/Laguardia.css';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
+import SocialSection from '../components/SocialSeccion';
 import '../components/i18n';
 import { useTranslation } from 'react-i18next';
-import useCarousel from '../components/useCarousel'; // Importa el hook personalizado
 import LeafletMap from '../components/LeafletMap'; // Importa el componente de LeafletMap
+import Carousel from '../components/carousel';
 
 const Laguardia = () => {
   const [lat, setLat] = useState(null);
@@ -14,21 +16,9 @@ const Laguardia = () => {
   const [isFirstMap, setIsFirstMap] = useState(true);
 
   const { t, i18n } = useTranslation();
-  const { currentSlide, nextSlide, prevSlide } = useCarousel(4); // Usa el hook personalizado
 
   const googleMapUrl =
     "https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d120004.68519754826!2d-71.44335669065765!3d-35.68717631831008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m3!3m2!1d-35.688274!2d-71.28830409999999!5e0!3m2!1ses-419!2scl!4v1732039606757!5m2!1ses-419!2scl";
-
-  const slideNames = [
-    'VizcachazViewpoint',
-    'NationalPark',
-    'CavesBellotos',
-    'Reservoir',
-    'LakeColbun',
-    'HillViewpoint',
-    'ToroWaterfall',
-    'AnotherLocation'
-  ];
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem('language');
@@ -94,33 +84,9 @@ const Laguardia = () => {
         </section>
       </div>
 
-      <section className="carousel-section1">
-        <div className="carousel-header1">
-          <h5>{t('Admire')}</h5>
-          <div className="carousel-subheader1">
-            <h2>{t('NaturalBeauty')}</h2>
-            <a href="#">{t('ViewMore')}<span>&#8594;</span></a>
-          </div>
-        </div>
-
-        <div className="carousel-container1">
-          {slideNames.map((slideName, index) => (
-            <div
-              key={index}
-              className="carousel-card1"
-              style={{
-                transform: `translateX(-${currentSlide * (window.innerWidth <= 768 ? 113 : 130)}%)`
-              }}
-            >
-              <div className="carousel-image1"></div>
-              <p>{t(slideName)}</p>
-            </div>
-          ))}
-        </div>
-
-        <button className="carousel-control1 prev" onClick={prevSlide}>&#10094;</button>
-        <button className="carousel-control1 next" onClick={nextSlide}>&#10095;</button>
-      </section>
+      <Carousel/>
+      <SocialSection/>
+      <Footer/>
     </div>
   );
 };

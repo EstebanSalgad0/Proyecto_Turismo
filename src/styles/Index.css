@@ -340,9 +340,10 @@
 
 /* Optional adjustments for the map iframe */
 .map-section iframe {
-  border: none;
+  border: 3px solid #4B67AE;
   width: 100%;
   height: 100%;
+  border-radius: 5px;
 }
 
 .language-label {
@@ -375,10 +376,10 @@
   min-height: 100vh; /* Si quieres un mínimo de altura que ocupe toda la ventana */
 }
 
-.info-content1 {
+.info-content {
   font-family: "Roboto", sans-serif;
   background-color: white;
-  max-width: 400px; /* Tamaño del cuadro blanco */
+  max-width: 450px; /* Tamaño del cuadro blanco */
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -571,15 +572,6 @@
 
   .carousel-nav {
     display: none;
-  }
-
-  .help-options {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .help-item {
-    margin-bottom: 20px;
   }
 
   .carousel-section1 {

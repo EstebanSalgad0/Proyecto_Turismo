@@ -3,9 +3,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../styles/Losbellotos.css?v=1.1'; // Estilos específicos para el componente
 import Header from '../components/Header';
+import Footer from '../components/Footer';
+import SocialSection from '../components/SocialSeccion';
 import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
-import useCarousel from '../components/useCarousel'; // Hook para manejar el carrusel
+import Carousel from '../components/carousel';
 import LeafletMap from '../components/LeafletMap'; // Componente para mostrar el mapa
 
 const Losbellotos = () => {
@@ -14,21 +16,9 @@ const Losbellotos = () => {
   const [isFirstMap, setIsFirstMap] = useState(true);
 
   const { t, i18n } = useTranslation();
-  const { currentSlide, nextSlide, prevSlide } = useCarousel(4); // Hook personalizado
 
   const googleMapUrl =
     "https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d553919.8936124383!2d-71.3651288217441!3d-35.78358924692016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m5!1s0x966f81514b08c1e3%3A0xaba4f8fd4989bd09!2sLos%20Bellotos%2C%20Colb%C3%BAn!3m2!1d-35.857926!2d-71.1045055!5e0!3m2!1ses-419!2scl!4v1732040869478!5m2!1ses-419!2scl";
-
-  const slideNames = [
-    'VizcachazViewpoint',
-    'NationalPark',
-    'CavesBellotos',
-    'Reservoir',
-    'LakeColbun',
-    'HillViewpoint',
-    'ToroWaterfall',
-    'AnotherLocation'
-  ];
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem('language');
@@ -96,36 +86,9 @@ const Losbellotos = () => {
         </section>
       </div>
       
-      {/* Carousel Section */}
-      <section className="carousel-section1">
-        <div className="carousel-header1">
-          <h5>{t('Admire')}</h5>
-          <div className="carousel-subheader1">
-            <h2>{t('NaturalBeauty')}</h2>
-            <a href="#">{t('ViewMore')}<span>&#8594;</span></a>
-          </div>
-        </div>
-
-        {/* Carrusel de imágenes */}
-        <div className="carousel-container1">
-          {slideNames.map((slideName, index) => (
-            <div
-              key={index}
-              className="carousel-card1"
-              style={{
-                transform: `translateX(-${currentSlide * (window.innerWidth <= 768 ? 113 : 130)}%)`
-              }}
-            >
-              <div className="carousel-image1"></div>
-              <p>{t(slideName)}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Flechas de control */}
-        <button className="carousel-control1 prev" onClick={prevSlide}>&#10094;</button>
-        <button className="carousel-control1 next" onClick={nextSlide}>&#10095;</button>
-      </section>
+      <Carousel/>
+      <SocialSection/>
+      <Footer/>
     </div>
   );
 };

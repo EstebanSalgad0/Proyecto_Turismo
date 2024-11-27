@@ -4,41 +4,22 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../styles/Pasopehuenche.css?v=1.1'; // Estilos específicos para el componente
 import LeafletMap from '../components/LeafletMap';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
+import SocialSection from '../components/SocialSeccion';
 import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
-import useCarousel from '../components/useCarousel';
-
-// Importa las imágenes
-import img1 from '../assets/img/PXL_20240927_102434354.jpg';
-import img2 from '../assets/img/Cultural.png';
-import img3 from '../assets/img/Parque.png';
-import img4 from '../assets/img/PXL_20240927_112617725.jpg';
-import img5 from '../assets/img/PXL_20240927_112819235.jpg';
-import img6 from '../assets/img/PXL_20240927_120450869.jpg';
-import img7 from '../assets/img/PXL_20240927_114154883.jpg';
-import img8 from '../assets/img/PXL_20240927_102434354.jpg';
+import Carousel from '../components/carousel';
 
 const Pasopehuenche = () => {
   const [lat, setLat] = useState(null);
   const [lng, setLng] = useState(null);
   const [isFirstMap, setIsFirstMap] = useState(true);
 
-  const { currentSlide, nextSlide, prevSlide } = useCarousel(4);
   const { t, i18n } = useTranslation(); // Hook para usar traducciones
 
   const googleMapUrl =
     "https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d1108478.6717723121!2d-71.32518061235452!3d-35.73772205635922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!4m5!1s0x96701f913862b461%3A0xf2ad86477ad16bdb!2sPaso%20Pehuenche%2C%20San%20Clemente!3m2!1d-35.9833333!2d-70.39999999999999!5e0!3m2!1ses-419!2scl!4v1732029936487!5m2!1ses-419!2scl";
 
-  const slideNames = [
-    { name: 'VizcachazViewpoint', image: img1 },
-    { name: 'NationalPark', image: img2 },
-    { name: 'CavesBellotos', image: img3 },
-    { name: 'Reservoir', image: img4 },
-    { name: 'LakeColbun', image: img5 },
-    { name: 'HillViewpoint', image: img6 },
-    { name: 'ToroWaterfall', image: img7 },
-    { name: 'AnotherLocation', image: img8 }
-  ];
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem('language'); // Obtener el idioma guardado
@@ -110,35 +91,10 @@ const Pasopehuenche = () => {
           </div>
         </section>
       </div>
-      <section className="carousel-section1">
-        <div className="carousel-header1">
-          <h5>{t('Admire')}</h5>
-          <div className="carousel-subheader1">
-            <h2>{t('NaturalBeauty')}</h2>
-            <a href="#">{t('ViewMore')}<span>&#8594;</span></a>
-          </div>
-        </div>
-
-        {/* Carrusel de imágenes */}
-        <div className="carousel-container1">
-          {slideNames.map((slide, index) => (
-            <div
-              key={index}
-              className="carousel-card1"
-              style={{
-                transform: `translateX(-${currentSlide * (window.innerWidth <= 768 ? 113 : 130)}%)`
-              }}
-            >
-              <img src={slide.image} alt={t(slide.name)} className="carousel-image1" />
-              <p>{t(slide.name)}</p>
-            </div>
-          ))}
-        </div>
-
-        <button className="carousel-control1 prev" onClick={prevSlide}>&#10094;</button>
-        <button className="carousel-control1 next" onClick={nextSlide}>&#10095;</button>
-      </section>
-
+      
+      <Carousel/>
+      <SocialSection/>
+      <Footer/>
     </div>
   );
 };

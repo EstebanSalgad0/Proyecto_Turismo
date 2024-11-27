@@ -3,11 +3,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../styles/SobreNosotros.css?v=1.4';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
+import SocialSection from '../components/SocialSeccion';
 import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
 
-const Zoit = () => {
-
+const SobreNosotros = () => {
   const { t, i18n } = useTranslation(); // Hook para usar traducciones
 
   useEffect(() => {
@@ -17,51 +18,43 @@ const Zoit = () => {
     }
   }, [i18n]); // Añadir el estado del idioma como dependencia
 
-  // Hook para desplazar la página al inicio cuando se carga el componente
-  useEffect(() => {
-    window.scrollTo(0, 0); // Mueve la página hacia la parte superior
-  }, []);
-  
-
   return (
-    <div className="index-container">
+    <div className="sobrenosotros-container-SN">
       {/* Navbar */}
-      <Header/>
+      <Header />
 
-      {/* Carousel Section */}
-      <section className="carousel-section">
-        <div className="carousel-header">
-            <br></br><br></br><br></br><br></br>
+      {/* Sección de encabezado */}
+      <section className="header-section-SN">
+        <div className="header-SN">
           <h5>{t('VisitFooter')}</h5>
-          <div className="carousel-subheader">
+          <div className="subheader-SN">
             <h1>{t('AboutUs')}</h1>
           </div>
         </div>
-        <br></br>
-        <h5>{t('CultureXD')}</h5>
-                <br></br>
-                <div className="carousel-subheader">
-            <h2>{t('Turism')}</h2>
-          </div>
-          <br></br><br></br>
-        <h5>{t('CultureXD1')}</h5>
-        <br></br>
-        <h5>{t('CultureXD2')}</h5>
-               <br></br>
-               <div className="carousel-subheader">
-            <h2>{t('Culture')}</h2>
-          </div>
-          <br></br><br></br>
-        <h5>{t('CultureXD3')}</h5>
-        <br></br>
-        <h5>{t('CultureXD4')}</h5>
-        <br></br>
-        <h5>{t('CultureXD5')}</h5>
-        <br></br>
-        <h5>{t('CultureXD6')}</h5>
       </section>
+
+      {/* Sección de contenido */}
+      <section className="content-section-SN">
+        <h5>{t('CultureXD')}</h5>
+
+        <div className="subheader-SN">
+          <h2>{t('Turism')}</h2>
+        </div>
+        <p>{t('CultureXD1')}</p>
+        <p>{t('CultureXD2')}</p>
+
+        <div className="subheader-SN">
+          <h2>{t('Culture')}</h2>
+        </div>
+        <p>{t('CultureXD3')}</p>
+        <p>{t('CultureXD4')}</p>
+        <p>{t('CultureXD5')}</p>
+        <p>{t('CultureXD6')}</p>
+      </section>
+      <SocialSection/>
+      <Footer/>
     </div>
   );
 };
 
-export default Zoit;
+export default SobreNosotros;

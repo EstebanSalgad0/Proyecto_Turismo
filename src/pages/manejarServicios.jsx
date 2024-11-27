@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import '../styles/AdminPanel.css';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
+import SocialSection from '../components/SocialSeccion';
 
 const AdminPanel = () => {
   // Estado para servicios
@@ -223,6 +225,8 @@ const transformCategoria = (tipoOferente) => {
     </div>
   </div>
 )}
+    <SocialSection/>
+    <Footer/>
     </div>
   );
 };

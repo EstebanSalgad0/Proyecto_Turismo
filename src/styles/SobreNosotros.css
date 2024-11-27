@@ -1,16 +1,88 @@
-/* Aplica este estilo solo al contenedor principal de Index */
-.index-container {
+/* Contenedor principal */
+.sobrenosotros-container-SN {
+  width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
   flex-direction: column;
+  align-items: center;
+  gap: 40px; /* Espaciado entre las secciones */
+  background-color: #ffffff; /* Fondo blanco */
 }
 
-/* Responsividad: Ajusta las columnas para pantallas más pequeñas */
-@media (max-width: 768px) {
-  .logo {
-    width: 100px; /* Ajusta el tamaño de los logos en pantallas pequeñas */
-    height: auto;
+/* Sección de encabezado */
+.header-section-SN {
+  width: 100%;
+  max-width: 1200px; /* Limitar el ancho máximo */
+  text-align: left;
+  margin-top: 100px;
+  padding: 0 20px;
+}
+
+.header-SN h5 {
+  color: #757575;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.subheader-SN h1 {
+  color: #4b67ae;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Sección de contenido */
+.content-section-SN {
+  width: 100%;
+  max-width: 1200px; /* Limitar el ancho máximo */
+  text-align: left;
+  line-height: 1.6; /* Mejorar legibilidad */
+  padding: 0 20px;
+}
+
+.content-section-SN p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: black;
+}
+
+/* Subtítulos en contenido */
+.subheader-SN h2 {
+  color: #4b67ae;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* Responsividad */
+@media (max-width: 800px) {
+  .header-section-SN {
+    margin-top: 100px;
+  }
+  
+  .subheader-SN h1,
+  .subheader-SN h2 {
+    font-size: 1.8rem;
+  }
+
+  .content-section-SN p {
+    font-size: 0.9rem;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .header-section-SN {
+    margin-top: 120px; /* Ajustar espacio superior */
+  }
+
+  .subheader-SN h1,
+  .subheader-SN h2 {
+    font-size: 1.5rem;
+  }
+
+  .content-section-SN p {
+    font-size: 0.8rem;
   }
 }

@@ -3,20 +3,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../styles/Colbun.css';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
+import SocialSection from '../components/SocialSeccion';
 import '../components/i18n';
 import { useTranslation } from 'react-i18next';
-import useCarousel from '../components/useCarousel'; // Importa el hook personalizado
 import LeafletMap from '../components/LeafletMap'; // Importa el componente de LeafletMap
-
-// Importa las imágenes
-import img1 from '../assets/img/PXL_20240927_102434354.jpg';
-import img2 from '../assets/img/Cultural.png';
-import img3 from '../assets/img/Parque.png';
-import img4 from '../assets/img/PXL_20240927_112617725.jpg';
-import img5 from '../assets/img/PXL_20240927_112819235.jpg';
-import img6 from '../assets/img/PXL_20240927_120450869.jpg';
-import img7 from '../assets/img/PXL_20240927_114154883.jpg';
-import img8 from '../assets/img/PXL_20240927_102434354.jpg';
+import Carousel from '../components/carousel';
 
 const Colbun = () => {
   const [lat, setLat] = useState(null);
@@ -24,21 +16,9 @@ const Colbun = () => {
   const [isFirstMap, setIsFirstMap] = useState(true);
   
   const { t, i18n } = useTranslation();
-  const { currentSlide, nextSlide, prevSlide } = useCarousel(4); // Usa el hook personalizado
 
   const googleMapUrl =
     "https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d207723.66152519247!2d-71.70529132972516!3d-35.56154988942582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x9665c6a2ac07d07d%3A0x265657feafdac8b8!2sTalca%2C%20Maule%2C%20Chile!3m2!1d-35.4231882!2d-71.6496958!4m5!1s0x966f990a6fbb05b1%3A0xcc8116cf96804acf!2zQ29sYnVuLCBDb2xiw7pu!3m2!1d-35.699248!2d-71.4146915!5e0!3m2!1ses-419!2scl!4v1732036047424!5m2!1ses-419!2scl";
-
-  const slideNames = [
-    { name: 'VizcachazViewpoint', image: img1 },
-    { name: 'NationalPark', image: img2 },
-    { name: 'CavesBellotos', image: img3 },
-    { name: 'Reservoir', image: img4 },
-    { name: 'LakeColbun', image: img5 },
-    { name: 'HillViewpoint', image: img6 },
-    { name: 'ToroWaterfall', image: img7 },
-    { name: 'AnotherLocation', image: img8 }
-  ];
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem('language');
@@ -104,34 +84,9 @@ const Colbun = () => {
         </section>
       </div>
 
-      <section className="carousel-section1">
-        <div className="carousel-header1">
-          <h5>{t('Admire')}</h5>
-          <div className="carousel-subheader1">
-            <h2>{t('NaturalBeauty')}</h2>
-            <a href="#">{t('ViewMore')}<span>&#8594;</span></a>
-          </div>
-        </div>
-
-        {/* Carrusel de imágenes */}
-        <div className="carousel-container1">
-          {slideNames.map((slide, index) => (
-            <div
-              key={index}
-              className="carousel-card1"
-              style={{
-                transform: `translateX(-${currentSlide * (window.innerWidth <= 768 ? 113 : 130)}%)`
-              }}
-            >
-              <img src={slide.image} alt={t(slide.name)} className="carousel-image1" />
-              <p>{t(slide.name)}</p>
-            </div>
-          ))}
-        </div>
-
-        <button className="carousel-control1 prev" onClick={prevSlide}>&#10094;</button>
-        <button className="carousel-control1 next" onClick={nextSlide}>&#10095;</button>
-      </section>
+      <Carousel/>
+      <SocialSection/>
+      <Footer/>
     </div>
   );
 };

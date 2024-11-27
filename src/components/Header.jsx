@@ -68,7 +68,6 @@ const Header = () => {
     { name: "Panoramas", path: "/Panoramas" },
     { name: "Parques nacionales", path: "/Parque" },
     { name: "Politicas de Privacidad", path: "/Privacidad" },
-    { name: "Belleza Natural", path: "/QueHacer" },
     { name: "Quinamavida", path: "/Quinamavida" },
     { name: "Rabones", path: "/Rabones" },
     { name: "Rari", path: "/Rari" },
@@ -241,7 +240,6 @@ const Header = () => {
                     <li><Link to="/Cultura2">{t('Petroglyphs')}</Link></li>
                     <li><Link to="/Cultura3">{t('Church')}</Link></li>
                     <li><Link to="/Cultura4">{t('Springs')}</Link></li>
-                    <li><Link to="/Cultura">{t('Toba')}</Link></li>
                   </ul>
                 )}
               </li>
@@ -261,7 +259,6 @@ const Header = () => {
                 {activeSubMenu === 'parques' && (
                   <ul className="dropdown-submenu">
                     <li><Link to="/Parque">{t('NationalPark')}</Link></li>
-                    <li><Link to="/Parque">{t('CavesBellotos')}</Link></li>
                   </ul>
                 )}
               </li>
@@ -270,14 +267,6 @@ const Header = () => {
                 {activeSubMenu === 'vida-salvaje' && (
                   <ul className="dropdown-submenu">
                     <li><Link to="/Termas">{t('HotSprings')}</Link></li>
-                    <li><Link to="/Termas">{t('Reservoir')}</Link></li>
-                  </ul>
-                )}
-              </li>
-              <li onMouseEnter={() => showSubMenu('vida-salvaje')} onMouseLeave={hideSubMenu}>
-                <li><Link to="/QueHacer">{t('View')}</Link></li>
-                {activeSubMenu === 'vida-salvaje' && (
-                  <ul className="dropdown-submenu">
                   </ul>
                 )}
               </li>
