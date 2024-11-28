@@ -580,7 +580,7 @@ const CrearServicio = () => {
                     <div className="file-upload-content">
                         {imagen ? (
                             // Mostrar vista previa de la imagen si hay una
-                            <img src={imagenPreview} alt="Vista previa" className="file-upload-preview" style={{ maxWidth: '100%', maxHeight: '300px' }} />
+                            <img src={imagenPreview} alt="Vista previa" className="file-upload-preview"/>
                         ) : (
                             // Mostrar contenido por defecto si no hay imagen
                             <>
@@ -611,7 +611,7 @@ const CrearServicio = () => {
                     <div className="file-upload-content">
                         {imagen2 ? (
                             // Mostrar vista previa de la imagen si hay una
-                            <img src={imagenPreview2} alt="Vista previa" className="file-upload-preview2" style={{ maxWidth: '100%', maxHeight: '300px' }} />
+                            <img src={imagenPreview2} alt="Vista previa" className="file-upload-preview2"  />
                         ) : (
                             // Mostrar contenido por defecto si no hay imagen
                             <>
@@ -642,7 +642,7 @@ const CrearServicio = () => {
                     <div className="file-upload-content">
                         {imagen3 ? (
                             // Mostrar vista previa de la imagen si hay una
-                            <img src={imagenPreview3} alt="Vista previa" className="file-upload-preview3" style={{ maxWidth: '100%', maxHeight: '300px' }} />
+                            <img src={imagenPreview3} alt="Vista previa" className="file-upload-preview3"  />
                         ) : (
                             // Mostrar contenido por defecto si no hay imagen
                             <>
@@ -673,7 +673,7 @@ const CrearServicio = () => {
                     <div className="file-upload-content">
                         {imagen4 ? (
                             // Mostrar vista previa de la imagen si hay una
-                            <img src={imagenPreview4} alt="Vista previa" className="file-upload-preview4" style={{ maxWidth: '100%', maxHeight: '300px' }} />
+                            <img src={imagenPreview4} alt="Vista previa" className="file-upload-preview4" />
                         ) : (
                             // Mostrar contenido por defecto si no hay imagen
                             <>

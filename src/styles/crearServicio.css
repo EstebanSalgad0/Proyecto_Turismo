@@ -821,6 +821,15 @@ body.dark-mode .ButtonsCRUD button{
   font-weight: normal; /* Texto normal para el contenido después de strong */
 }
 
+.file-upload-content img {
+  max-width: 100%; /* La imagen no excederá el ancho del contenedor */
+  max-height: 198px; /* Define un alto máximo para mantener proporciones */
+  object-fit: contain; /* Ajusta la imagen dentro del espacio disponible */
+  border-radius: 8px; /* Opcional: Añade bordes redondeados para un mejor diseño */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Opcional: Agrega sombra para mejorar la visibilidad */
+}
+
+
 /* Responsividad para pantallas de hasta 786px */
 @media (max-width: 786px) {
   .service-container {
