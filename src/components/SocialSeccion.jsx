@@ -33,7 +33,7 @@ const SocialSeccion = () => {
             <div className="help-options">
               <a href="/Turismo" className="help-item">
                 <div className="help-image help-image-1"></div>
-                <p><strong>{t('Turism')}</strong><p>{t('Schedule')}</p></p>
+                <p><strong>{t('Turism')}</strong><br />{t('Schedule')}</p>
               </a>
               <a href="/OIT" className="help-item">
                 <div className="help-image help-image-2"></div>

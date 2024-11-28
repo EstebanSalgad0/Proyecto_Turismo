@@ -853,9 +853,11 @@ const CrearServicio = () => {
                     onConfirm={handleConfirmAction} 
                     onCancel={() => setShowModal(false)} 
                 />
+
+                <SocialSection/>
+                <Footer/> 
             </div> 
-            <SocialSection/>
-            <Footer/>   
+              
         </div>
     );
 };

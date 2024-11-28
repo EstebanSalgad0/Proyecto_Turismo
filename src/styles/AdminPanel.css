@@ -1,12 +1,11 @@
 /* Contenedor principal */
 .admin-panel-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  max-width: 100%;
 }
 
 .admin-panel{
   margin-top: 170px;
+  padding: 0 8%;
 }
 
 .admin-panel h5{

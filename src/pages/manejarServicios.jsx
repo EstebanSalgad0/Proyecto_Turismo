@@ -223,7 +223,10 @@ const transformCategoria = (tipoOferente) => {
         )}
       </div>
     </div>
+    
   </div>
+  
+  
 )}
     <SocialSection/>
     <Footer/>

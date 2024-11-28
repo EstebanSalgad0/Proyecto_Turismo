@@ -49,9 +49,7 @@ body.dark-mode .Costo{
 .container {
   display: flex;
   justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  max-width: 100%;
   margin-top: 100px;
 }
 
@@ -273,8 +271,9 @@ body.dark-mode .sidebar h3{
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   gap: 20px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 100%;
   justify-items: center; /* Centra las cards en su columna */
+  padding: 0 8%;
 }
 
 /* Tarjeta de servicio */
@@ -827,7 +826,6 @@ body.dark-mode .ButtonsCRUD button{
   .service-container {
     justify-content: center;
     text-align: center;
-    width: 73%;
   }
 
   /* Ajustes para la tarjeta de servicio */
@@ -940,9 +938,13 @@ body.dark-mode .ButtonsCRUD button{
   }
 
   .DownCard {
-    width: 100%;
+    width: 270px;
     justify-content: center;
     text-align: start;
+  }
+
+  .services{
+    padding: 0 4%;
   }
 
   .service-card.closed .gallery-image {

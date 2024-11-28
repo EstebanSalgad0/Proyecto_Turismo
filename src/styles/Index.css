@@ -32,6 +32,7 @@
   flex-direction: column; /* Coloca los elementos en columna */
   margin-top: 74px;
   overflow: hidden; /* Asegura que el iframe no sobresalga */
+  z-index: 0;
 }
 
 .hero2 iframe {
@@ -40,13 +41,12 @@
   margin-top: -50px;
   left: 0;
   width: 100%;
-  height: 122%;
   object-fit: cover;
   transform-origin: center center;
-  transform: scale(1.5); /* Hace zoom del 150% en el iframe */
+  transform: scale(1.3); /* Hace zoom del 150% en el iframe */
   height: 100%; /* Opción adicional para extender el alto del iframe */
   border: none;
-  z-index: -2; /* Coloca el iframe detrás del contenido */
+  z-index: -1; /* Coloca el iframe detrás del contenido */
 }
 
 .hero2::before {
