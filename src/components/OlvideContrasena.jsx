@@ -42,6 +42,8 @@ const PasswordReset = () => {
       if (response.status === 200) {
         setSuccessMessage('Se ha enviado un correo para restablecer la contraseña.');
         setErrorMessage('');
+        // Guardar el correo en localStorage
+        localStorage.setItem('resetEmail', email);
         // Redirigir a otra vista después de 2 segundos
         setTimeout(() => navigate('/RestablecerExito'), 400);
       }

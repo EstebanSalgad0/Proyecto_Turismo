@@ -248,7 +248,7 @@ h1 {
             <div class="imagen"></div>
             <div class="main">
                 <h1>¡Recibimos tu solicitud!</h1>
-                <p class="text1">Hola, <strong>{{ user.first_name }}</strong>, Ahora puedes restablecer tu contraseña.</p>
+                <p class="text1">¡Hola!, <strong>{{ username }}</strong>, Ahora puedes restablecer tu contraseña.</p>
                 <a href="{{ reset_link }}" class="restorebtn">Restablecer Contraseña</a>
                 <p class="text2">Recuerda: tienes 24 horas para cambiar tu
                     contraseña. Pasado ese tiempo, tendrás que
@@ -260,7 +260,7 @@ h1 {
                 <span class="light">Puedes ignorar este correo.</span></p>
         </div>
         <div class="desuscribirse">
-            <p class="text4">Este correo electrónico fue enviado a <span class="mail">{{ user.email }}</span>. Si prefieres no recibir este tipo de correo electrónico puedes <span class="bold">Darte de Baja.</span>
+            <p class="text4">Este correo electrónico fue enviado a <span class="mail">{{ email }}</span>. Si prefieres no recibir este tipo de correo electrónico puedes <span class="bold">Darte de Baja.</span>
                 <br/><br/>Adolfo Novoa 419, Colbún, Maule, Chile</p>
         </div>
     </div>
