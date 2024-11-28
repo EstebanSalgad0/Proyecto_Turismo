@@ -70,6 +70,33 @@ class CustomAuthToken(ObtainAuthToken):
 
 CustomUser = get_user_model()  # Obtiene el modelo de usuario personalizado configurado en el proyecto.
 
+def send_survey_email(user):
+    """
+    Función para enviar la encuesta de satisfacción al usuario.
+    """
+    try:
+        subject = "🙌🏻 Encuesta de Satisfacción"
+        email_template = 'accounts/encuesta_satisfaccion.html'  # Ruta a la plantilla de correo
+        email_context = {
+            'user': user,
+            'first_name': user.first_name,
+            'email': user.email,
+        }
+        email_html_message = render_to_string(email_template, email_context)
+        email_plain_message = strip_tags(email_html_message)
+
+        email = EmailMessage(
+            subject,
+            email_html_message,
+            'mueca@mueblescaracol.cl',  # Dirección del remitente
+            [user.email],  # Dirección del destinatario
+        )
+        email.content_subtype = 'html'  # Define que el correo es HTML
+        email.send()
+        print("Correo de encuesta de satisfacción enviado correctamente.")
+    except Exception as e:
+        print(f"Error al enviar el correo de encuesta: {e}")
+
 class ArtesanoFormView(APIView):
     def get(self, request, uidb64, token):
         try:
@@ -116,6 +143,8 @@ class ArtesanoFormView(APIView):
                 send_csv_email(user_data)
                 user.is_active = True
                 user.save()
+                # Enviar correo de encuesta de satisfacción
+                send_survey_email(user)
                 return redirect('activation_success')
             else:
                 return render(request, 'accounts/activation_error.html')
@@ -168,6 +197,8 @@ class BienesServiciosFormView(APIView):
                 send_csv_email(user_data)
                 user.is_active = True
                 user.save()
+                # Enviar correo de encuesta de satisfacción
+                send_survey_email(user)
                 return redirect('activation_success')
             else:
                 return render(request, 'accounts/activation_error.html')
@@ -220,6 +251,8 @@ class CabanasFormView(APIView):
                 }
                 send_csv_email(user_data)
                 user.is_active = True
+                # Enviar correo de encuesta de satisfacción
+                send_survey_email(user)
                 user.save()
                 return redirect('activation_success')
             else:
@@ -297,6 +330,7 @@ class RegisterView(APIView):
             html_content = render_to_string(template_name, {
                 'user': user,
                 'activation_url': activation_url,
+                'email': user.email,  # Pasar el email al contexto
             })
             text_content = strip_tags(html_content)
 
@@ -341,7 +375,31 @@ class ActivateView(APIView):
                 # Procesa el formulario completado y activa la cuenta
                 user.is_active = True
                 user.save()
-                return redirect('activation_success')  # Redirige a una página de éxito de activación
+                # Enviar correo de Encuesta de Satisfacción
+                subject = "🙌🏻 Encuesta de Satisfacción"
+                email_template = 'accounts/encuesta_satisfaccion.html'  # Ruta a tu plantilla de correo
+                email_context = {
+                    'user': user,
+                    'first_name': user.first_name,
+                    'email': user.email,
+                }
+                email_html_message = render_to_string(email_template, email_context)
+                email_plain_message = strip_tags(email_html_message)
+                email = EmailMessage(
+                    subject,
+                    email_html_message,
+                    'mueca@mueblescaracol.cl',  # Dirección del remitente
+                    [user.email],  # Dirección del destinatario
+                )
+                email.content_subtype = 'html'  # Define que el correo es HTML
+                email.send()
+                
+                # Renderiza la página de éxito con el contexto del usuario
+                return render(request, 'activation_success', {
+                    'user': user,  # Pasar el usuario completo al contexto
+                    'first_name': user.first_name,
+                    'email': user.email,
+                })
             else:
                 return render(request, 'activation_error.html')
         except Exception as e:
@@ -359,8 +417,12 @@ class RequestPasswordResetView(APIView):
                 reverse('password_reset_confirm', kwargs={'uidb64': uid, 'token': token})
             )
 
-            # Cargar la plantilla HTML y pasar el enlace de restablecimiento
-            email_html = render_to_string('accounts/reset_email.html', {'reset_link': reset_link})
+            # Cargar la plantilla HTML y pasar los datos del usuario
+            email_html = render_to_string('accounts/reset_email.html', {
+                'reset_link': reset_link,
+                'username': user.first_name,  # Asume que tienes un campo 'first_name'
+                'email': user.email
+            })
 
             # Enviar correo en formato HTML
             email_message = EmailMessage(

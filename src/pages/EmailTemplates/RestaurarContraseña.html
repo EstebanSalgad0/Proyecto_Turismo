@@ -3,25 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="RestaurarContraseña.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+/* Global Styles */
+* {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Roboto, sans-serif;
+            font-style: normal;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        p {
+            color: #757575;
+            font-feature-settings: 'liga' off, 'clig' off;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%; /* 24px */
+        }
+
+        .heavy {
+            font-weight: 700;
+        }
+
+        .mail {
+            font-size: 14px;
+            text-decoration-line: underline;
+            text-decoration-style: solid;
+            text-decoration-skip-ink: auto;
+            text-decoration-thickness: auto;
+            text-underline-offset: auto;
+            text-underline-position: from-font;
+        }
+
+        .frame {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 640px;
+            height: 1200px;
+            flex-shrink: 0;
+            /* opacity: 0.4; */
+            background: #C0DBE7;
+        }
+
+        .logo {
+            margin: 3em;
+            display: flex;
+            width: 544px;
+            justify-content: end;
+            align-items: center;
+            gap: 390px;
+        }
+
+        .logo img {
+            height: 40px;
+            width: 40px;
+        }
+
+        .logo i {
+            width: 20px;
+            height: 20px;
+            color: #4B67AE;
+        }
+
+        .iconos {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .imagen {
+            width: 544px;
+            height: 115px;
+            flex-shrink: 0;
+            border-radius: 0px 0px 8px 8px;
+            background: url(https://mueblescaracol.cl/productos/nicanor_colinanco00026.png) lightgray 50% / cover no-repeat;
+        }
+
+.main {
+    display: flex;
+    width: 544px;
+    height: 351px;
+    padding: 40px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    flex-shrink: 0;
+    border-radius: 0px 0px 8px 8px;
+    background: var(--Color-Secundario, #FFF);
+}
+
+h1 {
+    align-self: stretch;
+    color: var(--Color-Complementario, #222);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.text1 {
+    color: var(--Color-Texto-encabezados, #757575);
+    width: 288px;
+    height: 48px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+}
+
+.restorebtn {
+    display: flex;
+    padding: 16px 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    background: var(--Color-Primario, #4B67AE);
+    color: var(--Color-Secundario, #FFF);
+    font-family: "SF Pro Display", Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 150% */
+    letter-spacing: 0.32px;
+}
+
+.text2 {
+    align-self: stretch;
+    color: var(--Color-Texto-encabezados, #757575);
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+}
+
+.ignore {
+    margin-top: 2em;
+    display: flex;
+    width: 544px;
+    padding: 24px 40px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 0px 0px 8px 8px;
+    background: var(--Color-Secundario, #FFF);
+}
+
+.text3 {
+    color: var(--Color-Texto-encabezados, #757575);
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 24px */
+}
+
+.light {
+    color: var(--Color-Texto-encabezados, #757575);
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.desuscribirse {
+    display: flex;
+    width: 544px;
+    padding: 24px 48px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.text4 {
+    width: 544px;
+    flex-shrink: 0;
+    color: var(--Color-Texto-encabezados, #757575);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 21px */
+}
+
+.mail {
+    color: var(--Color-Texto-encabezados, #757575);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+}
+
+.bold {
+    color: var(--Color-Texto-encabezados, #757575);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+}
+    </style>
     <title>Document</title>
 </head>
 <body>
     <div class="frame">
-        <div class="logo">
-            <img src="logo.png" alt="logo">
-            <div class="iconos">
-                <i class="bi bi-facebook"></i>
-                <i class="bi bi-instagram"></i>
-                <i class="bi bi-youtube"></i>
-            </div>
+    <div class="logo">
+        <img src="https://mueblescaracol.cl/productos/logo.png" alt="logo">
+        <div class="iconos">
+            <a href="https://www.facebook.com/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="width: 20px; height: 20px;">
+            </a>
+            <a href="https://www.instagram.com/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 20px; height: 20px;">
+            </a>
+            <a href="https://www.youtube.com/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" style="width: 20px; height: 20px;">
+            </a>
         </div>
+    </div>
         <div class="content">
-            <div class="image"></div>
+            <div class="imagen"></div>
             <div class="main">
                 <h1>¡Recibimos tu solicitud!</h1>
-                <p class="text1">Hola, {usuario}, Ahora puedes restablecer tu contraseña.</p>
-                <input type="button" value="Restablecer contraseña" class="restorebtn">
+                <p class="text1">Hola, <strong>{{ user.first_name }}</strong>, Ahora puedes restablecer tu contraseña.</p>
+                <a href="{{ reset_link }}" class="restorebtn">Restablecer Contraseña</a>
                 <p class="text2">Recuerda: tienes 24 horas para cambiar tu
                     contraseña. Pasado ese tiempo, tendrás que
                     enviar una nueva solicitud.</p>
@@ -32,7 +260,7 @@
                 <span class="light">Puedes ignorar este correo.</span></p>
         </div>
         <div class="desuscribirse">
-            <p class="text4">Este correo electrónico fue enviado a <span class="mail">vcolbun@gmail.com</span>. Si prefieres no recibir este tipo de correo electrónico puedes <span class="bold">Darte de Baja.</span>
+            <p class="text4">Este correo electrónico fue enviado a <span class="mail">{{ user.email }}</span>. Si prefieres no recibir este tipo de correo electrónico puedes <span class="bold">Darte de Baja.</span>
                 <br/><br/>Adolfo Novoa 419, Colbún, Maule, Chile</p>
         </div>
     </div>

@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+    <style>@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
         @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
-
+        
+        /* Global Styles */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -14,48 +14,30 @@
             font-family: Roboto, sans-serif;
             font-style: normal;
         }
-
+        
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
         }
-
+        
         p {
-            color: #757575;
             font-feature-settings: 'liga' off, 'clig' off;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 150%; /* 24px */
+            color: #757575;
         }
-
-        .heavy {
-            font-weight: 700;
-        }
-
-        .mail {
-            font-size: 14px;
-            text-decoration-line: underline;
-            text-decoration-style: solid;
-            text-decoration-skip-ink: auto;
-            text-decoration-thickness: auto;
-            text-underline-offset: auto;
-            text-underline-position: from-font;
-        }
-
+        
         .frame {
             display: flex;
             align-items: center;
             flex-direction: column;
             width: 640px;
-            height: 1200px;
+            height: 1127px;
             flex-shrink: 0;
             /* opacity: 0.4; */
             background: #C0DBE7;
         }
-
+        
         .logo {
             margin: 3em;
             display: flex;
@@ -64,30 +46,24 @@
             align-items: center;
             gap: 390px;
         }
-
+        
         .logo img {
             height: 40px;
             width: 40px;
         }
-
+        
         .logo i {
             width: 20px;
             height: 20px;
             color: #4B67AE;
         }
-
+        
         .iconos {
             display: flex;
             align-items: center;
             gap: 16px;
         }
-
-        .content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
+        
         .imagen {
             width: 544px;
             height: 115px;
@@ -95,7 +71,7 @@
             border-radius: 0px 0px 8px 8px;
             background: url(https://mueblescaracol.cl/productos/nicanor_colinanco00026.png) lightgray 50% / cover no-repeat;
         }
-
+        
         .main {
             display: flex;
             width: 544px;
@@ -106,8 +82,29 @@
             border-radius: 0px 0px 8px 8px;
             background: #FFF;
         }
-
-        .confirmbtn {
+        
+        h1 {
+            align-self: stretch;
+            color:  #222;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+        
+        .text1 {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 150%; /* 24px */
+        }
+        
+        .text2 {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 150%; /* 24px */
+        }
+        
+        .formbtn {
             display: flex;
             padding: 16px 32px;
             justify-content: center;
@@ -116,16 +113,21 @@
             border-radius: 8px;
             background: #4B67AE;
             color: #FFF;
-            font-family: "SF Pro Display", Roboto, sans-serif;
+            font-family: "SF Pro Display", Roboto;
             font-size: 16px;
             font-style: normal;
             font-weight: 700;
             line-height: 24px; /* 150% */
             letter-spacing: 0.32px;
         }
-
+        
+        .text3 {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 150%; /* 18px */
+        }
+        
         .ignore {
-            margin-top: 2em;
             display: flex;
             width: 544px;
             padding: 24px 40px;
@@ -133,14 +135,44 @@
             gap: 10px;
             border-radius: 0px 0px 8px 8px;
             background: #FFF;
+            margin-top: 2em;
         }
-
+        
         .desuscribirse {
+            display: flex;
+            width: 544px;
+            padding: 24px 48px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .text4 {
             width: 544px;
             flex-shrink: 0;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 150%; /* 21px */
         }
-    </style>
-    <title>Activacion Cuenta</title>
+        
+        .mail {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 150%;
+            text-decoration-line: underline;
+            text-decoration-style: solid;
+            text-decoration-skip-ink: auto;
+            text-decoration-thickness: auto;
+            text-underline-offset: auto;
+            text-underline-position: from-font;
+        }
+        
+        .bold {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 150%;
+        }</style>
+    <title>Encuesta de Satisfacción</title>
 </head>
 <body>
     <div class="frame">
@@ -161,25 +193,20 @@
         <div class="content">
             <div class="imagen"></div>
             <div class="main">
-                <h1>Te damos la bienvenida a Visita Colbún</h1>
-                <p>Hola, <strong>{{ user.first_name }}</strong>,<br/>
-                    Tómate un momento para confirmar que tu<br/>
-                    dirección de correo electrónico es correcta.</p>
-                <p>¿No te registraste en Visita Colbún?<br/>
-                    <span class="heavy">Avísanos</span></p>
-                <p>Una vez confirmado tu correo electrónico, te redirigiremos a<br/>
-                    una breve encuesta para conocerte mejor.</p>
-                <p>Responder a este formulario de oferente de artesanías no te va a llevar más de 5 minutos.</p>
-                <p class="heavy">¡Muchas Gracias!</p>
-                <a href="{{ activation_url }}" class="confirmbtn">Confirma tu correo electrónico</a>
+                <h1>Encuesta de satisfacción Visita Colbún</h1>
+                <p class="text1">Estamos realizando una breve encuesta<br/>
+                    para conocer tu experiencia con nosotros.</p>
+                <p class="text1">Responder a este formulario no te va a llevar más de 5 minutos.</p>
+                <p class="text2">¡Muchas Gracias!</p>
+                <a href="https://forms.gle/bZ9dV64PmGA1rUmj9" class="formbtn">Encuesta</a>
+                <p class="text3">Esta encuesta es anónima y en ningún caso podremos identificarte por tus respuestas.</p>
             </div>
             <div class="ignore">
-                <p><span class="heavy">¿No creaste una cuenta en Visita Colbún?</span>
-                    Puedes ignorar este correo.</p>
+                <p class="text4">¿No creaste una cuenta en Visita Colbún?<br/>
+                    <span class="light">Puedes ignorar este correo.</span></p>
             </div>
             <div class="desuscribirse">
-                <br>
-                <p>Este correo electrónico fue enviado a <span class="mail">{{ user.email }}</span>. Si prefieres no recibir este tipo de correo electrónico puedes <span class="heavy">Darte de Baja.</span>
+                <p class="text5">Este correo electrónico fue enviado a <span class="mail">{{ user.email }}</span>. Si prefieres no recibir este tipo de correo electrónico puedes <span class="bold">Darte de Baja.</span>
                     <br/><br/>Adolfo Novoa 419, Colbún, Maule, Chile</p>
             </div>
         </div>
