@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+        
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Roboto, sans-serif;
+            font-style: normal;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        p {
+            font-feature-settings: 'liga' off, 'clig' off;
+            color: #757575;
+        }
+        
+        .frame {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 640px;
+            height: 1127px;
+            flex-shrink: 0;
+            /* opacity: 0.4; */
+            background: #C0DBE7;
+        }
+        
+        .logo {
+            margin: 3em;
+            display: flex;
+            width: 544px;
+            justify-content: end;
+            align-items: center;
+            gap: 390px;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: 40px;
+        }
+        
+        .logo i {
+            width: 20px;
+            height: 20px;
+            color: #4B67AE;
+        }
+        
+        .iconos {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .imagen {
+            width: 544px;
+            height: 115px;
+            flex-shrink: 0;
+            border-radius: 0px 0px 8px 8px;
+            background: url(https://mueblescaracol.cl/productos/nicanor_colinanco00026.png) lightgray 50% / cover no-repeat;
+        }
+        
+        .main {
+            display: flex;
+            width: 544px;
+            padding: 40px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 24px;
+            border-radius: 0px 0px 8px 8px;
+            background: #FFF;
+        }
+        
+        h1 {
+            align-self: stretch;
+            color:  #222;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+        
+        .text1 {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 150%; /* 24px */
+        }
+        
+        .text2 {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 150%; /* 24px */
+        }
+        
+        .formbtn {
+            display: flex;
+            padding: 16px 32px;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            border-radius: 8px;
+            background: #4B67AE;
+            color: #FFF;
+            font-family: "SF Pro Display", Roboto;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 24px; /* 150% */
+            letter-spacing: 0.32px;
+        }
+        
+        .text3 {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 150%; /* 18px */
+        }
+        
+        .ignore {
+            display: flex;
+            width: 544px;
+            padding: 24px 40px;
+            align-items: center;
+            gap: 10px;
+            border-radius: 0px 0px 8px 8px;
+            background: #FFF;
+            margin-top: 2em;
+        }
+        
+        .desuscribirse {
+            display: flex;
+            width: 544px;
+            padding: 24px 48px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .text4 {
+            width: 544px;
+            flex-shrink: 0;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 150%; /* 21px */
+        }
+        
+        .mail {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 150%;
+            text-decoration-line: underline;
+            text-decoration-style: solid;
+            text-decoration-skip-ink: auto;
+            text-decoration-thickness: auto;
+            text-underline-offset: auto;
+            text-underline-position: from-font;
+        }
+        
+        .bold {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 150%;
+        }</style>
+    <title>Encuesta de Satisfacción</title>
+</head>
+<body>
+    <div class="frame">
+        <div class="logo">
+            <img src="https://mueblescaracol.cl/productos/logo.png" alt="logo">
+            <div class="iconos">
+                <a href="https://www.facebook.com/" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="width: 20px; height: 20px;">
+                </a>
+                <a href="https://www.instagram.com/" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 20px; height: 20px;">
+                </a>
+                <a href="https://www.youtube.com/" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" style="width: 20px; height: 20px;">
+                </a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="imagen"></div>
+            <div class="main">
+                <h1>Encuesta de satisfacción Visita Colbún</h1>
+                <p class="text1">Estamos realizando una breve encuesta<br/>
+                    para conocer tu experiencia con nosotros.</p>
+                <p class="text1">Responder a este formulario no te va a llevar más de 5 minutos.</p>
+                <p class="text2">¡Muchas Gracias!</p>
+                <a href="https://forms.gle/bZ9dV64PmGA1rUmj9" class="formbtn">Encuesta</a>
+                <p class="text3">Esta encuesta es anónima y en ningún caso podremos identificarte por tus respuestas.</p>
+            </div>
+            <div class="ignore">
+                <p class="text4">¿No creaste una cuenta en Visita Colbún?<br/>
+                    <span class="light">Puedes ignorar este correo.</span></p>
+            </div>
+            <div class="desuscribirse">
+                <p class="text5">Este correo electrónico fue enviado a <span class="mail">{{ user.email }}</span>. Si prefieres no recibir este tipo de correo electrónico puedes <span class="bold">Darte de Baja.</span>
+                    <br/><br/>Adolfo Novoa 419, Colbún, Maule, Chile</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

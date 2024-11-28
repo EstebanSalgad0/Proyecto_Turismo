@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completa tu Registro - Bienes y Servicios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 90%;
+            margin: 0;
+        }
+        .form-container {
+            width: 90%;
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 20px 35px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transform: scale(1.5); /* Ajuste la escala a un valor más bajo si es necesario */
+            transform-origin: center top; /* Cambia el origen para que el "zoom" se enfoque en la parte superior */
+            margin-top: 20px; /* Agrega margen para asegurar que el título esté visible */
+        }
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            text-align: left;
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        button {
+            background-color: #4B67AE;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #233495;
+        }
+        .checkbox-options, .multiple-options {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+        .checkbox-options label {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Formulario para Bienes y Servicios</h1>
+        <form method="post" action="{% url 'activar_bienes' uidb64=uidb64 token=token %}">
+            {% csrf_token %}
+            <label for="nombre_local">Nombre del Local:</label>
+            <input type="text" id="nombre_local" name="nombre_local" placeholder="Mueblería Los Verdugos" required>
+
+            <label for="actividad">Actividad:</label>
+            <input type="text" id="actividad" name="actividad" placeholder="Venta de Muebles para el Hogar" required>
+
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion" placeholder="La primera vuelta a El Melado" required>
+
+            <label for="coordenadas">Coordenadas:</label>
+            <input type="text" id="coordenadas" name="coordenadas" placeholder="Ejemplo: -34.6037, -58.3816" required>
+
+            <label for="localidad">Localidad:</label>
+            <select id="localidad" name="localidad" required>
+                <option value="" disabled selected>Seleccione una opción</option>
+                <option value="El Melado">El Melado</option>
+                <option value="Pehuenche">Pehuenche</option>
+                <option value="Colbún Alto">Colbún Alto</option>
+                <option value="La Guardia">La Guardia</option>
+                <option value="Los Boldos">Los Boldos</option>
+                <option value="Colbún">Colbún</option>
+                <option value="Panimávida">Panimávida</option>
+                <option value="Rari">Rari</option>
+                <option value="Quinamávida">Quinamávida</option>
+                <option value="Rabones">Rabones</option>
+            </select>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono" name="telefono" placeholder="+56937973797" required>
+
+            <label for="horarios_atencion">Horarios de Atención:</label>
+            <input type="text" id="horarios_atencion" name="horarios_atencion" placeholder="9:00 A.M. hasta las 12:00 A.M." required>
+
+            <label for="redes_sociales">Redes Sociales (Instagram, Facebook, etc.):</label>
+            <input type="text" id="redes_sociales" name="redes_sociales" placeholder="Ejemplo: Instagram, Facebook">
+
+            <label for="email">E-Mail:</label>
+            <input type="email" id="email" name="email" placeholder="miusuario@gmail.com" required>
+
+            <div class="checkbox-options">
+                <label>Medios de Pago:</label><br>
+                <label><input type="checkbox" name="medios_pago" value="Efectivo"> Efectivo</label>
+                <label><input type="checkbox" name="medios_pago" value="Transferencia"> Transferencia</label>
+                <label><input type="checkbox" name="medios_pago" value="Debito"> Débito</label>
+                <label><input type="checkbox" name="medios_pago" value="Credito"> Crédito</label>
+            </div>
+
+            <button type="submit">Activar Cuenta</button>
+        </form>
+    </div>
+</body>
+</html>
