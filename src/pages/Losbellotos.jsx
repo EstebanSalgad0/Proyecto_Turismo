@@ -26,7 +26,7 @@ const Losbellotos = () => {
       i18n.changeLanguage(savedLanguage);
     }
     // Fetch data from the Django API
-    fetch('http://localhost:8000/api/lugares/buscar/?nombre=los_bellotos') // Cambia el nombre por el lugar turístico que necesites
+    fetch('http://www.visitacolbun.cl/api/lugares/buscar/?nombre=los_bellotos') // Cambia el nombre por el lugar turístico que necesites
       .then(response => response.json())
       .then(data => {
         setLat(data.latitud);

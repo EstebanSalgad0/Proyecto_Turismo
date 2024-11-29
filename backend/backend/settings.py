@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-5c2-e8+pbw8(7+3z0^$_7&#fggc^=bp^6(p0=-^qq0f&$e&+u5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True # Permite el debuggeo uwu
+DEBUG = False # Permite el debuggeo
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["www.visitacolbun.cl", "visitacolbun.cl"] # Permite que el servidor web acepte solicitudes del dominio de produccion
 
 
 # Application definition
@@ -165,7 +165,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 CORS_ALLOWED_ORIGINS = [
-    "https://localhost:5173",  # La URL de tu frontend (React)
+    "https://www.visitacolbun.cl",  # La URL de tu frontend (React)
+    "https://api.visitacolbun.cl"
 ]
 
 MEDIA_URL = '/media/'  # URL de acceso a los archivos de medios

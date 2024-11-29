@@ -25,7 +25,7 @@ const Panimavida = () => {
       i18n.changeLanguage(savedLanguage);
     }
 
-    fetch('http://localhost:8000/api/lugares/buscar/?nombre=panimavida') // Cambiar nombre por lugar turistico necesitado
+    fetch('http://www.visitacolbun.cl/api/lugares/buscar/?nombre=panimavida') // Cambiar nombre por lugar turistico necesitado
       .then( response => response.json())
       .then( data => {
         setLat( data.latitud );

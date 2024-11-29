@@ -26,7 +26,7 @@ const Folleteria = () => {
     }
 
     // Simulación de obtener coordenadas
-    fetch('http://localhost:8000/api/lugares/buscar/?nombre=mapa_folleteria')
+    fetch('http://www.visitacolbun.cl/api/lugares/buscar/?nombre=mapa_folleteria')
       .then((response) => response.json())
       .then((data) => {
         setLat(data.latitud || -35.699248); // Coordenadas de ejemplo
