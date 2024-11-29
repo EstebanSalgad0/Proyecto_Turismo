@@ -37,8 +37,6 @@ const CrearServicio = () => {
   const [dragActive4, setDragActive4] = useState(false); // Estado para el arrastre
   const [showServiceListSidebar, setShowServiceListSidebar] = useState(false);
 
-  const [userRole, setUserRole] = useState(""); // Estado para el rol del usuario
-
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
@@ -158,19 +156,6 @@ const CrearServicio = () => {
     }
   };
 
-  const handleCreateNew = () => {
-    setNombre("");
-    setRedesSociales("");
-    setDescripcion("");
-    setTelefono("");
-    setPrecio("");
-    setImagen(null);
-    setImagen2(null);
-    setImagen3(null);
-    setImagen4(null);
-    setEditMode(false);
-  };
-
   // Actualización: Manejo de archivos
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -230,11 +215,6 @@ const CrearServicio = () => {
   const confirmDelete = (id) => {
     setDeleteServiceId(id);
     setActionType("delete");
-    setShowModal(true);
-  };
-
-  const confirmEdit = () => {
-    setActionType("edit");
     setShowModal(true);
   };
 
@@ -577,7 +557,7 @@ const CrearServicio = () => {
               onClick={() => setShowSidebar(false)}
             ></div>
             <div className="sidebar">
-              <img src="src/assets/img/icono.png" className="sidebar-img" />
+              <img src="/assets/img/icono.png" className="sidebar-img" />
 
               <button
                 className="close-button"
