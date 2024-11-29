@@ -10,7 +10,7 @@
 
 /* Hero section */
 .hero100 {
-  background-image: url("../assets/img/Panoramas.png") !important;
+  background-image: url("/assets/img/Panoramas.png") !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat;

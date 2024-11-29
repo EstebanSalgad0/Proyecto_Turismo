@@ -9,10 +9,10 @@ import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
 
 // Importación de imágenes locales
-import culturaImage from '../assets/img/Cultural.png';
-import senderismoImage from '../assets/img/Senderismo.png';
-import parquesImage from '../assets/img/Parque.png';
-import vidaSalvajeImage from '../assets/img/Rutas.png';
+import culturaImage from '/assets/img/Cultural.png';
+import senderismoImage from '/assets/img/Senderismo.png';
+import parquesImage from '/assets/img/Parque.png';
+import vidaSalvajeImage from '/assets/img/Rutas.png';
 
 const QueHacer = () => {
   const { t, i18n } = useTranslation(); // Hook para usar traducciones

@@ -9,7 +9,7 @@
 }
 
 .hero22 {
-  background-image: url("../assets/img/colbun_alto.png") !important; /* Aquí va la ruta de la imagen de fondo */
+  background-image: url("/assets/img/colbun_alto.png") !important; /* Aquí va la ruta de la imagen de fondo */
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat;

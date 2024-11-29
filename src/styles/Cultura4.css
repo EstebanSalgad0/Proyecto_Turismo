@@ -27,20 +27,20 @@
 }
 
 .hero40 {
-  background-image: url("../assets/img/RARI_CIUDAD_ARTESANAL.jpg") !important;
+  background-image: url("/assets/img/RARI_CIUDAD_ARTESANAL.jpg") !important;
   margin-top: 20px;
 }
 
 .hero41 {
-  background-image: url("../assets/img/image.png") !important;
+  background-image: url("/assets/img/image.png") !important;
 }
 
 .hero42 {
-  background-image: url("../assets/img/Cultural.png") !important;
+  background-image: url("/assets/img/Cultural.png") !important;
 }
 
 .hero43 {
-  background-image: url("../assets/img/quinamavida.png") !important;
+  background-image: url("/assets/img/quinamavida.png") !important;
 }
 
 .hero-content40, .hero-content41, .hero-content42, .hero-content43 {

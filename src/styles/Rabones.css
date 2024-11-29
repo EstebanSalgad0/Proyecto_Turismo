@@ -9,7 +9,7 @@
 }
 
 .hero107 {
-  background-image: url("../assets/img/rabones.png") !important;
+  background-image: url("/assets/img/rabones.png") !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat;

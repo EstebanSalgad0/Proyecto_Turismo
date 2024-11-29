@@ -113,15 +113,15 @@ strong {
 
 /* Diferentes clases para cada imagen */
 .help-image-1 {
-  background-image: url('../assets/img/Sociales/formulario.png') !important; /* Aquí va tu imagen */
+  background-image: url('/assets/img/Sociales/formulario.png') !important; /* Aquí va tu imagen */
 }
 
 .help-image-2 {
-  background-image: url('../assets/img/Sociales/OIT.png') !important; /* Aquí va tu imagen */
+  background-image: url('/assets/img/Sociales/OIT.png') !important; /* Aquí va tu imagen */
 }
 
 .help-image-3 {
-  background-image: url('../assets/img/Sociales/Mapa.png') !important; /* Aquí va tu imagen */
+  background-image: url('/assets/img/Sociales/Mapa.png') !important; /* Aquí va tu imagen */
 }
 
 .help-item p {

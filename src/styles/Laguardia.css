@@ -9,7 +9,7 @@
 }
 
 .hero101 {
-  background-image: url("../assets/img/guardia.png") !important;
+  background-image: url("/assets/img/guardia.png") !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat;

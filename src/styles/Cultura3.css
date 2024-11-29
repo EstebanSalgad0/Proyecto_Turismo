@@ -27,20 +27,20 @@
 }
 
 .hero30 {
-  background-image: url("../assets/img/iglesia.png") !important;
+  background-image: url("/assets/img/iglesia.png") !important;
   margin-top: 20px;
 }
 
 .hero31 {
-  background-image: url("../assets/img/image.png") !important;
+  background-image: url("/assets/img/image.png") !important;
 }
 
 .hero32 {
-  background-image: url("../assets/img/image.png") !important;
+  background-image: url("/assets/img/image.png") !important;
 }
 
 .hero33 {
-  background-image: url("../assets/img/image.png") !important;
+  background-image: url("/assets/img/image.png") !important;
 }
 
 .hero-content30, .hero-content31, .hero-content32, .hero-content33 {

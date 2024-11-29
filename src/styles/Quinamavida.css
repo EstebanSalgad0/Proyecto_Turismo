@@ -9,7 +9,7 @@
 }
 
 .hero105 {
-  background-image: url("../assets/img/quinamavida.png") !important;
+  background-image: url("/assets/img/quinamavida.png") !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat;

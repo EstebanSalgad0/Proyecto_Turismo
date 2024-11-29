@@ -192,7 +192,7 @@ const Header = () => {
     <header className={`navbar1 ${showHeader ? "show" : "hide"}`}>
       <div className="header-left">
         <Link to="/Index" className="header-icon">
-          <img src="src/assets/img/icono.png" alt="icono" />
+          <img src="/assets/img/icono.png" alt="icono" />
         </Link>
 
         <button
@@ -214,7 +214,7 @@ const Header = () => {
               {t("WhereToGo")} {/* Texto traducido dinámicamente */}
             </button>
             <img
-              src="src/assets/img/flecha.png"
+              src="/assets/img/flecha.png"
               alt="flecha"
               className="arrow-icon"
             />
@@ -272,7 +272,7 @@ const Header = () => {
           <div className="button-with-arrow">
             <button className="Hacer">{t("WhatToDo")}</button>
             <img
-              src="src/assets/img/flecha.png"
+              src="/assets/img/flecha.png"
               alt="flecha"
               className="arrow-icon"
             />
@@ -371,7 +371,7 @@ const Header = () => {
               {t("Services")}
             </button>
             <img
-              src="src/assets/img/flecha.png"
+              src="/assets/img/flecha.png"
               alt="flecha"
               className="arrow-icon2"
             />
@@ -427,7 +427,7 @@ const Header = () => {
                 <>
                   <span className="language-label1">EN</span>
                   <img
-                    src="src/assets/img/uk4.png"
+                    src="/assets/img/uk4.png"
                     alt="English"
                     className="icon-image7"
                   />
@@ -436,7 +436,7 @@ const Header = () => {
                 <>
                   <span className="language-label">ES</span>
                   <img
-                    src="src/assets/img/espana.png"
+                    src="/assets/img/espana.png"
                     alt="Español"
                     className="icon-image6"
                   />
@@ -485,13 +485,13 @@ const Header = () => {
             <button onClick={toggleDarkMode} className="btn-blue2">
               {darkMode ? (
                 <img
-                  src="src/assets/img/sol4.png"
+                  src="/assets/img/sol4.png"
                   alt="Sol"
                   className="icon-image2"
                 />
               ) : (
                 <img
-                  src="src/assets/img/luna.png"
+                  src="/assets/img/luna.png"
                   alt="Luna"
                   className="icon-image3"
                 />
@@ -503,7 +503,7 @@ const Header = () => {
             <>
               <button onClick={confirmLogout} className="btn-blue2">
                 <img
-                  src="src/assets/img/logout.png"
+                  src="/assets/img/logout.png"
                   alt="Logout"
                   className="icon-image4"
                 />
@@ -522,7 +522,7 @@ const Header = () => {
             <Link to="/login">
               <button className="btn-blue2">
                 <img
-                  src="src/assets/img/login.png"
+                  src="/assets/img/login.png"
                   alt="Login"
                   className="icon-image5"
                 />

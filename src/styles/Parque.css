@@ -10,7 +10,7 @@
 }
 
 .hero10 {
-  background-image: url("../assets/img/CAVERNAS_LOS_BELLOTOS.JPG") !important; /* Ruta de la imagen de fondo */
+  background-image: url("/assets/img/CAVERNAS_LOS_BELLOTOS.JPG") !important; /* Ruta de la imagen de fondo */
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat;
@@ -55,7 +55,7 @@
 }
 
 .hero1000 {
-  background-image: url("../assets/img/Parque.png") !important; /* Ruta de la imagen de fondo */
+  background-image: url("/assets/img/Parque.png") !important; /* Ruta de la imagen de fondo */
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat;

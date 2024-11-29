@@ -10,7 +10,7 @@
 }
 
 .hero0 {
-  background-image: url("../assets/img/Elmelado.png") !important;  /* Aquí va la ruta de tu imagen */
+  background-image: url("/assets/img/Elmelado.png") !important;  /* Aquí va la ruta de tu imagen */
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat;

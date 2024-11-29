@@ -27,20 +27,20 @@
 }
 
 .hero5 {
-  background-image: url("../assets/img/1.png") !important;
+  background-image: url("/assets/img/1.png") !important;
   margin-top: 20px;
 }
 
 .hero333 {
-  background-image: url("../assets/img/MIRADOR_LAS_VIZCACHAS.jpg") !important;
+  background-image: url("/assets/img/MIRADOR_LAS_VIZCACHAS.jpg") !important;
 }
 
 .hero26 {
-  background-image: url("../assets/img/balneario.png") !important;
+  background-image: url("/assets/img/balneario.png") !important;
 }
 
 .hero27 {
-  background-image: url("../assets/img/3.png") !important;
+  background-image: url("/assets/img/3.png") !important;
 }
 
 .hero-content5, .hero-content333, .hero-content26, .hero-content27 {

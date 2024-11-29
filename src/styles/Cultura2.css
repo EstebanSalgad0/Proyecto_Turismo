@@ -27,20 +27,20 @@
 }
 
 .hero5 {
-  background-image: url("../assets/img/1.png") !important;
+  background-image: url("/assets/img/1.png") !important;
   margin-top: 20px;
 }
 
 .hero25 {
-  background-image: url("../assets/img/guardia.png") !important;
+  background-image: url("/assets/img/guardia.png") !important;
 }
 
 .hero26 {
-  background-image: url("../assets/img/2.png") !important;
+  background-image: url("/assets/img/2.png") !important;
 }
 
 .hero27 {
-  background-image: url("../assets/img/3.png") !important;
+  background-image: url("/assets/img/3.png") !important;
 }
 
 .hero-content5, .hero-content25, .hero-content26, .hero-content27 {
