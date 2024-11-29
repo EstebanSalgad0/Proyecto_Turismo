@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+.service-card.expanded .DownCard-MS{
+  display: none;
+}
+
 .service-card.expanded2 .service-title1 {
   font-family: "Roboto", sans-serif;
   font-size: 30px;
@@ -18,6 +22,7 @@
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   color: #757575;
+  text-align: start;
 }
 
 span {
@@ -65,7 +70,7 @@ body.dark-mode .TipoOferente{
 }
 
 .services-title{
-  padding-left: 30px;
+  padding:0 150px;
   color: #4B67AE;
 }
 
@@ -189,18 +194,18 @@ body.dark-mode .TipoOferente{
 
 /* Ajuste para pantallas pequeñas */
 @media (max-width: 768px) {
-  .service-card.expanded {
+  .service-card.expanded1 {
     overflow: visible; /* Permite que el contenido crezca en pantallas pequeñas */
   }
-  .service-card.expanded .service-details,
-  .service-card.expanded .expanded-gallery1 {
+  .service-card.expanded1 .service-details,
+  .service-card.expanded1 .expanded-gallery1 {
     float: none; /* Elimina el float en pantallas pequeñas */
     width: 100%; /* Asegura que ambos bloques ocupen el 100% del ancho */
   }
   .service-card.expanded .expanded-gallery1 {
     grid-template-columns: 1fr; /* Apila todas las imágenes en una columna */
   }
-  .service-card.expanded .expanded-gallery-image1 {
+  .service-card.expanded1 .expanded-gallery-image1 {
     width: 100%;
     height: auto;
   }
@@ -223,9 +228,10 @@ body.dark-mode .TipoOferente{
   .services-title {
     text-align: center;
     color: #4B67AE;
-    margin-top: 100px; /* Espacio más pequeño para móviles */
+    margin-top: 40px; /* Espacio más pequeño para móviles */
     font-size: 20px; /* Tamaño de fuente reducido */
     font-weight: bold;
+    padding: 0 10px;
   }
   .service-title {
     margin: 0 0 5px;

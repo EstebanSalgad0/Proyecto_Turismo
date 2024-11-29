@@ -9,6 +9,13 @@
   text-align: start;
 }
 
+/* Tarjeta de servicio */
+.service-container {
+  width: 270px;
+  height: 340px;
+
+}
+
 body.dark-mode .service-title {
   color: white;
   font-size: 20px;
@@ -22,6 +29,11 @@ body.dark-mode .service-title {
   color: #757575;
   text-align: start;
   margin-bottom: 10px; /* Espacio entre la descripción y los botones */
+  word-wrap: break-word;
+  width: 70%;
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  overflow: hidden; /* Oculta el texto que exceda el contenedor */
+  text-overflow: ellipsis; /* Muestra los puntos suspensivos (...) */
 }
 
 body.dark-mode .ser-descripcion  {
@@ -330,8 +342,8 @@ body.dark-mode .sidebar h3{
   transform: translate(-50%, -50%); /* Ajusta la posición para que el centro sea el medio de la pantalla */
   width: 90%; /* Ocupa el 90% del ancho de la pantalla */
   max-width: 1200px; /* Establece un ancho máximo mayor */
-  height: 80%; /* Ocupa el 80% del alto de la pantalla */
-  max-height: 90vh; /* Limita la altura máxima al 90% de la altura de la ventana */
+  height: auto;
+  min-height: 70%;
   background-color: white;
   z-index: 1000;
   padding: 40px;
@@ -539,7 +551,7 @@ body.dark-mode .ButtonsCRUD button{
   background-color: white;
   padding: 20px;
   border-radius: 10px;
-  width: 300px;
+  width: 350px;
   max-width: 90%;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   position: fixed;
@@ -547,6 +559,10 @@ body.dark-mode .ButtonsCRUD button{
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000;
+
+  /* Ajustes de altura y desplazamiento */
+  max-height: 500px; /* Limita la altura máxima del contenedor */
+  overflow-y: auto; /* Habilita el desplazamiento vertical */
 }
 
 .service-item {
@@ -570,6 +586,7 @@ body.dark-mode .ButtonsCRUD button{
   font-size: 20px;
   color: #3b5297;
   font-weight: bold;
+  width: 240px;
 }
 /* Contenedor del título y el botón */
 .title-and-reenviar {
@@ -649,6 +666,7 @@ body.dark-mode .ButtonsCRUD button{
   gap: 10px;
   color: #333; /* Alineado al estilo de tu página */
   font-family: 'Roboto', sans-serif;
+  word-wrap: break-word;
 }
 
 .service-details h3 {
@@ -675,7 +693,7 @@ body.dark-mode .ButtonsCRUD button{
   display: grid;
   gap: 20px; /* Espacio entre las imágenes */
   margin-left: auto; /* Desplaza el contenido hacia la derecha */
-  margin-top: 0px;
+  margin-top: 8px;
   padding: 20px;
   justify-items: center; /* Alinea las imágenes en el centro */
   max-width: 1000px; /* Controla el tamaño máximo */
@@ -837,6 +855,11 @@ body.dark-mode .ButtonsCRUD button{
     text-align: center;
   }
 
+  .service-card.expanded .expanded-gallery1 {
+    margin-top: 80px;
+  }
+  
+
   /* Ajustes para la tarjeta de servicio */
   .service-card {
     height: auto; /* Ajusta la altura automáticamente */
@@ -845,14 +868,39 @@ body.dark-mode .ButtonsCRUD button{
 
   /* Ajustes para el contenido de la tarjeta de servicio expandida */
   .service-card.expanded {
-    width: 90%; /* Ocupa el 90% del ancho de la pantalla */
-    height: 85vh; /* Ajusta la altura al 85% de la pantalla */
+    max-width: 90%; /* Limita el ancho máximo de la tarjeta */
+    max-height: 95%; /* Limita la altura máxima al 80% del viewport */
+   
+    height: auto; /* Ajusta automáticamente la altura al contenido */
+    overflow-y: auto; /* Agrega desplazamiento vertical cuando sea necesario */
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
     padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-start; /* Alinea los elementos al inicio de la tarjeta */
+    background-color: white; /* Fondo blanco */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Sombra suave */
+
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta la posición para centrar */
+
   }
+  
+  .service-card.expanded .service-details p {
+    font-size: 16px;
+  }
+  
+  .service-card.expanded .expanded-gallery1 {
+    grid-template-columns: 1fr; /* Pone las imágenes en una columna en pantallas pequeñas */
+    max-height: 30%; /* Ajusta la altura máxima */
+  }
+
+  .service-card.expanded .service-details {
+    max-height: 150px; /* Reduce la altura máxima de los detalles en pantallas pequeñas */
+    font-size: 14px;
+  }
+  
 
   /* Ajustes para el título dentro de la tarjeta expandida */
   .service-card.expanded .service-title {
@@ -961,5 +1009,11 @@ body.dark-mode .ButtonsCRUD button{
     height: 200px;
     object-fit: cover;
     border-radius: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-card.expanded .expanded-gallery1 {
+    margin-top: 40px;
   }
 }
