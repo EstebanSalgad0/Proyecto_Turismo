@@ -47,7 +47,7 @@ const Index = () => {
         ref={videoRef}
         width="560"
         height="315"
-        src="https://www.youtube.com/embed/7l3B_AjYnhI?autoplay=1&mute=0&loop=1&playlist=7l3B_AjYnhI&vq=hd1080"
+        src="https://www.youtube.com/embed/7l3B_AjYnhI?autoplay=1&mute=1&loop=1&playlist=7l3B_AjYnhI&vq=hd1080"
         title="YouTube video player"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
