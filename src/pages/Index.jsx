@@ -62,7 +62,7 @@ const Index = () => {
           <a href="https://www.youtube.com/watch?v=QCvh0Lwfmww" target="colbun" rel="municipalidad_Colbun">
             <button className="btn-blue">
               {t('WatchNow')}
-              <img src="src/assets/img/verahora_icon.png" alt="icono de reproducción" className="button-icon" />
+              <img src="../assets/img/verahora_icon.png" alt="icono de reproducción" className="button-icon" />
             </button>
           </a>
         </div>
