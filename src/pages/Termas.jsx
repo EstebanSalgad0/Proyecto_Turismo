@@ -36,7 +36,7 @@ const Termas = () => {
     }
     
     // Fetch data from the Django API (Termas)
-    fetch('http://www.visitacolbun.cl/api/lugares/buscar/?nombre=termas_rutas') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://190.100.150.2:8000/api/lugares/buscar/?nombre=termas_rutas') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatTermas(data.latitud);
@@ -45,7 +45,7 @@ const Termas = () => {
     .catch(error => console.error('Error fetching location data:', error));
     
     // Fetch data from the Django API (Emblase Machicura)
-    fetch('http://www.visitacolbun.cl/api/lugares/buscar/?nombre=embalse_machicura') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://190.100.150.2:8000/api/lugares/buscar/?nombre=embalse_machicura') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatEmbalse(data.latitud);

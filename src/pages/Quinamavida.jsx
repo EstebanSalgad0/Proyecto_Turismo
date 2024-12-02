@@ -27,7 +27,7 @@ const Quinamavida = () => {
     }
 
     // Fetch data from the Django API
-    fetch('http://www.visitacolbun.cl/api/lugares/buscar/?nombre=quinamavida') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://190.100.150.2:8000/api/lugares/buscar/?nombre=quinamavida') // Cambia el nombre por el lugar turístico que necesites
       .then(response => response.json())
       .then(data => {
         setLat(data.latitud);
