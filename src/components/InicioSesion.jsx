@@ -10,7 +10,7 @@ const InicioSesion = () => {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(''); // Estado para manejar errores
   const navigate = useNavigate();
-  const captchaKEY = import.meta.env.VITE_CAPTCHA_KEY;
+  const captchaKEY = "6LcH3o4qAAAAAKlHasSy5RQD2oxcvtAkHXR29WrP";
 
   useEffect(() => {
     // Cargar el script de reCAPTCHA

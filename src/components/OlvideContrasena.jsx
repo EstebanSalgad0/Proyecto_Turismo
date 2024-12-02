@@ -8,7 +8,7 @@ const PasswordReset = () => {
   const [email, setEmail] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-  const captchaKEY = import.meta.env.VITE_CAPTCHA_KEY;
+  const captchaKEY = "6LcH3o4qAAAAAKlHasSy5RQD2oxcvtAkHXR29WrP";
 
   const navigate = useNavigate();
 
