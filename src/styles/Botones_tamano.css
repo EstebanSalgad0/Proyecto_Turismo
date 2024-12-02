@@ -51,3 +51,15 @@ body.dark-mode .btn-floating:hover {
 .left i, .right i{
   margin-right: 15px;
 }
+
+
+/* Estilos para los iconos */
+.btn-floating .icon i {
+  font-size: 1.5rem; /* Tamaño del icono */
+  transition: color 0.2s; /* Transición suave para el color */
+}
+
+.btn-floating:hover .icon i {
+  color: #00bcd4; /* Cambia el color del icono en hover */
+}
+

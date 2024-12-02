@@ -22,10 +22,10 @@ const ControlLetras = () => {
   return (
     <>
       <button onClick={decreaseFontSize} className="btn-floating left">
-        <span className="icon">-</span> {/* Icono de menos */}
+        <span className="icon"><i className="bi bi-zoom-out"></i></span> {/* Icono de menos */}
       </button>
       <button onClick={increaseFontSize} className="btn-floating right">
-        <span className="icon">+</span> {/* Icono de más */}
+        <span className="icon"><i className="bi bi-zoom-in"></i></span> {/* Icono de más */}
       </button>
     </>
   );

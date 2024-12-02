@@ -1,17 +1,18 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import useCarousel from './useCarousel';
 
 
 // Importa las imágenes
-import img1 from '/assets/img/PXL_20240927_102434354.jpg';
-import img2 from '/assets/img/Cultural.png';
-import img3 from '/assets/img/Parque.png';
-import img4 from '/assets/img/PXL_20240927_112617725.jpg';
-import img5 from '/assets/img/PXL_20240927_112819235.jpg';
-import img6 from '/assets/img/PXL_20240927_120450869.jpg';
-import img7 from '/assets/img/PXL_20240927_114154883.jpg';
-import img8 from '/assets/img/PXL_20240927_102434354.jpg';
+import img1 from '../assets/img/PXL_20240927_102434354.jpg';
+import img2 from '../assets/img/Cultural.png';
+import img3 from '../assets/img/Parque.png';
+import img4 from '../assets/img/PXL_20240927_112617725.jpg';
+import img5 from '../assets/img/PXL_20240927_112819235.jpg';
+import img6 from '../assets/img/PXL_20240927_120450869.jpg';
+import img7 from '../assets/img/PXL_20240927_114154883.jpg';
+import img8 from '../assets/img/PXL_20240927_102434354.jpg';
 
 const Carousel = () => {
   const { t } = useTranslation();
@@ -49,7 +50,7 @@ const Carousel = () => {
             key={index}
             className="carousel-card1"
             style={{
-              transform: `translateX(-${currentSlide * (window.innerWidth <= 768 ? 113 : 130)}%)`
+              transform: `translateX(-${currentSlide * (window.innerWidth <= 768 ? 113 : 110)}%)`
             }}
           >
             <img src={slide.image} alt={t(slide.name)} className="carousel-image1" />

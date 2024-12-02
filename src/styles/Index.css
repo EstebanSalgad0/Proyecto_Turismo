@@ -163,8 +163,9 @@
 .carousel-card1 {
   font-family: "Roboto", sans-serif;
   flex: 1;
+  width: 279px;
   min-width: 250px; /* Tamaño mínimo de las tarjetas */
-  height: 380px; /* Altura de las tarjetas */
+  height: 440px; /* Altura de las tarjetas */
   background-color: #e0e0e0; /* Color gris para las imágenes de ejemplo */
   border-radius: 10px;
   text-align: center;
@@ -174,7 +175,7 @@
 
 .carousel-image1 {
   width: 100%;
-  height: 300px; /* Altura de la imagen dentro de la tarjeta */
+  height: 370px; /* Altura de la imagen dentro de la tarjeta */
   background-color: #d3d3d3; /* Placeholder para la imagen */
   border-radius: 10px;
   margin-bottom: 10px;
@@ -236,7 +237,7 @@
 
 /* Sección de Comunidad */
 .community-section1 {
-  background-image: url('/assets/img/image2.png'); /* Ruta de la imagen de fondo */
+  background-image: url('../assets/img/image2.png'); /* Ruta de la imagen de fondo */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -479,7 +480,7 @@
 
   /* Sección de Comunidad */
   .community-section1 {
-    background-image: url('/assets/img/image2.png');
+    background-image: url('../assets/img/image2.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -567,7 +568,7 @@
 
   .carousel-card1 img {
     width: 100%;
-    height: 320px;
+    height: 370px;
   }
 
   .carousel-nav {
@@ -727,7 +728,7 @@ img {
 
   .carousel-card1 img {
     width: 100%;
-    height: 320px;
+    height: 370px;
   }
 
   .carousel-nav {
