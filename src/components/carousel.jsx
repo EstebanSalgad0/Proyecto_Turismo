@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import useCarousel from './useCarousel';
@@ -49,7 +50,7 @@ const Carousel = () => {
             key={index}
             className="carousel-card1"
             style={{
-              transform: `translateX(-${currentSlide * (window.innerWidth <= 768 ? 113 : 130)}%)`
+              transform: `translateX(-${currentSlide * (window.innerWidth <= 768 ? 113 : 110)}%)`
             }}
           >
             <img src={slide.image} alt={t(slide.name)} className="carousel-image1" />

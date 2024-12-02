@@ -12,7 +12,7 @@
 .footer-container {
   display: flex;
   justify-content: space-between; /* Distribuye las columnas equitativamente */
-  max-width: 1200px; /* Ancho máximo del contenido */
+  max-width: 90%; /* Ancho máximo del contenido */
   margin: 0 auto; /* Centra el contenido horizontalmente */
   padding: 20px;
   flex-wrap: wrap; /* Asegura que el contenido se ajuste a pantallas más pequeñas */
@@ -23,7 +23,7 @@
   flex-direction: column; /* Alinea las imágenes en columna */
   align-items: flex-start; /* Alinea los logos a la izquierda */
   gap: 20px; /* Espacio entre los logos */
-  margin-left: 0; /* Mueve el contenedor más cerca del borde izquierdo */
+  margin-right: 60px; /* Mueve el contenedor más cerca del borde izquierdo */
 }
 
 .logo {
@@ -36,28 +36,28 @@
 
 /* Aquí agregamos las imágenes de fondo */
 .logo-1 {
-  background-image: url('/assets/img/Footer/marcaFundacion.png') !important; /* Ajusta la ruta correctamente */
+  background-image: url('../assets/img/Footer/marcaFundacion.png') !important; /* Ajusta la ruta correctamente */
 }
 
 .logo-2 {
-  background-image: url('/assets/img/Footer/AU.png') !important;
+  background-image: url('../assets/img/Footer/AU.png') !important;
 }
 
 .logo-3 {
-  background-image: url('/assets/img/Footer/marcaColbun.png') !important;
+  background-image: url('../assets/img/Footer/marcaColbun.png') !important;
 }
 
 .footer-column {
   display: flex;
   flex-direction: column;
   flex-basis: calc(25% - 20px); /* Ajusta cada columna para ocupar un cuarto del ancho */
-  margin-bottom: 20px; /* Espacio entre las columnas para pantallas más pequeñas */
+  gap: 10px;
 }
 
 .footer-column h3 {
   font-family: "Roboto", sans-serif;
   font-size: 1.2rem;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   font-weight: bold;
 }
 
@@ -68,7 +68,7 @@
 }
 
 .footer-column ul li {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .footer-column ul li a {
@@ -80,6 +80,8 @@
 .footer-column ul li a:hover {
   text-decoration: underline; /* Subraya los enlaces al pasar el mouse */
 }
+
+
 
 /* Responsividad: Ajusta las columnas para pantallas más pequeñas */
 @media (max-width: 768px) {

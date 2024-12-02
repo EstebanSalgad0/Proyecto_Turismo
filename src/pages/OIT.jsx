@@ -31,7 +31,7 @@ const OIT = () => {
     }
 
     // Fetch coordenadas del mapa 1
-    fetch('https://190.100.150.2:8000/api/lugares/buscar/?nombre=mapa_folleteria_1')
+    fetch('http://localhost:8000/api/lugares/buscar/?nombre=mapa_folleteria_1')
       .then((response) => response.json())
       .then((data) => {
         setLatOff1(data.latitud);
@@ -40,7 +40,7 @@ const OIT = () => {
       .catch((error) => console.error('Error fetching location data:', error));
 
     // Fetch coordenadas del mapa 2
-    fetch('https://190.100.150.2:8000/api/lugares/buscar/?nombre=mapa_folleteria_2')
+    fetch('http://localhost:8000/api/lugares/buscar/?nombre=mapa_folleteria_2')
       .then((response) => response.json())
       .then((data) => {
         setLatOff2(data.latitud);
@@ -75,7 +75,7 @@ const OIT = () => {
       </section>
 
       {/* Sección de mapas */}
-      <section className="map-section">
+      <section className="map-section-OIT">
         <div className="map-title">
           <h1>{t('Tourist8')}</h1>
           <div className="map-container">
