@@ -81,7 +81,7 @@ const InicioSesion = () => {
       if (is_first_login) {
         navigate("/bienvenida"); // Navega a la página de bienvenida
       } else {
-        navigate("/Index"); // Navega directamente al index
+        navigate("/"); // Navega directamente al index
       }
       // eslint-disable-next-line no-unused-vars
     } catch (error) {
