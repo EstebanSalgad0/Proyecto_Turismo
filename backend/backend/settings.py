@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-5c2-e8+pbw8(7+3z0^$_7&#fggc^=bp^6(p0=-^qq0f&$e&+u5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True # Permite el debuggeo uwu
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -46,6 +46,7 @@ INSTALLED_APPS = [  # Lista de aplicaciones instaladas en el proyecto Django.
     'rest_framework',  # Necesario para usar Django REST Framework, que permite construir APIs RESTful.
     'rest_framework.authtoken',  # Para autenticar usuarios utilizando tokens en Django REST Framework.
     'corsheaders',  # Middleware para gestionar CORS (Cross-Origin Resource Sharing).
+    'django_extensions',
 ]
 
 MIDDLEWARE = [  # Lista de middleware que se aplican a las solicitudes y respuestas.
@@ -164,8 +165,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
+SECURE_SSL_REDIRECT = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
 CORS_ALLOWED_ORIGINS = [
     "https://localhost:5173",  # La URL de tu frontend (React)
+    "https://visitacolbun.cl",
 ]
 
 MEDIA_URL = '/media/'  # URL de acceso a los archivos de medios
