@@ -56,7 +56,6 @@ const App = () => {
         <Route path="/login" element={<InicioSesion />} /> {/* Nueva ruta para InicioSesion */}
         <Route path="/bienvenida" element={<Bienvenida />} /> {/* Nueva ruta para Bienvenida */}
         <Route path="/OlvideContrasena" element={<OlvideContrasena />} /> {/* Nueva ruta para OlvideContraseña */}
-        <Route path="/Index" element={<Titulo />} />
         <Route path="/ElMelado" element={<ElMelado />} /> {/* Nueva ruta para ElMelado */}
         <Route path="/Paso-pehuenche" element={<Pasopehuenche/>} />
         <Route path="/RestablecerExito" element={<RestablecerExito/>} />

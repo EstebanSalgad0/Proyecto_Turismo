@@ -11,7 +11,7 @@ const Registrarse = () => {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
-  const captchaKEY = import.meta.env.VITE_CAPTCHA_KEY;
+  const captchaKEY = "6LcH3o4qAAAAAKlHasSy5RQD2oxcvtAkHXR29WrP";
   const [tipoOferente, setTipoOferente] = useState("");
 
   const handleTipoOferenteChange = (e) => {

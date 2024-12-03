@@ -10,7 +10,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: white;
+  background-color: transparent;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
@@ -18,7 +18,7 @@
 }
 
 .Logo {
-  background-image: url('/assets/img/Logo/Logo.png') !important;
+  background-image: url('../assets/img/Logo/Logo.png') !important;
   background-size: contain; /* Ajusta el tamaño de la imagen para que se ajuste dentro del contenedor */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
   width: 36px; /* Ajusta el ancho de la imagen */
@@ -82,12 +82,58 @@
 .input-box-is i {
   position: absolute;
   right: 20px;
-  top: 50%;
+  top: 55%;
   transform: translateY(-0%);
   font-size: 20px;
   color: #4B67AE;
   pointer-events: none;
 }
+
+
+.input-box-is-ps {
+  position: relative;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.input-box-is-ps label {
+  display: block;
+  width: 100%; 
+  margin-bottom: 5px;
+  text-align: left; 
+}
+
+.input-box-is-ps input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid rgba(50, 50, 50, 0.3); /* Borde con el color #4B67AE */
+  border-radius: 15px;
+  font-size: 16px;
+  color: #333;
+  padding: 12px 15px;
+  background-color: rgba(255, 255, 255, 0.2); /* Fondo claro */
+  box-sizing: border-box;
+}
+
+.input-box-is-ps input::placeholder {
+  color: #aaa; /* Texto de placeholder gris */
+}
+
+.input-box-is-ps button {
+  position: absolute;
+  right: 20px;
+  top: 52%;
+  transform: translateY(-0%);
+  font-size: 20px;
+  color: #4B67AE;
+  background-color: transparent;
+  border: transparent;
+  padding: 0;
+}
+
+
 
 .remember-forgot {
   display: flex;
