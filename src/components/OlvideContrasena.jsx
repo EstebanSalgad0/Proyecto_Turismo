@@ -34,7 +34,7 @@ const PasswordReset = () => {
 
     try {
       const captchaToken = await window.grecaptcha.execute(captchaKEY, { action: 'password_reset' });
-      const response = await axios.post(import.meta.env.VITE_RESET_PASSWORD_URL, {
+      const response = await axios.post('https://190.100.150.2:8000/api/password_reset/', {
         email,
         captcha: captchaToken,
       });

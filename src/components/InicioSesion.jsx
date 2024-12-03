@@ -64,7 +64,7 @@ const InicioSesion = () => {
         action: "login",
       }); // Acción asociada con 'login'
 
-      const response = await axios.post(import.meta.env.VITE_LOGIN_URL, {
+      const response = await axios.post('https://190.100.150.2:8000/api/login/', {
         email: email,
         password: password,
         captcha: captchaToken, // Enviar el token del captcha al backend

@@ -78,7 +78,7 @@ const Registrarse = () => {
       console.log('Token reCAPTCHA obtenido:', recaptchaToken);
 
       // Hacer la solicitud POST al backend para registrar el usuario
-      const response = await axios.post(import.meta.env.VITE_REGISTRAR_URL, {
+      const response = await axios.post('https://190.100.150.2:8000/api/register/', {
         first_name,
         last_name,
         email,
