@@ -237,7 +237,7 @@
 
 /* Sección de Comunidad */
 .community-section1 {
-  background-image: url('../assets/img/image2.png'); /* Ruta de la imagen de fondo */
+  background-image: url('/assets/img/image2.png'); /* Ruta de la imagen de fondo */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -480,7 +480,7 @@
 
   /* Sección de Comunidad */
   .community-section1 {
-    background-image: url('../assets/img/image2.png');
+    background-image: url('/assets/img/image2.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
