@@ -5,7 +5,6 @@ import '../styles/Index.css?v=3.5';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import SocialSection from '../components/SocialSeccion';
-import { Link } from 'react-router-dom';
 import '../components/i18n';
 import { useTranslation } from 'react-i18next';
 import Carousel from '../components/carousel';
@@ -62,7 +61,7 @@ const Index = () => {
           <a href="https://www.youtube.com/watch?v=QCvh0Lwfmww" target="colbun" rel="municipalidad_Colbun">
             <button className="btn-blue">
               {t('WatchNow')}
-              <img src="src/assets/img/verahora_icon.png" alt="icono de reproducción" className="button-icon" />
+              <img src="/assets/img/verahora_icon.png" alt="icono de reproducción" className="button-icon" />
             </button>
           </a>
         </div>

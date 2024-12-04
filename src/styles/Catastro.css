@@ -101,3 +101,37 @@
     font-size: 16px;
   }
 }
+
+body.dark-mode .cadastre-container-CZ {
+  background-color: #121212; /* Fondo oscuro */
+  color: #e0e0e0; /* Texto claro */
+}
+
+body.dark-mode .intro-header-CZ h5 {
+  color: #bbbbbb; /* Texto claro */
+}
+
+body.dark-mode .intro-subheader-CZ h1 {
+  color: #87a1f5; /* Azul claro para modo oscuro */
+}
+
+body.dark-mode .intro-details-CZ h5 {
+  color: #d1d1d1; /* Texto claro */
+}
+
+
+body.dark-mode .link-item-CZ h2 {
+  color: #87a1f5; /* Azul claro */
+}
+
+body.dark-mode .link-item-CZ h2 a {
+  color: #87a1f5; /* Azul claro para enlaces */
+}
+
+body.dark-mode .link-item-CZ h2 a:hover {
+  color: #4b67ae; /* Azul oscuro para hover */
+}
+
+body.dark-mode .link-description-CZ {
+  color: #bbbbbb; /* Texto claro */
+}

@@ -108,7 +108,7 @@
   position: relative;
   cursor: pointer;
   /* Imagen de flecha como ícono de despliegue */
-  background-image: url('src/assets/img/flecha.png'); /* Reemplaza con la URL o ruta de la imagen */
+  background-image: url('/assets/img/flecha.png'); /* Reemplaza con la URL o ruta de la imagen */
   background-repeat: no-repeat;
   background-position: right 10px center; /* Posiciona la flecha a la derecha */
   background-size: 16px 16px; /* Tamaño de la imagen de la flecha */

@@ -37,15 +37,13 @@ const CrearServicio = () => {
   const [dragActive4, setDragActive4] = useState(false); // Estado para el arrastre
   const [showServiceListSidebar, setShowServiceListSidebar] = useState(false);
 
-  const [userRole, setUserRole] = useState(""); // Estado para el rol del usuario
-
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
         const token = localStorage.getItem("token");
         // Llama a tu endpoint de usuario para obtener los detalles
         const response = await axios.get(
-          import.meta.env.VITE_USER_DETAILS_URL,
+          'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site/user/details/',
           {
             headers: {
               Authorization: `Token ${token}`,
@@ -71,7 +69,7 @@ const CrearServicio = () => {
   const fetchServicios = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get(import.meta.env.VITE_MIS_SERVICIOS_URL, {
+      const response = await axios.get('https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site/api/mis_servicios/', {
         headers: {
           Authorization: `Token ${token}`,
         },
@@ -100,7 +98,7 @@ const CrearServicio = () => {
     try {
       const token = localStorage.getItem("token");
       const url = `${
-        import.meta.env.VITE_MIS_SERVICIOS_URL
+        'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site/api/mis_servicios/'
       }${deleteServiceId}/`;
       await axios.delete(url, {
         headers: {
@@ -123,7 +121,7 @@ const CrearServicio = () => {
     try {
       const token = localStorage.getItem("token");
       const url = `${
-        import.meta.env.VITE_REENVIAR_SERVICIOS_URL
+        'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site/api/reenviar_servicio/'
       }${servicioId}/`;
       await axios.post(
         url,
@@ -156,19 +154,6 @@ const CrearServicio = () => {
       default:
         return "Administrador"; // Devuelve el valor original si no se encuentra una coincidencia
     }
-  };
-
-  const handleCreateNew = () => {
-    setNombre("");
-    setRedesSociales("");
-    setDescripcion("");
-    setTelefono("");
-    setPrecio("");
-    setImagen(null);
-    setImagen2(null);
-    setImagen3(null);
-    setImagen4(null);
-    setEditMode(false);
   };
 
   // Actualización: Manejo de archivos
@@ -230,11 +215,6 @@ const CrearServicio = () => {
   const confirmDelete = (id) => {
     setDeleteServiceId(id);
     setActionType("delete");
-    setShowModal(true);
-  };
-
-  const confirmEdit = () => {
-    setActionType("edit");
     setShowModal(true);
   };
 
@@ -389,7 +369,7 @@ const CrearServicio = () => {
     setEditServicioId(servicio.id);
     // Verificar si la imagen existe y construir la URL
     if (servicio.imagen) {
-      const imagenUrl = `${import.meta.env.VITE_BACKEND_URL}${servicio.imagen}`;
+      const imagenUrl = `${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${servicio.imagen}`;
       setImagenPreview(imagenUrl); // Usar la URL completa para la vista previa
       setImagen(imagenUrl); // Mantener la imagen en el estado
     } else {
@@ -399,7 +379,7 @@ const CrearServicio = () => {
 
     // Verificar si la imagen existe y construir la URL
     if (servicio.imagen2) {
-      const imagenUrl = `${import.meta.env.VITE_BACKEND_URL}${
+      const imagenUrl = `${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${
         servicio.imagen2
       }`;
       setImagenPreview2(imagenUrl); // Usar la URL completa para la vista previa
@@ -411,7 +391,7 @@ const CrearServicio = () => {
 
     // Verificar si la imagen existe y construir la URL
     if (servicio.imagen3) {
-      const imagenUrl = `${import.meta.env.VITE_BACKEND_URL}${
+      const imagenUrl = `${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${
         servicio.imagen3
       }`;
       setImagenPreview3(imagenUrl); // Usar la URL completa para la vista previa
@@ -423,7 +403,7 @@ const CrearServicio = () => {
 
     // Verificar si la imagen existe y construir la URL
     if (servicio.imagen4) {
-      const imagenUrl = `${import.meta.env.VITE_BACKEND_URL}${
+      const imagenUrl = `${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${
         servicio.imagen4
       }`;
       setImagenPreview4(imagenUrl); // Usar la URL completa para la vista previa
@@ -472,10 +452,10 @@ const CrearServicio = () => {
       let method;
 
       if (editMode) {
-        url = `${import.meta.env.VITE_MIS_SERVICIOS_URL}${editServicioId}/`;
+        url = `${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site/api/mis_servicios/'}${editServicioId}/`;
         method = "put";
       } else {
-        url = import.meta.env.VITE_CREAR_SERVICIOS_URL;
+        url = 'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site/api/crear_servicio/';
         method = "post";
       }
 
@@ -577,7 +557,7 @@ const CrearServicio = () => {
               onClick={() => setShowSidebar(false)}
             ></div>
             <div className="sidebar">
-              <img src="src/assets/img/icono.png" className="sidebar-img" />
+              <img src="/assets/img/icono.png" className="sidebar-img" />
 
               <button
                 className="close-button"
@@ -832,7 +812,7 @@ const CrearServicio = () => {
                   <div className="image-gallery">
                     {servicio.imagen ? (
                       <img
-                        src={`${import.meta.env.VITE_BACKEND_URL}${
+                        src={`${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${
                           servicio.imagen
                         }`}
                         alt={`Imagen de ${servicio.nombre}`}
@@ -872,7 +852,7 @@ const CrearServicio = () => {
                       {/* Fila de imágenes */}
                       {servicio.imagen && (
                         <img
-                          src={`${import.meta.env.VITE_BACKEND_URL}${
+                          src={`${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${
                             servicio.imagen
                           }`}
                           alt={`Imagen 1 de ${servicio.nombre}`}
@@ -886,7 +866,7 @@ const CrearServicio = () => {
                       )}
                       {servicio.imagen2 && (
                         <img
-                          src={`${import.meta.env.VITE_BACKEND_URL}${
+                          src={`${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${
                             servicio.imagen2
                           }`}
                           alt={`Imagen 2 de ${servicio.nombre}`}
@@ -900,7 +880,7 @@ const CrearServicio = () => {
                       )}
                       {servicio.imagen3 && (
                         <img
-                          src={`${import.meta.env.VITE_BACKEND_URL}${
+                          src={`${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${
                             servicio.imagen3
                           }`}
                           alt={`Imagen 3 de ${servicio.nombre}`}
@@ -914,7 +894,7 @@ const CrearServicio = () => {
                       )}
                       {servicio.imagen4 && (
                         <img
-                          src={`${import.meta.env.VITE_BACKEND_URL}${
+                          src={`${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${
                             servicio.imagen4
                           }`}
                           alt={`Imagen 4 de ${servicio.nombre}`}

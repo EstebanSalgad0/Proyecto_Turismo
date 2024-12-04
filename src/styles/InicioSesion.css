@@ -217,3 +217,58 @@
 .register-link p a:hover {
   text-decoration: underline;
 }
+
+
+body.dark-mode .wrapper-is {
+  background-color: rgba(30, 30, 30, 0.9); /* Fondo oscuro semi-transparente */
+  border: 2px solid rgba(75, 103, 174, 0.5); /* Borde oscuro */
+  color: #e0e0e0; /* Texto claro */
+}
+
+body.dark-mode .wrapper-is h1 {
+  color: #87a1f5; /* Azul claro */
+}
+
+body.dark-mode .input-box-is input,
+body.dark-mode .input-box-is-ps input {
+  background-color: rgba(40, 40, 40, 0.9); /* Fondo oscuro */
+  border: 2px solid rgba(75, 103, 174, 0.5); /* Borde claro */
+  color: #e0e0e0; /* Texto claro */
+}
+
+body.dark-mode .input-box-is input::placeholder,
+body.dark-mode .input-box-is-ps input::placeholder {
+  color: #bbbbbb; /* Texto del placeholder claro */
+}
+
+body.dark-mode .input-box-is i,
+body.dark-mode .input-box-is-ps button {
+  color: #87a1f5; /* Icono y botón con azul claro */
+}
+
+body.dark-mode .remember-forgot a,
+body.dark-mode .remember-forgot1 a {
+  color: #87a1f5; /* Enlaces en azul claro */
+}
+
+body.dark-mode .remember-forgot a:hover,
+body.dark-mode .remember-forgot1 a:hover {
+  text-decoration: underline;
+}
+
+body.dark-mode .btn-is {
+  background-color: #3a3a3a; /* Fondo oscuro para botón */
+  color: #ffffff; /* Texto claro */
+}
+
+body.dark-mode .divider-is::before {
+  border-top: 1px solid #444444; /* Divider en gris oscuro */
+}
+
+body.dark-mode .register-link p a {
+  color: #87a1f5; /* Enlace de registro azul claro */
+}
+
+body.dark-mode .register-link p a:hover {
+  text-decoration: underline;
+}

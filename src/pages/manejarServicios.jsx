@@ -43,7 +43,7 @@ const AdminPanel = () => {
   // Fetch de servicios pendientes
   const fetchServicios = useCallback(async () => {
     try {
-      const response = await axios.get(import.meta.env.VITE_SERVICIOS_URL, {
+      const response = await axios.get('https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site/api/manejar_servicios/', {
         headers: {
           Authorization: `Token ${token}`,
         },
@@ -62,7 +62,7 @@ const AdminPanel = () => {
   // Manejar servicios (aceptar/rechazar)
   const handleServiceAction = async (servicioId, accion) => {
     try {
-      const url = `${import.meta.env.VITE_SERVICIOS_URL}${servicioId}/`;
+      const url = `${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site/api/manejar_servicios/'}${servicioId}/`;
       await axios.post(
         url,
         { accion },
@@ -205,7 +205,7 @@ const AdminPanel = () => {
               <div className="image-wrapper">
                 {selectedService.imagen ? (
                   <img
-                    src={`${import.meta.env.VITE_BACKEND_URL}${
+                    src={`${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${
                       selectedService.imagen
                     }`}
                     alt={`Imagen de ${selectedService.nombre}`}
@@ -218,7 +218,7 @@ const AdminPanel = () => {
               <div className="image-wrapper">
                 {selectedService.imagen2 ? (
                   <img
-                    src={`${import.meta.env.VITE_BACKEND_URL}${
+                    src={`${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${
                       selectedService.imagen2
                     }`}
                     alt={`Imagen 2 de ${selectedService.nombre}`}
@@ -231,7 +231,7 @@ const AdminPanel = () => {
               <div className="image-wrapper">
                 {selectedService.imagen3 ? (
                   <img
-                    src={`${import.meta.env.VITE_BACKEND_URL}${
+                    src={`${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${
                       selectedService.imagen3
                     }`}
                     alt={`Imagen 3 de ${selectedService.nombre}`}
@@ -244,7 +244,7 @@ const AdminPanel = () => {
               <div className="image-wrapper">
                 {selectedService.imagen4 ? (
                   <img
-                    src={`${import.meta.env.VITE_BACKEND_URL}${
+                    src={`${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${
                       selectedService.imagen4
                     }`}
                     alt={`Imagen 4 de ${selectedService.nombre}`}

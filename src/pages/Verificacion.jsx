@@ -30,7 +30,7 @@ const Verificacion = () => {
            <p className="subtitle">¡Conviértete a Colbún en tu próxima aventura!<br />
            Te damos la bienvenida a la comuna</p>
 
-           <button onClick={() => navigate('/Index')} className="start-btn">
+           <button onClick={() => navigate('/')} className="start-btn">
                ¡Comienza tu aventura!
            </button>
        </div>

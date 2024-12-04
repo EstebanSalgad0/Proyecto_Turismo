@@ -64,7 +64,7 @@ const Cultura4 = () => {
     }
     
     // Fetch data from the Django API (Iglesia de Panimavida)
-    fetch('http://www.visitacolbun.cl/api/lugares/buscar/?nombre=iglesia_panimavida') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site/api/lugares/buscar/?nombre=iglesia_panimavida') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatIglesia(data.latitud);
@@ -73,7 +73,7 @@ const Cultura4 = () => {
     .catch(error => console.error('Error fetching location data:', error));
     
     // Fetch data from the Django API (Las Tacitas)
-    fetch('http://www.visitacolbun.cl/api/lugares/buscar/?nombre=las_tacitas') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site/api/lugares/buscar/?nombre=las_tacitas') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatTacitas(data.latitud);
@@ -82,7 +82,7 @@ const Cultura4 = () => {
     .catch(error => console.error('Error fetching location data:', error));
     
     // Fetch data from the Django API (Embotelladora)
-    fetch('http://www.visitacolbun.cl/api/lugares/buscar/?nombre=embotelladora') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site/api/lugares/buscar/?nombre=embotelladora') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatEmbotelladora(data.latitud);
@@ -91,7 +91,7 @@ const Cultura4 = () => {
     .catch(error => console.error('Error fetching location data:', error));
 
     // Fetch data from the Django API (Termas de Panimavida)
-    fetch('http://www.visitacolbun.cl/api/lugares/buscar/?nombre=termas_panimavida') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site/api/lugares/buscar/?nombre=termas_panimavida') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatTermasP(data.latitud);
@@ -100,7 +100,7 @@ const Cultura4 = () => {
     .catch(error => console.error('Error fetching location data:', error));
     
     // Fetch data from the Django API (Poza de la Mona)
-    fetch('http://www.visitacolbun.cl/api/lugares/buscar/?nombre=poza_mona') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site/api/lugares/buscar/?nombre=poza_mona') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatPoza(data.latitud);
@@ -109,7 +109,7 @@ const Cultura4 = () => {
     .catch(error => console.error('Error fetching location data:', error));
     
     // Fetch data from the Django API (Estacion del Tren)
-    fetch('http://www.visitacolbun.cl/api/lugares/buscar/?nombre=estacion_tren') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site/api/lugares/buscar/?nombre=estacion_tren') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatEstacion(data.latitud);

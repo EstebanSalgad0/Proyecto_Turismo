@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px; /* Espaciado entre las secciones */
   background-color: #ffffff; /* Fondo blanco */
 }
 

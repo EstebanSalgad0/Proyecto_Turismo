@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px; /* Espaciado entre las secciones */
   background-color: #ffffff; /* Fondo blanco */
 }
 
@@ -73,4 +72,21 @@
   .content-section h5 {
     font-size: 0.8rem;
   }
+}
+
+body.dark-mode .privacidad-container {
+  background-color: #121212; /* Fondo oscuro */
+  color: #e0e0e0; /* Texto claro */
+}
+
+body.dark-mode .header h5 {
+  color: #bbbbbb; /* Texto claro */
+}
+
+body.dark-mode .subheader h1 {
+  color: #87a1f5; /* Azul claro */
+}
+
+body.dark-mode .content-section h5 {
+  color: #d1d1d1; /* Texto claro */
 }

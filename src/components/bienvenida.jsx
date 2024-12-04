@@ -39,7 +39,7 @@ const Verificacion = () => {
                                 Bienes, Servicios y Cabañas </p>
                                 <br></br>
 
-          <button onClick={() => navigate('/Index')} className="start-btn">
+          <button onClick={() => navigate('/')} className="start-btn">
             ¡Comienza tu aventura!
           </button>
         

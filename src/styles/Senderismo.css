@@ -9,7 +9,7 @@
   flex-direction: column;
 }
 
-.hero33, .hero25, .hero34, .hero77 {
+.hero25, .hero34, .hero77 {
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat;
@@ -27,20 +27,20 @@
 }
 
 .hero33 {
-  background-image: url("/assets/img/VOLCAN_SAN_PEDRO_2.JPG") !important;
+  background-image: url("../assets/img/VOLCAN_SAN_PEDRO_2.JPG") !important;
   margin-top: 20px;
 }
 
 .hero25 {
-  background-image: url("/assets/img/guardia.png") !important;
+  background-image: url("../assets/img/guardia.png") !important;
 }
 
 .hero34 {
-  background-image: url("/assets/img/Cultural.png") !important;
+  background-image: url("../assets/img/Cultural.png") !important;
 }
 
 .hero77 {
-  background-image: url("/assets/img/BAÑOS_SOCORRO.JPG") !important;
+  background-image: url("../assets/img/BAÑOS_SOCORRO.JPG") !important;
 }
 
 .hero-content33, .hero-content25, .hero-content34, .hero-content77 {
@@ -79,24 +79,24 @@
 
 /* Ajustes para pantallas móviles */
 @media (max-width: 768px) {
-  .hero5, .hero25, .hero26, .hero27 {
+  .hero25, .hero34, .hero77 {
     padding: 20px;
     min-height: 65vh;
     text-align: center;
   }
 
-  .hero-content5, .hero-content25, .hero-content26, .hero-content27 {
+  .hero-content33, .hero-content25, .hero-content34, .hero-content77 {
     margin-top: 60px;
     margin-left: 0;
     align-items: center;
   }
 
-  .hero5 h1, .hero25 h1, .hero26 h1, .hero27 h1 {
+  .hero33 h1, .hero25 h1, .hero34 h1, .hero77 h1 {
     font-size: 2rem;
     margin-bottom: 20px;
   }
 
-  .hero5 h4, .hero25 h4, .hero26 h4, .hero27 h4 {
+  .hero33 h4, .hero25 h4, .hero34 h4, .hero77 h4 {
     font-size: 0.9rem;
     line-height: 1.5;
     margin-top: 20px;

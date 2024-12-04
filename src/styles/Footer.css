@@ -36,15 +36,15 @@
 
 /* Aquí agregamos las imágenes de fondo */
 .logo-1 {
-  background-image: url('../assets/img/Footer/marcaFundacion.png') !important; /* Ajusta la ruta correctamente */
+  background-image: url('../assets/img/Footer/marcaColbun.png') !important;
 }
 
 .logo-2 {
-  background-image: url('../assets/img/Footer/AU.png') !important;
+  background-image: url('/assets/img/Footer/AU.png') !important;
 }
 
 .logo-3 {
-  background-image: url('../assets/img/Footer/marcaColbun.png') !important;
+  background-image: url('/assets/img/Footer/marcaFundacion.png') !important; /* Ajusta la ruta correctamente */
 }
 
 .footer-column {

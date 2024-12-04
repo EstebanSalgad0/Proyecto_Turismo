@@ -27,7 +27,7 @@ const Losboldos = () => {
     }
 
     // Fetch data from the Django API
-    fetch('http://www.visitacolbun.cl/api/lugares/buscar/?nombre=los_boldos') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site/api/lugares/buscar/?nombre=los_boldos') // Cambia el nombre por el lugar turístico que necesites
       .then(response => response.json())
       .then(data => {
         setLat(data.latitud);

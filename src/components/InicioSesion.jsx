@@ -10,7 +10,7 @@ const InicioSesion = () => {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(""); // Estado para manejar errores
   const navigate = useNavigate();
-  const captchaKEY = import.meta.env.VITE_CAPTCHA_KEY;
+  const captchaKEY = "6LcH3o4qAAAAAKlHasSy5RQD2oxcvtAkHXR29WrP";
 
   const [showPassword, setShowPassword] = useState(false); // Estado para mostrar/ocultar la contraseña
 
@@ -64,7 +64,7 @@ const InicioSesion = () => {
         action: "login",
       }); // Acción asociada con 'login'
 
-      const response = await axios.post(import.meta.env.VITE_LOGIN_URL, {
+      const response = await axios.post('https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site/api/login/', {
         email: email,
         password: password,
         captcha: captchaToken, // Enviar el token del captcha al backend
@@ -81,7 +81,7 @@ const InicioSesion = () => {
       if (is_first_login) {
         navigate("/bienvenida"); // Navega a la página de bienvenida
       } else {
-        navigate("/Index"); // Navega directamente al index
+        navigate("/"); // Navega directamente al index
       }
       // eslint-disable-next-line no-unused-vars
     } catch (error) {

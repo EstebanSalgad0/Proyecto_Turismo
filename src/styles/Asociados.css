@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px; /* Espaciado entre secciones */
   background-color: #ffffff; /* Fondo blanco */
 }
 
@@ -124,4 +123,40 @@
   .partners-list-as ul li {
     font-size: 0.8rem;
   }
+}
+
+body.dark-mode .asociado-container-as {
+  background-color: #121212; /* Fondo oscuro */
+  color: #e0e0e0; /* Texto claro */
+}
+
+
+body.dark-mode .header-as h5 {
+  color: #bbbbbb; /* Texto claro */
+}
+
+body.dark-mode .subheader-as h1 {
+  color: #87a1f5; /* Azul claro */
+}
+
+
+body.dark-mode .content-section-as h2 {
+  color: #87a1f5; /* Azul claro */
+}
+
+body.dark-mode .content-section-as p {
+  color: #d1d1d1; /* Texto claro */
+}
+
+body.dark-mode .content-section-as ul li {
+  color: #d1d1d1; /* Texto claro para elementos de lista */
+}
+
+
+body.dark-mode .partners-list-as h2 {
+  color: #87a1f5; /* Azul claro */
+}
+
+body.dark-mode .partners-list-as ul li {
+  color: #d1d1d1; /* Texto claro para elementos de lista */
 }

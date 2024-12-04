@@ -11,7 +11,7 @@ const Registrarse = () => {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
-  const captchaKEY = import.meta.env.VITE_CAPTCHA_KEY;
+  const captchaKEY = "6LcH3o4qAAAAAKlHasSy5RQD2oxcvtAkHXR29WrP";
   const [tipoOferente, setTipoOferente] = useState("");
 
   const handleTipoOferenteChange = (e) => {
@@ -78,7 +78,7 @@ const Registrarse = () => {
       console.log('Token reCAPTCHA obtenido:', recaptchaToken);
 
       // Hacer la solicitud POST al backend para registrar el usuario
-      const response = await axios.post(import.meta.env.VITE_REGISTRAR_URL, {
+      const response = await axios.post('https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site/api/register/', {
         first_name,
         last_name,
         email,

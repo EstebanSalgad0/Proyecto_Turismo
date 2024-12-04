@@ -10,7 +10,7 @@
 }
 
 .hero10 {
-  background-image: url("/assets/img/CAVERNAS_LOS_BELLOTOS.JPG") !important; /* Ruta de la imagen de fondo */
+  background-image: url("../assets/img/CAVERNAS_LOS_BELLOTOS.JPG") !important; /* Ruta de la imagen de fondo */
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat;
@@ -55,7 +55,7 @@
 }
 
 .hero1000 {
-  background-image: url("/assets/img/Parque.png") !important; /* Ruta de la imagen de fondo */
+  background-image: url("../assets/img/Parque.png") !important; /* Ruta de la imagen de fondo */
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat;
@@ -126,6 +126,31 @@
   }
 
   .hero10 h4 {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .hero1000 {
+    padding: 20px;
+    min-height: 65vh;
+    text-align: center;
+  }
+
+  .hero-content1000 {
+    margin-top: 60px;
+    margin-left: 0;
+    align-items: center;
+  }
+
+  .hero1000 h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .hero1000 h4 {
     font-size: 0.9rem;
     line-height: 1.5;
     margin-top: 20px;
@@ -207,6 +232,14 @@
   }
 
   .hero10 h4 {
+    font-size: 0.8rem;
+    margin-top: 10px;
+  }
+  .hero1000 h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero1000 h4 {
     font-size: 0.8rem;
     margin-top: 10px;
   }

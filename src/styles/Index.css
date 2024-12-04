@@ -100,8 +100,8 @@
 
 /* Carousel Section */
 .carousel-section1 {
-  margin: 50px 0;
-  padding: 0 60px;
+
+  padding: 60px 60px;
   width: 100vw;
 }
 
@@ -575,10 +575,6 @@
     display: none;
   }
 
-  .carousel-section1 {
-    margin-bottom: 30px;
-  }
-  
   .carousel-header1 {
     flex-direction: column;
     align-items: flex-start;
@@ -735,9 +731,6 @@ img {
     display: none;
   }
   
-  .carousel-section1 {
-    margin-bottom: 30px;
-  }
   
   .carousel-header1 {
     flex-direction: column;

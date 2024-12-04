@@ -191,7 +191,7 @@ const Header = () => {
   return (
     <header className={`navbar1 ${showHeader ? "show" : "hide"}`}>
       <div className="header-left">
-        <Link to="/Index" className="header-icon">
+        <Link to="/" className="header-icon">
           <img src="/assets/img/icono.png" alt="icono" />
         </Link>
 

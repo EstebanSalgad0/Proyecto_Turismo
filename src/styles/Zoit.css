@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px; /* Espaciado entre las secciones */
   background-color: #ffffff; /* Fondo blanco */
 }
 
@@ -65,4 +64,21 @@
   .zoit-intro-details h5 {
     font-size: 14px;
   }
+}
+
+body.dark-mode .zoit-container {
+  background-color:#121212; /* Fondo oscuro */
+  color: #e0e0e0; /* Texto claro */
+}
+
+body.dark-mode .zoit-intro-header h5 {
+  color: #bbbbbb; /* Texto claro para el modo oscuro */
+}
+
+body.dark-mode .zoit-intro-subheader h2 {
+  color: #87a1f5; /* Azul más claro en modo oscuro */
+}
+
+body.dark-mode .zoit-intro-details h5 {
+  color: #d1d1d1; /* Texto claro para modo oscuro */
 }

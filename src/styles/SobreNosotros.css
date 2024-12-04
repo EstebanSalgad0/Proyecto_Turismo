@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px; /* Espaciado entre las secciones */
   background-color: #ffffff; /* Fondo blanco */
 }
 
@@ -85,4 +84,32 @@
   .content-section-SN p {
     font-size: 0.8rem;
   }
+}
+body.dark-mode .sobrenosotros-container-SN {
+  background-color: #121212; /* Fondo oscuro */
+  color: #e0e0e0; /* Texto claro */
+}
+
+body.dark-mode .header-section-SN {
+  background-color: #121212; /* Fondo oscuro para la sección de encabezado */
+}
+
+body.dark-mode .header-SN h5 {
+  color: #bbbbbb; /* Texto claro */
+}
+
+body.dark-mode .subheader-SN h1 {
+  color: #87a1f5; /* Azul claro */
+}
+
+body.dark-mode .content-section-SN {
+  background-color:#121212; /* Fondo oscuro para la sección de contenido */
+}
+
+body.dark-mode .content-section-SN p {
+  color: #d1d1d1; /* Texto claro */
+}
+
+body.dark-mode .subheader-SN h2 {
+  color: #87a1f5; /* Azul claro para subtítulos */
 }
