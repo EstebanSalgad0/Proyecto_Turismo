@@ -71,10 +71,6 @@ const LeafletMap = ({ latitud, longitud, mapId, googleMapUrl }) => {
           userMarkerRef.current.setLatLng(userCoordsRef.current);
         }
 
-        // Mantener ambos popups abiertos
-        userMarkerRef.current.openPopup();
-        targetMarkerRef.current.openPopup();
-
         updateRoute();
       }
 
