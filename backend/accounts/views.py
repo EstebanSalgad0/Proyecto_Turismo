@@ -88,7 +88,7 @@ def send_survey_email(user):
         email = EmailMessage(
             subject,
             email_html_message,
-            'administrador@visitacolbun.cl',  # Dirección del remitente
+            'turismo@visitacolbun.cl',  # Dirección del remitente
             [user.email],  # Dirección del destinatario
         )
         email.content_subtype = 'html'  # Define que el correo es HTML
@@ -271,8 +271,8 @@ def send_csv_email(user_data):
     email = EmailMessage(
         subject="Nuevo Registro de Oferente",
         body="Adjunto el archivo CSV con los datos del nuevo registro.",
-        from_email="administrador@visitacolbun.cl",
-        to=["administrador@visitacolbun.cl"],
+        from_email="turismo@visitacolbun.cl",
+        to=["turismo@visitacolbun.cl"],
     )
     csv_file.seek(0)
     email.attach("registro_oferente.csv", csv_file.getvalue(), "text/csv")
@@ -324,7 +324,7 @@ class RegisterView(APIView):
                 return Response({'error': 'Tipo de oferente no válido.'}, status=status.HTTP_400_BAD_REQUEST)
 
             # Construir el enlace completo de activación
-            activation_url = f"https://{current_site.domain}{verification_link}"
+            activation_url = f"https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site{verification_link}"
 
             # Renderizar el contenido del correo
             html_content = render_to_string(template_name, {
@@ -335,7 +335,7 @@ class RegisterView(APIView):
             text_content = strip_tags(html_content)
 
             # Crear y enviar el correo de verificación
-            from_email = 'administrador@visitacolbun.cl'
+            from_email = 'turismo@visitacolbun.cl'
             to_email = user.email
             email = EmailMultiAlternatives(subject, text_content, from_email, [to_email])
             email.attach_alternative(html_content, "text/html")
@@ -388,7 +388,7 @@ class ActivateView(APIView):
                 email = EmailMessage(
                     subject,
                     email_html_message,
-                    'administrador@visitacolbun.cl',  # Dirección del remitente
+                    'turismo@visitacolbun.cl',  # Dirección del remitente
                     [user.email],  # Dirección del destinatario
                 )
                 email.content_subtype = 'html'  # Define que el correo es HTML
@@ -428,7 +428,7 @@ class RequestPasswordResetView(APIView):
             email_message = EmailMessage(
                 subject="Restablece tu contraseña en Visita Colbún 🌾",
                 body=email_html,
-                from_email="administrador@visitacolbun.cl",
+                from_email="turismo@visitacolbun.cl",
                 to=[user.email]
             )
             email_message.content_subtype = "html"  # Importante: especificar que es HTML
