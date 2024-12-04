@@ -165,13 +165,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
 CORS_ALLOWED_ORIGINS = [
     "https://localhost:5173",  # La URL de tu frontend (React)
     "https://visitacolbun.cl",
+    "https://0273-2800-150-144-d2b-3a84-cfca-a881-d290.ngrok-free.app",
 ]
 
 MEDIA_URL = '/media/'  # URL de acceso a los archivos de medios
