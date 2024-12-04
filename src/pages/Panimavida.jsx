@@ -25,7 +25,7 @@ const Panimavida = () => {
       i18n.changeLanguage(savedLanguage);
     }
 
-    fetch('https://190.100.150.2:8000/api/lugares/buscar/?nombre=panimavida') // Cambiar nombre por lugar turistico necesitado
+    fetch('https://c5532462f07503dfc9b0bb1d4395a98c.serveo.net/api/lugares/buscar/?nombre=panimavida') // Cambiar nombre por lugar turistico necesitado
       .then( response => response.json())
       .then( data => {
         setLat( data.latitud );

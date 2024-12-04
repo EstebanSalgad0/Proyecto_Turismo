@@ -26,7 +26,7 @@ const Folleteria = () => {
     }
 
     // Simulación de obtener coordenadas
-    fetch('https://190.100.150.2:8000/api/lugares/buscar/?nombre=mapa_folleteria')
+    fetch('https://c5532462f07503dfc9b0bb1d4395a98c.serveo.net/api/lugares/buscar/?nombre=mapa_folleteria')
       .then((response) => response.json())
       .then((data) => {
         setLat(data.latitud || -35.699248); // Coordenadas de ejemplo

@@ -64,7 +64,7 @@ const InicioSesion = () => {
         action: "login",
       }); // Acción asociada con 'login'
 
-      const response = await axios.post('https://190.100.150.2:8000/api/login/', {
+      const response = await axios.post('https://c5532462f07503dfc9b0bb1d4395a98c.serveo.net/api/login/', {
         email: email,
         password: password,
         captcha: captchaToken, // Enviar el token del captcha al backend

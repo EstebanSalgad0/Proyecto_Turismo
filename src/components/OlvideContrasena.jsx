@@ -34,7 +34,7 @@ const PasswordReset = () => {
 
     try {
       const captchaToken = await window.grecaptcha.execute(captchaKEY, { action: 'password_reset' });
-      const response = await axios.post('https://190.100.150.2:8000/api/password_reset/', {
+      const response = await axios.post('https://c5532462f07503dfc9b0bb1d4395a98c.serveo.net/api/password_reset/', {
         email,
         captcha: captchaToken,
       });

@@ -26,7 +26,7 @@ const Rari = () => {
     }
 
     // Fetch data from the django API
-    fetch('https://190.100.150.2:8000/api/lugares/buscar/?nombre=rari') //Cambiar el nombre por el lugar turistico requerido
+    fetch('https://c5532462f07503dfc9b0bb1d4395a98c.serveo.net/api/lugares/buscar/?nombre=rari') //Cambiar el nombre por el lugar turistico requerido
       .then(response => response.json())
       .then(data => {
         setLat(data.latitud);

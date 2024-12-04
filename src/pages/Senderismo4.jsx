@@ -44,7 +44,7 @@ const Cultura4 = () => {
     }
 
     // Fetch data from the Django API (Piedra del Indio)
-    fetch('https://190.100.150.2:8000/api/lugares/buscar/?nombre=piedra_del_indio') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://c5532462f07503dfc9b0bb1d4395a98c.serveo.net/api/lugares/buscar/?nombre=piedra_del_indio') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatPetro(data.latitud);
@@ -53,7 +53,7 @@ const Cultura4 = () => {
     .catch(error => console.error('Error fetching location data:', error));
 
     // Fetch data from the Django API (Mirador las Vizcachas)
-    fetch('https://190.100.150.2:8000/api/lugares/buscar/?nombre=mirador_vizcachas') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://c5532462f07503dfc9b0bb1d4395a98c.serveo.net/api/lugares/buscar/?nombre=mirador_vizcachas') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatGuardia(data.latitud);
@@ -62,7 +62,7 @@ const Cultura4 = () => {
     .catch(error => console.error('Error fetching location data:', error));
 
     // Fetch data from the Django API (Balneario Machicura)
-    fetch('https://190.100.150.2:8000/api/lugares/buscar/?nombre=balnearios_machicura') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://c5532462f07503dfc9b0bb1d4395a98c.serveo.net/api/lugares/buscar/?nombre=balnearios_machicura') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatTren(data.latitud);

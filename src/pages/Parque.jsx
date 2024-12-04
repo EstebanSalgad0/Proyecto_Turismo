@@ -44,7 +44,7 @@ const Parque = () => {
     }
     
     // Fetch data from the Django API (Parque Guaiquivilo)
-    fetch('https://190.100.150.2:8000/api/lugares/buscar/?nombre=parque_guaiquivilo') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://c5532462f07503dfc9b0bb1d4395a98c.serveo.net/api/lugares/buscar/?nombre=parque_guaiquivilo') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatParque(data.latitud);
@@ -53,7 +53,7 @@ const Parque = () => {
     .catch(error => console.error('Error fetching location data:', error));
     
     // Fetch data from the Django API (Cavernas los bellotos)
-    fetch('https://190.100.150.2:8000/api/lugares/buscar/?nombre=cavernas_bellotos') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://c5532462f07503dfc9b0bb1d4395a98c.serveo.net/api/lugares/buscar/?nombre=cavernas_bellotos') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatCavernas(data.latitud);
@@ -62,7 +62,7 @@ const Parque = () => {
     .catch(error => console.error('Error fetching location data:', error));
 
     // Fetch data from the Django API (Mirador Loro Tricahue)
-    fetch('https://190.100.150.2:8000/api/lugares/buscar/?nombre=mirador_loro_tricahue') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://c5532462f07503dfc9b0bb1d4395a98c.serveo.net/api/lugares/buscar/?nombre=mirador_loro_tricahue') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatGuardia(data.latitud);

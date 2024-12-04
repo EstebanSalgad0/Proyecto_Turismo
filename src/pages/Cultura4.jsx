@@ -58,7 +58,7 @@ const Cultura4 = () => {
     }
     
     // Fetch data from the Django API (Termas de Panimavida)
-    fetch('https://190.100.150.2:8000/api/lugares/buscar/?nombre=termas_panimavida') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://c5532462f07503dfc9b0bb1d4395a98c.serveo.net/api/lugares/buscar/?nombre=termas_panimavida') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatTermasP(data.latitud);
@@ -67,7 +67,7 @@ const Cultura4 = () => {
     .catch(error => console.error('Error fetching location data:', error));
 
     // Fetch data from the Django API (Petroglifos)
-    fetch('https://190.100.150.2:8000/api/lugares/buscar/?nombre=petroglifos') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://c5532462f07503dfc9b0bb1d4395a98c.serveo.net/api/lugares/buscar/?nombre=petroglifos') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatPetro(data.latitud);
@@ -76,7 +76,7 @@ const Cultura4 = () => {
     .catch(error => console.error('Error fetching location data:', error));
     
     // Fetch data from the Django API (Poza de la Mona)
-    fetch('https://190.100.150.2:8000/api/lugares/buscar/?nombre=poza_mona') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://c5532462f07503dfc9b0bb1d4395a98c.serveo.net/api/lugares/buscar/?nombre=poza_mona') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatPoza(data.latitud);
@@ -85,7 +85,7 @@ const Cultura4 = () => {
     .catch(error => console.error('Error fetching location data:', error));
     
     // Fetch data from the Django API (Rari)
-    fetch('https://190.100.150.2:8000/api/lugares/buscar/?nombre=rari') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://c5532462f07503dfc9b0bb1d4395a98c.serveo.net/api/lugares/buscar/?nombre=rari') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatRari(data.latitud);
@@ -94,7 +94,7 @@ const Cultura4 = () => {
     .catch(error => console.error('Error fetching location data:', error));
     
     // Fetch data from the Django API (Termas de Quinamavida)
-    fetch('https://190.100.150.2:8000/api/lugares/buscar/?nombre=termas_quinamavida') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://c5532462f07503dfc9b0bb1d4395a98c.serveo.net/api/lugares/buscar/?nombre=termas_quinamavida') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatTermasQ(data.latitud);

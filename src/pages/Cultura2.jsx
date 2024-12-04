@@ -52,7 +52,7 @@ const Cultura4 = () => {
     }
 
     // Fetch data from the Django API (petroglifos)
-    fetch('https://190.100.150.2:8000/api/lugares/buscar/?nombre=petroglifos') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://c5532462f07503dfc9b0bb1d4395a98c.serveo.net/api/lugares/buscar/?nombre=petroglifos') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatPetro(data.latitud);
@@ -61,7 +61,7 @@ const Cultura4 = () => {
     .catch(error => console.error('Error fetching location data:', error));
 
     // Fetch data from the Django API (La Guardia)
-    fetch('https://190.100.150.2:8000/api/lugares/buscar/?nombre=la_guardia') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://c5532462f07503dfc9b0bb1d4395a98c.serveo.net/api/lugares/buscar/?nombre=la_guardia') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatGuardia(data.latitud);
@@ -70,7 +70,7 @@ const Cultura4 = () => {
     .catch(error => console.error('Error fetching location data:', error));
 
     // Fetch data from the Django API (Tren Chico)
-    fetch('https://190.100.150.2:8000/api/lugares/buscar/?nombre=tren_chico') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://c5532462f07503dfc9b0bb1d4395a98c.serveo.net/api/lugares/buscar/?nombre=tren_chico') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatTren(data.latitud);
@@ -79,7 +79,7 @@ const Cultura4 = () => {
     .catch(error => console.error('Error fetching location data:', error));
 
     // Fetch data from the Django API (Molino de los Tilos)
-    fetch('https://190.100.150.2:8000/api/lugares/buscar/?nombre=molino_tilos') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://c5532462f07503dfc9b0bb1d4395a98c.serveo.net/api/lugares/buscar/?nombre=molino_tilos') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatMolino(data.latitud);
