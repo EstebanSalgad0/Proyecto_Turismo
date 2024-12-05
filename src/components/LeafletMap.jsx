@@ -29,8 +29,44 @@ const LeafletMap = ({ latitud, longitud, mapId, googleMapUrl }) => {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }).addTo(map);
 
+      // Define un ícono personalizado
+    const customIcon = L.icon({
+      iconUrl: 'https://mueblescaracol.cl/productos/map-marker-blue.png', // Ruta a tu imagen
+      iconSize: [32, 32], // Tamaño del ícono
+      iconAnchor: [16, 32], // Punto de anclaje (base del ícono)
+      popupAnchor: [0, -32], // Punto de anclaje para el popup
+    });
+
+    // Define otro ícono para el marcador del usuario, si es necesario
+    const userIcon = L.icon({
+      iconUrl: 'https://mueblescaracol.cl/productos/map-marker-blue.png',
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+      popupAnchor: [0, -32],
+    });
+
+    // Crear marcador de destino con ícono personalizado
+    let targetMarker = L.marker(targetCoords, { icon: customIcon })
+      .addTo(map)
+      .bindPopup("Destino", { closeOnClick: false });
+
+    navigator.geolocation.watchPosition(success, error);
+
       // Agregar controles de zoom
       L.control.zoom({ position: 'bottomleft' }).addTo(map);
+
+      function success(pos) {
+        const lat = pos.coords.latitude;
+        const lng = pos.coords.longitude;
+        userCoords = [lat, lng];
+        // Crear marcador del usuario con ícono personalizado
+        userMarker = L.marker(userCoords, { icon: userIcon })
+          .addTo(map)
+          .bindPopup("Usted está aquí", { closeOnClick: false });
+  
+        updateRoute();
+        togglePopups();
+      }
 
       // Información de distancia y tiempo
       const infoControl = L.control({ position: 'topright' });
@@ -46,18 +82,6 @@ const LeafletMap = ({ latitud, longitud, mapId, googleMapUrl }) => {
       };
       infoControl.addTo(map);
 
-      let targetMarker = L.marker(targetCoords).addTo(map).bindPopup("Destino", { closeOnClick: false });
-      navigator.geolocation.watchPosition(success, error);
-
-      function success(pos) {
-        const lat = pos.coords.latitude;
-        const lng = pos.coords.longitude;
-        userCoords = [lat, lng];
-        userMarker = L.marker(userCoords).addTo(map).bindPopup("Usted está aquí", { closeOnClick: false });
-        updateRoute();
-        togglePopups();
-      }
-
       function setTransport(newTransport) {
         transport = newTransport;
         updateRoute();
@@ -70,9 +94,14 @@ const LeafletMap = ({ latitud, longitud, mapId, googleMapUrl }) => {
           routeWhileDragging: true,
           show: false,
           createMarker: function (i, wp) {
-            return L.marker(wp.latLng).bindPopup(i === 0 ? "Usted está aquí" : "Río Melado", { closeOnClick: false });
-          },
-        }).addTo(map);
+            // Usar íconos personalizados
+      const icon = i === 0 ? userIcon : customIcon;
+      return L.marker(wp.latLng, { icon }).bindPopup(
+        i === 0 ? "Usted está aquí" : "Destino",
+        { closeOnClick: false }
+      );
+    },
+  }).addTo(map);
 
         routeControl.on('routesfound', function (e) {
           const route = e.routes[0];
