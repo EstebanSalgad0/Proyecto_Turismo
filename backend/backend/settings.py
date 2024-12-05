@@ -144,11 +144,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us' # Lenguaje por defecto de Django
+LANGUAGE_CODE = 'es-cl' # Lenguaje por defecto de Django
 
-TIME_ZONE = 'UTC' # Zona UTC por defecto de Django
+TIME_ZONE = 'America/Santiago' # Zona UTC por defecto de Django
 
 USE_I18N = True # Habilita la internacionalización (i18n) en el proyecto Django,
+
+USE_L10N = True
 
 USE_TZ = True # Habilita el soporte para zonas horarias (timezone) en el proyecto Django. 
 
