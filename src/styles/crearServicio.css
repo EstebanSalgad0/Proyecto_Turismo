@@ -692,7 +692,6 @@ body.dark-mode .ButtonsCRUD button{
 .service-card.expanded .expanded-gallery1 {
   display: grid;
   gap: 20px; /* Espacio entre las imágenes */
-  margin-left: auto; /* Desplaza el contenido hacia la derecha */
   margin-top: 8px;
   padding: 20px;
   justify-items: center; /* Alinea las imágenes en el centro */
