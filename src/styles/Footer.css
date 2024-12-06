@@ -36,7 +36,7 @@
 
 /* Aquí agregamos las imágenes de fondo */
 .logo-1 {
-  background-image: url('../assets/img/Footer/marcaColbun.png') !important;
+  background-image: url('/assets/img/Footer/marcaColbun.png') !important;
 }
 
 .logo-2 {

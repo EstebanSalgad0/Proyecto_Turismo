@@ -18,7 +18,7 @@
 }
 
 .Logo {
-  background-image: url('../assets/img/Logo/Logo.png') !important;
+  background-image: url('/assets/img/Logo/Logo.png') !important;
   background-size: contain; /* Ajusta el tamaño de la imagen para que se ajuste dentro del contenedor */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
   width: 36px; /* Ajusta el ancho de la imagen */

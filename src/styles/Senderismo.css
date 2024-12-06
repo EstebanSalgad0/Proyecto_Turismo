@@ -27,20 +27,20 @@
 }
 
 .hero33 {
-  background-image: url("../assets/img/VOLCAN_SAN_PEDRO_2.JPG") !important;
+  background-image: url("/assets/img/VOLCAN_SAN_PEDRO_2.JPG") !important;
   margin-top: 20px;
 }
 
 .hero25 {
-  background-image: url("../assets/img/guardia.png") !important;
+  background-image: url("/assets/img/guardia.png") !important;
 }
 
 .hero34 {
-  background-image: url("../assets/img/Cultural.png") !important;
+  background-image: url("/assets/img/Cultural.png") !important;
 }
 
 .hero77 {
-  background-image: url("../assets/img/BAÑOS_SOCORRO.JPG") !important;
+  background-image: url("/assets/img/BAÑOS_SOCORRO.JPG") !important;
 }
 
 .hero-content33, .hero-content25, .hero-content34, .hero-content77 {
