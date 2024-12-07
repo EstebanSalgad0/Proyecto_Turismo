@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-5c2-e8+pbw8(7+3z0^$_7&#fggc^=bp^6(p0=-^qq0f&$e&+u5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True # Permite el debuggeo uwu
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://visitacolbun.cl', '127.0.0.1']
 
 
 # Application definition
