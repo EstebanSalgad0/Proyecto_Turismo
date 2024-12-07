@@ -43,7 +43,7 @@ const CrearServicio = () => {
         const token = localStorage.getItem("token");
         // Llama a tu endpoint de usuario para obtener los detalles
         const response = await axios.get(
-          'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site/user/details/',
+          'https://59d8706a9084d7426b317e87f91aa310.loophole.site/user/details/',
           {
             headers: {
               Authorization: `Token ${token}`,
@@ -69,7 +69,7 @@ const CrearServicio = () => {
   const fetchServicios = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get('https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site/api/mis_servicios/', {
+      const response = await axios.get('https://59d8706a9084d7426b317e87f91aa310.loophole.site/api/mis_servicios/', {
         headers: {
           Authorization: `Token ${token}`,
         },
@@ -98,7 +98,7 @@ const CrearServicio = () => {
     try {
       const token = localStorage.getItem("token");
       const url = `${
-        'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site/api/mis_servicios/'
+        'https://59d8706a9084d7426b317e87f91aa310.loophole.site/api/mis_servicios/'
       }${deleteServiceId}/`;
       await axios.delete(url, {
         headers: {
@@ -121,7 +121,7 @@ const CrearServicio = () => {
     try {
       const token = localStorage.getItem("token");
       const url = `${
-        'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site/api/reenviar_servicio/'
+        'https://59d8706a9084d7426b317e87f91aa310.loophole.site/api/reenviar_servicio/'
       }${servicioId}/`;
       await axios.post(
         url,
@@ -369,7 +369,7 @@ const CrearServicio = () => {
     setEditServicioId(servicio.id);
     // Verificar si la imagen existe y construir la URL
     if (servicio.imagen) {
-      const imagenUrl = `${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${servicio.imagen}`;
+      const imagenUrl = `${'https://59d8706a9084d7426b317e87f91aa310.loophole.site'}${servicio.imagen}`;
       setImagenPreview(imagenUrl); // Usar la URL completa para la vista previa
       setImagen(imagenUrl); // Mantener la imagen en el estado
     } else {
@@ -379,7 +379,7 @@ const CrearServicio = () => {
 
     // Verificar si la imagen existe y construir la URL
     if (servicio.imagen2) {
-      const imagenUrl = `${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${
+      const imagenUrl = `${'https://59d8706a9084d7426b317e87f91aa310.loophole.site'}${
         servicio.imagen2
       }`;
       setImagenPreview2(imagenUrl); // Usar la URL completa para la vista previa
@@ -391,7 +391,7 @@ const CrearServicio = () => {
 
     // Verificar si la imagen existe y construir la URL
     if (servicio.imagen3) {
-      const imagenUrl = `${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${
+      const imagenUrl = `${'https://59d8706a9084d7426b317e87f91aa310.loophole.site'}${
         servicio.imagen3
       }`;
       setImagenPreview3(imagenUrl); // Usar la URL completa para la vista previa
@@ -403,7 +403,7 @@ const CrearServicio = () => {
 
     // Verificar si la imagen existe y construir la URL
     if (servicio.imagen4) {
-      const imagenUrl = `${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${
+      const imagenUrl = `${'https://59d8706a9084d7426b317e87f91aa310.loophole.site'}${
         servicio.imagen4
       }`;
       setImagenPreview4(imagenUrl); // Usar la URL completa para la vista previa
@@ -452,10 +452,10 @@ const CrearServicio = () => {
       let method;
 
       if (editMode) {
-        url = `${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site/api/mis_servicios/'}${editServicioId}/`;
+        url = `${'https://59d8706a9084d7426b317e87f91aa310.loophole.site/api/mis_servicios/'}${editServicioId}/`;
         method = "put";
       } else {
-        url = 'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site/api/crear_servicio/';
+        url = 'https://59d8706a9084d7426b317e87f91aa310.loophole.site/api/crear_servicio/';
         method = "post";
       }
 
@@ -812,7 +812,7 @@ const CrearServicio = () => {
                   <div className="image-gallery">
                     {servicio.imagen ? (
                       <img
-                        src={`${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${
+                        src={`${'https://59d8706a9084d7426b317e87f91aa310.loophole.site'}${
                           servicio.imagen
                         }`}
                         alt={`Imagen de ${servicio.nombre}`}
@@ -852,7 +852,7 @@ const CrearServicio = () => {
                       {/* Fila de imágenes */}
                       {servicio.imagen && (
                         <img
-                          src={`${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${
+                          src={`${'https://59d8706a9084d7426b317e87f91aa310.loophole.site'}${
                             servicio.imagen
                           }`}
                           alt={`Imagen 1 de ${servicio.nombre}`}
@@ -866,7 +866,7 @@ const CrearServicio = () => {
                       )}
                       {servicio.imagen2 && (
                         <img
-                          src={`${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${
+                          src={`${'https://59d8706a9084d7426b317e87f91aa310.loophole.site'}${
                             servicio.imagen2
                           }`}
                           alt={`Imagen 2 de ${servicio.nombre}`}
@@ -880,7 +880,7 @@ const CrearServicio = () => {
                       )}
                       {servicio.imagen3 && (
                         <img
-                          src={`${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${
+                          src={`${'https://59d8706a9084d7426b317e87f91aa310.loophole.site'}${
                             servicio.imagen3
                           }`}
                           alt={`Imagen 3 de ${servicio.nombre}`}
@@ -894,7 +894,7 @@ const CrearServicio = () => {
                       )}
                       {servicio.imagen4 && (
                         <img
-                          src={`${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${
+                          src={`${'https://59d8706a9084d7426b317e87f91aa310.loophole.site'}${
                             servicio.imagen4
                           }`}
                           alt={`Imagen 4 de ${servicio.nombre}`}
