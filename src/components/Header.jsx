@@ -428,7 +428,7 @@ const Header = () => {
                   <span className="language-label1">EN</span>
                   <img
                     src="/assets/img/uk4.png"
-                    alt="English"
+                    alt="English" 
                     className="icon-image7"
                   />
                 </>

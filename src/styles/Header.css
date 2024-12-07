@@ -419,7 +419,7 @@ a {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     width: 200px;
-}
+  }
   .navbar1 {
     padding: 20px 10px; /* Reducción de padding en pantallas medianas */
   }
@@ -501,51 +501,70 @@ a {
     display: flex;
     justify-content: flex-end; /* Alineación a la derecha en móviles también */
   }
-
+  
   /* Mostrar el contenedor de iconos en columna cuando el menú desplegable está activo */
   .navbar-icons-right .icons-container.show {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Coloca los elementos en columna */
+    align-items: center; /* Centra los elementos verticalmente */
     position: fixed;
     top: 90px;
-    right: -10;
+    right: 10px;
     background-color: #4B67AE;
-    padding: 10px;
+    padding: 15px;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     border: 2px solid lightcyan;
+    height: auto;
+    width: 100px;
   }
-
+  
+  /* Estilo para el botón de búsqueda */
   .navbar-icons-right .navbar-search button {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    margin-right: -14px;
+    
   }
-
+  
   /* Espaciado entre iconos en el menú desplegable */
   .navbar-icons-right .icons-container .btn-blue2 {
     display: flex;
     align-items: center;
-    padding: 4px 10px;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    padding: 8px 10px;
     color: white;
-    margin-left: 4px;
+    margin: 0;
+  }
+  
+  /* Estilo para el botón de modo oscuro */
+  .navbar-icons-right .icons-container .dark-mode-toggle {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    color: white;
+    margin: 0;
   }
 
-  .navbar-icons-right .icons-container .dark-mode-toggle{
-    display: none;
+  .navbar-icons-right .icons-container .dark-mode-toggle .icon-image2,
+  .navbar-icons-right .icons-container .dark-mode-toggle .icon-image3,
+  .navbar-icons-right .icons-container .btn-blue2 .icon-image5 {
+    margin: 0
   }
-
+  
+  /* Estilo para el contenedor de búsqueda */
   .navbar-icons-right .navbar-search {
     position: relative;
-    margin-top: 10px;
-    margin-left: 28px;
+    margin: 0;
   }
-
-  .navbar-icons-right .navbar-auth{
-    margin: 5px 0px; 
+  
+  /* Estilo para la autenticación */
+  .navbar-icons-right .navbar-auth {
+    text-align: center; /* Centra el texto horizontalmente */
+    margin: 0;
+    flex-grow: 0;
   }
+  
 }
 
 @media (max-width: 840px) {
@@ -608,367 +627,167 @@ a {
     cursor: pointer;
     position: relative; /* Añadido para que el submenú sea relativo a su padre */
   }
-.navbar1 {
-  padding: 10px 10px;
-}
+  .navbar1 {
+    padding: 10px 10px;
+  }
 
 
-/* Alinea los íconos de búsqueda, modo oscuro, y cerrar sesión a la derecha */
-.navbar-icons-right
-.navbar-auth,
-.navbar-search,
-.dark-mode-toggle,
-.btn-blue2 {
-  display: flex;
-  margin-right: auto;
-  align-items: center;
-  
-}
+  .navbar-links1 button {
+    font-size: 12px; /* Ajusta el tamaño de la fuente */
+    margin: 0 5px; /* Reduce el margen entre botones */
+    padding: 5px 8px; /* Menos padding */
+  }
+
+  .header-left .navbar-toggle {
+    display: block; /* Mostrar el botón hamburguesa */
+  }
 
 
-/* Estilos específicos para los botones de búsqueda, modo oscuro, y logout */
-.navbar-icons-right
-.language-label1,
-.navbar-search button,
-.dark-mode-toggle button,
-.navbar-auth button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
+  .dropdown-menu1 {
+    font-family: "Roboto", sans-serif;
+    position: absolute;
+    top: 100%;
+    left: -232px;
+    right: 42px;
+    background-color: white;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    display: block;
+  }
 
-/* Ajuste opcional para asegurar que cada ícono esté alineado correctamente */
-.navbar-icons-right
-.navbar-search i,
-.icon-image7,
-.icon-image2, /* Modo oscuro icono */
-.icon-image3, /* Sol o luna icono */
-.icon-image4, /* Logout icono */
-.icon-image6,
-.icon-image5 { /* Login icono */
-  margin-left: auto; /* Espacio mínimo entre los iconos */
-  width: 30px;
-  height: 30px;
-  margin-right: 5px;
-}
+  .navbar-links1 {
+    display: none; /* Ocultar los enlaces en móviles */
+    flex-direction: column;
+    background-color: #4B67AE;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: auto;
+    z-index: 999;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en una nueva línea si es necesario */
+    justify-content: space-around; /* Distribuye equitativamente los botones */
+    margin-left: 40px; /* Elimina el margen en pantallas pequeñas */
+    border: 2px solid lightcyan;
+    border-radius: 5px;
+  }
 
-.navbar-icons-right .icon-image3{
-  display: none;
-}
+  .navbar-links1.active {
+    display: flex; /* Mostrar el menú cuando está activo */
+  }
 
-.navbar-icons-right .dark-mode-toggle button {
-  outline: none !important;
-  box-shadow: none !important;
-  border: none !important;
-}
+  .navbar1 {
+    justify-content: space-between;
+  }
 
-.navbar-links1 button {
-  font-size: 12px; /* Ajusta el tamaño de la fuente */
-  margin: 0 5px; /* Reduce el margen entre botones */
-  padding: 5px 8px; /* Menos padding */
-}
+  .navbar-auth {
+    display: none; /* Opcional: ocultar la parte de autenticación en móviles */
+  }
 
-.header-left .navbar-toggle {
-  display: block; /* Mostrar el botón hamburguesa */
-}
-
-.navbar-icons-right .navbar-search {
-  position: relative;
-  margin-top: -100px;
-  margin-left: 7px;
-}
-
-/* Estilo para la barra de búsqueda desplegable dentro de navbar-icons-right */
-.navbar-icons-right .search-bar {
-  display: flex;
-  align-items: center;
-  position: absolute; /* Hace que la barra de búsqueda sea flotante */
-  transform: translateY(70%); /* Ajuste para centrar verticalmente */
-  right: 0; /* Alinea la barra de búsqueda hacia la derecha */
-  background-color: white; /* Fondo blanco para la barra de búsqueda */
-  border-radius: 5px;
-  margin-right: 40px;
-  padding: 5px 5px; /* Padding adicional para mayor separación */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
-  z-index: 1000; /* Asegura que esté por encima de otros elementos */
-  width: 220px; /* Ancho de la barra de búsqueda, ajusta según sea necesario */
-}
-
-/* Estilo para el campo de entrada de la barra de búsqueda */
-.navbar-icons-right .search-bar input {
-  border: none;
-  padding: 10px;
-  font-size: 14px;
-  width: 175px;
-  outline: none;
-}
-.dropdown-menu1 {
-  font-family: "Roboto", sans-serif;
-  position: absolute;
-  top: 100%;
-  left: -232px;
-  right: 42px;
-  background-color: white;
-  list-style: none;
-  padding: 10px 0;
-  margin: 0;
-  display: block;
-}
-
-.navbar-icons-right .navbar-search button {
-  background: none;
-  border: none;
-  font-size: 20px;
-  color: #4B67AE; /* Color del ícono de enviar */
-  cursor: pointer;
-  margin-left: 3px;
-  margin-right: -14px;
-  margin-top: 100px;
-}
-
-/* Estilo para el botón de enviar dentro de la barra de búsqueda */
-.navbar-icons-right .search-bar button {
-  background: none;
-  border: none;
-  font-size: 20px;
-  color: #4B67AE; /* Color del ícono de enviar */
-  cursor: pointer;
-  margin-top: 0px;
-}
-
-.navbar-icons-right .search-bar button i {
-  font-size: 20px;
-  color: #333;
-  margin-right: 10px; /* Espacio entre el ícono y el borde */
-}
-
-.navbar-links1 {
-  display: none; /* Ocultar los enlaces en móviles */
-  flex-direction: column;
-  background-color: #4B67AE;
-  position: absolute;
-  top: 60px;
-  left: 0;
-  width: auto;
-  z-index: 999;
-  align-items: flex-start;
-  flex-wrap: wrap; /* Permite que los elementos se ajusten en una nueva línea si es necesario */
-  justify-content: space-around; /* Distribuye equitativamente los botones */
-  margin-left: 40px; /* Elimina el margen en pantallas pequeñas */
-  border: 2px solid lightcyan;
-  border-radius: 5px;
-}
-
-.navbar-links1.active {
-  display: flex; /* Mostrar el menú cuando está activo */
-}
-
-.navbar1 {
-  justify-content: space-between;
-}
-
-.navbar-auth {
-  display: none; /* Opcional: ocultar la parte de autenticación en móviles */
-}
-
-/* Ajuste del Menú Desplegable en Pantallas Pequeñas */
-.dropdown-menu {
-  width: 50vw;
-  left: 100%;
-  right: 0;
-}
+  /* Ajuste del Menú Desplegable en Pantallas Pequeñas */
+  .dropdown-menu {
+    width: 50vw;
+    left: 100%;
+    right: 0;
+  }
 
 
-.dropdown-submenu {
-  position: relative;
-  left: 0;
-  top: 0;
-  width: 100%;
-  background-color: #4B67AE;
-  padding-left: 15px;
-}
+  .dropdown-submenu {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: #4B67AE;
+    padding-left: 15px;
+  }
 
-.dropdown-menu li {
-  font-size: 1.0rem;
-  text-align: left;
-  width: 100%;
-  padding: 3px;
-  margin: 1px;
-}
+  .dropdown-menu li {
+    font-size: 1.0rem;
+    text-align: left;
+    width: 100%;
+    padding: 3px;
+    margin: 1px;
+  }
 
-.dropdown-menu li ul {
-  font-size: 1.0rem;
-  text-align: left;
-  width: 100%;
-  padding: 3px;
-  margin: 1px;
-  background-color: white;
-}
+  .dropdown-menu li ul {
+    font-size: 1.0rem;
+    text-align: left;
+    width: 100%;
+    padding: 3px;
+    margin: 1px;
+    background-color: white;
+  }
 
-.dropdown-menu li ul {
-  border: 1px solid black;
-}
+  .dropdown-menu li ul {
+    border: 1px solid black;
+  }
 
 
-.header-left .header-icon{
-  margin: auto;
-}
+  .header-left .header-icon{
+    margin: auto;
+  }
 
-.header-left{
-  margin-left: 0;
-}
+  .header-left{
+    margin-left: 0;
+  }
 
-.navbar-toggle {
-  font-size: 24px; /* Tamaño del ícono */
-  color: white; /* Color del ícono de hamburguesa */
-  background: transparent; /* Fondo transparente */
-  border: none; /* Sin borde */
-  cursor: pointer; /* Cambia el cursor al de un enlace */
-  margin-left: -10px;
-}
-.navbar-icons-right .navbar-auth{
-  margin-left: 0;
-}
+  .navbar-toggle {
+    font-size: 24px; /* Tamaño del ícono */
+    color: white; /* Color del ícono de hamburguesa */
+    background: transparent; /* Fondo transparente */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambia el cursor al de un enlace */
+    margin-left: -10px;
+  }
+
 }
 
 /* Ocultar iconos individuales en pantallas de 480px o menos */
 @media (max-width: 480px) {
-.navbar-icons-right .icons-container {
-  display: none; /* Oculta el contenedor de iconos por defecto en pantallas pequeñas */
-}
 
-/* Mostrar el botón caret-down en pantallas pequeñas */
-.navbar-toggle-icons {
-  display: block;
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-}
+  .navbar-icons-right .icons-container.show{
+    width: 80px;
+  }
 
-/* Estilo para la barra de búsqueda desplegable dentro de navbar-icons-right */
-.navbar-icons-right .search-bar {
-  display: flex;
-  align-items: center;
-  position: absolute; /* Hace que la barra de búsqueda sea flotante */
-  transform: translateY(-50%); /* Ajuste para centrar verticalmente */
-  right: 0; /* Alinea la barra de búsqueda hacia la derecha */
-  background-color: white; /* Fondo blanco para la barra de búsqueda */
-  border-radius: 5px;
-  margin-right: 40px;
-  padding: 5px 5px; /* Padding adicional para mayor separación */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
-  z-index: 1000; /* Asegura que esté por encima de otros elementos */
-  width: 220px; /* Ancho de la barra de búsqueda, ajusta según sea necesario */
-}
+  /* Mostrar el botón caret-down en pantallas pequeñas */
+  .navbar-toggle-icons {
+    display: block;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
 
-/* Estilo para el campo de entrada de la barra de búsqueda */
-.navbar-icons-right .search-bar input {
-  border: none;
-  padding: 10px;
-  font-size: 14px;
-  width: 175px;
-  outline: none;
-}
-.dropdown-menu1 {
-  font-family: "Roboto", sans-serif;
-  position: absolute;
-  top: 90%;
-  left: -228px;
-  right: 42px;
-  background-color: white;
-  list-style: none;
-  padding: 10px 0;
-  margin: 0;
-  display: block;
-}
+  .dropdown-menu1 {
+    font-family: "Roboto", sans-serif;
+    position: absolute;
+    top: 90%;
+    left: -228px;
+    right: 42px;
+    background-color: white;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    display: block;
+  }
 
-.navbar-icons-right .navbar-search button {
-  background: none;
-  border: none;
-  font-size: 20px;
-  color: #4B67AE; /* Color del ícono de enviar */
-  cursor: pointer;
-  margin-right: -14px;
-  margin-top: 100px;
-}
 
-/* Estilo para el botón de enviar dentro de la barra de búsqueda */
-.navbar-icons-right .search-bar button {
-  background: none;
-  border: none;
-  font-size: 20px;
-  color: #4B67AE; /* Color del ícono de enviar */
-  cursor: pointer;
-  margin-top: 0px;
-}
+  .language-label1 {
+    display: none;
+  }
 
-.navbar-icons-right .search-bar button i {
-  font-size: 20px;
-  color: #333;
-  margin-right: 10px; /* Espacio entre el ícono y el borde */
-}
+  .language-label{
+    display: none;
+  }
 
-.language-label1 {
-  display: none;
-}
 
-.language-label{
-  display: none;
-}
+  .dropdown-menu1 li {
+    font-family: "Roboto", sans-serif;
+    padding: 5px 20px;
+  }
 
-.navbar-icons-right {
-  display: flex;
-  justify-content: flex-end; /* Alineación a la derecha en móviles también */
-}
-
-/* Mostrar el contenedor de iconos en columna cuando el menú desplegable está activo */
-.navbar-icons-right .icons-container.show {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  top: 50px;
-  right: -10;
-  background-color: #4B67AE;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  border: 2px solid lightcyan;
-}
-
-.dropdown-menu1 li {
-  font-family: "Roboto", sans-serif;
-  padding: 5px 20px;
-}
-
-.navbar-icons-right .navbar-search button {
-  background-color: transparent;
-  border: none;
-  margin-top: -2px;
-  cursor: pointer;
-  margin-left: 5px;
-}
-
-/* Espaciado entre iconos en el menú desplegable */
-.navbar-icons-right .icons-container .btn-blue2 {
-  display: flex;
-  align-items: center;
-  padding: 4px 10px;
-  color: white;
-  margin-left: 8px;
-}
-
-.navbar-icons-right .icons-container .dark-mode-toggle{
-  display: none;
-}
-
-.navbar-icons-right .navbar-search {
-  position: relative;
-  margin-top: 10px;
-  margin-left: 7px;
-}
 }
 
 

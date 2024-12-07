@@ -765,3 +765,8 @@ img, iframe {
   max-width: 100%;
   height: auto;
 }
+
+body.dark-mode .carousel-control1.next,
+body.dark-mode .carousel-control1.prev{
+  color:#4B67AE ;
+}

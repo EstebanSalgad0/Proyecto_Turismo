@@ -6,12 +6,12 @@ import useCarousel from './useCarousel';
 
 // Importa las imágenes
 import img1 from '/assets/img/PXL_20240927_102434354.jpg';
-import img2 from '/assets/img/Cultural.png';
-import img3 from '/assets/img/Parque.png';
-import img4 from '/assets/img/PXL_20240927_112617725.jpg';
-import img5 from '/assets/img/PXL_20240927_112819235.jpg';
-import img6 from '/assets/img/PXL_20240927_120450869.jpg';
-import img7 from '/assets/img/PXL_20240927_114154883.jpg';
+import img2 from '/assets/img/VOLCAN_SAN_PEDRO_2.jpg';
+import img3 from '/assets/img/Cultural.png';
+import img4 from '/assets/img/CAVERNAS_LOS_BELLOTOS.jpg';
+import img5 from '/assets/img/TERMAS_DE_PANIMÁVIDA.jpg';
+import img6 from '/assets/img/CarouselVizcacha.jpg';
+import img7 from '/assets/img/BALNEARIO_MACHICURA.jpg';
 import img8 from '/assets/img/PXL_20240927_102434354.jpg';
 
 const Carousel = () => {
@@ -20,14 +20,14 @@ const Carousel = () => {
 
   // Definimos las imágenes y nombres del carrusel aquí mismo
   const slides = [
-    { name: 'VizcachazViewpoint', image: img1 },
-    { name: 'NationalPark', image: img2 },
-    { name: 'CavesBellotos', image: img3 },
-    { name: 'Reservoir', image: img4 },
-    { name: 'Colbun', image: img5 },
-    { name: 'HillViewpoint', image: img6 },
-    { name: 'ToroWaterfall', image: img7 },
-    { name: 'AnotherLocation', image: img8 },
+    { name: 'ParqueNational', image: img1 },
+    { name: 'VolcanPP', image: img2 },
+    { name: 'Petroglyphs', image: img3 },
+    { name: 'CavesBellotos', image: img4 },
+    { name: 'HotSprings', image: img5 },
+    { name: 'VizcachasViewpoint', image: img6 },
+    { name: 'Reservoir', image: img7 },
+    { name: 'MiradorTricahue', image: img8 },
   ];
 
   return (
