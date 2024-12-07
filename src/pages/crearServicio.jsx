@@ -452,10 +452,10 @@ const CrearServicio = () => {
       let method;
 
       if (editMode) {
-        url = `${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site/api/mis_servicios/'}${editServicioId}/`;
+        url = `${'https://59d8706a9084d7426b317e87f91aa310.loophole.site/api/mis_servicios/'}${editServicioId}/`;
         method = "put";
       } else {
-        url = 'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site/api/crear_servicio/';
+        url = 'https://59d8706a9084d7426b317e87f91aa310.loophole.site/api/crear_servicio/';
         method = "post";
       }
 
@@ -812,7 +812,7 @@ const CrearServicio = () => {
                   <div className="image-gallery">
                     {servicio.imagen ? (
                       <img
-                        src={`${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${
+                        src={`${'https://59d8706a9084d7426b317e87f91aa310.loophole.site'}${
                           servicio.imagen
                         }`}
                         alt={`Imagen de ${servicio.nombre}`}
@@ -852,7 +852,7 @@ const CrearServicio = () => {
                       {/* Fila de imágenes */}
                       {servicio.imagen && (
                         <img
-                          src={`${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${
+                          src={`${'https://59d8706a9084d7426b317e87f91aa310.loophole.site'}${
                             servicio.imagen
                           }`}
                           alt={`Imagen 1 de ${servicio.nombre}`}
@@ -866,7 +866,7 @@ const CrearServicio = () => {
                       )}
                       {servicio.imagen2 && (
                         <img
-                          src={`${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${
+                          src={`${'https://59d8706a9084d7426b317e87f91aa310.loophole.site'}${
                             servicio.imagen2
                           }`}
                           alt={`Imagen 2 de ${servicio.nombre}`}
@@ -880,7 +880,7 @@ const CrearServicio = () => {
                       )}
                       {servicio.imagen3 && (
                         <img
-                          src={`${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${
+                          src={`${'https://59d8706a9084d7426b317e87f91aa310.loophole.site'}${
                             servicio.imagen3
                           }`}
                           alt={`Imagen 3 de ${servicio.nombre}`}
@@ -894,7 +894,7 @@ const CrearServicio = () => {
                       )}
                       {servicio.imagen4 && (
                         <img
-                          src={`${'https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site'}${
+                          src={`${'https://59d8706a9084d7426b317e87f91aa310.loophole.site'}${
                             servicio.imagen4
                           }`}
                           alt={`Imagen 4 de ${servicio.nombre}`}
