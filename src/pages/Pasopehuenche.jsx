@@ -54,7 +54,7 @@ const Pasopehuenche = () => {
       <div className="hero12">
         <div className="hero-content12">
           <h5>{t('WhereToGo')}</h5>
-          <h1>Paso Pehuenche</h1>
+          <h1>Pehuenche</h1>
           <h4>{t('PehuencheInfo')}</h4>
         </div>
       </div>

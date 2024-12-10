@@ -54,7 +54,7 @@ const Header = () => {
   // Lista de vistas disponibles con sus nombres y rutas
   const pages = [
     { name: "El Melado", path: "/ElMelado" },
-    { name: "Paso Pehuenche", path: "/Paso-pehuenche" },
+    { name: "Pehuenche", path: "/Paso-pehuenche" },
     { name: "Colbún", path: "/Colbun" },
     { name: "Colbún Alto", path: "/Colbun-alto" },
     { name: "Asociados", path: "/Asociados" },
@@ -225,7 +225,7 @@ const Header = () => {
                 <Link to="/ElMelado">El Melado</Link>
               </li>
               <li>
-                <Link to="/Paso-pehuenche">Paso Pehuenche</Link>
+                <Link to="/Paso-pehuenche">Pehuenche</Link>
               </li>
               <li>
                 <Link to="/Colbun">Colbún</Link>
