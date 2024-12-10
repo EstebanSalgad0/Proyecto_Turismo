@@ -79,7 +79,7 @@ const Pasopehuenche = () => {
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
           <br></br>
-          <p>{t('ColbunBeauty')}</p>
+          <p>{t('PehuencheRemember')}</p>
           <br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732042052500!6m8!1m7!1sCAoSLEFGMVFpcFA2T05WMFdOakE5TEJqQzFfcWFIWEpQTElBUWE3MEJWMGUtZl9G!2m2!1d-35.98140279183212!2d-70.39538364127658!3f211.50117874263907!4f-7.133985422908111!5f0.7820865974627469", "_blank")}>

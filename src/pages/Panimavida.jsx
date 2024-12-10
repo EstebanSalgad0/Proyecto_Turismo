@@ -71,7 +71,7 @@ const Panimavida = () => {
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
           <br></br>
-          <p>{t('ColbunBeauty')}</p>
+          <p>{t('PanimavidaRemember')}</p>
           <br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732043058780!6m8!1m7!1sCAoSLEFGMVFpcFBORHBHemt3S3Atd3NEX2t0aHhwYmM1RVpHQmtlX095amJjWGti!2m2!1d-35.75559967683176!2d-71.41737046928405!3f338.75366241190306!4f-4.329891270804524!5f0.7820865974627469", "_blank")}>
