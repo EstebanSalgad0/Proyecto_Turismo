@@ -37,6 +37,7 @@ strong {
   font-weight: bold; /* Asegura que el texto sea más destacado */
   margin: 0;
   font-family: 'Roboto Condensed', sans-serif;
+  text-align: start;
 }
 
 .social-content2 h3 {
@@ -192,6 +193,10 @@ strong {
     margin-left: auto;
     margin-right: auto;
     color: #4B67AE;
+  }
+
+  .social-content2 p {
+    text-align: center;
   }
 
   .social-icons1 {
