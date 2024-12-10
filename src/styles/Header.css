@@ -428,6 +428,11 @@ a {
     margin-left: 0px; /* Reduce el margen izquierdo en pantallas medianas */
   }
 
+  body.dark-mode .navbar-links1 {
+    background-color: #212020;
+    margin-left: 0px; /* Reduce el margen izquierdo en pantallas medianas */
+  }
+
   .dropdown-menu1 {
     font-family: "Roboto", sans-serif;
     position: absolute;
@@ -519,6 +524,12 @@ a {
     height: auto;
     width: 100px;
   }
+
+    /* Mostrar el contenedor de iconos en columna cuando el menú desplegable está activo */
+    body.dark-mode .navbar-icons-right .icons-container.show {
+      background-color: #383c44;
+      
+    }
   
   /* Estilo para el botón de búsqueda */
   .navbar-icons-right .navbar-search button {
@@ -586,7 +597,7 @@ a {
   }
 
   .navbar-links1 {
-    margin-left: 0px; /* Reduce el margen izquierdo en pantallas medianas */
+    margin-left: 0px !important; /* Reduce el margen izquierdo en pantallas medianas */
   }
 
   .navbar-links1 button {
