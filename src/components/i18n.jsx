@@ -16,6 +16,7 @@ i18n.use(initReactI18next).init({
         "Parks": "Parks and wildlife",
         "Parks1": "Parks",
         "Parks2": "Wildlife",
+        "Parks44": "Guaiquivilo Park",
         "NationalParkInfo": "Guaiquivilo National Park is a private project with approximately 8500 hectares of natural beauty, which was developed in 2012 with the purpose of rescuing, preserving and disseminating nature. The park is characterized by its diverse flora and fauna.",
         "Routes": "Routes",
         "View": "View all",
@@ -224,6 +225,7 @@ i18n.use(initReactI18next).init({
     },
     es: {
       translation: {
+        "Parks44": "Parque Guaiquivilo",
         "EmbalseRemember": "El embalse se convierte en un lugar de encuentro durante la semana, ideal para quienes buscan relajarse, hacer deporte o disfrutar de un día en familia. Este cuerpo de agua ofrece vistas impresionantes, con atardeceres que quedan grabados en la memoria y se convierten en imágenes inolvidables. En verano, el embalse se llena de gente y vehículos acuáticos, creando un ambiente vibrante y lleno de vida. Aunque parezca un lugar siempre animado, en realidad la mayoría del tiempo sus aguas permanecen tranquilas y serenas, invitando a la calma y al disfrute en su estado más natural.",
         "EmbalseInfo": "El embalse Machicura es también un cuerpo de agua artificial creado en 1985, es más pequeño que el Embalse de Colbún, tiene 8 km2. También está inmerso en un entorno natural, muy cercano al centro de Colbún, esta cuenta en uno de sus codos que está en los hemisferios del embalse un balneario con el mismo apellido. El embalse también es centro de visitas diarias por diversas personas tanto de la comuna como a fuerinas, cuenta con mirador de aves y un mapa de promoción turística.",
         "CavernasLosBellotosRemember": "En la reserva, las cavernas de los bellotos son formaciones rocosas que crean pasajes subterráneos, donde el río desaparece brevemente de la vista, oculto por la profundidad de la tierra.",

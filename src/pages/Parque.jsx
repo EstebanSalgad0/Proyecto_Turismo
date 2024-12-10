@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import '../styles/Parque.css?v=1.4'; // Estilos específicos para el componente
+import '../styles/Parque.css?v=1.5'; // Estilos específicos para el componente
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import SocialSection from '../components/SocialSeccion';
@@ -96,7 +96,7 @@ const Parque = () => {
         <div className="hero-content10">
           <br></br>
           <h5>{t('Parks')}</h5>
-          <h1>{t('NationalPark')}</h1>
+          <h1>{t('Parks44')}</h1>
           <h4>{t('NationalParkInfo')}</h4>
         </div>
       </div>
@@ -136,8 +136,8 @@ const Parque = () => {
       </div>
 
       {/* Hero Section 2 */}
-      <div className="hero10">
-        <div className="hero-content10">
+      <div className="hero1111">
+        <div className="hero-content1111">
           <h5>{t('Parks')}</h5>
           <h1>{t('CavesBellotos')}</h1>
           <h4>{t('CavernasLosBellotosInfo')}</h4>
