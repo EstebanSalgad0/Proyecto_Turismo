@@ -9,7 +9,7 @@
   flex-direction: column;
 }
 
-.hero30, .hero31, .hero32, .hero33 {
+.hero3004, .hero3005, .hero3006, .hero3007 {
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat;
@@ -26,42 +26,42 @@
   position: relative;
 }
 
-.hero30 {
+.hero3004 {
   background-image: url("/assets/img/iglesia.png") !important;
   margin-top: 20px;
 }
 
-.hero31 {
-  background-image: url("/assets/img/image.png") !important;
+.hero3005 {
+  background-image: url("/assets/img/2.png") !important;
 }
 
-.hero32 {
-  background-image: url("/assets/img/image.png") !important;
+.hero3006 {
+  background-image: url("/assets/img/TERMAS_DE_PANIMÁVIDA.jpg") !important;
 }
 
-.hero33 {
-  background-image: url("/assets/img/image.png") !important;
+.hero3007 {
+  background-image: url("/assets/img/LA_POZA_DE_LA_MONA.jpg") !important;
 }
 
-.hero-content30, .hero-content31, .hero-content32, .hero-content33 {
+.hero-content3004, .hero-content3005, .hero-content3006, .hero-content3007 {
   margin-top: 100px;
   margin-left: 50px;
   align-items: flex-start;
 }
 
-.hero30 h5, .hero31 h5, .hero32 h5, .hero33 h5 {
+.hero3004 h5, .hero3005 h5, .hero3006 h5, .hero3007 h5 {
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
   margin-bottom: 5px;
 }
 
-.hero30 h1, .hero31 h1, .hero32 h1, .hero33 h1 {
+.hero3004 h1, .hero3005 h1, .hero3006 h1, .hero3007 h1 {
   font-family: "Roboto", sans-serif;
   font-size: 3rem;
   margin-bottom: 40px;
 }
 
-.hero30 h4, .hero31 h4, .hero32 h4, .hero33 h4 {
+.hero3004 h4, .hero3005 h4, .hero3006 h4, .hero3007 h4 {
   font-family: "Roboto", sans-serif;
   margin-top: 150px;
   width: 690px;
@@ -79,24 +79,24 @@
 
 /* Ajustes para pantallas móviles */
 @media (max-width: 768px) {
-  .hero30, .hero31, .hero32, .hero33 {
+  .hero3004, .hero3005, .hero3006, .hero3007 {
     padding: 20px;
     min-height: 65vh;
     text-align: center;
   }
 
-  .hero-content30, .hero-content31, .hero-content32, .hero-content33 {
+  .hero-content3004, .hero-content3005, .hero-content3006, .hero-content3007 {
     margin-top: 60px;
     margin-left: 0;
     align-items: center;
   }
 
-  .hero30 h1, .hero31 h1, .hero32 h1, .hero33 h1 {
+  .hero3004 h1, .hero3005 h1, .hero3006 h1, .hero3007 h1 {
     font-size: 2rem;
     margin-bottom: 20px;
   }
 
-  .hero30 h4, .hero31 h4, .hero32 h4, .hero33 h4 {
+  .hero3004 h4, .hero3005 h4, .hero3006 h4, .hero3007 h4 {
     font-size: 0.9rem;
     line-height: 1.5;
     margin-top: 20px;
@@ -151,11 +151,11 @@
 
 /* Ajustes para pantallas extra pequeñas */
 @media (max-width: 480px) {
-  .hero30 h1, .hero31 h1, .hero32 h1, .hero33 h1 {
+  .hero3004 h1, .hero3005 h1, .hero3006 h1, .hero3007 h1 {
     font-size: 1.5rem;
   }
 
-  .hero30 h4, .hero31 h4, .hero32 h4, .hero33 h4 {
+  .hero3004 h4, .hero3005 h4, .hero3006 h4, .hero3007 h4 {
     font-size: 0.8rem;
     margin-top: 10px;
   }
