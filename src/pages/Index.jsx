@@ -58,7 +58,7 @@ const Index = () => {
           <h2>{t('SubtitleMessage')}</h2>
           <br></br>
           <br></br>
-          <a href="https://www.youtube.com/watch?v=QCvh0Lwfmww" target="colbun" rel="municipalidad_Colbun">
+          <a href="https://www.youtube.com/watch?v=7l3B_AjYnhI&list=TLGGPI4M4bKt7X4xMDEyMjAyNA&t=3s" target="colbun" rel="municipalidad_Colbun">
             <button className="btn-blue">
               {t('WatchNow')}
               <img src="/assets/img/verahora_icon.png" alt="icono de reproducción" className="button-icon" />
