@@ -18,12 +18,13 @@
 }
 
 .Logo {
-  background-image: url('../assets/img/Logo/Logo.png') !important;
+  background-image: url('../assets/img/Recurso_1.svg') !important;
   background-size: contain; /* Ajusta el tamaño de la imagen para que se ajuste dentro del contenedor */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
   width: 36px; /* Ajusta el ancho de la imagen */
   height: 40px;
   margin: 0 0 15px 150px;
+  filter: invert(30%) sepia(60%) saturate(350%) hue-rotate(195deg) brightness(85%) contrast(100%);
 }
 
 .recaptcha-container {

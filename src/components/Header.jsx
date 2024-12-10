@@ -192,7 +192,7 @@ const Header = () => {
     <header className={`navbar1 ${showHeader ? "show" : "hide"}`}>
       <div className="header-left">
         <Link to="/" className="header-icon">
-          <img src="/assets/img/icono.png" alt="icono" />
+          <img src="/assets/img/Recurso_1.svg" alt="icono" />
         </Link>
 
         <button
