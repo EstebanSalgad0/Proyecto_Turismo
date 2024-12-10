@@ -114,8 +114,8 @@ const Cultura4 = () => {
       <Header/>
 
       {/* Hero Section 1 */}
-      <div className="hero5">
-        <div className="hero-content5">
+      <div className="hero2222">
+        <div className="hero-content2222">
           <h5>{t('Culture')}</h5>
           <h1>{t('Petroglyphs')}</h1>
           <h4>{t('PetroglifosInfo')}</h4>
@@ -157,8 +157,8 @@ const Cultura4 = () => {
       </div>
 
       {/* Hero Section 2 */}
-      <div className="hero25">
-        <div className="hero-content25">
+      <div className="hero2223">
+        <div className="hero-content2223">
           <h5>{t('Culture')}</h5>
           <h1>La Guardia</h1>
           <h4>{t('GuardiaInfo')}</h4>
@@ -200,8 +200,8 @@ const Cultura4 = () => {
       </div>
 
       {/* Hero Section 3 */}
-      <div className="hero26">
-        <div className="hero-content26">
+      <div className="hero2224">
+        <div className="hero-content2224">
           <h5>{t('Culture')}</h5>
           <h1>{t('Train')}</h1>
           <h4>{t('TrainInfo')}</h4>
@@ -243,8 +243,8 @@ const Cultura4 = () => {
       </div>
 
       {/* Hero Section 4 */}
-      <div className="hero27">
-        <div className="hero-content27">
+      <div className="hero2225">
+        <div className="hero-content2225">
           <h5>{t('Culture')}</h5>
           <h1>Molino Los Tilos</h1>
           <h4>{t('MolinoTilosInfo')}</h4>
