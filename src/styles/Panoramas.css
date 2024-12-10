@@ -49,6 +49,7 @@
 .hero100 h4 {
   font-family: "Roboto", sans-serif;
   margin-top: 150px;
+  text-align: justify;
   width: 690px;
   font-size: 1rem;
   margin-bottom: 5px;
