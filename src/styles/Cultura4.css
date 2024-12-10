@@ -32,11 +32,11 @@
 }
 
 .hero41 {
-  background-image: url("/assets/img/image.png") !important;
+  background-image: url("/assets/img/TERMAS_DE_QUINAMAVIDA.jpeg") !important;
 }
 
 .hero42 {
-  background-image: url("/assets/img/Cultural.png") !important;
+  background-image: url("/assets/img/PIEDRA_TOBA.jpg") !important;
 }
 
 .hero43 {
@@ -65,9 +65,14 @@
   font-family: "Roboto", sans-serif;
   margin-top: 150px;
   width: 690px;
+  text-align: justify;
   height: auto;
   font-size: 1rem;
   margin-bottom: 5px; /* Espaciado entre el subtítulo y el botón */
+}
+
+p {
+  text-align: justify;
 }
 
 

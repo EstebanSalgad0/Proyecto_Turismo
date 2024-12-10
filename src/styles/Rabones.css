@@ -45,10 +45,15 @@
   margin-bottom: 40px;
 }
 
+p {
+  text-align: justify;
+}
+
 .hero107 h4 {
   font-family: "Roboto", sans-serif;
   margin-top: 150px;
   width: 690px;
+  text-align: justify;
   height: 297px;
   font-size: 1rem;
   margin-bottom: 5px;

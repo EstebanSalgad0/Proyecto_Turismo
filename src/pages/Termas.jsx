@@ -74,7 +74,7 @@ const Termas = () => {
         <div className="hero-content17">
           <h5>{t('Routes')}</h5>
           <h1>{t('HotSprings')}</h1>
-          <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</h4>
+          <h4>{t('HotSpringsInfo')}</h4>
         </div>
       </div>
 
@@ -99,7 +99,7 @@ const Termas = () => {
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
           <br></br>
-          <p>{t('ColbunBeauty')}</p>
+          <p>{t('HotSpringsRemember')}</p>
           <br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732110618945!6m8!1m7!1sCAoSLEFGMVFpcE1JR0xTYXIxMnlhRUU5dmhSbThOMmRIejJrRXhMWG0zTzdlVW5J!2m2!1d-35.76229748808326!2d-71.41611645995395!3f243.30473999789757!4f-2.409956286158689!5f0.7820865974627469", "_blank")}>
@@ -113,8 +113,8 @@ const Termas = () => {
       </div>
 
       {/* Hero Section 2 */}
-      <div className="hero17">
-        <div className="hero-content17">
+      <div className="hero555">
+        <div className="hero-content555">
           <h5>{t('Routes')}</h5>
           <h1>{t('Reservoir')}</h1>
           <h4>{t('EmbalseInfo')}</h4>

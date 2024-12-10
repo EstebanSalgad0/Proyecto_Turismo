@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import '../styles/Balnearios.css'; // Estilos específicos para el componente
+import '../styles/Balnearios2.css'; // Estilos específicos para el componente
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import SocialSection from '../components/SocialSeccion';
@@ -45,8 +45,8 @@ const Balnearios = () => {
       <Header/>
 
       {/* Hero Section */}
-      <div className="hero108">
-        <div className="hero-content108">
+      <div className="hero109">
+        <div className="hero-content109">
           <h5>{t('WhereToGo')}</h5>
           <h1>Lago Colbún</h1>
           <h4>{t('LagoColbunInfo')}</h4>

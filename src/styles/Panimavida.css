@@ -9,7 +9,7 @@
 }
 
 .hero104 {
-  background-image: url("/assets/img/panimavida_.png") !important;
+  background-image: url("/assets/img/panimavida2.jpg") !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat;
@@ -45,9 +45,14 @@
   margin-bottom: 40px;
 }
 
+p {
+  text-align: justify;
+}
+
 .hero104 h4 {
   font-family: "Roboto", sans-serif;
   margin-top: 150px;
+  text-align: justify;
   width: 690px;
   height: 297px;
   font-size: 1rem;

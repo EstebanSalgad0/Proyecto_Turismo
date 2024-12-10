@@ -296,7 +296,7 @@ const Cultura4 = () => {
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
           <br></br><br></br><br></br><br></br><br></br>
-          <p>{t('TermasQuinamavidaRemember')}</p>
+          <p>{t('TelarQuinamavidaRemember')}</p>
           <br></br><br></br><br></br><br></br><br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732110108785!6m8!1m7!1sCAoSLEFGMVFpcE9UNUZSR1MxcGFNN1A5MXk1ekl3TmNRbEQ5Mm15OEZHOFU2enZv!2m2!1d-35.79607496751252!2d-71.42723207417494!3f83.09804123831863!4f5.435251596331639!5f0.7820865974627469", "_blank")}>

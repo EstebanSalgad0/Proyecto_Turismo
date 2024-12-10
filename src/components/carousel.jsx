@@ -5,14 +5,14 @@ import useCarousel from './useCarousel';
 
 
 // Importa las imágenes
-import img1 from '/assets/img/PXL_20240927_102434354.jpg';
+import img1 from '/assets/img/PARQUE_GUAQUIVILO.jpeg';
 import img2 from '/assets/img/VOLCAN_SAN_PEDRO_2.jpg';
 import img3 from '/assets/img/Cultural.png';
 import img4 from '/assets/img/CAVERNAS_LOS_BELLOTOS.jpg';
 import img5 from '/assets/img/TERMAS_DE_PANIMÁVIDA.jpg';
 import img6 from '/assets/img/CarouselVizcacha.jpg';
 import img7 from '/assets/img/BALNEARIO_MACHICURA.jpg';
-import img8 from '/assets/img/PXL_20240927_102434354.jpg';
+import img8 from '/assets/img/MIRADOR_LORO_TRICAHUE.jpeg';
 
 const Carousel = () => {
   const { t } = useTranslation();

@@ -54,7 +54,7 @@ const Header = () => {
   // Lista de vistas disponibles con sus nombres y rutas
   const pages = [
     { name: "El Melado", path: "/ElMelado" },
-    { name: "Paso Pehuenche", path: "/Paso-pehuenche" },
+    { name: "Pehuenche", path: "/Paso-pehuenche" },
     { name: "Colbún", path: "/Colbun" },
     { name: "Colbún Alto", path: "/Colbun-alto" },
     { name: "Asociados", path: "/Asociados" },
@@ -192,7 +192,7 @@ const Header = () => {
     <header className={`navbar1 ${showHeader ? "show" : "hide"}`}>
       <div className="header-left">
         <Link to="/" className="header-icon">
-          <img src="/assets/img/icono.png" alt="icono" />
+          <img src="/assets/img/visita_colbun.svg" alt="icono" />
         </Link>
 
         <button
@@ -225,7 +225,7 @@ const Header = () => {
                 <Link to="/ElMelado">El Melado</Link>
               </li>
               <li>
-                <Link to="/Paso-pehuenche">Paso Pehuenche</Link>
+                <Link to="/Paso-pehuenche">Pehuenche</Link>
               </li>
               <li>
                 <Link to="/Colbun">Colbún</Link>
@@ -328,7 +328,7 @@ const Header = () => {
                 {activeSubMenu === "parques" && (
                   <ul className="dropdown-submenu">
                     <li>
-                      <Link to="/Parque">{t("NationalPark")}</Link>
+                      <Link to="/Parque">{t("Parks")}</Link>
                     </li>
                   </ul>
                 )}

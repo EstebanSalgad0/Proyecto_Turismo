@@ -27,7 +27,7 @@
 }
 
 .hero5 {
-  background-image: url("/assets/img/1.png") !important;
+  background-image: url("/assets/img/PIEDRA_DEL_INDIO.jpeg") !important;
   margin-top: 20px;
 }
 
@@ -65,9 +65,14 @@
   font-family: "Roboto", sans-serif;
   margin-top: 150px;
   width: 690px;
+  text-align: justify;
   height: auto;
   font-size: 1rem;
   margin-bottom: 5px;
+}
+
+p {
+  text-align: justify;
 }
 
 /* Estilo para el contenedor del mapa */

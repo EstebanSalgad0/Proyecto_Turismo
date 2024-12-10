@@ -73,7 +73,7 @@ const Rari = () => {
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
           <br></br>
-          <p>{t('ColbunBeauty')}</p>
+          <p>{t('RariRemember')}</p>
           <br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732043192964!6m8!1m7!1sCAoSLEFGMVFpcE91NzZEUU1RZUxrcnhTWFNIRGRadzlFNDdHX3FkcmFyUXYyaWQw!2m2!1d-35.76248929902175!2d-71.41764832208362!3f35.73071622634859!4f2.4484483329164277!5f0.7820865974627469", "_blank")}>

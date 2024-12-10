@@ -9,7 +9,7 @@
   flex-direction: column;
 }
 
-.hero5, .hero25, .hero26, .hero27 {
+.hero2222, .hero2223, .hero2224, .hero2225 {
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat;
@@ -26,48 +26,53 @@
   position: relative;
 }
 
-.hero5 {
+.hero2222 {
   background-image: url("/assets/img/1.png") !important;
   margin-top: 20px;
 }
 
-.hero25 {
+.hero2223 {
   background-image: url("/assets/img/guardia.png") !important;
 }
 
-.hero26 {
-  background-image: url("/assets/img/2.png") !important;
+.hero2224 {
+  background-image: url("/assets/img/EL_TREN_CHICO.jpg") !important;
 }
 
-.hero27 {
-  background-image: url("/assets/img/3.png") !important;
+.hero2225 {
+  background-image: url("/assets/img/MOLINO_LOS_TILOS.jpg") !important;
 }
 
-.hero-content5, .hero-content25, .hero-content26, .hero-content27 {
+.hero-content2222, .hero-content2223, .hero-content2224, .hero-content2225 {
   margin-top: 100px;
   margin-left: 50px;
   align-items: flex-start;
 }
 
-.hero5 h5, .hero25 h5, .hero26 h5, .hero27 h5 {
+.hero2222 h5, .hero2223 h5, .hero2224 h5, .hero2225 h5 {
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
   margin-bottom: 5px;
 }
 
-.hero5 h1, .hero25 h1, .hero26 h1, .hero27 h1 {
+.hero2222 h1, .hero2223 h1, .hero2224 h1, .hero2225 h1 {
   font-family: "Roboto", sans-serif;
   font-size: 3rem;
   margin-bottom: 40px;
 }
 
-.hero5 h4, .hero25 h4, .hero26 h4, .hero27 h4 {
+.hero2222 h4, .hero2223 h4, .hero2224 h4, .hero2225 h4 {
   font-family: "Roboto", sans-serif;
   margin-top: 150px;
   width: 690px;
+  text-align: justify;
   height: auto;
   font-size: 1rem;
   margin-bottom: 5px;
+}
+
+p {
+  text-align: justify;
 }
 
 /* Estilo para el contenedor del mapa */
@@ -79,24 +84,24 @@
 
 /* Ajustes para pantallas móviles */
 @media (max-width: 768px) {
-  .hero5, .hero25, .hero26, .hero27 {
+  .hero2222, .hero2223, .hero2224, .hero2225 {
     padding: 20px;
     min-height: 65vh;
     text-align: center;
   }
 
-  .hero-content5, .hero-content25, .hero-content26, .hero-content27 {
+  .hero-content2222, .hero-content2223, .hero-content2224, .hero-content2225 {
     margin-top: 60px;
     margin-left: 0;
     align-items: center;
   }
 
-  .hero5 h1, .hero25 h1, .hero26 h1, .hero27 h1 {
+  .hero2222 h1, .hero2223 h1, .hero2224 h1, .hero2225 h1 {
     font-size: 2rem;
     margin-bottom: 20px;
   }
 
-  .hero5 h4, .hero25 h4, .hero26 h4, .hero27 h4 {
+  .hero2222 h4, .hero2223 h4, .hero2224 h4, .hero2225 h4 {
     font-size: 0.9rem;
     line-height: 1.5;
     margin-top: 20px;
@@ -151,11 +156,11 @@
 
 /* Ajustes para pantallas extra pequeñas */
 @media (max-width: 480px) {
-  .hero5 h1, .hero25 h1, .hero26 h1, .hero27 h1 {
+  .hero2222 h1, .hero2223 h1, .hero2224 h1, .hero2225 h1 {
     font-size: 1.5rem;
   }
 
-  .hero5 h4, .hero25 h4, .hero26 h4, .hero27 h4 {
+  .hero2222 h4, .hero2223 h4, .hero2224 h4, .hero2225 h4 {
     font-size: 0.8rem;
     margin-top: 10px;
   }

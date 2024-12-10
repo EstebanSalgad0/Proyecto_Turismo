@@ -157,8 +157,8 @@ const Cultura4 = () => {
       </div>
 
       {/* Hero Section 2 */}
-      <div className="hero25">
-        <div className="hero-content25">
+      <div className="hero111">
+        <div className="hero-content111">
           <h5>{t('Hike')}</h5>
           <h1>{t('LagunaDial')}</h1>
           <h4>{t('LagunaDialInfo')}</h4>

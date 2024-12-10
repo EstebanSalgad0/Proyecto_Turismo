@@ -49,7 +49,7 @@ const Colbunalto = () => {
         <div className="hero-content22">
           <h5>{t('WhereToGo')}</h5>
           <h1>Colbun Alto</h1>
-          <h4>{t('ColbunInfo')}</h4>
+          <h4>{t('ColbunAltoInfo')}</h4>
         </div>
       </div>
 
@@ -73,7 +73,7 @@ const Colbunalto = () => {
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
           <br></br>
-          <p>{t('ColbunBeauty')}</p>
+          <p>{t('ColbunAltoRemember')}</p>
           <br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732042470056!6m8!1m7!1sCAoSLEFGMVFpcE93WGlUUlZSdkYwR2xoenFpdUFMbDZ4TUdFemkwRmhXd0dHUkVT!2m2!1d-35.72389261564005!2d-71.2123527910019!3f349.7109854124092!4f0.6778411991338089!5f0.7820865974627469", "_blank")}>

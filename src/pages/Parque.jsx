@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import '../styles/Parque.css?v=1.4'; // Estilos específicos para el componente
+import '../styles/Parque.css?v=1.5'; // Estilos específicos para el componente
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import SocialSection from '../components/SocialSeccion';
@@ -96,7 +96,7 @@ const Parque = () => {
         <div className="hero-content10">
           <br></br>
           <h5>{t('Parks')}</h5>
-          <h1>{t('NationalPark')}</h1>
+          <h1>{t('Parks44')}</h1>
           <h4>{t('NationalParkInfo')}</h4>
         </div>
       </div>
@@ -136,8 +136,8 @@ const Parque = () => {
       </div>
 
       {/* Hero Section 2 */}
-      <div className="hero10">
-        <div className="hero-content10">
+      <div className="hero1111">
+        <div className="hero-content1111">
           <h5>{t('Parks')}</h5>
           <h1>{t('CavesBellotos')}</h1>
           <h4>{t('CavernasLosBellotosInfo')}</h4>
@@ -183,7 +183,7 @@ const Parque = () => {
         <div className="hero-content1000">
           <h5>{t('Parks')}</h5>
           <h1>{t('MiradorTricahue')}</h1>
-          <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</h4>
+          <h4>{t('MiradorTricahueInfo')}</h4>
         </div>
       </div>
 
@@ -208,7 +208,7 @@ const Parque = () => {
           <h5>{t('UnforgettablePlaces')}</h5>
           <h1>{t('Remember')}</h1>
           <br></br>
-          <p>{t('ColbunBeauty')}</p>
+          <p>{t('MiradorTricahueRemember')}</p>
           <br></br>
           <div className="button-group">
             <button className="btn-blue" onClick={() => window.open("https://www.google.com/maps/embed?pb=!4v1732110530473!6m8!1m7!1sCAoSLEFGMVFpcFB4WmN2YzdwZkJveWdHMExEb0pXemc1N3pUakpzVkdYaGNWM1Rq!2m2!1d-35.86711438704836!2d-71.10167798481488!3f50.39907268022614!4f15.795228398432457!5f0.7820865974627469", "_blank")}>

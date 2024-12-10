@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import '../styles/Cultura2.css?v=1.5'; // Estilos específicos para el componente
+import '../styles/Senderismo3.css?v=1.6'; // Estilos específicos para el componente
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import SocialSection from '../components/SocialSeccion';
@@ -114,8 +114,8 @@ const Cultura4 = () => {
       <Header/>
 
       {/* Hero Section 1 */}
-      <div className="hero5">
-        <div className="hero-content5">
+      <div className="hero915">
+        <div className="hero-content915">
           <h5>{t('Hike')}</h5>
           <h1>{t('LasCuevas')}</h1>
           <h4>{t('LasCuevasInfo')}</h4>
@@ -158,8 +158,8 @@ const Cultura4 = () => {
       </div>
 
       {/* Hero Section 2 */}
-      <div className="hero25">
-        <div className="hero-content25">
+      <div className="hero916">
+        <div className="hero-content916">
           <h5>{t('Hike')}</h5>
           <h1>{t('LagunaAchibueno')}</h1>
           <h4>{t('LagunaAchibuenoInfo')}</h4>
@@ -201,8 +201,8 @@ const Cultura4 = () => {
       </div>
 
       {/* Hero Section 3 */}
-      <div className="hero26">
-        <div className="hero-content26">
+      <div className="hero917">
+        <div className="hero-content917">
           <h5>{t('Hike')}</h5>
           <h1>{t('PiedrasAltas')}</h1>
           <h4>{t('PiedrasAltasInfo')}</h4>
@@ -244,8 +244,8 @@ const Cultura4 = () => {
       </div>
 
       {/* Hero Section 4 */}
-      <div className="hero27">
-        <div className="hero-content27">
+      <div className="hero918">
+        <div className="hero-content918">
           <h5>{t('Hike')}</h5>
           <h1>{t('LagoColbun')}</h1>
           <h4>{t('LagoColbunInfo')}</h4>
