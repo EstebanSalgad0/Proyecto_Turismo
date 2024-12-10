@@ -73,8 +73,8 @@ const Termas = () => {
       <div className="hero17">
         <div className="hero-content17">
           <h5>{t('Routes')}</h5>
-          <h1>{t('HotSprings')}</h1>
-          <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</h4>
+          <h1>{t('Springs')}</h1>
+          <h4>{t('TermasPanimavidaInfo')}</h4>
         </div>
       </div>
 
@@ -113,8 +113,8 @@ const Termas = () => {
       </div>
 
       {/* Hero Section 2 */}
-      <div className="hero17">
-        <div className="hero-content17">
+      <div className="hero555">
+        <div className="hero-content555">
           <h5>{t('Routes')}</h5>
           <h1>{t('Reservoir')}</h1>
           <h4>{t('EmbalseInfo')}</h4>

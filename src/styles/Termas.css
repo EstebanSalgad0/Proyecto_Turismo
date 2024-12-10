@@ -10,7 +10,7 @@
 }
 
 .hero17 {
-  background-image: url("../assets/img/Losbellotos.png") !important; /* Ruta de la imagen de fondo */
+  background-image: url("../assets/img/TERMAS_DE_PANIMÁVIDA.jpg") !important; /* Ruta de la imagen de fondo */
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat;
@@ -54,6 +54,51 @@
   margin-bottom: 5px;
 }
 
+.hero555 {
+  background-image: url("../assets/img/EMBALSE_MACHICURA.png") !important; /* Ruta de la imagen de fondo */
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  color: white;
+  padding: 40px 60px;
+  box-sizing: border-box;
+  flex-direction: column;
+  position: relative;
+}
+
+.hero-content555 {
+  margin-top: 100px;
+  margin-left: 50px;
+  align-items: flex-start;
+}
+
+.hero555 h5 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.hero555 h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 3rem;
+  margin-bottom: 40px;
+}
+
+.hero555 h4 {
+  font-family: "Roboto", sans-serif;
+  margin-top: 150px;
+  width: 690px;
+  height: auto;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
 /* Estilo para el contenedor del mapa */
 .generalMap {
   height: 650px; /* Ajusta la altura según necesites */
@@ -81,6 +126,31 @@
   }
 
   .hero17 h4 {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .hero555 {
+    padding: 20px;
+    min-height: 65vh;
+    text-align: center;
+  }
+
+  .hero-content555 {
+    margin-top: 60px;
+    margin-left: 0;
+    align-items: center;
+  }
+
+  .hero555 h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .hero555 h4 {
     font-size: 0.9rem;
     line-height: 1.5;
     margin-top: 20px;
@@ -164,6 +234,15 @@
   }
 
   .hero17 h4 {
+    font-size: 0.8rem;
+    margin-top: 10px;
+  }
+
+  .hero555 h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero555 h4 {
     font-size: 0.8rem;
     margin-top: 10px;
   }
