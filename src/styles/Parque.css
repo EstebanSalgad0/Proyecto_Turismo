@@ -49,6 +49,7 @@
   font-family: "Roboto", sans-serif;
   margin-top: 150px;
   width: 690px;
+  text-align: justify;
   height: auto;
   font-size: 1rem;
   margin-bottom: 5px;
@@ -95,6 +96,7 @@
   margin-top: 150px;
   width: 690px;
   height: auto;
+  text-align: justify;
   font-size: 1rem;
   margin-bottom: 5px;
 }
@@ -140,6 +142,7 @@
   margin-top: 150px;
   width: 690px;
   height: auto;
+  text-align: justify;
   font-size: 1rem;
   margin-bottom: 5px;
 }

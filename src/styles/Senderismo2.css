@@ -65,11 +65,15 @@
   font-family: "Roboto", sans-serif;
   margin-top: 150px;
   width: 690px;
+  text-align: justify;
   height: auto;
   font-size: 1rem;
   margin-bottom: 5px;
 }
 
+p {
+  text-align: justify;
+}
 /* Estilo para el contenedor del mapa */
 .generalMap {
   height: 650px; /* Ajusta la altura según necesites */

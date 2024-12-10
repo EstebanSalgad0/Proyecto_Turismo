@@ -48,6 +48,7 @@
 .hero17 h4 {
   font-family: "Roboto", sans-serif;
   margin-top: 150px;
+  text-align: justify;
   width: 690px;
   height: auto;
   font-size: 1rem;
@@ -94,6 +95,7 @@
   font-family: "Roboto", sans-serif;
   margin-top: 150px;
   width: 690px;
+  text-align: justify;
   height: auto;
   font-size: 1rem;
   margin-bottom: 5px;

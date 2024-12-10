@@ -125,6 +125,7 @@ strong {
   font-family: "gobCL", sans-serif;
   font-size: 1rem;
   color: #333;
+  text-align: start;
   margin: 0;
   max-width: 200px; /* Limita el ancho del texto */
 }

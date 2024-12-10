@@ -64,10 +64,15 @@
 .hero915 h4, .hero916 h4, .hero917 h4, .hero918 h4 {
   font-family: "Roboto", sans-serif;
   margin-top: 150px;
+  text-align: justify;
   width: 690px;
   height: auto;
   font-size: 1rem;
   margin-bottom: 5px;
+}
+
+p {
+  text-align: justify;
 }
 
 /* Estilo para el contenedor del mapa */
