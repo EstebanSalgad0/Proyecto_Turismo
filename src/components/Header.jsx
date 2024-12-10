@@ -328,7 +328,7 @@ const Header = () => {
                 {activeSubMenu === "parques" && (
                   <ul className="dropdown-submenu">
                     <li>
-                      <Link to="/Parque">{t("NationalPark")}</Link>
+                      <Link to="/Parque">{t("Parks")}</Link>
                     </li>
                   </ul>
                 )}
