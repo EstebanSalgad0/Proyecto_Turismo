@@ -11,8 +11,8 @@
 
 /* Ajusta el margen izquierdo del icono de Turismo en la barra de navegación */
 .header-left .header-icon {
-  width: 60px;
-  height: 55px;
+  width: 100px;
+  height: 40px;
   margin-right: 10px; /* Espacio entre el logo y el botón de hamburguesa */
 }
 
