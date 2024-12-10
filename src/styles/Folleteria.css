@@ -22,7 +22,7 @@
 
 .map-item-fo {
   width: 90%;
-  max-width: 800px;
+  max-width: 800px; 
   height: 400px;
   border-radius: 8px;
   background-color: #f1f1f1;
@@ -68,4 +68,15 @@
   .map-placeholder-fo {
     height: 200px;
   }
+}
+
+body.dark-mode .folleteria-container {
+  background-color: #121212; /* Fondo oscuro */
+  color: #e0e0e0; /* Texto claro */
+}
+
+body.dark-mode .map-item-fo {
+  background-color: #2c2c2c; /* Fondo oscuro para el mapa */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Sombra ajustada para modo oscuro */
+  border: 1px solid #444444; /* Borde oscuro para mejor definición */
 }

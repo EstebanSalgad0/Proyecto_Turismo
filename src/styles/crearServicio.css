@@ -350,7 +350,6 @@ body.dark-mode .sidebar h3{
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Sombra para dar la sensación de "flotar" */
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   overflow-y: auto;
   flex-direction: row-reverse; /* Imagen a la derecha */
@@ -849,6 +848,14 @@ body.dark-mode .ButtonsCRUD button{
 
 /* Responsividad para pantallas de hasta 786px */
 @media (max-width: 786px) {
+
+  .file-upload-content img {
+    max-height: 145px; /* Define un alto máximo para mantener proporciones */
+    object-fit: contain; /* Ajusta la imagen dentro del espacio disponible */
+    border-radius: 8px; /* Opcional: Añade bordes redondeados para un mejor diseño */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Opcional: Agrega sombra para mejorar la visibilidad */
+  }
+
   .service-container {
     justify-content: center;
     text-align: center;

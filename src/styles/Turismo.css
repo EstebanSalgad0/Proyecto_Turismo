@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   background-color: #f8f9fa;
-  margin-top: 160px;
+  padding-top: 160px;
 }
 
 /* Sección de introducción */
@@ -37,10 +37,6 @@
 
 /* Responsividad */
 @media (max-width: 800px) {
-  /* Contenedor principal */
-  .turismo-container-TA{
-    margin-top: 100px;
-  }
 
   .intro-subheader-TA h1 {
     font-size: 28px;
@@ -59,4 +55,21 @@
   .intro-details-TA h5 {
     font-size: 14px;
   }
+}
+
+body.dark-mode .turismo-container-TA {
+  background-color: #121212; /* Fondo oscuro */
+  color: #e0e0e0; /* Texto claro */
+}
+
+body.dark-mode .intro-header-TA h5 {
+  color: #bbbbbb; /* Texto claro */
+}
+
+body.dark-mode .intro-subheader-TA h1 {
+  color: #4B67AE; /* Azul claro */
+}
+
+body.dark-mode .intro-details-TA h5 {
+  color: #d1d1d1; /* Texto claro */
 }
