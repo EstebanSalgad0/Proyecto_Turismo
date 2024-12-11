@@ -428,10 +428,7 @@ a {
     margin-left: 0px; /* Reduce el margen izquierdo en pantallas medianas */
   }
 
-  body.dark-mode .navbar-links1 {
-    background-color: #212020;
-    margin-left: 0px; /* Reduce el margen izquierdo en pantallas medianas */
-  }
+
 
   .dropdown-menu1 {
     font-family: "Roboto", sans-serif;

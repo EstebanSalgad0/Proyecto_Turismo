@@ -18,7 +18,7 @@
 }
 
 .Logo {
-  background-image: url('/assets/img/Logo/Logo.png') !important;
+  background-image: url('/assets/img/visita_colbun.svg') !important;
   background-size: contain; /* Ajusta el tamaño de la imagen para que se ajuste dentro del contenedor */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
   width: 120px !important; /* Ajusta el ancho de la imagen */
@@ -210,6 +210,7 @@
 
 .register-link p {
   margin: auto; 
+  text-align: center;
 }
 
 .register-link p a {

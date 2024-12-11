@@ -153,6 +153,7 @@
 
 .login-link-regis p {
   margin: 0; /* Ajusta márgenes */
+  text-align: center;
 }
 
 .login-link-regis p a {
