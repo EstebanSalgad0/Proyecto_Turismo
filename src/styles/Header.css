@@ -77,7 +77,7 @@
 }
 
 .icon-image4 {
-  margin-right: 10px;
+  margin-right: 0px;
   filter: invert(1);
   width: 30px; /* Cambia el tamaño a tu preferencia */
   height: 30px; /* Cambia el tamaño a tu preferencia */
@@ -427,6 +427,8 @@ a {
   .navbar-links1 {
     margin-left: 0px; /* Reduce el margen izquierdo en pantallas medianas */
   }
+
+
 
 
 
