@@ -236,6 +236,18 @@ p {
     width: 200px; /* Ajusta el ancho según lo necesites */
     max-width: 300px; /* Define un ancho máximo para limitar el tamaño */
   }
+
+  /* Modo oscuro para la sección hero3 */
+body.dark-mode .hero0::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 74%;
+  background-color: rgba(0, 0, 0, 0.349); /* Capa oscura semitransparente */
+  z-index: 1; /* Coloca la capa por encima del fondo pero debajo del contenido */
+}
   
   .carousel-nav {
     display: none;
@@ -270,6 +282,18 @@ p {
   .carousel-nav {
     display: none;
   }
+
+  /* Modo oscuro para la sección hero3 */
+body.dark-mode .hero0::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 74%;
+  background-color: rgba(0, 0, 0, 0.349); /* Capa oscura semitransparente */
+  z-index: 1; /* Coloca la capa por encima del fondo pero debajo del contenido */
+}
 
 
   .carousel-header1 {
@@ -342,18 +366,6 @@ body.dark-mode .divider {
 /* Sección de ayuda */
 body.dark-mode .help-item p {
   color: #ffffff;
-}
-
-/* Modo oscuro para la sección hero3 */
-body.dark-mode .hero0::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.349); /* Capa oscura semitransparente */
-  z-index: 1; /* Coloca la capa por encima del fondo pero debajo del contenido */
 }
 
 /* Asegura que el contenido de hero3 esté por encima de la capa oscura */
@@ -445,10 +457,16 @@ body.dark-mode .hero0::before {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
   background-color: rgba(0, 0, 0, 0.349); /* Capa oscura semitransparente */
   z-index: 1; /* Coloca la capa por encima del fondo pero debajo del contenido */
+}
+
+@media (min-width: 900px) and (max-width: 2400px) {
+  body.dark-mode .hero0::before {
+    width: 100%;
+    height: 113%;
+
+  }
 }
 
 /* Asegura que el contenido de hero3 esté por encima de la capa oscura */
