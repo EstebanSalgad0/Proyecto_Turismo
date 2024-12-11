@@ -434,7 +434,7 @@ a {
     font-family: "Roboto", sans-serif;
     position: absolute;
     top: 90%;
-    left: -224px;
+    left: -250px;
     right: 60px;
     background-color: white;
     list-style: none;
@@ -655,8 +655,8 @@ a {
     font-family: "Roboto", sans-serif;
     position: absolute;
     top: 100%;
-    left: -232px;
-    right: 42px;
+    left: -252px;
+    right: 60px;
     background-color: white;
     list-style: none;
     padding: 10px 0;
@@ -772,8 +772,8 @@ a {
     font-family: "Roboto", sans-serif;
     position: absolute;
     top: 90%;
-    left: -228px;
-    right: 42px;
+    left: -250px;
+    right: 60px;
     background-color: white;
     list-style: none;
     padding: 10px 0;
@@ -958,6 +958,10 @@ color: rgb(255, 255, 255);
 body.dark-mode .dropdown-submenu li {
 color: rgb(255, 255, 255);
 background-color: #000000;
+}
+
+body.dark-mode .dropdown-menu1 li {
+  color: black;
 }
 
 
