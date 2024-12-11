@@ -105,6 +105,17 @@ p {
     width: 100%;
   }
 
+  body.dark-mode .hero109::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.349); /* Capa oscura semitransparente */
+    z-index: 1; /* Coloca la capa por encima del fondo pero debajo del contenido */
+  }
+
   .map-section {
     width: 100vw;
     padding: 0;
@@ -158,6 +169,17 @@ p {
     gap: 10px;
   }
 
+  body.dark-mode .hero109::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.349); /* Capa oscura semitransparente */
+    z-index: 1; /* Coloca la capa por encima del fondo pero debajo del contenido */
+  }
+
   .carousel-container1 .carousel-card1 {
     flex: 0 0 80%;
     scroll-snap-align: center;
@@ -173,18 +195,25 @@ body.dark-mode {
   color: #e0e0e0;
 }
 
-body.dark-mode .hero108::before {
+
+body.dark-mode .hero109::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.35); /* Capa oscura semitransparente */
-  z-index: 1; /* Coloca la capa por encima del fondo pero debajo del contenido */
+  background-color: rgba(0, 0, 0, 0.349);
+  z-index: 1;
 }
 
-body.dark-mode .hero-content108 {
+@media (min-width: 900px) and (max-width: 2400px) {
+  body.dark-mode .hero109::before {
+    width: 100%;
+    height: 100%;
+
+  }
+}
+
+body.dark-mode .hero-content109 {
   position: relative;
   z-index: 2;
 }
@@ -233,8 +262,8 @@ body.dark-mode .social-icons {
   color: #ffffff;
 }
 
-body.dark-mode .hero108 h5,
-body.dark-mode .hero108 h1,
-body.dark-mode .hero108 h4 {
+body.dark-mode .hero109 h5,
+body.dark-mode .hero109 h1,
+body.dark-mode .hero109 h4 {
   color: #ffffff;
 }
