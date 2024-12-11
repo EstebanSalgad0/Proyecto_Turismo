@@ -844,6 +844,10 @@ body.dark-mode .carousel-card1 p {
 color: #ffffff;
 }
 
+body.dark-mode .navbar-links1 {
+  background-color: #333;
+}
+
 body.dark-mode .carousel-header1 h5 {
 color: #ffffff; /* Color gris */
 font-size: 1rem;
