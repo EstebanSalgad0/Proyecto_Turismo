@@ -204,6 +204,10 @@ body.dark-mode .hero100 h4 {
   color: #ffffff; /* Texto claro */
 }
 
+body.dark-mode .carousel-subheader2 h1 {
+  color: #ffffff;
+}
+
 body.dark-mode .calendar-container iframe {
   border-color: #444444; /* Color del borde en modo oscuro */
 }
