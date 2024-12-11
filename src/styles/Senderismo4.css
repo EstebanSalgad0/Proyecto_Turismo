@@ -84,24 +84,24 @@ p {
 
 /* Ajustes para pantallas móviles */
 @media (max-width: 768px) {
-  .hero5, .hero25, .hero26, .hero27 {
+  .hero5, .hero333, .hero26, .hero27 {
     padding: 20px;
     min-height: 65vh;
     text-align: center;
   }
 
-  .hero-content5, .hero-content25, .hero-content26, .hero-content27 {
+  .hero-content5, .hero-content333, .hero-content26, .hero-content27 {
     margin-top: 60px;
     margin-left: 0;
     align-items: center;
   }
 
-  .hero5 h1, .hero25 h1, .hero26 h1, .hero27 h1 {
+  .hero5 h1, .hero333 h1, .hero26 h1, .hero27 h1 {
     font-size: 2rem;
     margin-bottom: 20px;
   }
 
-  .hero5 h4, .hero25 h4, .hero26 h4, .hero27 h4 {
+  .hero5 h4, .hero333 h4, .hero26 h4, .hero27 h4 {
     font-size: 0.9rem;
     line-height: 1.5;
     margin-top: 20px;
@@ -156,11 +156,11 @@ p {
 
 /* Ajustes para pantallas extra pequeñas */
 @media (max-width: 480px) {
-  .hero5 h1, .hero25 h1, .hero26 h1, .hero27 h1 {
+  .hero5 h1, .hero333 h1, .hero26 h1, .hero27 h1 {
     font-size: 1.5rem;
   }
 
-  .hero5 h4, .hero25 h4, .hero26 h4, .hero27 h4 {
+  .hero5 h4, .hero333 h4, .hero26 h4, .hero27 h4 {
     font-size: 0.8rem;
     margin-top: 10px;
   }
