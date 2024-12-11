@@ -103,3 +103,19 @@
     font-size: 1.2rem; /* Reducir el tamaño del título */
   }
 }
+
+body.dark-mode .header-content-QH h2 {
+  color: #ffffff;
+}
+
+body.dark-mode .card-QH {
+  background-color: #606060; /* Fondo blanco */
+}
+
+body.dark-mode .card-QH p {
+  color: white;
+}
+
+body.dark-mode .header-content-QH h5 {
+  color: white;
+}
