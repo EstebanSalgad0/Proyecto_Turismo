@@ -50,7 +50,7 @@ const LeafletMap = ({ latitud, longitud, mapId, googleMapUrl }) => {
 
       const infoControl = L.control({ position: "topright" });
       infoControl.onAdd = function () {
-        this._div = L.DomUtil.create("div", "info");
+        this._div = L.DomUtil.create("div", "info text-black bg-white shadow");
         this.update();
         return this._div;
       };
