@@ -48,12 +48,6 @@ const Panoramas = () => {
           title="Feriados de chile / Chilean holidays"
         />
       </div>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
       <div className="calendar-container">
         <iframe
           src="https://calendar.google.com/calendar/embed?src=es-419.cl%23holiday%40group.v.calendar.google.com&ctz=America%2FSantiago"
@@ -64,7 +58,6 @@ const Panoramas = () => {
           title="Feriados de chile / Chilean holidays"
         />
       </div>
-      <br></br><br></br><br></br><br></br>
 
       <Carousel/>
       <SocialSection/>

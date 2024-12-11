@@ -99,7 +99,7 @@ body.dark-mode .header-SN h5 {
 }
 
 body.dark-mode .subheader-SN h1 {
-  color: #87a1f5; /* Azul claro */
+  color: #ffffff; /* Azul claro */
 }
 
 body.dark-mode .content-section-SN {
@@ -111,5 +111,5 @@ body.dark-mode .content-section-SN p {
 }
 
 body.dark-mode .subheader-SN h2 {
-  color: #87a1f5; /* Azul claro para subtítulos */
+  color: #ffffff; /* Azul claro para subtítulos */
 }

@@ -39,14 +39,14 @@ const CadastreService = () => {
         </div>
 
         <div className="intro-details-CZ">
-          <h5>{t('JoinService')}</h5>
-          <h5>{t('Artisan')}</h5>
+          <p>{t('JoinService')}</p>
+          <p>{t('Artisan')}</p>
           <ul>
-            <li><h5>{t('Business')}</h5></li>
-            <li><h5>{t('Connect')}</h5></li>
-            <li><h5>{t('Promotional')}</h5></li>
+            <li><p>{t('Business')}</p></li>
+            <li><p>{t('Connect')}</p></li>
+            <li><p>{t('Promotional')}</p></li>
           </ul>
-          <h5>{t('Fast')}</h5>
+          <p>{t('Fast')}</p>
         </div>
       </section>
 

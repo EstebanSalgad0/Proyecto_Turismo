@@ -31,6 +31,7 @@ const Asociado = () => {
       {/* Sección de encabezado */}
       <section className="header-section-as">
         <div className="header-as">
+          <br></br><br></br>
           <h5>{t('VisitFooter')}</h5>
           <div className="subheader-as">
             <h1>{t('Associates')}</h1>
@@ -45,16 +46,16 @@ const Asociado = () => {
         </div>
 
         <div className="convenios-list-as">
-          <h5>{t('Convenios1')}</h5>
+          <p>{t('Convenios1')}</p>
           <div className='convenios-list-as-num'>
-            <h5>{t('Convenios2')}</h5>
-            <h5>{t('Convenios3')}</h5>
-            <h5>{t('Convenios4')}</h5>
+            <p>{t('Convenios2')}</p>
+            <p>{t('Convenios3')}</p>
+            <p>{t('Convenios4')}</p>
           </div>
         </div>
 
         <div className="additional-info-as">
-          <h5>{t('Convenios5')}</h5>
+          <p>{t('Convenios5')}</p>
         </div>
 
         <div className="partners-list-as">

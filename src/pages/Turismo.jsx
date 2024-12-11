@@ -34,8 +34,9 @@ const Turismo = () => {
         </div>
 
         <div className="intro-details-TA">
-          <h5>{t('AdventureTime')}</h5>
+          <p>{t('AdventureTime')}</p>
         </div>
+        <br></br><br></br>
       </section>
 
       {/* Sección de contacto reutilizable */}

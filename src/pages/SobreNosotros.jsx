@@ -26,6 +26,7 @@ const SobreNosotros = () => {
       {/* Sección de encabezado */}
       <section className="header-section-SN">
         <div className="header-SN">
+          <br></br><br></br>
           <h5>{t('VisitFooter')}</h5>
           <div className="subheader-SN">
             <h1>{t('AboutUs')}</h1>
@@ -35,7 +36,7 @@ const SobreNosotros = () => {
 
       {/* Sección de contenido */}
       <section className="content-section-SN">
-        <h5>{t('CultureXD')}</h5>
+        <p>{t('CultureXD')}</p>
 
         <div className="subheader-SN">
           <h2>{t('Turism')}</h2>
@@ -50,7 +51,9 @@ const SobreNosotros = () => {
         <p>{t('CultureXD4')}</p>
         <p>{t('CultureXD5')}</p>
         <p>{t('CultureXD6')}</p>
+        <br></br><br></br>
       </section>
+      <br></br><br></br>
       <SocialSection/>
       <Footer/>
     </div>
