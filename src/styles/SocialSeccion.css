@@ -278,12 +278,11 @@ body.dark-mode .social-section1 {
 }
 
 body.dark-mode .social-icons2 {
-  font-size: 2rem;
   color: #ffffff; /* Azul oscuro */
-  transition: color 0.3s ease; /* Añade una transición suave al color */
-  display: flex;
-  justify-content: flex-start; /* Alinea los iconos a la izquierda */
-  gap: 20px;
+}
+
+body.dark-mode .social-content2 {
+  color: #ffffff;
 }
 
 body.dark-mode .social-icons2 i {
