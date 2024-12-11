@@ -112,7 +112,7 @@ body.dark-mode .intro-header-CZ h5 {
 }
 
 body.dark-mode .intro-subheader-CZ h1 {
-  color: #87a1f5; /* Azul claro para modo oscuro */
+  color: #ffffff; /* Azul claro para modo oscuro */
 }
 
 body.dark-mode .intro-details-CZ h5 {
@@ -121,15 +121,15 @@ body.dark-mode .intro-details-CZ h5 {
 
 
 body.dark-mode .link-item-CZ h2 {
-  color: #87a1f5; /* Azul claro */
+  color: #ffffff; /* Azul claro */
 }
 
 body.dark-mode .link-item-CZ h2 a {
-  color: #87a1f5; /* Azul claro para enlaces */
+  color: #ffffff; /* Azul claro para enlaces */
 }
 
 body.dark-mode .link-item-CZ h2 a:hover {
-  color: #4b67ae; /* Azul oscuro para hover */
+  color: #ffffff; /* Azul oscuro para hover */
 }
 
 body.dark-mode .link-description-CZ {

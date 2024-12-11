@@ -78,7 +78,7 @@ body.dark-mode .zoit-intro-header h5 {
 }
 
 body.dark-mode .zoit-intro-subheader h2 {
-  color: #87a1f5; /* Azul más claro en modo oscuro */
+  color: #ffffff; /* Azul más claro en modo oscuro */
 }
 
 body.dark-mode .zoit-intro-details h5 {

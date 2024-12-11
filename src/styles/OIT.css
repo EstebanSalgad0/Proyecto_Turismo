@@ -202,7 +202,7 @@ body.dark-mode .intro-header h5 {
 }
 
 body.dark-mode .intro-subheader h1 {
-  color: #4B67AE; /* Azul claro */
+  color: #ffffff; /* Azul claro */
 }
 
 body.dark-mode .intro-details ul {
@@ -216,7 +216,7 @@ body.dark-mode .intro-details li {
 
 
 body.dark-mode .map-title h1 {
-  color: #4B67AE; /* Azul claro para títulos */
+  color: #ffffff; /* Azul claro para títulos */
 }
 
 body.dark-mode .map-item {
@@ -224,11 +224,11 @@ body.dark-mode .map-item {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra ajustada para modo oscuro */
 }
 body.dark-mode .contact-title {
-  color: #4B67AE; /* Azul claro para título de contacto */
+  color: #ffffff; /* Azul claro para título de contacto */
 }
 
 body.dark-mode .contact-item h3 {
-  color: #4B67AE; /* Azul claro para encabezados de contacto */
+  color: #ffffff; /* Azul claro para encabezados de contacto */
 }
 
 body.dark-mode .contact-item p {
