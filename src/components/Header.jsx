@@ -510,7 +510,7 @@ const Header = () => {
               </button>
               <ConfirmModal
                 show={showLogoutModal}
-                message="¿Está seguro de que desea cerrar sesión?"
+                message={t('CerrarSesionnn')}
                 onConfirm={handleLogout} // Cerrar sesión si confirma
                 onCancel={cancelLogout} // Cerrar el modal si cancela
                 className="Modal-IN"
