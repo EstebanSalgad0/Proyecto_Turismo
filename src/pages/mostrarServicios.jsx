@@ -4,10 +4,20 @@ import "../styles/mostrarServicios.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import SocialSection from "../components/SocialSeccion";
+import '../components/i18n'; // Importa el archivo de configuración
+import { useTranslation } from 'react-i18next';
 
 const ListarServicios = () => {
   const [servicios, setServicios] = useState([]);
   const [expandedServicio, setExpandedServicio] = useState(null); // Estado para gestionar la expansión
+  const { t, i18n } = useTranslation(); // Hook para usar traducciones
+
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language'); // Obtener el idioma guardado
+    if (savedLanguage && savedLanguage !== i18n.language) {
+      i18n.changeLanguage(savedLanguage); // Cambiar el idioma si es necesario
+    }
+  }, [i18n]);
 
   useEffect(() => {
     const fetchServicios = async () => {
@@ -32,11 +42,11 @@ const ListarServicios = () => {
   const transformTipoOferente = (tipoOferente) => {
     switch (tipoOferente) {
       case "bienesServicios":
-        return "Bienes y Servicios";
+        return t('bienesServiciosTraducido');
       case "artesano":
-        return "Artesano";
+        return t('ArtesanoTraducido');
       case "cabanas":
-        return "Cabañas";
+        return t('CabanasTraducido');
       default:
         return "Administrador"; // Devuelve el valor original si no se encuentra una coincidencia
     }
@@ -51,11 +61,11 @@ const ListarServicios = () => {
       <Header />
       <div className="services-list">
         <br />
-        <h1 className="services-title">Servicios Disponibles</h1>
+        <h1 className="services-title">{t("ServiciosDisponibles")}</h1>
         <br />
         <div className="services">
           {servicios.length === 0 ? (
-            <p>No tienes servicios creados.</p>
+            <p>{t("ServiciosNoDisponibles")}</p>
           ) : (
             servicios.map((servicio) => (
               <div key={servicio.id} className="service-container">
@@ -79,7 +89,7 @@ const ListarServicios = () => {
                         }
                       />
                     ) : (
-                      <div className="gallery-placeholder">Sin imagen</div>
+                      <div className="gallery-placeholder">{t("SinImagen")}</div>
                     )}
                   </div>
   
@@ -171,12 +181,12 @@ const ListarServicios = () => {
   
                       <div className="service-details">
                         <p className="service-description">
-                          <strong>Descripción:</strong>{" "}
+                          <strong>{t("Descripcion")}</strong>{" "}
                           <span>{servicio.descripcion}</span>
                         </p>
   
                         <div className="service-contact">
-                          <strong>Redes sociales:</strong>
+                          <strong>{t("RedesSociales")}</strong>
                           <span
                             dangerouslySetInnerHTML={{
                               __html: servicio.redes_sociales.replace(
@@ -187,11 +197,11 @@ const ListarServicios = () => {
                           />
                         </div>
                         <p className="service-email">
-                          <strong>Contacto:</strong>{" "}
+                          <strong>{t("Contacto")}</strong>{" "}
                           <span>{servicio.telefono || "No disponible"}</span>
                         </p>
                         <p className="service-price">
-                          <strong>Valor:</strong>{" "}
+                          <strong>{t("Valor")}</strong>{" "}
                           <span>
                             $
                             {servicio.precio

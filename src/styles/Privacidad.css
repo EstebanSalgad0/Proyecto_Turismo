@@ -83,6 +83,10 @@ body.dark-mode .header h5 {
   color: #bbbbbb; /* Texto claro */
 }
 
+body.dark-mode p {
+  color: #d1d1d1; /* Texto claro */
+}
+
 body.dark-mode .subheader h1 {
   color: #ffffff; /* Azul claro */
 }
