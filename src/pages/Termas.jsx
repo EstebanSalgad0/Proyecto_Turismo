@@ -36,7 +36,7 @@ const Termas = () => {
     }
     
     // Fetch data from the Django API (Termas)
-    fetch('https://59d8706a9084d7426b317e87f91aa310.loophole.site/api/lugares/buscar/?nombre=termas_rutas') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://c61a7d0a26cfe25ef240d4257ce62807.loophole.site/api/lugares/buscar/?nombre=termas_rutas') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatTermas(data.latitud);
@@ -45,7 +45,7 @@ const Termas = () => {
     .catch(error => console.error('Error fetching location data:', error));
     
     // Fetch data from the Django API (Emblase Machicura)
-    fetch('https://59d8706a9084d7426b317e87f91aa310.loophole.site/api/lugares/buscar/?nombre=embalse_machicura') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://c61a7d0a26cfe25ef240d4257ce62807.loophole.site/api/lugares/buscar/?nombre=embalse_machicura') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatEmbalse(data.latitud);

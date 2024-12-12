@@ -31,7 +31,7 @@ const OIT = () => {
     }
 
     // Fetch coordenadas del mapa 1
-    fetch('https://59d8706a9084d7426b317e87f91aa310.loophole.site/api/lugares/buscar/?nombre=mapa_folleteria_1')
+    fetch('https://c61a7d0a26cfe25ef240d4257ce62807.loophole.site/api/lugares/buscar/?nombre=mapa_folleteria_1')
       .then((response) => response.json())
       .then((data) => {
         setLatOff1(data.latitud);
@@ -40,7 +40,7 @@ const OIT = () => {
       .catch((error) => console.error('Error fetching location data:', error));
 
     // Fetch coordenadas del mapa 2
-    fetch('https://59d8706a9084d7426b317e87f91aa310.loophole.site/api/lugares/buscar/?nombre=mapa_folleteria_2')
+    fetch('https://c61a7d0a26cfe25ef240d4257ce62807.loophole.site/api/lugares/buscar/?nombre=mapa_folleteria_2')
       .then((response) => response.json())
       .then((data) => {
         setLatOff2(data.latitud);
