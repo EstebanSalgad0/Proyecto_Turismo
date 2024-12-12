@@ -35,18 +35,57 @@ const Privacidad = () => {
 
       {/* Sección de contenido */}
       <section className="content-section">
-        <h5>
-          Lorem ipsum dolor sit amet consectetur. Leo laoreet nunc at pharetra at morbi
-          consectetur integer. Vel mattis felis viverra pharetra amet pellentesque. Ut id
-          vitae scelerisque orci varius. Ultricies ipsum elementum dui at auctor libero.
-          Scelerisque lacus dictum fusce volutpat pulvinar vel condimentum sit placerat.
-          Eleifend volutpat magna ac ante vel enim nisi bibendum.
-        </h5>
-        <h5>
-          Sem a vel sapien purus viverra. Id lacus eget sodales velit massa rhoncus potenti
-          mattis eu. Ullamcorper congue porttitor risus felis convallis. Sed neque sed
-          mauris urna. Eget egestas eget est venenatis dolor sit. Diam id enim netus amet.
-        </h5>
+        <p>
+        {t("Privacidad1")}
+        </p>
+        <p>
+        {t("Privacidad2")}
+        </p>
+        <p>
+        {t("Privacidad3")}
+        </p>
+        <p>
+        {t("Privacidad4")}
+        </p>
+        <p>
+        {t("Privacidad5")}
+        </p>
+        <p>
+        {t("Privacidad6")}
+        </p>
+        <p>
+        {t("Privacidad7")}
+        </p>
+        <p>
+        {t("Privacidad8")}
+        </p>
+        <p>
+        {t("Privacidad9")}
+        </p>
+        <p>
+        {t("Privacidad10")}
+        </p>
+        <p>
+        {t("Privacidad11")}
+        </p>
+        <p>
+        {t("Privacidad12")}
+        </p>
+        <p>
+        {t("Privacidad13")}
+        </p>
+        <p>
+        {t("Privacidad14")}
+        </p>
+        <p>
+        {t("Privacidad15")}
+        </p>
+        <p>
+        {t("Privacidad16")}
+        </p>
+        <p>
+        {t("Privacidad17")}
+        </p>
       </section>
       <SocialSection/>
       <Footer/>
