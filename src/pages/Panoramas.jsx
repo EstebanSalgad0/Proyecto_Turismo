@@ -45,7 +45,7 @@ const Panoramas = () => {
           width="100%"
           height="100%"
           scrolling="no"
-          title="Feriados de chile / Chilean holidays"
+          title="Eventos Turismo Colbún"
         />
       </div>
       <div className="calendar-container">
