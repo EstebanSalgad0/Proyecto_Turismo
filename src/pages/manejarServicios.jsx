@@ -4,6 +4,8 @@ import "../styles/AdminPanel.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import SocialSection from "../components/SocialSeccion";
+import '../components/i18n'; // Importa el archivo de configuración
+import { useTranslation } from 'react-i18next';
 
 const AdminPanel = () => {
   // Estado para servicios
@@ -11,17 +13,25 @@ const AdminPanel = () => {
   const [mensajeServicios, setMensajeServicios] = useState("");
   const [viewedServices, setViewedServices] = useState({});
   const [selectedService, setSelectedService] = useState(null); // Estado para el servicio seleccionado
+  const { t, i18n } = useTranslation(); // Hook para usar traducciones
+
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language'); // Obtener el idioma guardado
+    if (savedLanguage && savedLanguage !== i18n.language) {
+      i18n.changeLanguage(savedLanguage); // Cambiar el idioma si es necesario
+    }
+  }, [i18n]);
 
   const token = localStorage.getItem("token"); // Obtener el token del almacenamiento local
 
   const transformTipoOferente = (tipoOferente) => {
     switch (tipoOferente) {
       case "bienesServicios":
-        return "Bienes y Servicios";
+        return t('bienesServiciosTraducido');
       case "artesano":
-        return "Artesano";
+        return t('ArtesanoTraducido');
       case "cabanas":
-        return "Cabañas";
+        return t('CabanasTraducido');
       default:
         return "Administrador"; // Devuelve el valor original si no se encuentra una coincidencia
     }
@@ -30,11 +40,11 @@ const AdminPanel = () => {
   const transformCategoria = (tipoOferente) => {
     switch (tipoOferente) {
       case "bienesServicios":
-        return "Servicios";
+        return t('Serviciosxd');
       case "artesano":
-        return "Artesanias";
+        return t('Artesaniasxddd');
       case "cabanas":
-        return "Cabañas";
+        return t('Cabanasxdddd');
       default:
         return "Servicios"; // Devuelve el valor original si no se encuentra una coincidencia
     }
@@ -98,8 +108,8 @@ const AdminPanel = () => {
     <div className="admin-panel-container">
       <Header />
       <div className="admin-panel">
-        <h5>Oferentes de Servicios</h5>
-        <h1>Panel de Administración de Servicios</h1>
+        <h5>{t("ServiceProviders")}</h5>
+        <h1>{t("ServiceManagement")}</h1>
 
         {/* Manejar servicios */}
         <div className="admin-section">
@@ -107,15 +117,15 @@ const AdminPanel = () => {
             <p className="admin-message">{mensajeServicios}</p>
           )}
           {servicios.length === 0 ? (
-            <p>No hay servicios disponibles.</p>
+            <p>{t("ServiciosNoDisponibles")}</p>
           ) : (
             <table className="admin-table">
               <thead>
                 <tr>
-                  <th>Nombre del Servicio</th>
-                  <th>Categoría</th>
-                  <th>Estado</th>
-                  <th>Administración de solicitudes</th>
+                  <th>{t("nombreServicio")}</th>
+                  <th>{t("categoriaServicios")}</th>
+                  <th>{t("EstadoServicio")}</th>
+                  <th>{t("Requestmanagement")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -136,7 +146,7 @@ const AdminPanel = () => {
                           }
                           disabled={servicio.estado !== "pendiente"}
                         >
-                          Aceptar
+                          {t('Aceptarxddd')}
                         </button>
                         <button
                           className="reject"
@@ -145,7 +155,7 @@ const AdminPanel = () => {
                           }
                           disabled={servicio.estado !== "pendiente"}
                         >
-                          Rechazar
+                          {t('Rechazarxddd')}
                         </button>
                         <button
                           className="view-toggle"
@@ -176,27 +186,27 @@ const AdminPanel = () => {
             <div className="modal-details">
               <h2>{selectedService.nombre}</h2>
               <p>
-                <strong>Oferente:</strong>
+                <strong>{t('Oferenteowo')}</strong>
                 {selectedService.first_name && selectedService.last_name
                   ? ` ${selectedService.first_name} ${selectedService.last_name}`
                   : " Administrador de Servicios"}
               </p>
               <p>
-                <strong>Tipo Oferente:</strong>{" "}
+                <strong>{t('TipoOferenteowo')}</strong>{" "}
                 {transformTipoOferente(selectedService.tipo_oferente) ||
                   "Rol no disponible"}
               </p>
               <p>
-                <strong>Estado:</strong> {selectedService.estado}
+                <strong>{t('Statusxdddd')}</strong> {selectedService.estado}
               </p>
               <p>
-                <strong>Descripción:</strong> {selectedService.descripcion}
+                <strong>{t('Descripcion')}</strong> {selectedService.descripcion}
               </p>
               <p>
-                <strong>Contacto:</strong> {selectedService.telefono}
+                <strong>{t('Contacto')}</strong> {selectedService.telefono}
               </p>
               <p>
-                <strong>Redes Sociales:</strong>{" "}
+                <strong>{t('RedesSociales')}</strong>{" "}
                 {selectedService.redes_sociales}
               </p>
             </div>
@@ -212,7 +222,7 @@ const AdminPanel = () => {
                     className="gallery-image2"
                   />
                 ) : (
-                  <p className="no-images-message">No hay imagen</p>
+                  <p className="no-images-message">{t('notenerimagenes1')}</p>
                 )}
               </div>
               <div className="image-wrapper">
@@ -225,7 +235,7 @@ const AdminPanel = () => {
                     className="gallery-image2"
                   />
                 ) : (
-                  <p className="no-images-message">No hay imagen</p>
+                  <p className="no-images-message">{t('notenerimagenes1')}</p>
                 )}
               </div>
               <div className="image-wrapper">
@@ -238,7 +248,7 @@ const AdminPanel = () => {
                     className="gallery-image2"
                   />
                 ) : (
-                  <p className="no-images-message">No hay imagen</p>
+                  <p className="no-images-message">{t('notenerimagenes1')}</p>
                 )}
               </div>
               <div className="image-wrapper">
@@ -251,13 +261,13 @@ const AdminPanel = () => {
                     className="gallery-image2"
                   />
                 ) : (
-                  <p className="no-images-message">No hay imagen</p>
+                  <p className="no-images-message">{t('notenerimagenes1')}</p>
                 )}
               </div>
               {!selectedService.imagen &&
                 !selectedService.imagen2 &&
                 !selectedService.imagen3 &&
-                !selectedService.imagen4 && <p>No hay imágenes disponibles</p>}
+                !selectedService.imagen4 && <p>{t('notenerimagenes')}</p>}
             </div>
           </div>
         </div>

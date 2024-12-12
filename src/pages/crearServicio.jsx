@@ -5,6 +5,8 @@ import ConfirmModal from "../components/ModalDelete";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import SocialSection from "../components/SocialSeccion";
+import '../components/i18n'; // Importa el archivo de configuración
+import { useTranslation } from 'react-i18next';
 
 const CrearServicio = () => {
   const [nombre, setNombre] = useState("");
@@ -36,6 +38,14 @@ const CrearServicio = () => {
   const [dragActive3, setDragActive3] = useState(false); // Estado para el arrastre
   const [dragActive4, setDragActive4] = useState(false); // Estado para el arrastre
   const [showServiceListSidebar, setShowServiceListSidebar] = useState(false);
+  const { t, i18n } = useTranslation(); // Hook para usar traducciones
+
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language'); // Obtener el idioma guardado
+    if (savedLanguage && savedLanguage !== i18n.language) {
+      i18n.changeLanguage(savedLanguage); // Cambiar el idioma si es necesario
+    }
+  }, [i18n]);
 
   useEffect(() => {
     const fetchUserDetails = async () => {
@@ -146,11 +156,11 @@ const CrearServicio = () => {
   const transformTipoOferente = (tipoOferente) => {
     switch (tipoOferente) {
       case "bienesServicios":
-        return "Bienes y Servicios";
+        return t('bienesServiciosTraducido');
       case "artesano":
-        return "Artesano";
+        return t('ArtesanoTraducido');
       case "cabanas":
-        return "Cabañas";
+        return t('CabanasTraducido');
       default:
         return "Administrador"; // Devuelve el valor original si no se encuentra una coincidencia
     }
@@ -510,14 +520,14 @@ const CrearServicio = () => {
         <div className="TipoRol">
           {transformTipoOferente(userTipoOferente) || "Rol no disponible"}
         </div>
-        <div className="Contador">Servicios creados: </div>
+        <div className="Contador">{t("ServiciosCreados")}</div>
 
         <div className="ButtonsCRUD">
           <button onClick={handleToggleSidebar}>
-            <h5>Crear Servicios</h5>
+            <h5>{t("CrearServicios")}</h5>
           </button>
           <button onClick={handleEditService}>
-            <h5>Editar Servicios</h5>
+            <h5>{t("EditarServicios")}</h5>
           </button>
         </div>
 
@@ -535,7 +545,7 @@ const CrearServicio = () => {
               >
                 <p>X</p>
               </button>
-              <h3>Selecciona un servicio para editar:</h3>
+              <h3>{t("ServiciosElegir")}</h3>
               {servicios.map((servicio) => (
                 <button
                   key={servicio.id}
@@ -566,29 +576,29 @@ const CrearServicio = () => {
                 <p>X</p>
               </button>
 
-              <h1>{editMode ? "Editar Servicio" : "Crear Servicio"}</h1>
-              <h3>¡Únete a la Creación de Servicios para Emprendedores!</h3>
+              <h1>{editMode ? t("EditarServicio") : t("CrearServicio")}</h1>
+              <h3>{t("unete")}</h3>
               <br></br>
 
               <form onSubmit={handleSubmit}>
-                <label>Nombre del Servicio</label>
+                <label>{t("nombreServicio")}</label>
                 <input
                   type="text"
                   value={nombre}
                   onChange={handleNameChange}
-                  placeholder="Nombre del Servicio"
+                  placeholder={t("nombreServicio")}
                   required
                 />
 
-                <label>Descripción del Servicio</label>
+                <label>{t("descripcionServicio")}</label>
                 <textarea
                   value={descripcion}
                   onChange={(e) => setDescripcion(e.target.value)}
-                  placeholder="Descripción del Servicio"
+                  placeholder={t("descripcionServicio")}
                   required
                 />
 
-                <label>Agrega una Imagen</label>
+                <label>{t("agregarImagen")}</label>
                 <div
                   className={`file-upload-container ${
                     dragActive ? "drag-active" : ""
@@ -618,17 +628,16 @@ const CrearServicio = () => {
                         // Mostrar contenido por defecto si no hay imagen
                         <>
                           <span className="file-upload-icon">↑</span>
-                          <p>Elige un archivo o arrástralo y colócalo aquí</p>
+                          <p>{t("agregarImagenInfo")}</p>
                           <p className="file-upload-instructions">
-                            Recomendamos usar archivos .jpg de alta calidad con
-                            un tamaño inferior a 20 MB.
+                          {t("agregarImagenRecomendacion")}
                           </p>
                         </>
                       )}
                     </div>
                   </label>
                 </div>
-                <label>Agrega una Imagen</label>
+                <label>{t("agregarImagen")}</label>
                 <div
                   className={`file-upload-container ${
                     dragActive2 ? "drag-active" : ""
@@ -658,17 +667,16 @@ const CrearServicio = () => {
                         // Mostrar contenido por defecto si no hay imagen
                         <>
                           <span className="file-upload-icon">↑</span>
-                          <p>Elige un archivo o arrástralo y colócalo aquí</p>
+                          <p>{t("agregarImagenInfo")}</p>
                           <p className="file-upload-instructions">
-                            Recomendamos usar archivos .jpg de alta calidad con
-                            un tamaño inferior a 20 MB.
+                          {t("agregarImagenRecomendacion")}
                           </p>
                         </>
                       )}
                     </div>
                   </label>
                 </div>
-                <label>Agrega una Imagen</label>
+                <label>{t("agregarImagen")}</label>
                 <div
                   className={`file-upload-container ${
                     dragActive3 ? "drag-active" : ""
@@ -698,17 +706,16 @@ const CrearServicio = () => {
                         // Mostrar contenido por defecto si no hay imagen
                         <>
                           <span className="file-upload-icon">↑</span>
-                          <p>Elige un archivo o arrástralo y colócalo aquí</p>
+                          <p>{t("agregarImagenInfo")}</p>
                           <p className="file-upload-instructions">
-                            Recomendamos usar archivos .jpg de alta calidad con
-                            un tamaño inferior a 20 MB.
+                          {t("agregarImagenRecomendacion")}
                           </p>
                         </>
                       )}
                     </div>
                   </label>
                 </div>
-                <label>Agrega una Imagen</label>
+                <label>{t("agregarImagen")}</label>
                 <div
                   className={`file-upload-container ${
                     dragActive4 ? "drag-active" : ""
@@ -738,10 +745,9 @@ const CrearServicio = () => {
                         // Mostrar contenido por defecto si no hay imagen
                         <>
                           <span className="file-upload-icon">↑</span>
-                          <p>Elige un archivo o arrástralo y colócalo aquí</p>
+                          <p>{t("agregarImagenInfo")}</p>
                           <p className="file-upload-instructions">
-                            Recomendamos usar archivos .jpg de alta calidad con
-                            un tamaño inferior a 20 MB.
+                          {t("agregarImagenRecomendacion")}
                           </p>
                         </>
                       )}
@@ -749,32 +755,32 @@ const CrearServicio = () => {
                   </label>
                 </div>
 
-                <label>Redes Sociales</label>
+                <label>{t("RedesSociales1")}</label>
                 <textarea
                   type="text"
                   value={redesSociales}
                   onChange={(e) => setRedesSociales(e.target.value)}
-                  placeholder="Escriba sus redes sociales"
+                  placeholder={t("RedesSociales2")}
                 />
 
-                <label>Contacto</label>
+                <label>{t("Contacto1")}</label>
                 <input
                   type="text"
                   value={telefono}
                   onChange={(e) => setTelefono(e.target.value)}
-                  placeholder="Escriba su numero de telefono"
+                  placeholder={t("Contacto2")}
                 />
 
-                <label>Valor</label>
+                <label>{t("Valor1")}</label>
                 <input
                   type="text"
                   value={precio ? Math.floor(precio) : ""}
                   onChange={(e) => setPrecio(e.target.value.replace(/\D/g, ""))} // Solo permitir números
-                  placeholder="Precio del Servicio"
+                  placeholder={t("Valor2")}
                 />
 
                 <button type="submit">
-                  {editMode ? "Actualizar Servicio" : "Crear Servicio"}
+                  {editMode ? t("actualizarServicio") : t("CrearServicio")}
                 </button>
                 {mensaje && <p>{mensaje}</p>}
               </form>
@@ -784,7 +790,7 @@ const CrearServicio = () => {
 
         <div className="services">
           {servicios.length === 0 ? (
-            <p>No tienes servicios creados.</p>
+            <p>{t("NotenerServicio")}</p>
           ) : (
             servicios.map((servicio) => (
               <div key={servicio.id} className="service-container">
@@ -824,7 +830,7 @@ const CrearServicio = () => {
                         }
                       />
                     ) : (
-                      <p>No hay imágenes disponibles</p>
+                      <p>{t("notenerimagenes")}</p>
                     )}
                   </div>
 
@@ -912,12 +918,12 @@ const CrearServicio = () => {
                   {expandedServicio === servicio.id && (
                     <div className="service-details">
                       <p className="service-description">
-                        <strong>Descripción:</strong>{" "}
+                        <strong>{t("Descripcion")}</strong>{" "}
                         <span>{servicio.descripcion}</span>
                       </p>
 
                       <div className="service-contact">
-                        <strong>Redes sociales:</strong>
+                        <strong>{t("RedesSociales")}</strong>
                         <span
                           dangerouslySetInnerHTML={{
                             __html: servicio.redes_sociales.replace(
@@ -928,11 +934,11 @@ const CrearServicio = () => {
                         />
                       </div>
                       <p className="service-email">
-                        <strong>Contacto:</strong>{" "}
+                        <strong>{t("Contacto")}</strong>{" "}
                         <span>{servicio.telefono || "No disponible"}</span>
                       </p>
                       <p className="service-price">
-                        <strong>Valor:</strong>
+                        <strong>{t("Valor")}</strong>
                         <span>
                           ${" "}
                           {servicio.precio
@@ -980,8 +986,8 @@ const CrearServicio = () => {
           show={showModal}
           message={
             actionType === "delete"
-              ? "¿Estás seguro de que quieres eliminar este servicio?"
-              : "¿Estás seguro de que quieres actualizar este servicio?"
+              ? t("ConfirmarEliminacionServicio")
+              : t("ConfirmarActualizacionServicio")
           }
           onConfirm={handleConfirmAction}
           onCancel={() => setShowModal(false)}
