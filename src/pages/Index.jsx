@@ -76,7 +76,7 @@ const Index = () => {
         <div className="community-content1">
           <h1>{t('ComeCloser')}<br />{t('OurCommunity')}</h1>
           <p>{t('ColbunServiceCountry')}</p>
-          <a href="https://issuu.com/visitacolbun" target="colbun" rel="municipalidad_Colbun">
+          <a href="https://linktr.ee/serviciopaiscolbun" target="colbun" rel="municipalidad_Colbun">
             <button className="btn-blue">{t('Collaboration')}</button>
           </a>
         </div>
