@@ -122,7 +122,134 @@
   .modal-backdrop .Modal-IN {
     position: fixed;
     top: 0;
-    left: -290px;
+    left: -700px;
+    margin-top: 180px;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+}
+
+/* Mejoras para dispositivos pequeños */
+@media (max-width: 1080px) {
+  .modal-backdrop{
+    background-color: transparent;
+  }
+
+  .modal-backdrop .Modal-IN {
+    position: fixed;
+    top: 0;
+    left: -600px;
+    margin-top: 180px;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+}
+
+/* Mejoras para dispositivos pequeños */
+@media (max-width: 960px) {
+  .modal-backdrop{
+    background-color: transparent;
+  }
+
+  .modal-backdrop .Modal-IN {
+    position: fixed;
+    top: 0;
+    left: -550px;
+    margin-top: 180px;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+}
+
+/* Mejoras para dispositivos pequeños */
+@media (max-width: 760px) {
+  .modal-backdrop{
+    background-color: transparent;
+  }
+
+  .modal-backdrop .Modal-IN {
+    position: fixed;
+    top: 0;
+    left: -480px;
+    margin-top: 180px;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+}
+
+/* Mejoras para dispositivos pequeños */
+@media (max-width: 430px) {
+  .modal-backdrop{
+    background-color: transparent;
+  }
+
+  .modal-backdrop .Modal-IN {
+    position: fixed;
+    top: 0;
+    left: -325px;
+    margin-top: 300px;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+}
+
+/* Mejoras para dispositivos pequeños */
+@media (max-width: 414px) {
+  .modal-backdrop{
+    background-color: transparent;
+  }
+
+  .modal-backdrop .Modal-IN {
+    position: fixed;
+    top: 0;
+    left: -310px;
+    margin-top: 300px;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+}
+
+/* Mejoras para dispositivos pequeños */
+@media (max-width: 375px) {
+  .modal-backdrop{
+    background-color: transparent;
+  }
+
+  .modal-backdrop .Modal-IN {
+    position: fixed;
+    top: 0;
+    left: -270px;
+    margin-top: 200px;
     width: auto;
     height: auto;
     display: flex;
