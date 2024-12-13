@@ -23,7 +23,7 @@ const ListarServicios = () => {
     const fetchServicios = async () => {
       try {
         const response = await axios.get(
-          'https://c61a7d0a26cfe25ef240d4257ce62807.loophole.site/api/listar_servicios_aceptados/'
+          'https://9616ee88920d1f74470820c9ce8b36a3.loophole.site/api/listar_servicios_aceptados/'
         );
 
         // Agregar console.log para inspeccionar la respuesta
@@ -79,7 +79,7 @@ const ListarServicios = () => {
                   <div className="image-gallery">
                     {servicio.imagen ? (
                       <img
-                        src={`${'https://c61a7d0a26cfe25ef240d4257ce62807.loophole.site'}${servicio.imagen}`}
+                        src={`${'https://9616ee88920d1f74470820c9ce8b36a3.loophole.site'}${servicio.imagen}`}
                         alt={`Imagen de ${servicio.nombre}`}
                         className="gallery-image"
                         onError={() =>
@@ -131,7 +131,7 @@ const ListarServicios = () => {
                         {/* Galería expandida */}
                         {servicio.imagen && (
                           <img
-                            src={`${'https://c61a7d0a26cfe25ef240d4257ce62807.loophole.site'}${servicio.imagen}`}
+                            src={`${'https://9616ee88920d1f74470820c9ce8b36a3.loophole.site'}${servicio.imagen}`}
                             alt={`Imagen 1 de ${servicio.nombre}`}
                             className="expanded-gallery-image1"
                             onError={() =>
@@ -143,7 +143,7 @@ const ListarServicios = () => {
                         )}
                         {servicio.imagen2 && (
                           <img
-                            src={`${'https://c61a7d0a26cfe25ef240d4257ce62807.loophole.site'}${servicio.imagen2}`}
+                            src={`${'https://9616ee88920d1f74470820c9ce8b36a3.loophole.site'}${servicio.imagen2}`}
                             alt={`Imagen 2 de ${servicio.nombre}`}
                             className="expanded-gallery-image1"
                             onError={() =>
@@ -155,7 +155,7 @@ const ListarServicios = () => {
                         )}
                         {servicio.imagen3 && (
                           <img
-                            src={`${'https://c61a7d0a26cfe25ef240d4257ce62807.loophole.site'}${servicio.imagen3}`}
+                            src={`${'https://9616ee88920d1f74470820c9ce8b36a3.loophole.site'}${servicio.imagen3}`}
                             alt={`Imagen 3 de ${servicio.nombre}`}
                             className="expanded-gallery-image1"
                             onError={() =>
@@ -167,7 +167,7 @@ const ListarServicios = () => {
                         )}
                         {servicio.imagen4 && (
                           <img
-                            src={`${'https://c61a7d0a26cfe25ef240d4257ce62807.loophole.site'}${servicio.imagen4}`}
+                            src={`${'https://9616ee88920d1f74470820c9ce8b36a3.loophole.site'}${servicio.imagen4}`}
                             alt={`Imagen 4 de ${servicio.nombre}`}
                             className="expanded-gallery-image1"
                             onError={() =>

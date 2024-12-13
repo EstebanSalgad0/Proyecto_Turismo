@@ -44,7 +44,7 @@ const Parque = () => {
     }
     
     // Fetch data from the Django API (Parque Guaiquivilo)
-    fetch('https://c61a7d0a26cfe25ef240d4257ce62807.loophole.site/api/lugares/buscar/?nombre=parque_guaiquivilo') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://9616ee88920d1f74470820c9ce8b36a3.loophole.site/api/lugares/buscar/?nombre=parque_guaiquivilo') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatParque(data.latitud);
@@ -53,7 +53,7 @@ const Parque = () => {
     .catch(error => console.error('Error fetching location data:', error));
     
     // Fetch data from the Django API (Cavernas los bellotos)
-    fetch('https://c61a7d0a26cfe25ef240d4257ce62807.loophole.site/api/lugares/buscar/?nombre=cavernas_bellotos') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://9616ee88920d1f74470820c9ce8b36a3.loophole.site/api/lugares/buscar/?nombre=cavernas_bellotos') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatCavernas(data.latitud);
@@ -62,7 +62,7 @@ const Parque = () => {
     .catch(error => console.error('Error fetching location data:', error));
 
     // Fetch data from the Django API (Mirador Loro Tricahue)
-    fetch('https://c61a7d0a26cfe25ef240d4257ce62807.loophole.site/api/lugares/buscar/?nombre=mirador_loro_tricahue') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://9616ee88920d1f74470820c9ce8b36a3.loophole.site/api/lugares/buscar/?nombre=mirador_loro_tricahue') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatGuardia(data.latitud);

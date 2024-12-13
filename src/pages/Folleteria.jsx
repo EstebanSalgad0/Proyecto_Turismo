@@ -26,7 +26,7 @@ const Folleteria = () => {
     }
 
     // Simulación de obtener coordenadas
-    fetch('https://c61a7d0a26cfe25ef240d4257ce62807.loophole.site/api/lugares/buscar/?nombre=mapa_folleteria')
+    fetch('https://9616ee88920d1f74470820c9ce8b36a3.loophole.site/api/lugares/buscar/?nombre=mapa_folleteria')
       .then((response) => response.json())
       .then((data) => {
         setLat(data.latitud || -35.699248); // Coordenadas de ejemplo
