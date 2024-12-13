@@ -40,7 +40,7 @@ const Panoramas = () => {
       <br></br><br></br>
       <div className="calendar-container">
         <iframe
-          src="https://calendar.google.com/calendar/embed?src=turismo%40visitacolbun.cl&ctz=America%2FSantiago"
+          src="https://calendar.google.com/calendar/embed?src=javiermar1200%40gmail.com&ctz=America%2FSantiago"
           style={{ border: 0 }}
           width="100%"
           height="100%"
