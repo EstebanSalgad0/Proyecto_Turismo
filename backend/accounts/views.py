@@ -88,7 +88,7 @@ def send_survey_email(user):
         email = EmailMessage(
             subject,
             email_html_message,
-            'turismo@visitacolbun.cl',  # Dirección del remitente
+            '"Visita Colbún" <turismo@visitacolbun.cl>',  # Dirección del remitente
             [user.email],  # Dirección del destinatario
         )
         email.content_subtype = 'html'  # Define que el correo es HTML
@@ -271,7 +271,7 @@ def send_csv_email(user_data):
     email = EmailMessage(
         subject="Nuevo Registro de Oferente",
         body="Adjunto el archivo CSV con los datos del nuevo registro.",
-        from_email='"Turismo Colbún" <turismo@visitacolbun.cl>',
+        from_email='"Visita Colbún" <turismo@visitacolbun.cl>',
         to=["turismo@visitacolbun.cl"],
     )
     csv_file.seek(0)
@@ -335,7 +335,7 @@ class RegisterView(APIView):
             text_content = strip_tags(html_content)
 
             # Crear y enviar el correo de verificación
-            from_email='"Turismo Colbún" <turismo@visitacolbun.cl>'
+            from_email='"Visita Colbún" <turismo@visitacolbun.cl>'
             to_email = user.email
             email = EmailMultiAlternatives(subject, text_content, from_email, [to_email])
             email.attach_alternative(html_content, "text/html")
@@ -388,7 +388,7 @@ class ActivateView(APIView):
                 email = EmailMessage(
                     subject,
                     email_html_message,
-                    '"Turismo Colbún" <turismo@visitacolbun.cl>',  # Dirección del remitente
+                    '"Visita Colbún" <turismo@visitacolbun.cl>',  # Dirección del remitente
                     [user.email],  # Dirección del destinatario
                 )
                 email.content_subtype = 'html'  # Define que el correo es HTML
@@ -429,7 +429,7 @@ class RequestPasswordResetView(APIView):
             email_message = EmailMessage(
                 subject="Restablece tu contraseña en Visita Colbún 🌾",
                 body=email_html,
-                from_email='"Turismo Colbún" <turismo@visitacolbun.cl>',
+                from_email='"Visita Colbún" <turismo@visitacolbun.cl>',
                 to=[user.email]
             )
             email_message.content_subtype = "html"  # Importante: especificar que es HTML
