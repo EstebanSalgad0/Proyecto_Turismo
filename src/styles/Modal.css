@@ -113,6 +113,10 @@
   background-color: #4B67AE; /* Gris oscuro para cancelar */
 }
 
+body.dark-mode .modal-backdrop .Modal-IN {
+  color: black;
+}
+
 /* Mejoras para dispositivos pequeños */
 @media (max-width: 1400px) {
   .modal-backdrop{
