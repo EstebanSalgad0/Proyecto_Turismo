@@ -567,7 +567,7 @@ const CrearServicio = () => {
               onClick={() => setShowSidebar(false)}
             ></div>
             <div className="sidebar">
-              <img src="/assets/img/icono.png" className="sidebar-img" />
+              <img src="/assets/img/visita_colbun.svg" className="Logo22" />
 
               <button
                 className="close-button"
