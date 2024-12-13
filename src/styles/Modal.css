@@ -94,6 +94,7 @@
   background-color: rgba(240, 255, 255, 0.95); /* Fondo azul claro */
   border: 2px solid #4B67AE; /* Borde azul */
   position: fixed;
+  color: black;
 }
 
 /* Ajuste específico para resoluciones mayores a 1200px */
