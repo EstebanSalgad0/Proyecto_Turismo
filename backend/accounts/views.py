@@ -415,7 +415,7 @@ class RequestPasswordResetView(APIView):
             uid = urlsafe_base64_encode(force_bytes(user.pk))
 
             # Usa un dominio fijo para el enlace de restablecimiento
-            fixed_domain = "https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site"
+            fixed_domain = "https://7271c071b5694c43665b5fe948461c41.loophole.site"
             reset_link = f"{fixed_domain}{reverse('password_reset_confirm', kwargs={'uidb64': uid, 'token': token})}"
 
             # Cargar la plantilla HTML y pasar los datos del usuario
