@@ -324,7 +324,7 @@ class RegisterView(APIView):
                 return Response({'error': 'Tipo de oferente no válido.'}, status=status.HTTP_400_BAD_REQUEST)
 
             # Construir el enlace completo de activación
-            activation_url = f"https://8600a7b2b57e7a9a11c9a6510b6a0f48.loophole.site{verification_link}"
+            activation_url = f"https://7271c071b5694c43665b5fe948461c41.loophole.site{verification_link}"
 
             # Renderizar el contenido del correo
             html_content = render_to_string(template_name, {
