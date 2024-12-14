@@ -173,6 +173,7 @@ SESSION_COOKIE_SECURE = True
 
 CORS_ALLOWED_ORIGINS = [
     "https://192.168.0.15:5173",  # La URL de tu frontend (React)
+    "http://visitacolbun.cl",
     "https://visitacolbun.cl",
     "https://0273-2800-150-144-d2b-3a84-cfca-a881-d290.ngrok-free.app",
 ]
