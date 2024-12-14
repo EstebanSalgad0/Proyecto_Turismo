@@ -129,7 +129,7 @@ body.dark-mode .Costo{
   width: 120px !important; /* Ajusta el ancho de la imagen */
   height: 80px !important;
   margin-bottom: 0px !important;
-  margin: 0 0 0px 150px;
+  margin: 0 0 0px 0px;
   filter: invert(30%) sepia(60%) saturate(350%) hue-rotate(195deg) brightness(85%) contrast(100%);
 }
 
