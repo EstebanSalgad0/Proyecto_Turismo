@@ -28,7 +28,7 @@ const Pasopehuenche = () => {
     }
 
     // Fetch data from the Django API
-    fetch('https://7271c071b5694c43665b5fe948461c41.loophole.site/api/lugares/buscar/?nombre=paso_pehuenche') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://7c0b1511aa8dbca7afe7745d6614ff72.loophole.site/api/lugares/buscar/?nombre=paso_pehuenche') // Cambia el nombre por el lugar turístico que necesites
       .then(response => response.json())
       .then(data => {
         setLat(data.latitud);
