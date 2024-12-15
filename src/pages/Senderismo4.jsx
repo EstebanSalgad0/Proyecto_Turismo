@@ -44,7 +44,7 @@ const Cultura4 = () => {
     }
 
     // Fetch data from the Django API (Piedra del Indio)
-    fetch('https://7c0b1511aa8dbca7afe7745d6614ff72.loophole.site/api/lugares/buscar/?nombre=piedra_del_indio') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://18bfca26185c2591440b314da3d75cf4.loophole.site/api/lugares/buscar/?nombre=piedra_del_indio') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatPetro(data.latitud);
@@ -53,7 +53,7 @@ const Cultura4 = () => {
     .catch(error => console.error('Error fetching location data:', error));
 
     // Fetch data from the Django API (Mirador las Vizcachas)
-    fetch('https://7c0b1511aa8dbca7afe7745d6614ff72.loophole.site/api/lugares/buscar/?nombre=mirador_vizcachas') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://18bfca26185c2591440b314da3d75cf4.loophole.site/api/lugares/buscar/?nombre=mirador_vizcachas') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatGuardia(data.latitud);
@@ -62,7 +62,7 @@ const Cultura4 = () => {
     .catch(error => console.error('Error fetching location data:', error));
 
     // Fetch data from the Django API (Balneario Machicura)
-    fetch('https://7c0b1511aa8dbca7afe7745d6614ff72.loophole.site/api/lugares/buscar/?nombre=balnearios_machicura') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://18bfca26185c2591440b314da3d75cf4.loophole.site/api/lugares/buscar/?nombre=balnearios_machicura') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatTren(data.latitud);

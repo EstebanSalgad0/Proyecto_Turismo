@@ -25,7 +25,7 @@ const Panimavida = () => {
       i18n.changeLanguage(savedLanguage);
     }
 
-    fetch('https://7c0b1511aa8dbca7afe7745d6614ff72.loophole.site/api/lugares/buscar/?nombre=panimavida') // Cambiar nombre por lugar turistico necesitado
+    fetch('https://18bfca26185c2591440b314da3d75cf4.loophole.site/api/lugares/buscar/?nombre=panimavida') // Cambiar nombre por lugar turistico necesitado
       .then( response => response.json())
       .then( data => {
         setLat( data.latitud );
