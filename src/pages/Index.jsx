@@ -21,6 +21,15 @@ const Index = () => {
     if (savedLanguage && savedLanguage !== i18n.language) {
       i18n.changeLanguage(savedLanguage);
     }
+
+    // Simulación de obtener coordenadas
+    fetch('https://18bfca26185c2591440b314da3d75cf4.loophole.site/api/lugares/buscar/?nombre=mapa_folleteria')
+      .then((response) => response.json())
+      .then((data) => {
+        setLat(data.latitud || -35.699248); // Coordenadas de ejemplo
+        setLng(data.longitud || -71.4146915);
+      })
+      .catch((error) => console.error('Error fetching location data:', error));
   }, [i18n]);
 
   const toggleVideoPlay = () => {
