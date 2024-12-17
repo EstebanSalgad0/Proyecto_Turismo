@@ -23,7 +23,7 @@ const Index = () => {
     }
 
     // Simulación de obtener coordenadas
-    fetch('https://790cebce69f947b6e00a5ba226c8389a.loophole.site/api/lugares/buscar/?nombre=mapa_folleteria')
+    fetch('https://49bdbb88728953fd028caea01d4c7dbd.loophole.site/api/lugares/buscar/?nombre=mapa_folleteria')
       .then((response) => response.json())
       .then((data) => {
         setLat(data.latitud || -35.699248); // Coordenadas de ejemplo

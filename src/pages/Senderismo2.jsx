@@ -52,7 +52,7 @@ const Cultura4 = () => {
     }
 
     // Fetch data from the Django API (Lagunas Verdes)
-    fetch('https://790cebce69f947b6e00a5ba226c8389a.loophole.site/api/lugares/buscar/?nombre=lagunas_verdes') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://49bdbb88728953fd028caea01d4c7dbd.loophole.site/api/lugares/buscar/?nombre=lagunas_verdes') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatPetro(data.latitud);
@@ -61,7 +61,7 @@ const Cultura4 = () => {
     .catch(error => console.error('Error fetching location data:', error));
 
     // Fetch data from the Django API (Laguna del Toro)
-    fetch('https://790cebce69f947b6e00a5ba226c8389a.loophole.site/api/lugares/buscar/?nombre=lagunas_del_toro') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://49bdbb88728953fd028caea01d4c7dbd.loophole.site/api/lugares/buscar/?nombre=lagunas_del_toro') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatGuardia(data.latitud);
@@ -70,7 +70,7 @@ const Cultura4 = () => {
     .catch(error => console.error('Error fetching location data:', error));
 
     // Fetch data from the Django API (Laguna del Maule)
-    fetch('https://790cebce69f947b6e00a5ba226c8389a.loophole.site/api/lugares/buscar/?nombre=laguna_del_maule') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://49bdbb88728953fd028caea01d4c7dbd.loophole.site/api/lugares/buscar/?nombre=laguna_del_maule') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatTren(data.latitud);
@@ -79,7 +79,7 @@ const Cultura4 = () => {
     .catch(error => console.error('Error fetching location data:', error));
 
     // Fetch data from the Django API (Laguna las Escaleras)
-    fetch('https://790cebce69f947b6e00a5ba226c8389a.loophole.site/api/lugares/buscar/?nombre=las_escaleras_maule') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://49bdbb88728953fd028caea01d4c7dbd.loophole.site/api/lugares/buscar/?nombre=las_escaleras_maule') // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatMolino(data.latitud);
