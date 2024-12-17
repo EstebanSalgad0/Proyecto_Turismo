@@ -324,7 +324,7 @@ class RegisterView(APIView):
                 return Response({'error': 'Tipo de oferente no válido.'}, status=status.HTTP_400_BAD_REQUEST)
 
             # Construir el enlace completo de activación
-            activation_url = f"https://7c0b1511aa8dbca7afe7745d6614ff72.loophole.site{verification_link}"
+            activation_url = f"https://18bfca26185c2591440b314da3d75cf4.loophole.site{verification_link}"
 
             # Renderizar el contenido del correo
             html_content = render_to_string(template_name, {
@@ -415,7 +415,7 @@ class RequestPasswordResetView(APIView):
             uid = urlsafe_base64_encode(force_bytes(user.pk))
 
             # Usa un dominio fijo para el enlace de restablecimiento
-            fixed_domain = "https://7c0b1511aa8dbca7afe7745d6614ff72.loophole.site"
+            fixed_domain = "https://18bfca26185c2591440b314da3d75cf4.loophole.site"
             reset_link = f"{fixed_domain}{reverse('password_reset_confirm', kwargs={'uidb64': uid, 'token': token})}"
 
             # Cargar la plantilla HTML y pasar los datos del usuario
