@@ -26,7 +26,7 @@ const Balnearios = () => {
     }
 
     // Fetch data from the Django API
-    fetch('https://18bfca26185c2591440b314da3d75cf4.loophole.site/api/lugares/buscar/?nombre=balnearios_machicura') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://7592368d4a4a082e991c1a8bde5360ba.loophole.site/api/lugares/buscar/?nombre=balnearios_machicura') // Cambia el nombre por el lugar turístico que necesites
       .then(response => response.json())
       .then(data => {
         setLat(data.latitud);

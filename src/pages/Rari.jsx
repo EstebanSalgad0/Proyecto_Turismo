@@ -26,7 +26,7 @@ const Rari = () => {
     }
 
     // Fetch data from the django API
-    fetch('https://18bfca26185c2591440b314da3d75cf4.loophole.site/api/lugares/buscar/?nombre=rari') //Cambiar el nombre por el lugar turistico requerido
+    fetch('https://7592368d4a4a082e991c1a8bde5360ba.loophole.site/api/lugares/buscar/?nombre=rari') //Cambiar el nombre por el lugar turistico requerido
       .then(response => response.json())
       .then(data => {
         setLat(data.latitud);

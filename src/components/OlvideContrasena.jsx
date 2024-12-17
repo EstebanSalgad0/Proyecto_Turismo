@@ -34,7 +34,7 @@ const PasswordReset = () => {
 
     try {
       const captchaToken = await window.grecaptcha.execute(captchaKEY, { action: 'password_reset' });
-      const response = await axios.post('https://18bfca26185c2591440b314da3d75cf4.loophole.site/api/password_reset/', {
+      const response = await axios.post('https://7592368d4a4a082e991c1a8bde5360ba.loophole.site/api/password_reset/', {
         email,
         captcha: captchaToken,
       });
