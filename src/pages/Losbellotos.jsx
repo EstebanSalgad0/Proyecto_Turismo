@@ -26,7 +26,7 @@ const Losbellotos = () => {
       i18n.changeLanguage(savedLanguage);
     }
     // Fetch data from the Django API
-    fetch('https://25248c994415a4f2d05d93c80ee1e747.loophole.site/api/lugares/buscar/?nombre=los_bellotos') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://790cebce69f947b6e00a5ba226c8389a.loophole.site/api/lugares/buscar/?nombre=los_bellotos') // Cambia el nombre por el lugar turístico que necesites
       .then(response => response.json())
       .then(data => {
         setLat(data.latitud);

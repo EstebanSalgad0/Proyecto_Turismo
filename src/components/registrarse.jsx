@@ -78,7 +78,7 @@ const Registrarse = () => {
       console.log('Token reCAPTCHA obtenido:', recaptchaToken);
 
       // Hacer la solicitud POST al backend para registrar el usuario
-      const response = await axios.post('https://25248c994415a4f2d05d93c80ee1e747.loophole.site/api/register/', {
+      const response = await axios.post('https://790cebce69f947b6e00a5ba226c8389a.loophole.site/api/register/', {
         first_name,
         last_name,
         email,
