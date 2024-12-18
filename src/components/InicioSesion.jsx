@@ -64,7 +64,7 @@ const InicioSesion = () => {
         action: "login",
       }); // Acción asociada con 'login'
 
-      const response = await axios.post('https://49bdbb88728953fd028caea01d4c7dbd.loophole.site/api/login/', {
+      const response = await axios.post('https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/login/', {
         email: email,
         password: password,
         captcha: captchaToken, // Enviar el token del captcha al backend

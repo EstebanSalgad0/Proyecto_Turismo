@@ -28,7 +28,7 @@ const Elmelado = () => {
     }
 
     // Fetch data from the Django API
-    fetch('https://49bdbb88728953fd028caea01d4c7dbd.loophole.site/api/lugares/buscar/?nombre=el_melado') // Cambia el nombre por el lugar turístico que necesites
+    fetch('https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/lugares/buscar/?nombre=el_melado') // Cambia el nombre por el lugar turístico que necesites
       .then(response => response.json())
       .then(data => {
         setLat(data.latitud);
