@@ -9,6 +9,7 @@ import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
 import Carousel from '../components/carousel';
 import LeafletMap from '../components/LeafletMap';
+import { API_BASE_URL } from "../config"; // Importar la URL base
 
 const Rabones = () => {
   const [lat, setLat] = useState(null);
@@ -27,7 +28,7 @@ const Rabones = () => {
     }
 
     // Fetch data from the Django API
-    fetch('https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/lugares/buscar/?nombre=rabones') // Cambia el nombre por el lugar turístico que necesites
+    fetch(`${API_BASE_URL}/api/lugares/buscar/?nombre=rabones`) // Cambia el nombre por el lugar turístico que necesites
       .then(response => response.json())
       .then(data => {
         setLat(data.latitud);

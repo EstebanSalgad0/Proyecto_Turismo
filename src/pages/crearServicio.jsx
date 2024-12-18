@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import SocialSection from "../components/SocialSeccion";
 import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
+import { API_BASE_URL } from "../config"; // Importar la URL base
 
 const CrearServicio = () => {
   const [nombre, setNombre] = useState("");
@@ -53,7 +54,7 @@ const CrearServicio = () => {
         const token = localStorage.getItem("token");
         // Llama a tu endpoint de usuario para obtener los detalles
         const response = await axios.get(
-          'https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/user/details/',
+          `${API_BASE_URL}/user/details/`,
           {
             headers: {
               Authorization: `Token ${token}`,
@@ -79,7 +80,7 @@ const CrearServicio = () => {
   const fetchServicios = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get('https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/mis_servicios/', {
+      const response = await axios.get(`${API_BASE_URL}/api/mis_servicios/`, {
         headers: {
           Authorization: `Token ${token}`,
         },
@@ -107,9 +108,7 @@ const CrearServicio = () => {
   const handleDelete = async () => {
     try {
       const token = localStorage.getItem("token");
-      const url = `${
-        'https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/mis_servicios/'
-      }${deleteServiceId}/`;
+      const url = `${API_BASE_URL}/api/mis_servicios/${deleteServiceId}/`; // URL del endpoint
       await axios.delete(url, {
         headers: {
           Authorization: `Token ${token}`,
@@ -130,9 +129,7 @@ const CrearServicio = () => {
   const handleReenviar = async (servicioId) => {
     try {
       const token = localStorage.getItem("token");
-      const url = `${
-        'https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/reenviar_servicio/'
-      }${servicioId}/`;
+      const url = `${API_BASE_URL}/api/reenviar_servicio/${servicioId}/`; // URL del endpoint
       await axios.post(
         url,
         { accion: "reenviar" },
@@ -379,7 +376,7 @@ const CrearServicio = () => {
     setEditServicioId(servicio.id);
     // Verificar si la imagen existe y construir la URL
     if (servicio.imagen) {
-      const imagenUrl = `${'https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site'}${servicio.imagen}`;
+      const imagenUrl = `${API_BASE_URL}${servicio.imagen}`;
       setImagenPreview(imagenUrl); // Usar la URL completa para la vista previa
       setImagen(imagenUrl); // Mantener la imagen en el estado
     } else {
@@ -389,9 +386,7 @@ const CrearServicio = () => {
 
     // Verificar si la imagen existe y construir la URL
     if (servicio.imagen2) {
-      const imagenUrl = `${'https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site'}${
-        servicio.imagen2
-      }`;
+      const imagenUrl = `${API_BASE_URL}${servicio.imagen2}`;
       setImagenPreview2(imagenUrl); // Usar la URL completa para la vista previa
       setImagen2(imagenUrl); // Mantener la imagen en el estado
     } else {
@@ -401,9 +396,7 @@ const CrearServicio = () => {
 
     // Verificar si la imagen existe y construir la URL
     if (servicio.imagen3) {
-      const imagenUrl = `${'https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site'}${
-        servicio.imagen3
-      }`;
+      const imagenUrl = `${API_BASE_URL}${servicio.imagen3}`;
       setImagenPreview3(imagenUrl); // Usar la URL completa para la vista previa
       setImagen3(imagenUrl); // Mantener la imagen en el estado
     } else {
@@ -413,9 +406,7 @@ const CrearServicio = () => {
 
     // Verificar si la imagen existe y construir la URL
     if (servicio.imagen4) {
-      const imagenUrl = `${'https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site'}${
-        servicio.imagen4
-      }`;
+      const imagenUrl = `${API_BASE_URL}${servicio.imagen4}`;
       setImagenPreview4(imagenUrl); // Usar la URL completa para la vista previa
       setImagen4(imagenUrl); // Mantener la imagen en el estado
     } else {
@@ -462,10 +453,10 @@ const CrearServicio = () => {
       let method;
 
       if (editMode) {
-        url = `${'https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/mis_servicios/'}${editServicioId}/`;
+        url = `${API_BASE_URL}/api/mis_servicios/${editServicioId}/`;
         method = "put";
       } else {
-        url = 'https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/crear_servicio/';
+        url = `${API_BASE_URL}/api/crear_servicio/`;
         method = "post";
       }
 
@@ -818,9 +809,7 @@ const CrearServicio = () => {
                   <div className="image-gallery">
                     {servicio.imagen ? (
                       <img
-                        src={`${'https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site'}${
-                          servicio.imagen
-                        }`}
+                        src={`${API_BASE_URL}${servicio.imagen}`}
                         alt={`Imagen de ${servicio.nombre}`}
                         className="gallery-image"
                         onError={() =>
@@ -858,9 +847,7 @@ const CrearServicio = () => {
                       {/* Fila de imágenes */}
                       {servicio.imagen && (
                         <img
-                          src={`${'https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site'}${
-                            servicio.imagen
-                          }`}
+                          src={`${API_BASE_URL}${servicio.imagen}`}
                           alt={`Imagen 1 de ${servicio.nombre}`}
                           className="expanded-gallery-image1"
                           onError={() =>
@@ -872,9 +859,7 @@ const CrearServicio = () => {
                       )}
                       {servicio.imagen2 && (
                         <img
-                          src={`${'https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site'}${
-                            servicio.imagen2
-                          }`}
+                          src={`${API_BASE_URL}${servicio.imagen2}`}
                           alt={`Imagen 2 de ${servicio.nombre}`}
                           className="expanded-gallery-image1"
                           onError={() =>
@@ -886,9 +871,7 @@ const CrearServicio = () => {
                       )}
                       {servicio.imagen3 && (
                         <img
-                          src={`${'https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site'}${
-                            servicio.imagen3
-                          }`}
+                          src={`${API_BASE_URL}${servicio.imagen3}`}
                           alt={`Imagen 3 de ${servicio.nombre}`}
                           className="expanded-gallery-image1"
                           onError={() =>
@@ -900,9 +883,7 @@ const CrearServicio = () => {
                       )}
                       {servicio.imagen4 && (
                         <img
-                          src={`${'https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site'}${
-                            servicio.imagen4
-                          }`}
+                          src={`${API_BASE_URL}${servicio.imagen4}`}
                           alt={`Imagen 4 de ${servicio.nombre}`}
                           className="expanded-gallery-image1"
                           onError={() =>

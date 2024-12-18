@@ -9,6 +9,7 @@ import '../components/i18n';
 import { useTranslation } from 'react-i18next';
 import LeafletMap from '../components/LeafletMap'; // Componente para mapas dinámicos
 import ContactSection from '../components/ContactSection'; // Sección de contacto reutilizable
+import { API_BASE_URL } from "../config"; // Importar la URL base
 
 const Folleteria = () => {
   const { t, i18n } = useTranslation();
@@ -26,7 +27,7 @@ const Folleteria = () => {
     }
 
     // Simulación de obtener coordenadas
-    fetch('https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/lugares/buscar/?nombre=mapa_folleteria')
+    fetch(`${API_BASE_URL}/api/lugares/buscar/?nombre=mapa_folleteria`)
       .then((response) => response.json())
       .then((data) => {
         setLat(data.latitud || -35.699248); // Coordenadas de ejemplo

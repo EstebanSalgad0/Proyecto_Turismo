@@ -9,6 +9,7 @@ import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
 import Carousel from '../components/carousel';
 import LeafletMap from '../components/LeafletMap';
+import { API_BASE_URL } from "../config"; // Importar la URL base
 
 const Cultura4 = () => {
   // Mapa Termas de Panimavida
@@ -58,7 +59,7 @@ const Cultura4 = () => {
     }
     
     // Fetch data from the Django API (Termas de Panimavida)
-    fetch('https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/lugares/buscar/?nombre=termas_panimavida') // Cambia el nombre por el lugar turístico que necesites
+    fetch(`${API_BASE_URL}/api/lugares/buscar/?nombre=termas_panimavida`) // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatTermasP(data.latitud);
@@ -67,7 +68,7 @@ const Cultura4 = () => {
     .catch(error => console.error('Error fetching location data:', error));
 
     // Fetch data from the Django API (Petroglifos)
-    fetch('https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/lugares/buscar/?nombre=petroglifos') // Cambia el nombre por el lugar turístico que necesites
+    fetch(`${API_BASE_URL}/api/lugares/buscar/?nombre=petroglifos`) // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatPetro(data.latitud);
@@ -76,7 +77,7 @@ const Cultura4 = () => {
     .catch(error => console.error('Error fetching location data:', error));
     
     // Fetch data from the Django API (Poza de la Mona)
-    fetch('https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/lugares/buscar/?nombre=poza_mona') // Cambia el nombre por el lugar turístico que necesites
+    fetch(`${API_BASE_URL}/api/lugares/buscar/?nombre=poza_mona`) // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatPoza(data.latitud);
@@ -85,7 +86,7 @@ const Cultura4 = () => {
     .catch(error => console.error('Error fetching location data:', error));
     
     // Fetch data from the Django API (Rari)
-    fetch('https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/lugares/buscar/?nombre=rari') // Cambia el nombre por el lugar turístico que necesites
+    fetch(`${API_BASE_URL}/api/lugares/buscar/?nombre=rari`) // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatRari(data.latitud);
@@ -94,7 +95,7 @@ const Cultura4 = () => {
     .catch(error => console.error('Error fetching location data:', error));
     
     // Fetch data from the Django API (Termas de Quinamavida)
-    fetch('https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/lugares/buscar/?nombre=termas_quinamavida') // Cambia el nombre por el lugar turístico que necesites
+    fetch(`${API_BASE_URL}/api/lugares/buscar/?nombre=termas_quinamavida`) // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatTermasQ(data.latitud);

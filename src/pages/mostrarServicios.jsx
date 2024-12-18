@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import SocialSection from "../components/SocialSeccion";
 import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
+import { API_BASE_URL } from "../config"; // Importar la URL base
 
 const ListarServicios = () => {
   const [servicios, setServicios] = useState([]);
@@ -23,7 +24,7 @@ const ListarServicios = () => {
     const fetchServicios = async () => {
       try {
         const response = await axios.get(
-          'https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/listar_servicios_aceptados/'
+          `${API_BASE_URL}/api/listar_servicios_aceptados/`
         );
 
         // Agregar console.log para inspeccionar la respuesta
@@ -79,7 +80,7 @@ const ListarServicios = () => {
                   <div className="image-gallery">
                     {servicio.imagen ? (
                       <img
-                        src={`${'https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site'}${servicio.imagen}`}
+                        src={`${API_BASE_URL}${servicio.imagen}`}
                         alt={`Imagen de ${servicio.nombre}`}
                         className="gallery-image"
                         onError={() =>
@@ -131,7 +132,7 @@ const ListarServicios = () => {
                         {/* Galería expandida */}
                         {servicio.imagen && (
                           <img
-                            src={`${'https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site'}${servicio.imagen}`}
+                            src={`${API_BASE_URL}${servicio.imagen}`}
                             alt={`Imagen 1 de ${servicio.nombre}`}
                             className="expanded-gallery-image1"
                             onError={() =>
@@ -143,7 +144,7 @@ const ListarServicios = () => {
                         )}
                         {servicio.imagen2 && (
                           <img
-                            src={`${'https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site'}${servicio.imagen2}`}
+                            src={`${API_BASE_URL}${servicio.imagen2}`}
                             alt={`Imagen 2 de ${servicio.nombre}`}
                             className="expanded-gallery-image1"
                             onError={() =>
@@ -155,7 +156,7 @@ const ListarServicios = () => {
                         )}
                         {servicio.imagen3 && (
                           <img
-                            src={`${'https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site'}${servicio.imagen3}`}
+                            src={`${API_BASE_URL}${servicio.imagen3}`}
                             alt={`Imagen 3 de ${servicio.nombre}`}
                             className="expanded-gallery-image1"
                             onError={() =>
@@ -167,7 +168,7 @@ const ListarServicios = () => {
                         )}
                         {servicio.imagen4 && (
                           <img
-                            src={`${'https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site'}${servicio.imagen4}`}
+                            src={`${API_BASE_URL}${servicio.imagen4}`}
                             alt={`Imagen 4 de ${servicio.nombre}`}
                             className="expanded-gallery-image1"
                             onError={() =>

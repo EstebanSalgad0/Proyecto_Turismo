@@ -9,6 +9,7 @@ import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
 import Carousel from '../components/carousel';
 import LeafletMap from '../components/LeafletMap'; // Componente de mapa
+import { API_BASE_URL } from "../config"; // Importar la URL base
 
 const Termas = () => {
   // Mapa Termas
@@ -36,7 +37,7 @@ const Termas = () => {
     }
     
     // Fetch data from the Django API (Termas)
-    fetch('https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/lugares/buscar/?nombre=termas_rutas') // Cambia el nombre por el lugar turístico que necesites
+    fetch(`${API_BASE_URL}/api/lugares/buscar/?nombre=termas_rutas`) // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatTermas(data.latitud);
@@ -45,7 +46,7 @@ const Termas = () => {
     .catch(error => console.error('Error fetching location data:', error));
     
     // Fetch data from the Django API (Emblase Machicura)
-    fetch('https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/lugares/buscar/?nombre=embalse_machicura') // Cambia el nombre por el lugar turístico que necesites
+    fetch(`${API_BASE_URL}/api/lugares/buscar/?nombre=embalse_machicura`) // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatEmbalse(data.latitud);

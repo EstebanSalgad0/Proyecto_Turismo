@@ -9,6 +9,7 @@ import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
 import Carousel from '../components/carousel';
 import LeafletMap from '../components/LeafletMap'; // Componente de mapa
+import { API_BASE_URL } from "../config"; // Importar la URL base
 
 const Parque = () => {
   // Mapa Parque Guaiquivilo
@@ -44,7 +45,7 @@ const Parque = () => {
     }
     
     // Fetch data from the Django API (Parque Guaiquivilo)
-    fetch('https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/lugares/buscar/?nombre=parque_guaiquivilo') // Cambia el nombre por el lugar turístico que necesites
+    fetch(`${API_BASE_URL}/api/lugares/buscar/?nombre=parque_guaiquivilo`) // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatParque(data.latitud);
@@ -53,7 +54,7 @@ const Parque = () => {
     .catch(error => console.error('Error fetching location data:', error));
     
     // Fetch data from the Django API (Cavernas los bellotos)
-    fetch('https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/lugares/buscar/?nombre=cavernas_bellotos') // Cambia el nombre por el lugar turístico que necesites
+    fetch(`${API_BASE_URL}/api/lugares/buscar/?nombre=cavernas_bellotos`) // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatCavernas(data.latitud);
@@ -62,7 +63,7 @@ const Parque = () => {
     .catch(error => console.error('Error fetching location data:', error));
 
     // Fetch data from the Django API (Mirador Loro Tricahue)
-    fetch('https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/lugares/buscar/?nombre=mirador_loro_tricahue') // Cambia el nombre por el lugar turístico que necesites
+    fetch(`${API_BASE_URL}/api/lugares/buscar/?nombre=mirador_loro_tricahue`) // Cambia el nombre por el lugar turístico que necesites
     .then(response => response.json())
     .then(data => {
       setLatGuardia(data.latitud);

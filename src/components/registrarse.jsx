@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Registrarse.css';
+import { API_BASE_URL } from "../config"; // Importar la URL base
 
 const Registrarse = () => {
   const [first_name, setFirstName] = useState('');
@@ -78,7 +79,7 @@ const Registrarse = () => {
       console.log('Token reCAPTCHA obtenido:', recaptchaToken);
 
       // Hacer la solicitud POST al backend para registrar el usuario
-      const response = await axios.post('https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/register/', {
+      const response = await axios.post(`${API_BASE_URL}/api/register/`, {
         first_name,
         last_name,
         email,

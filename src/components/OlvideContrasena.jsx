@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../components/Header';
 import '../styles/PasswordReset.css';
+import { API_BASE_URL } from "../config"; // Importar la URL base
 
 const PasswordReset = () => {
   const [email, setEmail] = useState('');
@@ -34,7 +35,7 @@ const PasswordReset = () => {
 
     try {
       const captchaToken = await window.grecaptcha.execute(captchaKEY, { action: 'password_reset' });
-      const response = await axios.post('https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/password_reset/', {
+      const response = await axios.post(`${API_BASE_URL}/api/password_reset/`, {
         email,
         captcha: captchaToken,
       });

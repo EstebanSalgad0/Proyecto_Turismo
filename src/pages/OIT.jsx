@@ -9,6 +9,7 @@ import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
 import LeafletMap from '../components/LeafletMap';
 import ContactSection from '../components/ContactSection';
+import { API_BASE_URL } from "../config"; // Importar la URL base
 
 const OIT = () => {
   const { t, i18n } = useTranslation(); // Hook para usar traducciones
@@ -31,7 +32,7 @@ const OIT = () => {
     }
 
     // Fetch coordenadas del mapa 1
-    fetch('https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/lugares/buscar/?nombre=mapa_folleteria_1')
+    fetch(`${API_BASE_URL}/api/lugares/buscar/?nombre=mapa_folleteria_1`)
       .then((response) => response.json())
       .then((data) => {
         setLatOff1(data.latitud);
@@ -40,7 +41,7 @@ const OIT = () => {
       .catch((error) => console.error('Error fetching location data:', error));
 
     // Fetch coordenadas del mapa 2
-    fetch('https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/lugares/buscar/?nombre=mapa_folleteria_2')
+    fetch(`${API_BASE_URL}/api/lugares/buscar/?nombre=mapa_folleteria_2`)
       .then((response) => response.json())
       .then((data) => {
         setLatOff2(data.latitud);

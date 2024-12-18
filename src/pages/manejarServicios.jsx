@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import SocialSection from "../components/SocialSeccion";
 import '../components/i18n'; // Importa el archivo de configuración
 import { useTranslation } from 'react-i18next';
+import { API_BASE_URL } from "../config"; // Importar la URL base
 
 const AdminPanel = () => {
   // Estado para servicios
@@ -53,7 +54,7 @@ const AdminPanel = () => {
   // Fetch de servicios pendientes
   const fetchServicios = useCallback(async () => {
     try {
-      const response = await axios.get('https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/manejar_servicios/', {
+      const response = await axios.get(`${API_BASE_URL}/api/manejar_servicios/`, {
         headers: {
           Authorization: `Token ${token}`,
         },
@@ -72,7 +73,7 @@ const AdminPanel = () => {
   // Manejar servicios (aceptar/rechazar)
   const handleServiceAction = async (servicioId, accion) => {
     try {
-      const url = `${'https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/manejar_servicios/'}${servicioId}/`;
+      const url = `${API_BASE_URL}/api/manejar_servicios/${servicioId}/`;
       await axios.post(
         url,
         { accion },
@@ -215,9 +216,7 @@ const AdminPanel = () => {
               <div className="image-wrapper">
                 {selectedService.imagen ? (
                   <img
-                    src={`${'https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site'}${
-                      selectedService.imagen
-                    }`}
+                    src={`${API_BASE_URL}${selectedService.imagen}`}
                     alt={`Imagen de ${selectedService.nombre}`}
                     className="gallery-image2"
                   />
@@ -228,9 +227,7 @@ const AdminPanel = () => {
               <div className="image-wrapper">
                 {selectedService.imagen2 ? (
                   <img
-                    src={`${'https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site'}${
-                      selectedService.imagen2
-                    }`}
+                    src={`${API_BASE_URL}${selectedService.imagen2}`}
                     alt={`Imagen 2 de ${selectedService.nombre}`}
                     className="gallery-image2"
                   />
@@ -241,9 +238,7 @@ const AdminPanel = () => {
               <div className="image-wrapper">
                 {selectedService.imagen3 ? (
                   <img
-                    src={`${'https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site'}${
-                      selectedService.imagen3
-                    }`}
+                    src={`${API_BASE_URL}${selectedService.imagen3}`}
                     alt={`Imagen 3 de ${selectedService.nombre}`}
                     className="gallery-image2"
                   />
@@ -254,9 +249,7 @@ const AdminPanel = () => {
               <div className="image-wrapper">
                 {selectedService.imagen4 ? (
                   <img
-                    src={`${'https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site'}${
-                      selectedService.imagen4
-                    }`}
+                    src={`${API_BASE_URL}${selectedService.imagen4}`}
                     alt={`Imagen 4 de ${selectedService.nombre}`}
                     className="gallery-image2"
                   />

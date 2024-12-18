@@ -4,6 +4,7 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "boxicons/css/boxicons.min.css";
 import "../styles/InicioSesion.css";
+import { API_BASE_URL } from "../config"; // Importar la URL base
 
 const InicioSesion = () => {
   const [email, setEmail] = useState("");
@@ -64,7 +65,7 @@ const InicioSesion = () => {
         action: "login",
       }); // Acción asociada con 'login'
 
-      const response = await axios.post('https://ced828b30e6c8011ef20a18e37f9b9a1.loophole.site/api/login/', {
+      const response = await axios.post(`${API_BASE_URL}/api/login/`, {
         email: email,
         password: password,
         captcha: captchaToken, // Enviar el token del captcha al backend
