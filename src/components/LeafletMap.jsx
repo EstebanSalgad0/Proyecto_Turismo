@@ -29,14 +29,14 @@ const LeafletMap = ({ latitud, longitud, mapId, googleMapUrl }) => {
       }).addTo(map);
 
       const customIcon = L.icon({
-        iconUrl: "https://mueblescaracol.cl/productos/map-marker-blue.png",
+        iconUrl: "/assets/img/map-marker-blue.png",
         iconSize: [32, 32],
         iconAnchor: [16, 32],
         popupAnchor: [0, -32],
       });
 
       const userIcon = L.icon({
-        iconUrl: "https://mueblescaracol.cl/productos/map-marker-blue.png",
+        iconUrl: "/assets/img/map-marker-blue.png",
         iconSize: [32, 32],
         iconAnchor: [16, 32],
         popupAnchor: [0, -32],
