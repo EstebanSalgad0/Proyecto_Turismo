@@ -1,1 +1,1 @@
-export const API_BASE_URL = "https://39f66a0d46311def11c60bb8845f6959.loophole.site";
+export const API_BASE_URL = "https://6e24414447a6095b1746c076fc2e7c3b.loophole.site";
