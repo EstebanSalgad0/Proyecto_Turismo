@@ -2,12 +2,17 @@
 
 Aplicación web fullstack para promocionar el turismo en Colbún. El frontend en React/Vite presenta destinos, panoramas y servicios locales; el backend en Django REST expone APIs para autenticación, catastro de oferentes y gestión de contenidos.
 
+<img width="1920" height="1080" alt="Captura desde 2025-10-03 12-51-56" src="https://github.com/user-attachments/assets/09d9d31b-14d5-48ce-9d56-5b944fe70519" />
+
+
 ## Características principales
 - Catálogo de destinos y panoramas con rutas temáticas y mapas interactivos (Leaflet + OpenStreetMap).
 - Autenticación con reCAPTCHA y roles (`admin` / `oferente`) usando Django REST Framework + tokens.
 - Registro y validación de oferentes por tipo (artesanos, bienes y servicios, cabañas) con formularios guiados y activación por correo.
 - Catastro de servicios con carga de imágenes, aprobación administrativa y reenvío de solicitudes.
 - Soporte multilenguaje con i18next y contenido estático optimizado con Vite.
+
+<img width="1920" height="1080" alt="Captura desde 2025-10-03 14-21-36" src="https://github.com/user-attachments/assets/23918a47-f859-486e-917f-7ab1412965d3" />
 
 ## Arquitectura y stack
 - **Frontend:** React 18, Vite, React Router, Axios, i18next, Leaflet/leaflet-routing-machine, react-google-recaptcha, Bootstrap/Bootstrap Icons/Boxicons.
@@ -79,4 +84,5 @@ Aplicación web fullstack para promocionar el turismo en Colbún. El frontend en
 ## Notas de despliegue
 - Configura `ALLOWED_HOSTS`, `CORS_ALLOWED_ORIGINS` y certificados TLS según el dominio.
 - Ejecuta `python manage.py collectstatic` en entornos productivos y sirve `media/` con tu servidor web.
+
 
