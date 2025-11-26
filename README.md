@@ -1,32 +1,82 @@
-React + vite version:
-Django version:
-Base de datos version:
+# Visita Colbún – Portal de Turismo
 
-# Instalacion WEB Windows
+Aplicación web fullstack para promocionar el turismo en Colbún. El frontend en React/Vite presenta destinos, panoramas y servicios locales; el backend en Django REST expone APIs para autenticación, catastro de oferentes y gestión de contenidos.
 
-se necesita tener instalado Django y nodejs
+## Características principales
+- Catálogo de destinos y panoramas con rutas temáticas y mapas interactivos (Leaflet + OpenStreetMap).
+- Autenticación con reCAPTCHA y roles (`admin` / `oferente`) usando Django REST Framework + tokens.
+- Registro y validación de oferentes por tipo (artesanos, bienes y servicios, cabañas) con formularios guiados y activación por correo.
+- Catastro de servicios con carga de imágenes, aprobación administrativa y reenvío de solicitudes.
+- Soporte multilenguaje con i18next y contenido estático optimizado con Vite.
 
-1. instalar axios = npm install axios
+## Arquitectura y stack
+- **Frontend:** React 18, Vite, React Router, Axios, i18next, Leaflet/leaflet-routing-machine, react-google-recaptcha, Bootstrap/Bootstrap Icons/Boxicons.
+- **Backend:** Django 5.1, Django REST Framework (token auth), django-cors-headers, python-dotenv, Pillow para `ImageField`, requests para reCAPTCHA.
+- **Base de datos:** MySQL/MariaDB (configurada en `backend/backend/settings.py`).
+- **Configuración de API:** la URL base del backend se define en `src/config.js` (`API_BASE_URL`).
 
-2. intalar Django corseheaders = py -m pip install django-cors-headers 
+## Requisitos previos
+- Node.js 18+ y npm.
+- Python 3.11+.
+- MySQL/MariaDB operativo y credenciales de conexión.
 
-3. Instalar djangorestframework = py -m pip install djangorestframework
+## Configuración del backend (Django)
+1. Crear y activar un entorno virtual:
+   ```bash
+   cd backend
+   python -m venv .venv
+   source .venv/bin/activate  # En Windows: .venv\\Scripts\\activate
+   ```
+2. Instalar dependencias:
+   ```bash
+   pip install -r ../requirements.txt
+   ```
+3. Configurar variables de entorno en un archivo `.env` en `backend/`:
+   ```
+   SECRET_KEY=tu_clave_secreta
+   DEBUG=True
+   DB_NAME=nombre_base
+   DB_USER=usuario
+   DB_PASSWORD=contraseña
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   RECAPTCHA_SECRET_KEY=clave_recaptcha
+   EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
+   EMAIL_HOST=smtp.postmarkapp.com
+   EMAIL_PORT=587
+   EMAIL_USE_TLS=True
+   EMAIL_HOST_USER=usuario_postmark
+   EMAIL_HOST_PASSWORD=clave_postmark
+   DEFAULT_FROM_EMAIL=no-reply@visitacolbun.cl
+   ```
+4. Aplicar migraciones y crear un superusuario:
+   ```bash
+   python manage.py migrate
+   python manage.py createsuperuser
+   ```
+5. Iniciar el servidor de desarrollo:
+   ```bash
+   python manage.py runserver
+   ```
 
-4. Instalar python3-dotenvironment = py -m pip install python-dotenv
+## Configuración del frontend (React)
+1. Instalar dependencias:
+   ```bash
+   npm install
+   ```
+2. Actualizar `src/config.js` si el backend corre en otra URL/puerto.
+3. Levantar el frontend:
+   ```bash
+   npm run dev
+   ```
 
-5. Instalar python3-requests = py -m pip install requests
+## Estructura relevante
+- `src/`: páginas y componentes del portal público y de oferentes.
+- `backend/`: proyecto Django con apps `accounts`, `services` y `maps_location`.
+- `media/`: almacenamiento de imágenes de servicios.
+- `public/`: assets estáticos del frontend.
 
-6. Instalar python3-Pillow = py -m pip install pillow
-
-7. Instalar recaptcha de google = npm install react-google-recaptcha
-
-8. Instalar requests = npm install requests
-
-9. Instalar i18n para traducciones = npm install i18next react-i18next
-
-10. Instalar Leaflet y OpenStreetMap = npm install leaflet leaflet-routing-machine
-
-11. Para arrancar el entorno virtual = npm run dev
-
-12. para arrancar la base de datos/login = manage.py runserver 
+## Notas de despliegue
+- Configura `ALLOWED_HOSTS`, `CORS_ALLOWED_ORIGINS` y certificados TLS según el dominio.
+- Ejecuta `python manage.py collectstatic` en entornos productivos y sirve `media/` con tu servidor web.
 
