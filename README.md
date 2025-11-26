@@ -45,9 +45,6 @@ Aplicación web fullstack para promocionar el turismo en Colbún. El frontend en
    DB_PASSWORD=contraseña
    DB_HOST=127.0.0.1
    DB_PORT=3306
-   RECAPTCHA_SECRET_KEY=clave_recaptcha
-   EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
-   EMAIL_HOST=smtp.postmarkapp.com
    EMAIL_PORT=587
    EMAIL_USE_TLS=True
    EMAIL_HOST_USER=usuario_postmark
@@ -84,5 +81,6 @@ Aplicación web fullstack para promocionar el turismo en Colbún. El frontend en
 ## Notas de despliegue
 - Configura `ALLOWED_HOSTS`, `CORS_ALLOWED_ORIGINS` y certificados TLS según el dominio.
 - Ejecuta `python manage.py collectstatic` en entornos productivos y sirve `media/` con tu servidor web.
+
 
 
